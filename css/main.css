@@ -1683,12 +1683,12 @@ pre .javascript .function {
   display: inline-block;
   margin: 0.8em 2em 0 2em;
 }
-wechat:hover p {
+#wechat:hover p {
   animation: roll 0.1s infinite linear;
   -webkit-animation: roll 0.1s infinite linear;
   -moz-animation: roll 0.1s infinite linear;
 }
-alipay:hover p {
+#alipay:hover p {
   animation: roll 0.1s infinite linear;
   -webkit-animation: roll 0.1s infinite linear;
   -moz-animation: roll 0.1s infinite linear;
@@ -1943,7 +1943,7 @@ alipay:hover p {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c8a83b;
+  background: #8fc29a;
 }
 .links-of-blogroll {
   font-size: 13px;
