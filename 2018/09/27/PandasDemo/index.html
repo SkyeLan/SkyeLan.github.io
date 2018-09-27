@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Python," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="12import pandas as pdimport numpy as np 数据定义及使用定义序列, pandas中的数据形式通常是float32或float64 12&amp;gt;&amp;gt;&amp;gt; s = pd.Series([1,3,4,np.nan,11,99])&amp;gt;&amp;gt;&amp;gt; s 0     1.0 1     3.0 2     4.0 3     NaN 4    11.0 5">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pandas学习笔记（未完成~~~）">
+<meta property="og:url" content="http://yoursite.com/2018/09/27/PandasDemo/index.html">
+<meta property="og:site_name" content="Skye的博客小站">
+<meta property="og:description" content="12import pandas as pdimport numpy as np 数据定义及使用定义序列, pandas中的数据形式通常是float32或float64 12&amp;gt;&amp;gt;&amp;gt; s = pd.Series([1,3,4,np.nan,11,99])&amp;gt;&amp;gt;&amp;gt; s 0     1.0 1     3.0 2     4.0 3     NaN 4    11.0 5">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-27T14:03:38.903Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Pandas学习笔记（未完成~~~）">
+<meta name="twitter:description" content="12import pandas as pdimport numpy as np 数据定义及使用定义序列, pandas中的数据形式通常是float32或float64 12&amp;gt;&amp;gt;&amp;gt; s = pd.Series([1,3,4,np.nan,11,99])&amp;gt;&amp;gt;&amp;gt; s 0     1.0 1     3.0 2     4.0 3     NaN 4    11.0 5">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Skye'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/27/PandasDemo/"/>
+
+
+
+
+
+  <title>Pandas学习笔记（未完成~~~） | Skye的博客小站</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Skye的博客小站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/27/PandasDemo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Skye Lan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Skye的博客小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Pandas学习笔记（未完成~~~）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-27T22:02:31+08:00">
+                2018-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python包/" itemprop="url" rel="index">
+                    <span itemprop="name">Python包</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/09/27/PandasDemo/" class="leancloud_visitors" data-flag-title="Pandas学习笔记（未完成~~~）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+				 <span>℃</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  932 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+<h1 id="数据定义及使用"><a href="#数据定义及使用" class="headerlink" title="数据定义及使用"></a>数据定义及使用</h1><p>定义序列, pandas中的数据形式通常是float32或float64</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>s = pd.Series([<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,np.nan,<span class="number">11</span>,<span class="number">99</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s</span><br></pre></td></tr></table></figure>
+<pre><code>0     1.0
+1     3.0
+2     4.0
+3     NaN
+4    11.0
+5    99.0
+dtype: float64
+</code></pre><p>定义日期列表</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>dates = pd.date_range(<span class="string">'20180927'</span>,periods=<span class="number">6</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dates</span><br></pre></td></tr></table></figure>
+<pre><code>DatetimeIndex([&apos;2018-09-27&apos;, &apos;2018-09-28&apos;, &apos;2018-09-29&apos;, &apos;2018-09-30&apos;,
+               &apos;2018-10-01&apos;, &apos;2018-10-02&apos;],
+              dtype=&apos;datetime64[ns]&apos;, freq=&apos;D&apos;)
+</code></pre><p>DataFrame类似于numpy的array</p>
+<p>不指定索引的DataFrame</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>df = pd.DataFrame(np.arange(<span class="number">12</span>).reshape(<span class="number">3</span>, <span class="number">4</span>))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>df</span><br></pre></td></tr></table></figure>
+<table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: right;"><br>      <th></th><br>      <th>0</th><br>      <th>1</th><br>      <th>2</th><br>      <th>3</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>0</th><br>      <td>0</td><br>      <td>1</td><br>      <td>2</td><br>      <td>3</td><br>    </tr><br>    <tr><br>      <th>1</th><br>      <td>4</td><br>      <td>5</td><br>      <td>6</td><br>      <td>7</td><br>    </tr><br>    <tr><br>      <th>2</th><br>      <td>8</td><br>      <td>9</td><br>      <td>10</td><br>      <td>11</td><br>    </tr><br>  </tbody><br></table>
+
+
+
+<p>DataFrame的定义</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;df = pd.DataFrame(&#123;<span class="string">'A'</span>: <span class="number">1.</span>, <span class="string">'B'</span>: <span class="string">'Foo'</span>, <span class="string">'C'</span>: np.array([<span class="number">3</span>] * <span class="number">4</span>)&#125;)</span><br><span class="line">&gt;&gt;&gt;df</span><br></pre></td></tr></table></figure>
+<table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: right;"><br>      <th></th><br>      <th>A</th><br>      <th>B</th><br>      <th>C</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>0</th><br>      <td>1.0</td><br>      <td>Foo</td><br>      <td>3</td><br>    </tr><br>    <tr><br>      <th>1</th><br>      <td>1.0</td><br>      <td>Foo</td><br>      <td>3</td><br>    </tr><br>    <tr><br>      <th>2</th><br>      <td>1.0</td><br>      <td>Foo</td><br>      <td>3</td><br>    </tr><br>    <tr><br>      <th>3</th><br>      <td>1.0</td><br>      <td>Foo</td><br>      <td>3</td><br>    </tr><br>  </tbody><br></table>
+
+
+
+<p>行索引为dates, 列索引为[a, b, c, d]</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>df = pd.DataFrame(np.random.randn(<span class="number">6</span>,<span class="number">4</span>),index=dates,columns=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>df</span><br></pre></td></tr></table></figure>
+<table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: right;"><br>      <th></th><br>      <th>a</th><br>      <th>b</th><br>      <th>c</th><br>      <th>d</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>2018-09-27</th><br>      <td>0.338831</td><br>      <td>1.036578</td><br>      <td>-2.573243</td><br>      <td>-2.204440</td><br>    </tr><br>    <tr><br>      <th>2018-09-28</th><br>      <td>-0.473799</td><br>      <td>-0.646747</td><br>      <td>0.435539</td><br>      <td>-0.758833</td><br>    </tr><br>    <tr><br>      <th>2018-09-29</th><br>      <td>0.305467</td><br>      <td>0.816041</td><br>      <td>-0.116044</td><br>      <td>1.197494</td><br>    </tr><br>    <tr><br>      <th>2018-09-30</th><br>      <td>-0.435368</td><br>      <td>-0.082337</td><br>      <td>0.624486</td><br>      <td>-1.234057</td><br>    </tr><br>    <tr><br>      <th>2018-10-01</th><br>      <td>-0.667478</td><br>      <td>0.233274</td><br>      <td>-1.380012</td><br>      <td>2.261031</td><br>    </tr><br>    <tr><br>      <th>2018-10-02</th><br>      <td>-0.654250</td><br>      <td>-0.180604</td><br>      <td>0.609015</td><br>      <td>-0.924455</td><br>    </tr><br>  </tbody><br></table>
+
+
+<p>查看DataFrame的数据类型</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>df.dtypes</span><br></pre></td></tr></table></figure>
+<pre><code>a    float64
+b    float64
+c    float64
+d    float64
+dtype: object
+</code></pre><p>查看DataFrame的索引</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>df.index</span><br></pre></td></tr></table></figure>
+<pre><code>DatetimeIndex([&apos;2018-09-27&apos;, &apos;2018-09-28&apos;, &apos;2018-09-29&apos;, &apos;2018-09-30&apos;,
+               &apos;2018-10-01&apos;, &apos;2018-10-02&apos;],
+              dtype=&apos;datetime64[ns]&apos;, freq=&apos;D&apos;)
+</code></pre><p>查看DataFrame的列索引</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>df.columns</span><br></pre></td></tr></table></figure>
+<pre><code>Index([&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;], dtype=&apos;object&apos;)
+</code></pre><p>查看DataFrame的值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>df.values</span><br></pre></td></tr></table></figure>
+<pre><code>array([[ 0.33883139,  1.03657755, -2.5732431 , -2.20443975],
+       [-0.47379902, -0.64674734,  0.43553894, -0.75883344],
+       [ 0.30546684,  0.81604074, -0.11604421,  1.19749384],
+       [-0.43536792, -0.08233739,  0.62448617, -1.23405699],
+       [-0.66747791,  0.23327389, -1.38001185,  2.26103083],
+       [-0.65425047, -0.18060444,  0.60901542, -0.92445528]])
+</code></pre><p>查看DataFrame的描述</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>df.describe()</span><br></pre></td></tr></table></figure>
+<table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: right;"><br>      <th></th><br>      <th>a</th><br>      <th>b</th><br>      <th>c</th><br>      <th>d</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>count</th><br>      <td>6.000000</td><br>      <td>6.000000</td><br>      <td>6.000000</td><br>      <td>6.000000</td><br>    </tr><br>    <tr><br>      <th>mean</th><br>      <td>-0.264433</td><br>      <td>0.196034</td><br>      <td>-0.400043</td><br>      <td>-0.277210</td><br>    </tr><br>    <tr><br>      <th>std</th><br>      <td>0.463933</td><br>      <td>0.635914</td><br>      <td>1.306128</td><br>      <td>1.667218</td><br>    </tr><br>    <tr><br>      <th>min</th><br>      <td>-0.667478</td><br>      <td>-0.646747</td><br>      <td>-2.573243</td><br>      <td>-2.204440</td><br>    </tr><br>    <tr><br>      <th>25%</th><br>      <td>-0.609138</td><br>      <td>-0.156038</td><br>      <td>-1.064020</td><br>      <td>-1.156657</td><br>    </tr><br>    <tr><br>      <th>50%</th><br>      <td>-0.454583</td><br>      <td>0.075468</td><br>      <td>0.159747</td><br>      <td>-0.841644</td><br>    </tr><br>    <tr><br>      <th>75%</th><br>      <td>0.120258</td><br>      <td>0.670349</td><br>      <td>0.565646</td><br>      <td>0.708412</td><br>    </tr><br>    <tr><br>      <th>max</th><br>      <td>0.338831</td><br>      <td>1.036578</td><br>      <td>0.624486</td><br>      <td>2.261031</td><br>    </tr><br>  </tbody><br></table>
+
+
+
+<p>DataFrame的转置</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>df.T</span><br></pre></td></tr></table></figure>
+<table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: right;"><br>      <th></th><br>      <th>2018-09-27 00:00:00</th><br>      <th>2018-09-28 00:00:00</th><br>      <th>2018-09-29 00:00:00</th><br>      <th>2018-09-30 00:00:00</th><br>      <th>2018-10-01 00:00:00</th><br>      <th>2018-10-02 00:00:00</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>a</th><br>      <td>0.338831</td><br>      <td>-0.473799</td><br>      <td>0.305467</td><br>      <td>-0.435368</td><br>      <td>-0.667478</td><br>      <td>-0.654250</td><br>    </tr><br>    <tr><br>      <th>b</th><br>      <td>1.036578</td><br>      <td>-0.646747</td><br>      <td>0.816041</td><br>      <td>-0.082337</td><br>      <td>0.233274</td><br>      <td>-0.180604</td><br>    </tr><br>    <tr><br>      <th>c</th><br>      <td>-2.573243</td><br>      <td>0.435539</td><br>      <td>-0.116044</td><br>      <td>0.624486</td><br>      <td>-1.380012</td><br>      <td>0.609015</td><br>    </tr><br>    <tr><br>      <th>d</th><br>      <td>-2.204440</td><br>      <td>-0.758833</td><br>      <td>1.197494</td><br>      <td>-1.234057</td><br>      <td>2.261031</td><br>      <td>-0.924455</td><br>    </tr><br>  </tbody><br></table>
+
+
+
+<p>DataFrame的index排序</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>df.sort_index(axis=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: right;"><br>      <th></th><br>      <th>a</th><br>      <th>b</th><br>      <th>c</th><br>      <th>d</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>2018-09-27</th><br>      <td>0.338831</td><br>      <td>1.036578</td><br>      <td>-2.573243</td><br>      <td>-2.204440</td><br>    </tr><br>    <tr><br>      <th>2018-09-28</th><br>      <td>-0.473799</td><br>      <td>-0.646747</td><br>      <td>0.435539</td><br>      <td>-0.758833</td><br>    </tr><br>    <tr><br>      <th>2018-09-29</th><br>      <td>0.305467</td><br>      <td>0.816041</td><br>      <td>-0.116044</td><br>      <td>1.197494</td><br>    </tr><br>    <tr><br>      <th>2018-09-30</th><br>      <td>-0.435368</td><br>      <td>-0.082337</td><br>      <td>0.624486</td><br>      <td>-1.234057</td><br>    </tr><br>    <tr><br>      <th>2018-10-01</th><br>      <td>-0.667478</td><br>      <td>0.233274</td><br>      <td>-1.380012</td><br>      <td>2.261031</td><br>    </tr><br>    <tr><br>      <th>2018-10-02</th><br>      <td>-0.654250</td><br>      <td>-0.180604</td><br>      <td>0.609015</td><br>      <td>-0.924455</td><br>    </tr><br>  </tbody><br></table>
+
+
+<p>DataFrame的index排序, 逆序</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>df.sort_index(axis=<span class="number">1</span>,ascending=<span class="keyword">False</span>)</span><br></pre></td></tr></table></figure>
+<table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: right;"><br>      <th></th><br>      <th>d</th><br>      <th>c</th><br>      <th>b</th><br>      <th>a</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>2018-09-27</th><br>      <td>-2.204440</td><br>      <td>-2.573243</td><br>      <td>1.036578</td><br>      <td>0.338831</td><br>    </tr><br>    <tr><br>      <th>2018-09-28</th><br>      <td>-0.758833</td><br>      <td>0.435539</td><br>      <td>-0.646747</td><br>      <td>-0.473799</td><br>    </tr><br>    <tr><br>      <th>2018-09-29</th><br>      <td>1.197494</td><br>      <td>-0.116044</td><br>      <td>0.816041</td><br>      <td>0.305467</td><br>    </tr><br>    <tr><br>      <th>2018-09-30</th><br>      <td>-1.234057</td><br>      <td>0.624486</td><br>      <td>-0.082337</td><br>      <td>-0.435368</td><br>    </tr><br>    <tr><br>      <th>2018-10-01</th><br>      <td>2.261031</td><br>      <td>-1.380012</td><br>      <td>0.233274</td><br>      <td>-0.667478</td><br>    </tr><br>    <tr><br>      <th>2018-10-02</th><br>      <td>-0.924455</td><br>      <td>0.609015</td><br>      <td>-0.180604</td><br>      <td>-0.654250</td><br>    </tr><br>  </tbody><br></table>
+
+
+
+<p>DataFrame按值排序</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>df.sort_values(by=<span class="string">'c'</span>)</span><br></pre></td></tr></table></figure>
+<table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: right;"><br>      <th></th><br>      <th>a</th><br>      <th>b</th><br>      <th>c</th><br>      <th>d</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>2018-09-27</th><br>      <td>0.338831</td><br>      <td>1.036578</td><br>      <td>-2.573243</td><br>      <td>-2.204440</td><br>    </tr><br>    <tr><br>      <th>2018-10-01</th><br>      <td>-0.667478</td><br>      <td>0.233274</td><br>      <td>-1.380012</td><br>      <td>2.261031</td><br>    </tr><br>    <tr><br>      <th>2018-09-29</th><br>      <td>0.305467</td><br>      <td>0.816041</td><br>      <td>-0.116044</td><br>      <td>1.197494</td><br>    </tr><br>    <tr><br>      <th>2018-09-28</th><br>      <td>-0.473799</td><br>      <td>-0.646747</td><br>      <td>0.435539</td><br>      <td>-0.758833</td><br>    </tr><br>    <tr><br>      <th>2018-10-02</th><br>      <td>-0.654250</td><br>      <td>-0.180604</td><br>      <td>0.609015</td><br>      <td>-0.924455</td><br>    </tr><br>    <tr><br>      <th>2018-09-30</th><br>      <td>-0.435368</td><br>      <td>-0.082337</td><br>      <td>0.624486</td><br>      <td>-1.234057</td><br>    </tr><br>  </tbody><br></table>
+
+
+      
+    </div>
+    
+    
+    
+	
+	<div>
+		
+		<div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+
+</div>
+		
+	</div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您的支持将是我前进的动力！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Skye Lan 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Skye Lan 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/27/NumpyDemo/" rel="next" title="Numpy学习笔记">
+                <i class="fa fa-chevron-left"></i> Numpy学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Skye Lan</p>
+              <p class="site-description motion-element" itemprop="description">一位乐观的悲观主义者</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据定义及使用"><span class="nav-number">1.</span> <span class="nav-text">数据定义及使用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Skye Lan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("NY2NqdWXz7RHDaYF2Hx5c8Qr-gzGzoHsz", "dO0yaYq84mJRLVvJj54jcI7a");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
