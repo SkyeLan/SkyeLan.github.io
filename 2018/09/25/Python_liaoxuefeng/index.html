@@ -437,6 +437,7 @@
 <p><code>%</code>运算符就是用来格式化字符串的。</p>
 <p>有几个<code>%?</code>占位符，后面就跟几个变量或者值，顺序要对应好。如果只有一个<code>%?</code>，括号可以省略 。</p>
 <p>常见的占位符有：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -463,6 +464,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>如果不确定应该用什么，<code>%s</code>永远起作用，它会把任何数据类型转换为字符串 。</p>
 <p>字符串里面的<code>%</code>是一个普通字符，就需要转义，用<code>%%</code>来表示一个<code>%</code>：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'growth rate: %d%%'</span> % <span class="number">7</span></span><br><span class="line"><span class="string">'growth rate: 7%'</span></span><br></pre></td></tr></table></figure>
@@ -1281,6 +1283,8 @@
   
 
   
+  
+
 
   
 
