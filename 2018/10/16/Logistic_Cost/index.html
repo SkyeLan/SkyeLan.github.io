@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Skye的博客小站">
 <meta property="og:description" content="逻辑回归主要思想：根据现有数据对分类边界线建立回归公式 优点：计算代价不高，易于理解和实现 缺点：容易欠拟合，分类精度可能不高 适用数据类型：数值型和标称型数据 Regression问题的常规步骤为：    寻找h函数（即hypothesis）； 构造J函数（损失函数）； 想办法使得J函数最小并求得回归参数（ θ ）  Logistic函数（Sigmoid函数）：   g(z)=\frac{1}{">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-19T09:34:03.249Z">
+<meta property="og:updated_time" content="2018-10-19T09:42:32.100Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="逻辑回归损失函数的推导">
 <meta name="twitter:description" content="逻辑回归主要思想：根据现有数据对分类边界线建立回归公式 优点：计算代价不高，易于理解和实现 缺点：容易欠拟合，分类精度可能不高 适用数据类型：数值型和标称型数据 Regression问题的常规步骤为：    寻找h函数（即hypothesis）； 构造J函数（损失函数）； 想办法使得J函数最小并求得回归参数（ θ ）  Logistic函数（Sigmoid函数）：   g(z)=\frac{1}{">
@@ -357,7 +357,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  917 字
+                  919 字
                 </span>
               
 
@@ -457,7 +457,7 @@ g(z)'=g(z)(1-g(z))</script><p>θ更新过程：</p>
 <script type="math/tex; mode=display">
 J(\theta)=-\frac{1}{m}(y^Tlog(h)+(1-y^T)log(1-h))</script><p>公式 $\frac{\delta}{\delta_{\theta_j}}J(\theta)=\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}$ 可以写为：</p>
 <script type="math/tex; mode=display">
-\frac{\delta}{\delta_\theta}J(\theta)=\frac{1}{m}X^T(h-y)</script><p>其中 $h=g(\theta^Tx)$ ，由于 $(h-y)$ 维度是 $m<em>1$ ， $X$ 也是 $m</em>1$ ，所以需对 $X$ 转置</p>
+\frac{\delta}{\delta_\theta}J(\theta)=\frac{1}{m}X^T(h-y)</script><p>其中 $h=g(\theta^Tx)$ ，由于 $(h-y)$ 维度是 $m\times1$ ， $X$ 也是 $m\times1$ ，所以需对 $X$ 转置</p>
 <p>所以θ的更新过程可写为：</p>
 <script type="math/tex; mode=display">
 \theta_j:=\theta_j-\alpha\frac{1}{m}X^T(h-y)</script>
