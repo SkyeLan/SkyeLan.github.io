@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Python," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,35 +79,19 @@
 
 
 
-<meta name="description" content="以前写python一直使用的是Pycharm，最近听同学都在谈论Jupyter做数据科学很方便易用，于是着手学习学习。以前也简单尝试过Jupyter，但是没觉得比Pycharm好用，这次要认真使用看看。  安装在使用之前，我们需要先进行安装。在 Jupyter website 上能找到完整的安装步骤。 但是我更推荐大家安装 Anaconda，它不仅自带了 python 环境，还自带了 Numpy">
-<meta name="keywords" content="Python">
+<meta name="description" content="基本文本处理技能分词的概念分词就是将连续的字序列按照一定的规范重新组合成词序列的过程 目前的分词方法归纳起来有3类: 第一类是基于语法和规则的分词法。在分词的同时进行句法、语义分析, 利用句法信息和语义信息来进行词性标注, 以解决分词歧义现象。现有的语法知识、句法规则十分笼统、复杂, 基于语法和规则的分词法所能达到的精确度远远还不能令人满意。  第二类是机械式分词法（即基于词典）。将文档中的字符串">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jupyter notebook 学习">
-<meta property="og:url" content="http://yoursite.com/2018/09/27/Jupyter_notebook_start/index.html">
+<meta property="og:title" content="Skye的博客小站">
+<meta property="og:url" content="http://yoursite.com/2019/03/05/NLPtask2/index.html">
 <meta property="og:site_name" content="Skye的博客小站">
-<meta property="og:description" content="以前写python一直使用的是Pycharm，最近听同学都在谈论Jupyter做数据科学很方便易用，于是着手学习学习。以前也简单尝试过Jupyter，但是没觉得比Pycharm好用，这次要认真使用看看。  安装在使用之前，我们需要先进行安装。在 Jupyter website 上能找到完整的安装步骤。 但是我更推荐大家安装 Anaconda，它不仅自带了 python 环境，还自带了 Numpy">
+<meta property="og:description" content="基本文本处理技能分词的概念分词就是将连续的字序列按照一定的规范重新组合成词序列的过程 目前的分词方法归纳起来有3类: 第一类是基于语法和规则的分词法。在分词的同时进行句法、语义分析, 利用句法信息和语义信息来进行词性标注, 以解决分词歧义现象。现有的语法知识、句法规则十分笼统、复杂, 基于语法和规则的分词法所能达到的精确度远远还不能令人满意。  第二类是机械式分词法（即基于词典）。将文档中的字符串">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/09/27/Jupyter_notebook_start/guanwang.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/09/27/Jupyter_notebook_start/yunxing.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/09/27/Jupyter_notebook_start/zhujiemian1.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/09/27/Jupyter_notebook_start/xinjian.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/09/27/Jupyter_notebook_start/zhujiemian2.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/09/27/Jupyter_notebook_start/menu1.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/09/27/Jupyter_notebook_start/menu2.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/09/27/Jupyter_notebook_start/menu3.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/09/27/Jupyter_notebook_start/menu4.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/09/27/Jupyter_notebook_start/menu5.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/09/27/Jupyter_notebook_start/menu6.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/09/27/Jupyter_notebook_start/menu7.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/09/27/Jupyter_notebook_start/daima1.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/09/27/Jupyter_notebook_start/daima2.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/09/27/Jupyter_notebook_start/daima3.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/09/27/Jupyter_notebook_start/daima4.jpg">
-<meta property="og:updated_time" content="2018-09-27T07:08:01.139Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/05/NLPtask2/pic2.PNG">
+<meta property="og:updated_time" content="2019-03-05T13:55:35.143Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jupyter notebook 学习">
-<meta name="twitter:description" content="以前写python一直使用的是Pycharm，最近听同学都在谈论Jupyter做数据科学很方便易用，于是着手学习学习。以前也简单尝试过Jupyter，但是没觉得比Pycharm好用，这次要认真使用看看。  安装在使用之前，我们需要先进行安装。在 Jupyter website 上能找到完整的安装步骤。 但是我更推荐大家安装 Anaconda，它不仅自带了 python 环境，还自带了 Numpy">
-<meta name="twitter:image" content="http://yoursite.com/2018/09/27/Jupyter_notebook_start/guanwang.jpg">
+<meta name="twitter:title" content="Skye的博客小站">
+<meta name="twitter:description" content="基本文本处理技能分词的概念分词就是将连续的字序列按照一定的规范重新组合成词序列的过程 目前的分词方法归纳起来有3类: 第一类是基于语法和规则的分词法。在分词的同时进行句法、语义分析, 利用句法信息和语义信息来进行词性标注, 以解决分词歧义现象。现有的语法知识、句法规则十分笼统、复杂, 基于语法和规则的分词法所能达到的精确度远远还不能令人满意。  第二类是机械式分词法（即基于词典）。将文档中的字符串">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/05/NLPtask2/pic2.PNG">
 
 
 
@@ -137,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/27/Jupyter_notebook_start/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/05/NLPtask2/"/>
 
 
 
 
 
-  <title>Jupyter notebook 学习 | Skye的博客小站</title>
+  <title> | Skye的博客小站</title>
   
 
 
@@ -280,7 +264,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/27/Jupyter_notebook_start/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/05/NLPtask2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Skye Lan">
@@ -297,7 +281,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Jupyter notebook 学习</h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -309,8 +293,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-27T13:27:09+08:00">
-                2018-09-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-05T21:00:04+08:00">
+                2019-03-05
               </time>
             
 
@@ -320,28 +304,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/IDE工具/" itemprop="url" rel="index">
-                    <span itemprop="name">IDE工具</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -349,7 +311,7 @@
 
           
           
-             <span id="/2018/09/27/Jupyter_notebook_start/" class="leancloud_visitors" data-flag-title="Jupyter notebook 学习">
+             <span id="/2019/03/05/NLPtask2/" class="leancloud_visitors" data-flag-title="">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -375,7 +337,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  922 字
+                  1.1k 字
                 </span>
               
 
@@ -412,64 +374,43 @@
       
 
       
-        <blockquote>
-<p>以前写python一直使用的是Pycharm，最近听同学都在谈论Jupyter做数据科学很方便易用，于是着手学习学习。以前也简单尝试过Jupyter，但是没觉得比Pycharm好用，这次要认真使用看看。</p>
-</blockquote>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>在使用之前，我们需要先进行安装。在 <a href="http://jupyter.org/" target="_blank" rel="noopener">Jupyter website</a> 上能找到完整的安装步骤。</p>
-<p>但是我更推荐大家安装 Anaconda，它不仅自带了 python 环境，还自带了 Numpy、Scipy、Matplotlib 等多种 python 开发包和我们要使用的 Jupyter notebook。</p>
-<p>可以通过<a href="https://www.anaconda.com/download/" target="_blank" rel="noopener">官网</a>下载</p>
-<p><img src="/2018/09/27/Jupyter_notebook_start/guanwang.jpg" alt=""></p>
-<p>但是官网速度可能比较慢，所以可以从<a href="http://mirrors.ustc.edu.cn/anaconda/archive/" target="_blank" rel="noopener">中科大的镜像网站</a>下载</p>
-<p>Anaconda有对应的Linux、Windows、macOS版本，我使用的是windows环境。安装好之后，在[开始菜单]—&gt;[所有程序]—&gt;[Anaconda]文件夹下，就能找到 Jupyter Notebook 的快捷方式。</p>
-<p>打开后会看到命令行显示如下语句</p>
-<p><img src="/2018/09/27/Jupyter_notebook_start/yunxing.jpg" alt=""></p>
-<p>随后网页主窗口会自动打开。</p>
-<h1 id="主界面介绍"><a href="#主界面介绍" class="headerlink" title="主界面介绍"></a>主界面介绍</h1><p>Jupyter的主窗口显示的路径一般是你启动notebook时位于的路径下（通常在你的用户目录下）。可以通过<a href="https://www.cnblogs.com/awakenedy/p/9075712.html" target="_blank" rel="noopener">这里</a>的方法更改默认路径。</p>
-<p>主界面如下所示：</p>
-<p><img src="/2018/09/27/Jupyter_notebook_start/zhujiemian1.jpg" alt=""></p>
-<p>若要创建一个新的notebook，只需鼠标点击New，在下拉选项中选择一个你想启动的notebook类型即可。</p>
-<p><img src="/2018/09/27/Jupyter_notebook_start/xinjian.jpg" alt=""></p>
-<p>这里我们新建一个Python3文件，各部分介绍如图所示。</p>
-<p><img src="/2018/09/27/Jupyter_notebook_start/zhujiemian2.jpg" alt=""></p>
-<p><img src="/2018/09/27/Jupyter_notebook_start/menu1.jpg" alt=""></p>
-<p><img src="/2018/09/27/Jupyter_notebook_start/menu2.jpg" alt=""></p>
-<p><img src="/2018/09/27/Jupyter_notebook_start/menu3.jpg" alt=""></p>
-<p><img src="/2018/09/27/Jupyter_notebook_start/menu4.jpg" alt=""></p>
-<p><img src="/2018/09/27/Jupyter_notebook_start/menu5.jpg" alt=""></p>
-<p><img src="/2018/09/27/Jupyter_notebook_start/menu6.jpg" alt=""></p>
-<p><img src="/2018/09/27/Jupyter_notebook_start/menu7.jpg" alt=""></p>
-<blockquote>
-<p>以上图片来自<a href="https://github.com/jaystone776/python-data-science-cheatsheet" target="_blank" rel="noopener">Github项目python-data-science-cheatsheet</a></p>
-</blockquote>
-<h1 id="代码与注释"><a href="#代码与注释" class="headerlink" title="代码与注释"></a>代码与注释</h1><p>在主区域（编辑区），可以看到一个个单元（cell）。每个notebook都由许多cell组成，每个cell有不同的功能。</p>
-<p>绿色的轮廓线所在的cell，就是当前工作单元。</p>
-<p>cell以“In[ ]”开头表示这是一个代码单元。在代码单元里，可以输入任何代码并执行。</p>
-<p>只有带返回值的cell输出，才会有“Out” 标志。</p>
-<p><img src="/2018/09/27/Jupyter_notebook_start/daima1.jpg" alt=""></p>
-<p><strong>notebook一个非常有趣的特性是可以返回之前的cell，修改并重新运行，以此来跟新整个文档。</strong></p>
-<p>通过使用其他类型的cells，例如Header和Markdown单元可以使notebook更优美更可解释。</p>
-<p>选择第一个cell，点击Insert-&gt;Insert cell above，则在这个cell上面会添加一个新的单元。通过cell type菜单选择Heading或Markdown替换之前的code类型，这样就能让解释文本更加丰富。</p>
-<p><img src="/2018/09/27/Jupyter_notebook_start/daima2.jpg" alt=""></p>
-<h1 id="Markdown单元高级用法"><a href="#Markdown单元高级用法" class="headerlink" title="Markdown单元高级用法"></a>Markdown单元高级用法</h1><p>markdown，它同时也支持HTML代码。你可以在你的cell中创建更高级的样式，比如添加图片等等。举个例子来说，如果你想在notebook中添加Jupyter的图标，尺寸为100x100，并且放置在cell左侧，可以这样编写：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://blog.jupyter.org/content/images/2015/02/jupyter-sq-text.png"</span><span class="attr">style</span>=<span class="string">"width:100px;height:100px;float:left"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>除此之外，markdown还支持LaTex语法。你可以在markdown cell中按照LaTex语法规则写下方程式，然后直接运行，就可以看到结果。例如运行下面方程式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$$\int_0^&#123;+\infty&#125; x^2 dx$$</span><br></pre></td></tr></table></figure>
-<p>运行后就得到了LaTex方程式：</p>
-<p><img src="/2018/09/27/Jupyter_notebook_start/daima3.jpg" alt=""></p>
-<h1 id="Matplotlib集成"><a href="#Matplotlib集成" class="headerlink" title="Matplotlib集成"></a>Matplotlib集成</h1><p>Matplotlib是用来画图的Python库。与Jupyter notebook结合使用时，效果更好。</p>
-<p>为了在Jupyter notebook中使用 Matplotlib，你需要告诉Jupyter获取所有 Matplotlib 生成的图形，并把它们全部嵌入到notebook中。输入以下命令：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
-<p><img src="/2018/09/27/Jupyter_notebook_start/daima4.jpg" alt=""></p>
-<p>可以看到，图直接嵌入到notebook中，就在代码下面。修改代码，重新运行，图形将自动同步更新。</p>
-<h1 id="导出功能"><a href="#导出功能" class="headerlink" title="导出功能"></a>导出功能</h1><p>Jupyter notebook可以把notebook导出为如下多种形式：</p>
-<ul>
-<li>HTML</li>
-<li>Markdown</li>
-<li>ReST</li>
-<li>PDF(Through LaTex)</li>
-<li>Raw Python</li>
+        <h2 id="基本文本处理技能"><a href="#基本文本处理技能" class="headerlink" title="基本文本处理技能"></a>基本文本处理技能</h2><h3 id="分词的概念"><a href="#分词的概念" class="headerlink" title="分词的概念"></a>分词的概念</h3><p>分词就是将连续的字序列按照一定的规范重新组合成词序列的过程</p>
+<h4 id="目前的分词方法归纳起来有3类"><a href="#目前的分词方法归纳起来有3类" class="headerlink" title="目前的分词方法归纳起来有3类:"></a>目前的分词方法归纳起来有3类:</h4><ul>
+<li><p>第一类是<strong>基于语法和规则的分词法</strong>。<br>在分词的同时进行句法、语义分析, 利用句法信息和语义信息来进行词性标注, 以解决分词歧义现象。现有的语法知识、句法规则十分笼统、复杂, 基于语法和规则的分词法所能达到的精确度远远还不能令人满意。</p>
+</li>
+<li><p>第二类是<strong>机械式分词法（即基于词典）</strong>。<br>将文档中的字符串与词典中的词条进行逐一匹配, 如果词典中找到某个字符串, 则匹配成功, 可以切分, 否则不予切分。<strong>优点</strong>：实现简单, 实用性强； <strong>缺点</strong>：词典的完备性不能得到保证。</p>
+</li>
+<li><p>第三类是<strong>基于统计的方法</strong>。<br>根据字符串在语料库中出现的统计频率来决定其是否构成词。词是字的组合, 相邻的字同时出现的次数越多, 就越有可能构成一个词。</p>
+</li>
 </ul>
-<p>需要注意的是，转换为pdf格式之前，同样要保证已经安装了xelatex。</p>
+<p>最大匹配是指以词典为依据，取词典中<strong>最长单词</strong>为第一个次取字数量的扫描串，在词典中进行扫描，这是基于词典分词的方法</p>
+<ul>
+<li><p>正向最大匹配法</p>
+<p>从左到右将待分词文本中的几个连续字符与词表匹配，如果匹配上，则切分出一个词。</p>
+<p><strong>注意</strong>：要做到最大匹配，并不是第一次匹配到就可以切分的 。</p>
+<p>最大匹配出的词必须保证下一个扫描不是词表中的词或词的前缀才可以结束。</p>
+</li>
+<li><p>逆向最大匹配法</p>
+<p>逆向即从后往前取词，其他逻辑和正向相同。</p>
+<p>(1) 将文章分成句子(通过标点符号来实现)；<br>(2) 循环的读入每一个句子S，设句子中的字数为n；<br>(3) 设置一个最大词长度，就是我们要截取的词的最大长度max；<br>(4) 从句子中取n-max到n的字符串subword，去字典中查找是否有这个词。如果有就走(5),没有就走(6)；<br>(5) 记住subword，从n-max付值给n，继续执行(4)，直到n=0。<br>(6) 将max-1，再执行(4)。</p>
+</li>
+<li><p>双向最大匹配法：</p>
+<p>正向最大匹配法和逆向最大匹配法，都有其局限性。</p>
+<p>双向最大匹配法，即两种算法都切一遍，然后根据大颗粒度词越多越好，非词典词和单字词越少越好的原则，选取其中一种分词结果输出。</p>
+</li>
+</ul>
+<h3 id="词、字符频率统计"><a href="#词、字符频率统计" class="headerlink" title="词、字符频率统计"></a>词、字符频率统计</h3><p><img src="/2019/03/05/NLPtask2/pic2.PNG" alt=""></p>
+<h2 id="语言模型"><a href="#语言模型" class="headerlink" title="语言模型"></a>语言模型</h2><p>一个语言模型通常构建为字符串s的概率分布p(s)，这里的p(s)实际上反映的是s作为一个句子出现的概率。这里的概率指的是组成字符串的这个组合，在训练语料中出现的似然，与句子是否合乎语法无关。</p>
+<h3 id="语言模型中unigram、bigram、trigram的概念"><a href="#语言模型中unigram、bigram、trigram的概念" class="headerlink" title="语言模型中unigram、bigram、trigram的概念"></a>语言模型中unigram、bigram、trigram的概念</h3><p>n-gram模型也称为$n-1$阶马尔科夫模型，它有一个有限历史假设：第$N$个词的出现只与前面$N-1$个词相关，而与其它任何词都不相关，整句的概率就是各个词出现概率的乘积。</p>
+<script type="math/tex; mode=display">
+P(S) =P(W_1,W_2,\dots,W_k)=p(W_1)P(W_2|W_1)\dots P(W_k|W_1,W_2,\dots,W_{k-1})</script><p>当$n$取1、2、3时，n-gram模型分别称为unigram、bigram和trigram语言模型。</p>
+<ul>
+<li>unigrams<br>一元分词，把句子从头到尾分成一个一个的汉字</li>
+<li>bigrams<br>二元分词，把句子从头到尾每两个字组成一个词语</li>
+<li>trigrams<br>三元分词，把句子从头到尾每三个字组成一个词语</li>
+</ul>
+<p>最常用的是bigram，其次是unigram和trigram，$n$取$≥4$的情况较少。</p>
+<h3 id="unigram、bigram频率统计；（可以使用Python中的collections-Counter模块，也可以自己寻找其他好用的库）"><a href="#unigram、bigram频率统计；（可以使用Python中的collections-Counter模块，也可以自己寻找其他好用的库）" class="headerlink" title="unigram、bigram频率统计；（可以使用Python中的collections.Counter模块，也可以自己寻找其他好用的库）"></a>unigram、bigram频率统计；（可以使用Python中的collections.Counter模块，也可以自己寻找其他好用的库）</h3><h2 id="文本矩阵化：要求采用词袋模型且是词级别的矩阵化"><a href="#文本矩阵化：要求采用词袋模型且是词级别的矩阵化" class="headerlink" title="文本矩阵化：要求采用词袋模型且是词级别的矩阵化"></a>文本矩阵化：要求采用词袋模型且是词级别的矩阵化</h2><p>步骤有：<br>分词（可采用结巴分词来进行分词操作，其他库也可以）；去停用词；构造词表。<br>每篇文档的向量化。</p>
 
       
     </div>
@@ -523,12 +464,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Python/" rel="tag"># Python</a>
-          
-        </div>
-      
 
       
       
@@ -538,8 +473,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/25/Python_liaoxuefeng/" rel="next" title="廖雪峰Python教程学习笔记">
-                <i class="fa fa-chevron-left"></i> 廖雪峰Python教程学习笔记
+              <a href="/2019/03/03/NLPtask1/" rel="next" title="召回率、准确率、ROC曲线、AUC、PR曲线">
+                <i class="fa fa-chevron-left"></i> 召回率、准确率、ROC曲线、AUC、PR曲线
               </a>
             
           </div>
@@ -547,10 +482,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/27/NumpyDemo/" rel="prev" title="Numpy学习笔记">
-                Numpy学习笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -682,7 +613,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主界面介绍"><span class="nav-number">2.</span> <span class="nav-text">主界面介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码与注释"><span class="nav-number">3.</span> <span class="nav-text">代码与注释</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Markdown单元高级用法"><span class="nav-number">4.</span> <span class="nav-text">Markdown单元高级用法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Matplotlib集成"><span class="nav-number">5.</span> <span class="nav-text">Matplotlib集成</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#导出功能"><span class="nav-number">6.</span> <span class="nav-text">导出功能</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本文本处理技能"><span class="nav-number">1.</span> <span class="nav-text">基本文本处理技能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分词的概念"><span class="nav-number">1.1.</span> <span class="nav-text">分词的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#目前的分词方法归纳起来有3类"><span class="nav-number">1.1.1.</span> <span class="nav-text">目前的分词方法归纳起来有3类:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#词、字符频率统计"><span class="nav-number">1.2.</span> <span class="nav-text">词、字符频率统计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语言模型"><span class="nav-number">2.</span> <span class="nav-text">语言模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语言模型中unigram、bigram、trigram的概念"><span class="nav-number">2.1.</span> <span class="nav-text">语言模型中unigram、bigram、trigram的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unigram、bigram频率统计；（可以使用Python中的collections-Counter模块，也可以自己寻找其他好用的库）"><span class="nav-number">2.2.</span> <span class="nav-text">unigram、bigram频率统计；（可以使用Python中的collections.Counter模块，也可以自己寻找其他好用的库）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本矩阵化：要求采用词袋模型且是词级别的矩阵化"><span class="nav-number">3.</span> <span class="nav-text">文本矩阵化：要求采用词袋模型且是词级别的矩阵化</span></a></li></ol></div>
             
 
           </div>
