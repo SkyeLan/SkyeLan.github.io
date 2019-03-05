@@ -86,12 +86,13 @@
 <meta property="og:site_name" content="Skye的博客小站">
 <meta property="og:description" content="分词的概念分词就是将连续的字序列按照一定的规范重新组合成词序列的过程 目前的分词方法归纳起来有3类: 第一类是基于语法和规则的分词法。在分词的同时进行句法、语义分析, 利用句法信息和语义信息来进行词性标注, 以解决分词歧义现象。现有的语法知识、句法规则十分笼统、复杂, 基于语法和规则的分词法所能达到的精确度远远还不能令人满意。  第二类是机械式分词法（即基于词典）。将文档中的字符串与词典中的词条进">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/03/05/NLPtask2/pic2.PNG">
-<meta property="og:updated_time" content="2019-03-05T13:59:40.648Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/05/NLPtask2/pic2.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/05/NLPtask2/pic3.png">
+<meta property="og:updated_time" content="2019-03-05T14:05:48.333Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基本文本处理技能">
 <meta name="twitter:description" content="分词的概念分词就是将连续的字序列按照一定的规范重新组合成词序列的过程 目前的分词方法归纳起来有3类: 第一类是基于语法和规则的分词法。在分词的同时进行句法、语义分析, 利用句法信息和语义信息来进行词性标注, 以解决分词歧义现象。现有的语法知识、句法规则十分笼统、复杂, 基于语法和规则的分词法所能达到的精确度远远还不能令人满意。  第二类是机械式分词法（即基于词典）。将文档中的字符串与词典中的词条进">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/05/NLPtask2/pic2.PNG">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/05/NLPtask2/pic2.png">
 
 
 
@@ -421,7 +422,7 @@
 <p>双向最大匹配法，即两种算法都切一遍，然后根据大颗粒度词越多越好，非词典词和单字词越少越好的原则，选取其中一种分词结果输出。</p>
 </li>
 </ul>
-<h3 id="词、字符频率统计"><a href="#词、字符频率统计" class="headerlink" title="词、字符频率统计"></a>词、字符频率统计</h3><p><img src="/2019/03/05/NLPtask2/pic2.PNG" alt=""></p>
+<h3 id="词、字符频率统计"><a href="#词、字符频率统计" class="headerlink" title="词、字符频率统计"></a>词、字符频率统计</h3><p><img src="/2019/03/05/NLPtask2/pic2.png" alt=""></p>
 <h2 id="语言模型"><a href="#语言模型" class="headerlink" title="语言模型"></a>语言模型</h2><p>一个语言模型通常构建为字符串s的概率分布p(s)，这里的p(s)实际上反映的是s作为一个句子出现的概率。这里的概率指的是组成字符串的这个组合，在训练语料中出现的似然，与句子是否合乎语法无关。</p>
 <h3 id="语言模型中unigram、bigram、trigram的概念"><a href="#语言模型中unigram、bigram、trigram的概念" class="headerlink" title="语言模型中unigram、bigram、trigram的概念"></a>语言模型中unigram、bigram、trigram的概念</h3><p>n-gram模型也称为$n-1$阶马尔科夫模型，它有一个有限历史假设：第$N$个词的出现只与前面$N-1$个词相关，而与其它任何词都不相关，整句的概率就是各个词出现概率的乘积。</p>
 <script type="math/tex; mode=display">
@@ -432,7 +433,8 @@ P(S) =P(W_1,W_2,\dots,W_k)=p(W_1)P(W_2|W_1)\dots P(W_k|W_1,W_2,\dots,W_{k-1})</s
 <li>trigrams<br>三元分词，把句子从头到尾每三个字组成一个词语</li>
 </ul>
 <p>最常用的是bigram，其次是unigram和trigram，$n$取$≥4$的情况较少。</p>
-<h3 id="unigram、bigram频率统计；（可以使用Python中的collections-Counter模块，也可以自己寻找其他好用的库）"><a href="#unigram、bigram频率统计；（可以使用Python中的collections-Counter模块，也可以自己寻找其他好用的库）" class="headerlink" title="unigram、bigram频率统计；（可以使用Python中的collections.Counter模块，也可以自己寻找其他好用的库）"></a>unigram、bigram频率统计；（可以使用Python中的collections.Counter模块，也可以自己寻找其他好用的库）</h3><h2 id="文本矩阵化：要求采用词袋模型且是词级别的矩阵化"><a href="#文本矩阵化：要求采用词袋模型且是词级别的矩阵化" class="headerlink" title="文本矩阵化：要求采用词袋模型且是词级别的矩阵化"></a>文本矩阵化：要求采用词袋模型且是词级别的矩阵化</h2><p>步骤有：<br>分词（可采用结巴分词来进行分词操作，其他库也可以）；去停用词；构造词表。<br>每篇文档的向量化。</p>
+<h3 id="unigram、bigram频率统计"><a href="#unigram、bigram频率统计" class="headerlink" title="unigram、bigram频率统计"></a>unigram、bigram频率统计</h3><p><img src="/2019/03/05/NLPtask2/pic3.png" alt=""></p>
+<h2 id="文本矩阵化：要求采用词袋模型且是词级别的矩阵化"><a href="#文本矩阵化：要求采用词袋模型且是词级别的矩阵化" class="headerlink" title="文本矩阵化：要求采用词袋模型且是词级别的矩阵化"></a>文本矩阵化：要求采用词袋模型且是词级别的矩阵化</h2><p>步骤有：<br>分词（可采用结巴分词来进行分词操作，其他库也可以）；去停用词；构造词表。<br>每篇文档的向量化。</p>
 
       
     </div>
@@ -635,7 +637,7 @@ P(S) =P(W_1,W_2,\dots,W_k)=p(W_1)P(W_2|W_1)\dots P(W_k|W_1,W_2,\dots,W_{k-1})</s
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#分词的概念"><span class="nav-number">1.</span> <span class="nav-text">分词的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#目前的分词方法归纳起来有3类"><span class="nav-number">1.1.</span> <span class="nav-text">目前的分词方法归纳起来有3类:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#词、字符频率统计"><span class="nav-number">2.</span> <span class="nav-text">词、字符频率统计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语言模型"><span class="nav-number"></span> <span class="nav-text">语言模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语言模型中unigram、bigram、trigram的概念"><span class="nav-number">1.</span> <span class="nav-text">语言模型中unigram、bigram、trigram的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unigram、bigram频率统计；（可以使用Python中的collections-Counter模块，也可以自己寻找其他好用的库）"><span class="nav-number">2.</span> <span class="nav-text">unigram、bigram频率统计；（可以使用Python中的collections.Counter模块，也可以自己寻找其他好用的库）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本矩阵化：要求采用词袋模型且是词级别的矩阵化"><span class="nav-number"></span> <span class="nav-text">文本矩阵化：要求采用词袋模型且是词级别的矩阵化</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#分词的概念"><span class="nav-number">1.</span> <span class="nav-text">分词的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#目前的分词方法归纳起来有3类"><span class="nav-number">1.1.</span> <span class="nav-text">目前的分词方法归纳起来有3类:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#词、字符频率统计"><span class="nav-number">2.</span> <span class="nav-text">词、字符频率统计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语言模型"><span class="nav-number"></span> <span class="nav-text">语言模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语言模型中unigram、bigram、trigram的概念"><span class="nav-number">1.</span> <span class="nav-text">语言模型中unigram、bigram、trigram的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unigram、bigram频率统计"><span class="nav-number">2.</span> <span class="nav-text">unigram、bigram频率统计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本矩阵化：要求采用词袋模型且是词级别的矩阵化"><span class="nav-number"></span> <span class="nav-text">文本矩阵化：要求采用词袋模型且是词级别的矩阵化</span></a></div>
             
 
           </div>
