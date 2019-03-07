@@ -79,17 +79,19 @@
 
 
 
-<meta name="description" content="逻辑回归主要思想：根据现有数据对分类边界线建立回归公式 优点：计算代价不高，易于理解和实现 缺点：容易欠拟合，分类精度可能不高 适用数据类型：数值型和标称型数据 Regression问题的常规步骤为：    寻找h函数（即hypothesis）； 构造J函数（损失函数）； 想办法使得J函数最小并求得回归参数（ θ ）  Logistic函数（Sigmoid函数）：   g(z)=\frac{1}{">
+<meta name="description" content="TF-IDF原理Term Frequency-Inverse Document Frequency, 词频-逆文件频率 TF-IDF是一种用于资讯检索与文本挖掘的常用加权技术，一种统计方法，用以评估一字词对于一个文件集或一个语料库中的其中一份文件的重要程度。字词的重要性随着它在文件中出现的次数成正比增加，但同时会随着它在语料库中出现的频率成反比下降。 TF-IDF加权的各种形式常被搜索引擎应用，作">
 <meta property="og:type" content="article">
-<meta property="og:title" content="逻辑回归损失函数的推导">
-<meta property="og:url" content="http://yoursite.com/2018/10/16/Logistic_Cost/index.html">
+<meta property="og:title" content="特征选择">
+<meta property="og:url" content="http://yoursite.com/2019/03/07/NLPtask3/index.html">
 <meta property="og:site_name" content="Skye的博客小站">
-<meta property="og:description" content="逻辑回归主要思想：根据现有数据对分类边界线建立回归公式 优点：计算代价不高，易于理解和实现 缺点：容易欠拟合，分类精度可能不高 适用数据类型：数值型和标称型数据 Regression问题的常规步骤为：    寻找h函数（即hypothesis）； 构造J函数（损失函数）； 想办法使得J函数最小并求得回归参数（ θ ）  Logistic函数（Sigmoid函数）：   g(z)=\frac{1}{">
+<meta property="og:description" content="TF-IDF原理Term Frequency-Inverse Document Frequency, 词频-逆文件频率 TF-IDF是一种用于资讯检索与文本挖掘的常用加权技术，一种统计方法，用以评估一字词对于一个文件集或一个语料库中的其中一份文件的重要程度。字词的重要性随着它在文件中出现的次数成正比增加，但同时会随着它在语料库中出现的频率成反比下降。 TF-IDF加权的各种形式常被搜索引擎应用，作">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-03T06:34:49.325Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/07/NLPtask3/pic1.png">
+<meta property="og:updated_time" content="2019-03-07T13:52:29.690Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="逻辑回归损失函数的推导">
-<meta name="twitter:description" content="逻辑回归主要思想：根据现有数据对分类边界线建立回归公式 优点：计算代价不高，易于理解和实现 缺点：容易欠拟合，分类精度可能不高 适用数据类型：数值型和标称型数据 Regression问题的常规步骤为：    寻找h函数（即hypothesis）； 构造J函数（损失函数）； 想办法使得J函数最小并求得回归参数（ θ ）  Logistic函数（Sigmoid函数）：   g(z)=\frac{1}{">
+<meta name="twitter:title" content="特征选择">
+<meta name="twitter:description" content="TF-IDF原理Term Frequency-Inverse Document Frequency, 词频-逆文件频率 TF-IDF是一种用于资讯检索与文本挖掘的常用加权技术，一种统计方法，用以评估一字词对于一个文件集或一个语料库中的其中一份文件的重要程度。字词的重要性随着它在文件中出现的次数成正比增加，但同时会随着它在语料库中出现的频率成反比下降。 TF-IDF加权的各种形式常被搜索引擎应用，作">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/07/NLPtask3/pic1.png">
 
 
 
@@ -119,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/16/Logistic_Cost/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/07/NLPtask3/"/>
 
 
 
 
 
-  <title>逻辑回归损失函数的推导 | Skye的博客小站</title>
+  <title>特征选择 | Skye的博客小站</title>
   
 
 
@@ -262,7 +264,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/16/Logistic_Cost/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/07/NLPtask3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Skye Lan">
@@ -279,7 +281,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">逻辑回归损失函数的推导</h1>
+          <h1 class="post-title" itemprop="name headline">特征选择</h1>
         
 
         <div class="post-meta">
@@ -291,8 +293,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-16T19:44:24+08:00">
-                2018-10-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-07T20:04:17+08:00">
+                2019-03-07
               </time>
             
 
@@ -314,8 +316,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -331,7 +333,7 @@
 
           
           
-             <span id="/2018/10/16/Logistic_Cost/" class="leancloud_visitors" data-flag-title="逻辑回归损失函数的推导">
+             <span id="/2019/03/07/NLPtask3/" class="leancloud_visitors" data-flag-title="特征选择">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -357,7 +359,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  919 字
+                  1.1k 字
                 </span>
               
 
@@ -394,73 +396,41 @@
       
 
       
-        <h2 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h2><p>主要思想：根据现有数据对分类边界线建立回归公式</p>
-<p>优点：计算代价不高，易于理解和实现</p>
-<p>缺点：容易欠拟合，分类精度可能不高</p>
-<p>适用数据类型：数值型和标称型数据</p>
-<p>Regression问题的常规步骤为：  </p>
-<ol>
-<li>寻找h函数（即hypothesis）；</li>
-<li>构造J函数（损失函数）；</li>
-<li>想办法使得J函数最小并求得回归参数（ θ ）</li>
-</ol>
-<p>Logistic函数（Sigmoid函数）： </p>
+        <h3 id="TF-IDF原理"><a href="#TF-IDF原理" class="headerlink" title="TF-IDF原理"></a>TF-IDF原理</h3><p>Term Frequency-Inverse Document Frequency, 词频-逆文件频率</p>
+<p>TF-IDF是一种用于资讯检索与文本挖掘的常用加权技术，一种统计方法，用以评估一字词对于一个文件集或一个语料库中的其中一份文件的重要程度。字词的重要性随着它在文件中出现的次数成正比增加，但同时会随着它在语料库中出现的频率成反比下降。</p>
+<p>TF-IDF加权的各种形式常被搜索引擎应用，作为文件与用户查询之间相关程度的度量或评级。</p>
+<p><strong>主要思想</strong>：如果某个词或短语在一篇文章中出现的频率TF高，并且在其他文章中很少出现，则认为此词或者短语具有很好的类别区分能力，适合用来分类。TF-IDF实际上是：TF * IDF。</p>
+<ul>
+<li>词频（Term Frequency，TF）：某一个给定的词语在该文件中出现的频率。这个数字是对词数(term count)的归一化，以防止它偏向长的文件。（同一个词语在长文件里可能会比短文件有更高的词数，而不管该词语重要与否。）</li>
+<li>逆向文件频率（Inverse Document Frequency，IDF）：一个词语普遍重要性的度量。某一特定词语的IDF，可以由总文件数目除以包含该词语之文件的数目，再将得到的商取对数得到。</li>
+</ul>
+<p>某一特定文件内的高词语频率，以及该词语在整个文件集合中的低文件频率，可以产生出高权重的TF-IDF。因此，TF-IDF倾向于过滤掉常见的词语，保留重要的词语。</p>
+<p><strong>算法细节</strong>：</p>
+<ul>
+<li>第一步，计算词频<script type="math/tex; mode=display">
+  词频(TF) = \frac{某个词在文章中出现的次数}{文章总词数}</script>  或<script type="math/tex; mode=display">
+  词频(TF) = \frac{某个词在文章中出现的次数}{该文出现次数最多的词的出现次数}</script></li>
+<li>第二步，计算逆文档频率<br>  需要一个语料库（corpus），用来模拟语言的使用环境<script type="math/tex; mode=display">
+  逆文档频率(IDF) = log\frac{语料库的文档总词数}{包含该词的文档总词数+1}</script>  如果一个词越常见，那么分母就越大，逆文档频率就越小越接近0。</li>
+<li>第三步，计算TF-IDF<script type="math/tex; mode=display">
+  TF-IDF = 词频(TF) * 逆文档频率(IDF)</script>  TF-IDF与一个词在文档中的出现次数成正比，与该词在整个语言中的出现次数成反比</li>
+</ul>
+<p><strong>优点</strong>：简单快速，结果比较符合实际情况。<br><strong>缺点</strong>：单纯以”词频”衡量一个词的重要性，不够全面，有时重要的词可能出现次数并不多。<br>        无法体现词的位置信息，出现位置靠前的词与出现位置靠后的词，都被视为重要性相同。</p>
+<h3 id="文本矩阵化，使用词袋模型，以TF-IDF特征值为权重"><a href="#文本矩阵化，使用词袋模型，以TF-IDF特征值为权重" class="headerlink" title="文本矩阵化，使用词袋模型，以TF-IDF特征值为权重"></a>文本矩阵化，使用词袋模型，以TF-IDF特征值为权重</h3><p><img src="/2019/03/07/NLPtask3/pic1.png" alt=""></p>
+<h3 id="互信息的原理"><a href="#互信息的原理" class="headerlink" title="互信息的原理"></a>互信息的原理</h3><p>1、机器学习相关文献里面，经常会用到点互信息PMI(Pointwise Mutual Information)这个指标来衡量两个事物之间的相关性（比如两个词）。</p>
 <script type="math/tex; mode=display">
-g(z)=\frac{1}{1+e^{-z}}</script><p>对于线性边界形式：</p>
+PMI(x;y) = log(\dfrac{p(x,y)}{p(x)p(y)}) = log(\dfrac{p(x|y)}{p(x)}) = log(\dfrac{p(y|x)}{p(y)})</script><p>p(x)：单词x在文档中出现的概率。 p(y)：单词y在文档中出现的概率。 p(x,y)：单词x,y同时出现在一个文档的概率</p>
+<p>由公式可知:</p>
+<p>当x,y相互独立时，PMI = log1 = 0</p>
+<p>当x,y相关性越大，p(x,y)就相比于p(x)p(y)越大，即PMI值越大。</p>
+<p>2、点互信息PMI其实就是从信息论里面的互信息这个概念里面衍生出来的。  </p>
+<p>互信息：</p>
 <script type="math/tex; mode=display">
-\theta_0+\theta_1x_1+…+\theta_nx_n=\sum_{i=1}^{n}\theta_ix_i=\theta^Tx</script><p><strong>构造预测函数</strong>为：</p>
-<script type="math/tex; mode=display">
-h_\theta(x)=g(\theta^Tx)=\frac{1}{1+e^{-\theta^Tx}}</script><p>函数 $h_\theta(x)$ 的值有特殊意义，它表示取1的概率，因此对于x分类边界为类别1和类别0的概率为：</p>
-<script type="math/tex; mode=display">
-\begin{align}
-P(y=1|x;\theta)&=h_\theta(x)\\
-P(y=0|x;\theta)&=1-h_\theta(x)
-\end{align}</script><p><strong>cost函数和J函数</strong>如下，基于最大似然估计推得：</p>
-<script type="math/tex; mode=display">
-Cost(h_\theta(x),y)=\begin{cases}-log(h_\theta(x))&if\; y=1  \\-log(1-h_\theta(x))&if\; y=0\end{cases}</script><script type="math/tex; mode=display">
-\begin{align}
-J(\theta)=&\frac{1}{m}\sum_{i=1}^{m}Cost(h_\theta(x^{(i)}),y^{(i)})\\
-=&-\frac{1}{m}\sum_{i=1}^{m}(y^{(i)}log(h_\theta(x^{(i)}))+(1-y^{(i)})log(1-h_\theta(x^{(i)})))
-\end{align}</script><p>推导过程如下：<br>将概率公式合起来写：</p>
-<script type="math/tex; mode=display">
-P(y|x;\theta)=(h_\theta(x))^y(1-h_\theta(x))^{1-y}</script><p>取似然函数为：</p>
-<script type="math/tex; mode=display">
-\begin{align}
-L(\theta)=&\prod_{i=1}^{m}P(y^{(i)}|x^{(i)};\theta)\\
-=&\prod_{i=1}^{m}(h_\theta(x^{(i)}))^{y^{(i)}}(1-h_\theta(x^{(i)}))^{(1-y^{(i)})}
-\end{align}</script><p>对数取似然函数为：</p>
-<script type="math/tex; mode=display">
-\begin{align}
-l(\theta)=&logL(\theta)\\
-=&\sum_{i=1}^{m}(y^{(i)}log(h_\theta(x^{(i)})+(1-y^{(i)})log(1-h_\theta(x^{(i)})))
-\end{align}</script><p>最大似然估计就是求使 $l(\theta)$ 取最大值时的 θ ，其实这里可以使用梯度上升法求解，求得的 θ 就是要求的最佳参数。但是，在Andrew Ng的课程中将 $J(\theta)$ 取为下式，即：</p>
-<script type="math/tex; mode=display">
-J(\theta)=-\frac{1}{m}l(\theta)</script><p>因为乘了一个负的系数 $-\frac{1}{m}$ ，所以取 $J(\theta)$ 最小值时的θ为要求的最佳参数。  </p>
-<p><strong>梯度下降法求的最小值</strong></p>
-<p>开始之前插一句，sigmoid函数有个很重要的特性：</p>
-<script type="math/tex; mode=display">
-g(z)'=g(z)(1-g(z))</script><p>θ更新过程：</p>
-<script type="math/tex; mode=display">
-\theta_j:=\theta_j-\alpha\frac{\delta}{\delta_{\theta_j}}J(\theta)</script><p>其中：</p>
-<script type="math/tex; mode=display">
-\begin{align}
-\frac{\delta}{\delta_{\theta_j}}J(\theta)
-=&-\frac{1}{m}\sum_{i=1}^{m}(y^{(i)}\frac{1}{h_\theta(x^{(i)})}\frac{\delta}{\delta_{\theta_j}}h_\theta(x^{(i)})-(1-y^{(i)})\frac{1}{1-h_\theta(x^{(i)})}\frac{\delta}{\delta_{\theta_j}}h_\theta(x^{(i)}))\\
-=&-\frac{1}{m}\sum_{i=1}^{m}(y^{(i)}\frac{1}{g(\theta^Tx^{(i)})}-(1-y^{(i)})\frac{1}{1-g(\theta^Tx^{(i)})})\frac{\delta}{\delta_{\theta_j}}g(\theta^Tx^{(i)})\\
-=&-\frac{1}{m}\sum_{i=1}^{m}(y^{(i)}\frac{1}{g(\theta^Tx^{(i)})}-(1-y^{(i)})\frac{1}{1-g(\theta^Tx^{(i)})})g(\theta^Tx^{(i)})(1-g(\theta^Tx^{(i)}))\frac{\delta}{\delta_{\theta_j}}\theta^Tx^{(i)}\\
-=&-\frac{1}{m}\sum_{i=1}^{m}(y^{(i)}(1-g(\theta^Tx^{(i)}))-(1-y^{(i)})g(\theta^Tx^{(i)}))x_j^{(i)}\\
-=&-\frac{1}{m}\sum_{i=1}^{m}(y^{(i)}-g(\theta^Tx^{(i)}))x_j^{(i)}\\
-=&\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}
-\end{align}</script><p>所以 θ 更新过程可以写为：</p>
-<script type="math/tex; mode=display">
-\theta_j:=\theta_j-\alpha\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}</script><h3 id="向量化"><a href="#向量化" class="headerlink" title="向量化"></a>向量化</h3><p>在使用向量化之后公式 $J(\theta)=-\frac{1}{m}\sum_{i=1}^{m}(y^{(i)}log(h_\theta(x^{(i)}))+(1-y^{(i)})log(1-h_\theta(x^{(i)})))$ 可以写为：</p>
-<script type="math/tex; mode=display">
-J(\theta)=-\frac{1}{m}(y^Tlog(h)+(1-y^T)log(1-h))</script><p>公式 $\frac{\delta}{\delta_{\theta_j}}J(\theta)=\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}$ 可以写为：</p>
-<script type="math/tex; mode=display">
-\frac{\delta}{\delta_\theta}J(\theta)=\frac{1}{m}X^T(h-y)</script><p>其中 $h=g(\theta^Tx)$ ，由于 $(h-y)$ 维度是 $m\times1$ ， $X$ 也是 $m\times1$ ，所以需对 $X$ 转置</p>
-<p>所以θ的更新过程可写为：</p>
-<script type="math/tex; mode=display">
-\theta_j:=\theta_j-\alpha\frac{1}{m}X^T(h-y)</script>
+I(X;Y)=\sum_x\sum_yp(x,y)log(\dfrac{p(x,y)}{p(x)p(y)})</script><p><strong>互信息衡量的是两个随机变量之间的相关性，即一个随机变量中包含的关于另一个随机变量的信息量。</strong></p>
+<p><strong>可以看出互信息其实就是对X和Y的所有可能的取值情况的点互信息PMI的加权和。</strong></p>
+<p>3、python sklearn工具包求互信息：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> metrics <span class="keyword">as</span> mr</span><br><span class="line">mr.mutual_info_score(label,x)</span><br></pre></td></tr></table></figure>
+<h3 id="使用第二步生成的特征矩阵，利用互信息进行特征筛选"><a href="#使用第二步生成的特征矩阵，利用互信息进行特征筛选" class="headerlink" title="使用第二步生成的特征矩阵，利用互信息进行特征筛选"></a>使用第二步生成的特征矩阵，利用互信息进行特征筛选</h3>
       
     </div>
     
@@ -522,8 +492,8 @@ J(\theta)=-\frac{1}{m}(y^Tlog(h)+(1-y^T)log(1-h))</script><p>公式 $\frac{\delt
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/27/PandasDemo/" rel="next" title="Pandas学习笔记（未完成~~~）">
-                <i class="fa fa-chevron-left"></i> Pandas学习笔记（未完成~~~）
+              <a href="/2019/03/05/NLPtask2/" rel="next" title="基本文本处理技能">
+                <i class="fa fa-chevron-left"></i> 基本文本处理技能
               </a>
             
           </div>
@@ -531,10 +501,6 @@ J(\theta)=-\frac{1}{m}(y^Tlog(h)+(1-y^T)log(1-h))</script><p>公式 $\frac{\delt
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/03/NLPtask1/" rel="prev" title="召回率、准确率、ROC曲线、AUC、PR曲线">
-                召回率、准确率、ROC曲线、AUC、PR曲线 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -666,7 +632,7 @@ J(\theta)=-\frac{1}{m}(y^Tlog(h)+(1-y^T)log(1-h))</script><p>公式 $\frac{\delt
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑回归"><span class="nav-number">1.</span> <span class="nav-text">逻辑回归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#向量化"><span class="nav-number">1.1.</span> <span class="nav-text">向量化</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#TF-IDF原理"><span class="nav-number">1.</span> <span class="nav-text">TF-IDF原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本矩阵化，使用词袋模型，以TF-IDF特征值为权重"><span class="nav-number">2.</span> <span class="nav-text">文本矩阵化，使用词袋模型，以TF-IDF特征值为权重</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#互信息的原理"><span class="nav-number">3.</span> <span class="nav-text">互信息的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用第二步生成的特征矩阵，利用互信息进行特征筛选"><span class="nav-number">4.</span> <span class="nav-text">使用第二步生成的特征矩阵，利用互信息进行特征筛选</span></a></li></ol></div>
             
 
           </div>
