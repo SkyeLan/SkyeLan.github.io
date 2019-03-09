@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="朴素贝叶斯的原理贝叶斯分类是一类分类算法的总称，这类算法均已贝叶斯定理为基础，故统称为贝叶斯分类。公式如下：  P(B|A)=\frac{P(A|B)P(B)}{P(A)}该公式最大的优点就是可以忽略AB的联合概率直接求其条件概率分布。因为整个形式化过程只做最原始、最简单的建设：各特征属性是条件独立的：  P(x|y_i)P(y_i) = P(a_1|y_i)P(a_2|y_i).......P(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="传统机器学习">
+<meta property="og:url" content="http://yoursite.com/2019/03/09/NLPtask4/index.html">
+<meta property="og:site_name" content="Skye的博客小站">
+<meta property="og:description" content="朴素贝叶斯的原理贝叶斯分类是一类分类算法的总称，这类算法均已贝叶斯定理为基础，故统称为贝叶斯分类。公式如下：  P(B|A)=\frac{P(A|B)P(B)}{P(A)}该公式最大的优点就是可以忽略AB的联合概率直接求其条件概率分布。因为整个形式化过程只做最原始、最简单的建设：各特征属性是条件独立的：  P(x|y_i)P(y_i) = P(a_1|y_i)P(a_2|y_i).......P(">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/03/09/NLPtask4/pic1.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/09/NLPtask4/pic2.png">
+<meta property="og:updated_time" content="2019-03-09T08:41:50.771Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="传统机器学习">
+<meta name="twitter:description" content="朴素贝叶斯的原理贝叶斯分类是一类分类算法的总称，这类算法均已贝叶斯定理为基础，故统称为贝叶斯分类。公式如下：  P(B|A)=\frac{P(A|B)P(B)}{P(A)}该公式最大的优点就是可以忽略AB的联合概率直接求其条件概率分布。因为整个形式化过程只做最原始、最简单的建设：各特征属性是条件独立的：  P(x|y_i)P(y_i) = P(a_1|y_i)P(a_2|y_i).......P(">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/09/NLPtask4/pic1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Skye'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/09/NLPtask4/"/>
+
+
+
+
+
+  <title>传统机器学习 | Skye的博客小站</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Skye的博客小站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/09/NLPtask4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Skye Lan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Skye的博客小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">传统机器学习</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-09T11:47:37+08:00">
+                2019-03-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/09/NLPtask4/" class="leancloud_visitors" data-flag-title="传统机器学习">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+				 <span>℃</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.9k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="朴素贝叶斯的原理"><a href="#朴素贝叶斯的原理" class="headerlink" title="朴素贝叶斯的原理"></a>朴素贝叶斯的原理</h2><p>贝叶斯分类是一类分类算法的总称，这类算法均已贝叶斯定理为基础，故统称为贝叶斯分类。<br>公式如下：</p>
+<script type="math/tex; mode=display">
+P(B|A)=\frac{P(A|B)P(B)}{P(A)}</script><p>该公式最大的优点就是可以忽略AB的联合概率直接求其条件概率分布。<br>因为整个形式化过程只做最原始、最简单的建设：各特征属性是<strong>条件独立</strong>的：</p>
+<script type="math/tex; mode=display">
+P(x|y_i)P(y_i) = P(a_1|y_i)P(a_2|y_i).......P(a_n|y_i)P(y_i)</script><p>所以称为“朴素”。</p>
+<p><strong>优点</strong>：在数据较少的情况下仍然有效，可以处理多类别问题</p>
+<p><strong>缺点</strong>：对于输入数据的准备方式较为敏感</p>
+<h2 id="利用朴素贝叶斯模型进行文本分类"><a href="#利用朴素贝叶斯模型进行文本分类" class="headerlink" title="利用朴素贝叶斯模型进行文本分类"></a>利用朴素贝叶斯模型进行文本分类</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> naive_bayes</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getData</span><span class="params">()</span>:</span></span><br><span class="line">    iris = datasets.load_iris()</span><br><span class="line">    X = iris.data  <span class="comment">#样本特征矩阵，150*4矩阵，每行一个样本，每个样本维度是4</span></span><br><span class="line">    y = iris.target  <span class="comment">#样本类别矩阵，150维行向量，每个元素代表一个样本的类别</span></span><br><span class="line"></span><br><span class="line">    df = pd.DataFrame(X, columns=[<span class="string">'SepalLengthCm'</span>, <span class="string">'SepalWidthCm'</span>, <span class="string">'PetalLengthCm'</span>, <span class="string">'PetalWidthCm'</span>])</span><br><span class="line">    df[<span class="string">'target'</span>] = y</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> df</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = getData()</span><br><span class="line">df.head()</span><br></pre></td></tr></table></figure>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SepalLengthCm</th>
+      <th>SepalWidthCm</th>
+      <th>PetalLengthCm</th>
+      <th>PetalWidthCm</th>
+      <th>target</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">X_train, X_test, y_train, y_test = train_test_split(</span><br><span class="line">    df.iloc[:, <span class="number">0</span>:<span class="number">4</span>], df[<span class="string">'target'</span>], test_size=<span class="number">0.3</span>, random_state=<span class="number">42</span>)</span><br><span class="line">print(X_train.head())</span><br><span class="line">print()</span><br><span class="line">print(X_test.head())</span><br><span class="line">print()</span><br><span class="line">print(y_train.head())</span><br><span class="line">print()</span><br><span class="line">print(y_test.head())</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">     SepalLengthCm  SepalWidthCm  PetalLengthCm  PetalWidthCm</span><br><span class="line">81             5.5           2.4            3.7           1.0</span><br><span class="line">133            6.3           2.8            5.1           1.5</span><br><span class="line">137            6.4           3.1            5.5           1.8</span><br><span class="line">75             6.6           3.0            4.4           1.4</span><br><span class="line">109            7.2           3.6            6.1           2.5</span><br><span class="line"></span><br><span class="line">     SepalLengthCm  SepalWidthCm  PetalLengthCm  PetalWidthCm</span><br><span class="line">73             6.1           2.8            4.7           1.2</span><br><span class="line">18             5.7           3.8            1.7           0.3</span><br><span class="line">118            7.7           2.6            6.9           2.3</span><br><span class="line">78             6.0           2.9            4.5           1.5</span><br><span class="line">76             6.8           2.8            4.8           1.4</span><br><span class="line"></span><br><span class="line">81     1</span><br><span class="line">133    2</span><br><span class="line">137    2</span><br><span class="line">75     1</span><br><span class="line">109    2</span><br><span class="line">Name: target, dtype: int32</span><br><span class="line"></span><br><span class="line">73     1</span><br><span class="line">18     0</span><br><span class="line">118    2</span><br><span class="line">78     1</span><br><span class="line">76     1</span><br><span class="line">Name: target, dtype: int32</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">model = naive_bayes.GaussianNB()</span><br><span class="line">model.fit(X_train, y_train)</span><br><span class="line">predict = model.predict(X_test)</span><br><span class="line"></span><br><span class="line">print(predict - y_test.values)</span><br></pre></td></tr></table></figure>
+<pre><code>[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">count = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(predict)):</span><br><span class="line">    <span class="keyword">if</span> predict[i] == y_test.values[i]:</span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line">score = float(count) / len(predict)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'贝叶斯准确率: %3f'</span> % (score))</span><br><span class="line">print(<span class="string">'贝叶斯模型得分: &#123;:.3f&#125;'</span>.format(model.score(X_test, y_test)))</span><br></pre></td></tr></table></figure>
+<pre><code>贝叶斯准确率: 0.977778
+贝叶斯模型得分: 0.978
+</code></pre><h2 id="SVM的原理"><a href="#SVM的原理" class="headerlink" title="SVM的原理"></a>SVM的原理</h2><p>定义在特征空间上的<strong>间隔最大</strong>的线性分类器，可以通过<strong>核技巧</strong>，变成非线性分类器。</p>
+<p><strong>优点</strong>：泛化错误率低，计算开销不大，结果易解释</p>
+<p><strong>缺点</strong>：对参数调节和核函数的选择敏感，原始分类器不加修改仅适用于二分类问题</p>
+<p>点到超平面的距离：</p>
+<script type="math/tex; mode=display">
+distance = \frac{|w^Tx + b|}{||w||}</script><p>找到具有最小间隔的数据点，再对该间隔最大化：</p>
+<script type="math/tex; mode=display">
+\mathop{\arg\max}_{(w,b)}\{\min_n \ label·\frac{(w^Tx+b)}{||w||}\}</script><p>转化后的优目标函数：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\max_\alpha[\sum_{i=1}^m\alpha-\frac{1}{2}\sum_{i,j=1}^{m}&label^{(i)}·label^{(j)}·\alpha_i·\alpha_j·<x^{(i)},x^{(j)}>] \\\\
+st. \ &\alpha\geq0\\
+&\sum_{i-1}^m\alpha_i·label^{(i)}=0
+\end{align}</script><p>引入松弛变量后约束条件变为：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+st. \ &C\geq\alpha\geq0\\&\sum_{i-1}^m\alpha_i·label^{(i)}=0
+\end{align}</script><h2 id="利用SVM模型进行文本分类"><a href="#利用SVM模型进行文本分类" class="headerlink" title="利用SVM模型进行文本分类"></a>利用SVM模型进行文本分类</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> svm</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getData</span><span class="params">()</span>:</span></span><br><span class="line">    iris = datasets.load_iris()</span><br><span class="line">    X = iris.data  <span class="comment">#样本特征矩阵，150*4矩阵，每行一个样本，每个样本维度是4</span></span><br><span class="line">    y = iris.target  <span class="comment">#样本类别矩阵，150维行向量，每个元素代表一个样本的类别</span></span><br><span class="line"></span><br><span class="line">    df = pd.DataFrame(X, columns=[<span class="string">'SepalLengthCm'</span>, <span class="string">'SepalWidthCm'</span>, <span class="string">'PetalLengthCm'</span>, <span class="string">'PetalWidthCm'</span>])</span><br><span class="line">    df[<span class="string">'target'</span>] = y</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> df</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df = getData()</span><br><span class="line"><span class="comment"># 效果太好，只取前两个属性</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(df.iloc[:, <span class="number">0</span>:<span class="number">2</span>], df[<span class="string">'target'</span>], test_size=<span class="number">0.3</span>, random_state=<span class="number">42</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">model = svm.SVC()</span><br><span class="line">model.fit(X_train, y_train)</span><br><span class="line">predict = model.predict(X_test)</span><br><span class="line"></span><br><span class="line">print(predict - y_test.values)</span><br></pre></td></tr></table></figure>
+<pre><code>[ 0  0  0  0  1  0  0  0  0  0  0  0  0  0  0  1  0  0  0  0  0 -1  0  0
+  0  0  0  0  0  0  0  0  1  0  0 -1  1  0  0  0 -1  1  1  0  0]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">count = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(predict)):</span><br><span class="line">    <span class="keyword">if</span> predict[i] == y_test.values[i]:</span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line">score = float(count) / len(predict)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'SVM准确率: %3f'</span> % (score))</span><br><span class="line">print(<span class="string">'SVM模型得分: &#123;:.3f&#125;'</span>.format(model.score(X_test, y_test)))</span><br></pre></td></tr></table></figure>
+<pre><code>SVM准确率: 0.800000
+SVM模型得分: 0.800
+</code></pre><h2 id="pLSA、共轭先验分布"><a href="#pLSA、共轭先验分布" class="headerlink" title="pLSA、共轭先验分布"></a>pLSA、共轭先验分布</h2><h3 id="LSA（Latent-semantic-analysis，隐性语义分析）"><a href="#LSA（Latent-semantic-analysis，隐性语义分析）" class="headerlink" title="LSA（Latent semantic analysis，隐性语义分析）"></a>LSA（Latent semantic analysis，隐性语义分析）</h3><p>对词-文档共现矩阵进行 SVD，从而得到词和文档映射到抽象出的 topic 上的向量表示。</p>
+<p>LSA 通过将词映射到 topic 上得到 distributional representation（词的分布表示），进而缓解文档检索、文档相似度计算等任务中所面临的<strong>同义词（多词一义）</strong>问题。</p>
+<p>LSA 这种将词映射到 topic 上的向量表示，很难去应对<strong>一词多义</strong>问题</p>
+<h3 id="pLSA（Probabilistic-latent-semantic-analysis，概率隐性语义分析）"><a href="#pLSA（Probabilistic-latent-semantic-analysis，概率隐性语义分析）" class="headerlink" title="pLSA（Probabilistic latent semantic analysis，概率隐性语义分析）"></a>pLSA（Probabilistic latent semantic analysis，概率隐性语义分析）</h3><p>pLSA 模型是有向图模型，将主题作为隐变量，构建了一个简单的贝叶斯网络，采用EM算法估计模型参数。相比于  LSA 略显“随意”的 SVD，pLSA 的统计基础更为牢固。</p>
+<p>相比于 LDA 模型里涉及先验分布，pLSA 模型相对简单：观测变量为文档 $d_m\in D$ （文档集共 $M$ 篇文档）、词 $w_n\in W$ （设词汇表共有 $V$ 个互不相同的词），隐变量为主题 $z_k\in Z$ （共 $K$ 个主题）。在给定文档集后，我们可以得到一个词-文档共现矩阵，每个元素 $n(d_m,w_n)$  表示的是词 $w_n$ 在文档 $d_m$ 中的词频。</p>
+<p>pLSA 模型也是基于<strong>词-文档共现矩阵</strong>的，不考虑词序。</p>
+<p>pLSA 模型通过以下过程来生成文档（记号里全部省去了对参数的依赖）：</p>
+<ol>
+<li>以概率 $P(d_m)​$ 选择一篇文档 $d_m​$</li>
+<li>以概率 $P(z_k|d_m)​$ 得到一个主题 $z_k​$</li>
+<li>以概率 $P(w_n|z_k)​$ 生成一个词 $w_n​$</li>
+</ol>
+<p>概率图模型如下所示:</p>
+<p><img src="/2019/03/09/NLPtask4/pic1.png" alt=""></p>
+<p>图里面的浅色节点代表不可观测的隐变量，方框是指变量重复，内部方框表示的是文档 $d_m$ 的长度是 $N$，外部方框表示的是文档集共 $M$ 篇文档。pLSA 模型的参数 $\theta$ 显而易见就是：$K×M$ 个 $P(z_k|d_m)$ 、$V×K$ 个 $P(w_n|z_k)$ 。$P(z_k|d_m)$ 表征的是给定文档在各个主题下的分布情况，文档在全部主题上服从多项式分布（共 M 个）；$P(w_n|z_k)$ 则表征给定主题的词语分布情况，主题在全部词语上服从多项式分布（共 $K$ 个）。</p>
+<h3 id="共轭先验分布"><a href="#共轭先验分布" class="headerlink" title="共轭先验分布"></a>共轭先验分布</h3><p>用于计算后验概率的式子：</p>
+<script type="math/tex; mode=display">
+\pi(\theta|x)=\frac{h(x,\theta)}{m(x)}=\frac{p(x|\theta)\pi(\theta)}{\int_\theta p(x|\theta)\pi(\theta)d\theta}</script><p>有时我们将 $p(x|\theta)$ 称为似然函数，先验概率 $pi(\theta)$ 和似然函数的乘积，然后归一化得到后验概率 $p(\theta|x)$。共轭先验的定义为：如果后验概率分布和先验概率分布有相同的形式(如同为指数族分布)，则后验概率分布和先验概率分布统称共轭分布。那么先验概率 $\pi(\theta)$ 称为似然函数的共轭先验。</p>
+<h2 id="LDA主题模型原理"><a href="#LDA主题模型原理" class="headerlink" title="LDA主题模型原理"></a>LDA主题模型原理</h2><h3 id="LDA（Latent-Dirichlet-allocation，隐狄利克雷分配）"><a href="#LDA（Latent-Dirichlet-allocation，隐狄利克雷分配）" class="headerlink" title="LDA（Latent Dirichlet allocation，隐狄利克雷分配）"></a>LDA（Latent Dirichlet allocation，隐狄利克雷分配）</h3><p>LDA 将模型参数视作随机变量，将多项式分布的共轭先验（也就是 Dirichlet分布）作为参数的先验分布，并使用Gibbs sampling方法对主题进行采样。</p>
+<p><img src="/2019/03/09/NLPtask4/pic2.png" alt=""></p>
+<h2 id="使用LDA生成主题特征，在之前特征的基础上加入主题特征进行文本分类"><a href="#使用LDA生成主题特征，在之前特征的基础上加入主题特征进行文本分类" class="headerlink" title="使用LDA生成主题特征，在之前特征的基础上加入主题特征进行文本分类"></a>使用LDA生成主题特征，在之前特征的基础上加入主题特征进行文本分类</h2><p>参考资料<br><a href="https://www.cnblogs.com/Determined22/p/7237111.html" target="_blank" rel="noopener">NLP —— 图模型（三）pLSA（Probabilistic latent semantic analysis，概率隐性语义分析）模型</a><br><a href="https://blog.csdn.net/Love_wanling/article/details/72872180" target="_blank" rel="noopener">深入浅出讲解LDA主题模型</a></p>
+
+      
+    </div>
+    
+    
+    
+	
+	<div>
+		
+		<div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+
+</div>
+		
+	</div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您的支持将是我前进的动力！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Skye Lan 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Skye Lan 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/07/NLPtask3/" rel="next" title="特征选择">
+                <i class="fa fa-chevron-left"></i> 特征选择
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/09/compare/" rel="prev" title="各种算法的优缺点">
+                各种算法的优缺点 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Skye Lan</p>
+              <p class="site-description motion-element" itemprop="description">一位乐观Coder的小站</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#朴素贝叶斯的原理"><span class="nav-number">1.</span> <span class="nav-text">朴素贝叶斯的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用朴素贝叶斯模型进行文本分类"><span class="nav-number">2.</span> <span class="nav-text">利用朴素贝叶斯模型进行文本分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SVM的原理"><span class="nav-number">3.</span> <span class="nav-text">SVM的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用SVM模型进行文本分类"><span class="nav-number">4.</span> <span class="nav-text">利用SVM模型进行文本分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pLSA、共轭先验分布"><span class="nav-number">5.</span> <span class="nav-text">pLSA、共轭先验分布</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LSA（Latent-semantic-analysis，隐性语义分析）"><span class="nav-number">5.1.</span> <span class="nav-text">LSA（Latent semantic analysis，隐性语义分析）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pLSA（Probabilistic-latent-semantic-analysis，概率隐性语义分析）"><span class="nav-number">5.2.</span> <span class="nav-text">pLSA（Probabilistic latent semantic analysis，概率隐性语义分析）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#共轭先验分布"><span class="nav-number">5.3.</span> <span class="nav-text">共轭先验分布</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LDA主题模型原理"><span class="nav-number">6.</span> <span class="nav-text">LDA主题模型原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LDA（Latent-Dirichlet-allocation，隐狄利克雷分配）"><span class="nav-number">6.1.</span> <span class="nav-text">LDA（Latent Dirichlet allocation，隐狄利克雷分配）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用LDA生成主题特征，在之前特征的基础上加入主题特征进行文本分类"><span class="nav-number">7.</span> <span class="nav-text">使用LDA生成主题特征，在之前特征的基础上加入主题特征进行文本分类</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Skye Lan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("NY2NqdWXz7RHDaYF2Hx5c8Qr-gzGzoHsz", "dO0yaYq84mJRLVvJj54jcI7a");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
