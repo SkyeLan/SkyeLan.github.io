@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="卷积运算卷积运算的定义我们称 $(f*g)(n)$ 为 $f,g$ 的卷积。 其连续定义为：  (f*g)(n) = \int_{-\infty}^\infty f(\tau)g(n-\tau)d\tau其离散定义为：  (f*g)(n) =\sum_{\tau =-\infty}^\infty f(\tau)g(n-\tau)这两个式子有一个共同的特征：  令 $x=\tau ,y=n-\tau">
+<meta property="og:type" content="article">
+<meta property="og:title" content="卷积神经网络">
+<meta property="og:url" content="http://yoursite.com/2019/03/14/NLPtask7/index.html">
+<meta property="og:site_name" content="Skye的博客小站">
+<meta property="og:description" content="卷积运算卷积运算的定义我们称 $(f*g)(n)$ 为 $f,g$ 的卷积。 其连续定义为：  (f*g)(n) = \int_{-\infty}^\infty f(\tau)g(n-\tau)d\tau其离散定义为：  (f*g)(n) =\sum_{\tau =-\infty}^\infty f(\tau)g(n-\tau)这两个式子有一个共同的特征：  令 $x=\tau ,y=n-\tau">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic1.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic2.gif">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic3.gif">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic2.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic3.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic4.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic5.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic6.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic7.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic8.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic9.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic10.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic11.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic12.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic13.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic14.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic16.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic17.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic15.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic18.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic19.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic20.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic21.png">
+<meta property="og:updated_time" content="2019-03-15T11:04:00.553Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="卷积神经网络">
+<meta name="twitter:description" content="卷积运算卷积运算的定义我们称 $(f*g)(n)$ 为 $f,g$ 的卷积。 其连续定义为：  (f*g)(n) = \int_{-\infty}^\infty f(\tau)g(n-\tau)d\tau其离散定义为：  (f*g)(n) =\sum_{\tau =-\infty}^\infty f(\tau)g(n-\tau)这两个式子有一个共同的特征：  令 $x=\tau ,y=n-\tau">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Skye'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/14/NLPtask7/"/>
+
+
+
+
+
+  <title>卷积神经网络 | Skye的博客小站</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Skye的博客小站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/14/NLPtask7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Skye Lan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Skye的博客小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">卷积神经网络</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-14T13:34:16+08:00">
+                2019-03-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/14/NLPtask7/" class="leancloud_visitors" data-flag-title="卷积神经网络">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+				 <span>℃</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4.1k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  14 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="卷积运算"><a href="#卷积运算" class="headerlink" title="卷积运算"></a>卷积运算</h2><h3 id="卷积运算的定义"><a href="#卷积运算的定义" class="headerlink" title="卷积运算的定义"></a>卷积运算的定义</h3><p>我们称 $(f*g)(n)$ 为 $f,g$ 的卷积。</p>
+<p>其连续定义为：</p>
+<script type="math/tex; mode=display">
+(f*g)(n) = \int_{-\infty}^\infty f(\tau)g(n-\tau)d\tau</script><p>其离散定义为：</p>
+<script type="math/tex; mode=display">
+(f*g)(n) =\sum_{\tau =-\infty}^\infty f(\tau)g(n-\tau)</script><p>这两个式子有一个共同的特征：</p>
+<p><img src="/2019/03/14/NLPtask7/pic1.png" alt=""></p>
+<p>令 $x=\tau ,y=n-\tau$  ，那么 $x+y=n$ 就是下面这些直线：</p>
+<p><img src="/2019/03/14/NLPtask7/pic2.gif" alt=""></p>
+<p>如果遍历这些直线，就好比，把毛巾沿着角卷起来：</p>
+<p><img src="/2019/03/14/NLPtask7/pic3.gif" alt=""></p>
+<h4 id="离散卷积的例子：丢骰子"><a href="#离散卷积的例子：丢骰子" class="headerlink" title="离散卷积的例子：丢骰子"></a>离散卷积的例子：丢骰子</h4><p>假设有两个骰子，点数加起来等于4的概率是多少？</p>
+<p><img src="/2019/03/14/NLPtask7/pic2.png" alt=""></p>
+<p>两枚骰子点数加起来为4的概率为：$f(1)g(3)+f(2)g(2)+f(3)g(1)$</p>
+<p>符合卷积的定义，把它写成标准的形式就是：$\displaystyle (f*g)(4)=\sum _{m=1}^{3}f(4-m)g(m)$</p>
+<h4 id="连续卷积的例子：做馒头"><a href="#连续卷积的例子：做馒头" class="headerlink" title="连续卷积的例子：做馒头"></a>连续卷积的例子：做馒头</h4><p>假设馒头的生产速度是 $f(t)$ ，那么一天后生产出来的馒头总量为：$\int _{0}^{24}f(t)dt$</p>
+<p>馒头生产出来之后，就会慢慢腐败，假设腐败函数为 $g(t) $，比如，10个馒头，24小时会腐败：$10*g(t)$</p>
+<p>想想就知道，第一个小时生产出来的馒头，一天后会经历24小时的腐败，第二个小时生产出来的馒头，一天后会经历23小时的腐败。</p>
+<p>如此，我们可以知道，一天后，馒头总共腐败了：$\int _{0}^{24}f(t)g(24-t)dt$</p>
+<p>这就是连续的卷积。</p>
+<h3 id="卷积运算的动机"><a href="#卷积运算的动机" class="headerlink" title="卷积运算的动机"></a>卷积运算的动机</h3><p>卷积运算通过三个重要的思想来帮助改进机器学习系统：稀疏交互（sparse interactions）、参数共享（parameter sharing）、等变表示（equivariant representations）。另外，卷积提供了一种处理大小可变的输入的方法。</p>
+<h4 id="稀疏交互"><a href="#稀疏交互" class="headerlink" title="稀疏交互"></a>稀疏交互</h4><p>卷积网络具有<strong>稀疏交互</strong>（也叫<strong>稀疏连接</strong>或者<strong>稀疏权重</strong>）的特征。</p>
+<p>假设一个神经网络中有$m$个输入、$n$个输出。那么对于全连接的矩阵相乘则需要$m<em>n$个参数。如果输出的连接数被设定为$j$个，那么采用稀疏连接则只需要$j</em>n$个参数。在许多情景中，在连接数被设定为$j$，且$j$比$m$要小得多的情况下，机器学习应用的速度获得大幅度的提升，并且仍然能保持较好的效果。 </p>
+<p>稀疏的图形化解释如图9.2和图9.3所示。在深度卷积网络中，处在网络深层的单元可能与绝大部分输入是间接交互的，如图9.4所示。这允许网络可以通过只描述稀疏交互的基石来高效地描述多个变量的复杂交互。</p>
+<p><img src="/2019/03/14/NLPtask7/pic3.png" alt=""></p>
+<p><img src="/2019/03/14/NLPtask7/pic4.png" alt=""></p>
+<p><img src="/2019/03/14/NLPtask7/pic5.png" alt=""></p>
+<p>卷积网络通过采用稀疏连接的方法减少了需要存储的参数（权重）的数量，减少了机器学习模型所需要的存储空间，从而提升了模型的统计效率。从计算方面来看，较少的参数数量意味着计算输出时需要更少的参数，从而计算效率也得到大幅提升。</p>
+<h4 id="参数共享"><a href="#参数共享" class="headerlink" title="参数共享"></a>参数共享</h4><p>参数共享是紧接着稀疏连接而来的，<strong>参数共享</strong>是指在一个模型的多个函数中使用相同的参数。这个共享的参数通常是权重，即共享权重（Shared Weight）。在传统的神经网络中，每个权重被使用一次。而使用共享权重，一个输入位置的参数值也会被应用在其他的输入位置。在卷积网络中，通过参数共享，一个卷积核内的参数会被应用在输入的所有位置。 </p>
+<p>下图演示了参数共享时如何实现的。</p>
+<p><img src="/2019/03/14/NLPtask7/pic6.png" alt=""></p>
+<h4 id="等变表示"><a href="#等变表示" class="headerlink" title="等变表示"></a>等变表示</h4><p>对于卷积来说，参数共享的特殊形式使得神经网络层具有了对平移等变（Equivariance）的性质。一个函数满足输入改变，那么输出也以同样的方式改变这一个性质，那么这个函数就是等变的。即<strong>输入发生变化输出也相应发生同样的变化</strong>。 </p>
+<p>如果$f(g(x))=g(f(x))$，那么函数$f(x)$对于变换$g$具有等变性。在卷积网络中，令$g$是输入的任意平移函数，那么卷积函数对于$g$具有等变性。</p>
+<p>举例，令$I$表示图像在整数坐标上的亮度函数，$g$表示图像函数的变换函数，即把一个图像映射到另一个图像函数的函数。令$I’=g(I)$，图像函数$I’$满足$I’(x,y)=I(x-1,y)$。上述函数所做的变换就是将$I$中的每一个像素均向右移动一个单位。如果先对图像$I$施加变换，再进行卷积操作$f$，结果等同于对图像$I$的卷积施加变换。也就是说，如果图像中的目标发生了一定的位移之后，卷积输出的表达也会产生相同的位移。这个特征对于作用在一个相对小区域的算子十分有用。</p>
+<h3 id="卷积运算的计算"><a href="#卷积运算的计算" class="headerlink" title="卷积运算的计算"></a>卷积运算的计算</h3><h4 id="二维卷积"><a href="#二维卷积" class="headerlink" title="二维卷积"></a>二维卷积</h4><p><img src="/2019/03/14/NLPtask7/pic7.png" alt=""></p>
+<p>图中的输入的数据维度为$14×14$，过滤器大小为$5×5$，二者做卷积，输出的数据维度为$10×10（14−5+1=10）$。</p>
+<p>上述内容没有引入$channel$的概念，也可以说$channel$的数量为$1$。如果将二维卷积中输入的$channel$的数量变为$3$，即输入的数据维度变为$（14×14×3）$。由于卷积操作中过滤器的$channel$数量必须与输入数据的$channel$数量相同，过滤器大小也变为$5×5×3$。在卷积的过程中，过滤器与数据在$channel$方向分别卷积，之后将卷积后的数值相加，即执行$10×10$次$3$个数值相加的操作，最终输出的数据维度为$10×10$。</p>
+<p>以上都是在过滤器数量为$1$的情况下所进行的讨论。如果将过滤器的数量增加至$16$，即$16$个大小为$10×10×3$的过滤器，最终输出的数据维度就变为$10×10×16$。可以理解为分别执行每个过滤器的卷积操作，最后将每个卷积的输出在第三个维度（$channel$ 维度）上进行拼接。</p>
+<p><strong>二维卷积常用于计算机视觉、图像处理领域</strong>。</p>
+<h4 id="一维卷积"><a href="#一维卷积" class="headerlink" title="一维卷积"></a>一维卷积</h4><p><img src="/2019/03/14/NLPtask7/pic8.png" alt=""></p>
+<p>图中的输入的数据维度为$8$，过滤器的维度为$5$。与二维卷积类似，卷积后输出的数据维度为$8−5+1=4$。</p>
+<p>如果过滤器数量仍为$1$，输入数据的$channel$数量变为$16$，即输入数据维度为$8×16$。这里$channel$的概念相当于自然语言处理中的embedding，而该输入数据代表$8$个单词，其中每个单词的词向量维度大小为$16$。在这种情况下，过滤器的维度由$5$变为$5×16$，最终输出的数据维度仍为$4$。</p>
+<p>如果过滤器数量为$n$，那么输出的数据维度就变为$4×n​$。</p>
+<p><strong>一维卷积常用于序列模型，自然语言处理领域</strong>。</p>
+<h4 id="三维卷积"><a href="#三维卷积" class="headerlink" title="三维卷积"></a>三维卷积</h4><p><img src="/2019/03/14/NLPtask7/pic9.png" alt=""></p>
+<p>这里采用代数的方式对三维卷积进行介绍，具体思想与一维卷积、二维卷积相同。</p>
+<p>假设输入数据的大小为$a_1×a_2×a_3$，$channel$数为$c$，过滤器大小为$f$，即过滤器维度为$f×f×f×c$（一般不写$channel$的维度），过滤器数量为$n$。</p>
+<p>基于上述情况，三维卷积最终的输出为$(a_1−f+1)×(a_2−f+1)×(a_3−f+1)×n$。该公式对于一维卷积、二维卷积仍然有效，只有去掉不相干的输入数据维度就行。</p>
+<p><strong>三维卷积常用于医学领域（CT影响），视频处理领域（检测动作及人物行为）</strong>。</p>
+<h2 id="反卷积-tf-nn-conv2d-transpose"><a href="#反卷积-tf-nn-conv2d-transpose" class="headerlink" title="反卷积(tf.nn.conv2d_transpose)"></a>反卷积(tf.nn.conv2d_transpose)</h2><p>反卷积（Deconvolution）又称为 Transposed Convolution，其实卷积层的前向传播过程就是反卷积层的反向传播过程，卷积层的反向传播过程就是反卷积层的前向传播过程。</p>
+<h2 id="池化运算"><a href="#池化运算" class="headerlink" title="池化运算"></a>池化运算</h2><p>在通过卷积获得了特征 (features) 之后，下一步我们希望利用这些特征去做分类。理论上讲，人们可以用所有提取得到的特征去训练分类器，例如 softmax 分类器，但这样做面临计算量的挑战。例如：对于一个 $96X96$ 像素的图像，假设我们已经学习得到了$400$个定义在$8X8$输入上的特征，每一个特征和图像卷积都会得到一个$ (96 − 8 + 1) <em> (96 − 8 + 1) = 7921 $维的卷积特征，由于有$ 400$ 个特征，所以每个样例 (example) 都会得到一个$ 892 </em> 400 = 3,168,400$ 维的卷积特征向量。学习一个拥有超过 3 百万特征输入的分类器十分不便，并且容易出现过拟合 (over-fitting)。</p>
+<p>之所以决定使用卷积后的特征是因为图像具有一种“静态性”的属性，这也就意味着在一个图像区域有用的特征极有可能在另一个区域同样适用。因此，为了描述大的图像，一个很自然的想法就是对不同位置的特征进行聚合统计，例如，人们可以计算图像一个区域上的某个特定特征的平均值 (或最大值)。这些概要统计特征不仅具有低得多的维度 (相比使用所有提取得到的特征)，同时还会改善结果(不容易过拟合)。这种聚合的操作就叫做<strong>池化 (pooling)</strong>，有时也称为平均池化或者最大池化 (取决于计算池化的方法)。</p>
+<p><strong>pooling层对filters的抽取结果进行降维操作，获得样本的重要特征，为下一次的卷积增加感受野的大小，逐渐减小＂分辨率＂, 为最后的全连接做准备。</strong>pooling层是CNN中用来减小尺寸，提高运算速度的，同样能减小噪声的影响，让各特征更具有健壮性。降维操作方式的不同产生不同的池化方法。一般在pooling层之后连接全连接神经网络，形成最后的分类结果。</p>
+<h3 id="池化运算的种类"><a href="#池化运算的种类" class="headerlink" title="池化运算的种类"></a>池化运算的种类</h3><p>常用的有mean-pooling，max-pooling和Stochastic-pooling三种。</p>
+<h4 id="mean-pooling"><a href="#mean-pooling" class="headerlink" title="mean-pooling"></a>mean-pooling</h4><p>mean-pooling，即对邻域内特征点只求平均，对背景保留更好。</p>
+<h4 id="max-pooling"><a href="#max-pooling" class="headerlink" title="max-pooling"></a>max-pooling</h4><p>max-pooling，即对邻域内特征点取最大，对纹理提取更好。</p>
+<h4 id="Stochastic-pooling"><a href="#Stochastic-pooling" class="headerlink" title="Stochastic-pooling"></a>Stochastic-pooling</h4><p>Stochastic-pooling，介于两者之间，通过对像素点按照数值大小赋予概率，再按照概率进行亚采样。</p>
+<p><img src="/2019/03/14/NLPtask7/pic10.png" alt=""></p>
+<h3 id="池化的作用"><a href="#池化的作用" class="headerlink" title="池化的作用"></a>池化的作用</h3><ol>
+<li><strong>保留主要特征</strong>的同时<strong>减少参数（降低纬度，类似PCA）和计算量</strong>，<strong>防止过拟合</strong></li>
+<li><strong>invariance(不变性)</strong>，这种不变性包括translation（平移），rotation（旋转），scale（尺度）<h4 id="translation-invariance-（平移）："><a href="#translation-invariance-（平移）：" class="headerlink" title="translation invariance （平移）："></a>translation invariance （平移）：</h4>这里举一个直观的例子(数字识别)，假设有一个16x16的图片，里面有个数字1，我们需要识别出来，这个数字1可能写的偏左一点(图1)，这个数字1可能偏右一点(图2)，图1到图2相当于向右平移了一个单位，但是图1和图2经过max pooling之后它们都变成了相同的$8x8$特征矩阵，主要的特征我们捕获到了，同时又将问题的规模从$16x16$降到了$8x8$，而且具有平移不变性的特点。图中的a（或b）表示，在原始图片中的这些a（或b）位置，最终都会映射到相同的位置。</li>
+</ol>
+<p><img src="/2019/03/14/NLPtask7/pic11.png" alt=""></p>
+<h4 id="rotation-invariance-（旋转）："><a href="#rotation-invariance-（旋转）：" class="headerlink" title="rotation invariance （旋转）："></a>rotation invariance （旋转）：</h4><p>下图表示汉字“一”的识别，第一张相对于x轴有倾斜角，第二张是平行于x轴，两张图片相当于做了旋转，经过多次max pooling后具有相同的特征。</p>
+<p><img src="/2019/03/14/NLPtask7/pic12.png" alt=""></p>
+<h4 id="scale-invariance-（尺度）："><a href="#scale-invariance-（尺度）：" class="headerlink" title="scale invariance （尺度）："></a>scale invariance （尺度）：</h4><p>下图表示数字“0”的识别，第一张的“0”比较大，第二张的“0”进行了较小，相当于作了缩放，同样地，经过多次max pooling后具有相同的特征。</p>
+<p><img src="/2019/03/14/NLPtask7/pic13.png" alt=""></p>
+<h2 id="Text-CNN的原理"><a href="#Text-CNN的原理" class="headerlink" title="Text-CNN的原理"></a>Text-CNN的原理</h2><h3 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h3><p>整个模型由四部分构成：输入层、卷积层、池化层、全连接层。</p>
+<p><img src="/2019/03/14/NLPtask7/pic14.png" alt=""></p>
+<h4 id="输入层-嵌入层-embedding-layer"><a href="#输入层-嵌入层-embedding-layer" class="headerlink" title="输入层/嵌入层(embedding layer)"></a>输入层/嵌入层(embedding layer)</h4><p>Text-CNN模型的输入层需要输入一个定长的文本序列，需要通过分析语料集样本的长度指定一个输入序列的长度$L$，比$L$短的样本序列需要填充(自己定义填充符)，比$L$长的序列需要截取。最终输入层输入的是文本序列中各个词汇对应的分布式表示，即词向量。</p>
+<p>几个变种的词向量的表达方式：</p>
+<ol>
+<li>static（静态词向量）<br>使用预训练的词向量，即利用word2vec、fastText或者Glove等词向量工具，在开放领域数据上进行无监督的学习，获得词汇的具体词向量表示方式，拿来直接作为输入层的输入，并且在TextCNN模型训练过程中不再调整词向量， 这属于迁移学习在NLP领域的一种具体的应用。</li>
+<li>non-static（非静态词向量）<br>预训练的词向量+ 动态调整 , 即拿word2vec训练好的词向量初始化, 训练过程中再对词向量进行微调。</li>
+<li>multiple channel（多通道）<br>借鉴图像中的RGB三通道的思想， 这里也可以用 static 与 non-static 两种词向量初始化方式来搭建两个通道。</li>
+<li>CNN-rand（随机初始化）<br>指定词向量的维度embedding_size后，文本分类模型对不同单词的向量作随机初始化, 后续有监督学习过程中，通过BP的方向更新输入层的各个词汇对应的词向量。</li>
+</ol>
+<h4 id="卷积-convolution"><a href="#卷积-convolution" class="headerlink" title="卷积(convolution)"></a>卷积(convolution)</h4><p>在NLP领域一般卷积核只进行一维的滑动，即卷积核的宽度与词向量的维度等宽，卷积核只进行<strong>一维</strong>的滑动。</p>
+<p>在Text-CNN模型中一般<strong>使用多个不同尺寸的卷积核</strong>。卷积核的高度，即窗口值，可以理解为N-gram模型中的N，即利用的局部词序的长度，窗口值也是一个超参数，需要在任务中尝试，一般选取2-8之间的值。</p>
+<p><img src="/2019/03/14/NLPtask7/pic16.png" alt=""></p>
+<h4 id="池化-pooling"><a href="#池化-pooling" class="headerlink" title="池化(pooling)"></a>池化(pooling)</h4><p>在Text-CNN模型的池化层中使用了Max-pool（最大值池化），即<strong>减少模型的参数</strong>，又保证了在不定长的卷基层的输出上获得一个<strong>定长的全连接层的输入</strong>。</p>
+<p><img src="/2019/03/14/NLPtask7/pic17.png" alt=""></p>
+<blockquote>
+<p>池化层除了最大值池化之外，也有论文讨论过 Top K最大值池化，即选取每一个卷积层输出的Top k个最大值作为池化层的输出。</p>
+</blockquote>
+<p>卷积层与池化层在分类模型的核心作用就是提取特征，从输入的定长文本序列中，利用局部词序信息，提取初级的特征，并组合初级的特征为高级特征，通过卷积与池化操作，省去了传统机器学习中的特征工程的步骤。</p>
+<p>但TextCNN的一个明显<strong>缺点</strong>就是，卷积、池化操作<strong>丢失</strong>了文本序列中的词汇的<strong>顺序、位置信息</strong>，比较难以捕获文本序列中的<strong>否定、反义等语义信息</strong>。</p>
+<h4 id="全连接层"><a href="#全连接层" class="headerlink" title="全连接层"></a>全连接层</h4><p>全连接层的作用就是<strong>分类器</strong>，原始的Text-CNN模型使用了只有一层隐藏层的全连接网络，相当于把卷积与池化层提取的特征输入到一个<strong>LR分类器</strong>中进行分类。</p>
+<h3 id="TextCNN的详细过程原理图如下："><a href="#TextCNN的详细过程原理图如下：" class="headerlink" title="TextCNN的详细过程原理图如下："></a>TextCNN的详细过程原理图如下：</h3><p><img src="/2019/03/14/NLPtask7/pic15.png" alt=""></p>
+<p>TextCNN详细过程：</p>
+<ul>
+<li><strong>Embedding</strong>：第一层是图中最左边的 $7 \times 5$ 的句子矩阵，每行是词向量，维度为$5$，这个可以类比为图像中的原始像素点。</li>
+<li><strong>Convolution</strong>：然后经过 $kernel_sizes=(2,3,4)$ 的一维卷积层，每个 $kernel_size$ 有两个输出 $channel$。</li>
+<li><strong>MaxPolling</strong>：第三层是一个$1-max pooling$ 层，这样不同长度句子经过 $pooling$ 层之后都能变成定长的表示。</li>
+<li><strong>Full-Connection and Softmax</strong>：最后接一层全连接的 $softmax$ 层，输出每个类别的概率。</li>
+</ul>
+<h2 id="利用Text-CNN模型来进行文本分类"><a href="#利用Text-CNN模型来进行文本分类" class="headerlink" title="利用Text-CNN模型来进行文本分类"></a>利用Text-CNN模型来进行文本分类</h2><h3 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h3><p><img src="/2019/03/14/NLPtask7/pic18.png" alt=""></p>
+<h3 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h3><p><img src="/2019/03/14/NLPtask7/pic19.png" alt=""></p>
+<h3 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h3><p><img src="/2019/03/14/NLPtask7/pic20.png" alt=""></p>
+<h3 id="评估"><a href="#评估" class="headerlink" title="评估"></a>评估</h3><p><img src="/2019/03/14/NLPtask7/pic21.png" alt=""></p>
+
+      
+    </div>
+    
+    
+    
+	
+	<div>
+		
+		<div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+
+</div>
+		
+	</div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您的支持将是我前进的动力！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Skye Lan 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Skye Lan 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/12/NLPtask6/" rel="next" title="简单神经网络">
+                <i class="fa fa-chevron-left"></i> 简单神经网络
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Skye Lan</p>
+              <p class="site-description motion-element" itemprop="description">一位乐观Coder的小站</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#卷积运算"><span class="nav-number">1.</span> <span class="nav-text">卷积运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#卷积运算的定义"><span class="nav-number">1.1.</span> <span class="nav-text">卷积运算的定义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#离散卷积的例子：丢骰子"><span class="nav-number">1.1.1.</span> <span class="nav-text">离散卷积的例子：丢骰子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#连续卷积的例子：做馒头"><span class="nav-number">1.1.2.</span> <span class="nav-text">连续卷积的例子：做馒头</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卷积运算的动机"><span class="nav-number">1.2.</span> <span class="nav-text">卷积运算的动机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#稀疏交互"><span class="nav-number">1.2.1.</span> <span class="nav-text">稀疏交互</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参数共享"><span class="nav-number">1.2.2.</span> <span class="nav-text">参数共享</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#等变表示"><span class="nav-number">1.2.3.</span> <span class="nav-text">等变表示</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卷积运算的计算"><span class="nav-number">1.3.</span> <span class="nav-text">卷积运算的计算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#二维卷积"><span class="nav-number">1.3.1.</span> <span class="nav-text">二维卷积</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一维卷积"><span class="nav-number">1.3.2.</span> <span class="nav-text">一维卷积</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三维卷积"><span class="nav-number">1.3.3.</span> <span class="nav-text">三维卷积</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#反卷积-tf-nn-conv2d-transpose"><span class="nav-number">2.</span> <span class="nav-text">反卷积(tf.nn.conv2d_transpose)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#池化运算"><span class="nav-number">3.</span> <span class="nav-text">池化运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#池化运算的种类"><span class="nav-number">3.1.</span> <span class="nav-text">池化运算的种类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#mean-pooling"><span class="nav-number">3.1.1.</span> <span class="nav-text">mean-pooling</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#max-pooling"><span class="nav-number">3.1.2.</span> <span class="nav-text">max-pooling</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Stochastic-pooling"><span class="nav-number">3.1.3.</span> <span class="nav-text">Stochastic-pooling</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#池化的作用"><span class="nav-number">3.2.</span> <span class="nav-text">池化的作用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#translation-invariance-（平移）："><span class="nav-number">3.2.1.</span> <span class="nav-text">translation invariance （平移）：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rotation-invariance-（旋转）："><span class="nav-number">3.2.2.</span> <span class="nav-text">rotation invariance （旋转）：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scale-invariance-（尺度）："><span class="nav-number">3.2.3.</span> <span class="nav-text">scale invariance （尺度）：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Text-CNN的原理"><span class="nav-number">4.</span> <span class="nav-text">Text-CNN的原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网络结构"><span class="nav-number">4.1.</span> <span class="nav-text">网络结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入层-嵌入层-embedding-layer"><span class="nav-number">4.1.1.</span> <span class="nav-text">输入层/嵌入层(embedding layer)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#卷积-convolution"><span class="nav-number">4.1.2.</span> <span class="nav-text">卷积(convolution)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#池化-pooling"><span class="nav-number">4.1.3.</span> <span class="nav-text">池化(pooling)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全连接层"><span class="nav-number">4.1.4.</span> <span class="nav-text">全连接层</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TextCNN的详细过程原理图如下："><span class="nav-number">4.2.</span> <span class="nav-text">TextCNN的详细过程原理图如下：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用Text-CNN模型来进行文本分类"><span class="nav-number">5.</span> <span class="nav-text">利用Text-CNN模型来进行文本分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据处理"><span class="nav-number">5.1.</span> <span class="nav-text">数据处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型"><span class="nav-number">5.2.</span> <span class="nav-text">模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#训练"><span class="nav-number">5.3.</span> <span class="nav-text">训练</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评估"><span class="nav-number">5.4.</span> <span class="nav-text">评估</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Skye Lan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("NY2NqdWXz7RHDaYF2Hx5c8Qr-gzGzoHsz", "dO0yaYq84mJRLVvJj54jcI7a");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
