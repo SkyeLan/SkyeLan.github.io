@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="RNN的结构RNN结构DNN以及CNN在对样本提取特征的时候，样本与样本之间是独立的，而有些情况是无法把每个输入的样本都看作是独立的，比如基于时间的序列，因此单纯的DNN和CNN解决这类问题就比较棘手。此时RNN就是一种解决这类问题很好的模型。 一个简单的循环神经网络如图所示，它由输入层、一个隐藏层和一个输出层组成：  循环神经网络的隐藏层的值 $s$ 不仅仅取决于当前这次的输入 $x$，还取决于">
+<meta property="og:type" content="article">
+<meta property="og:title" content="循环神经网络">
+<meta property="og:url" content="http://yoursite.com/2019/03/15/NLPtask8/index.html">
+<meta property="og:site_name" content="Skye的博客小站">
+<meta property="og:description" content="RNN的结构RNN结构DNN以及CNN在对样本提取特征的时候，样本与样本之间是独立的，而有些情况是无法把每个输入的样本都看作是独立的，比如基于时间的序列，因此单纯的DNN和CNN解决这类问题就比较棘手。此时RNN就是一种解决这类问题很好的模型。 一个简单的循环神经网络如图所示，它由输入层、一个隐藏层和一个输出层组成：  循环神经网络的隐藏层的值 $s$ 不仅仅取决于当前这次的输入 $x$，还取决于">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/03/15/NLPtask8/pic1.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/15/NLPtask8/pic2.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/15/NLPtask8/pic3.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/15/NLPtask8/pic4.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/15/NLPtask8/pic5.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/15/NLPtask8/pic6.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/15/NLPtask8/pic7.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/15/NLPtask8/pic8.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/15/NLPtask8/pic9.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/15/NLPtask8/pic10.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/15/NLPtask8/pic11.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/15/NLPtask8/pic12.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/15/NLPtask8/pic13.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/15/NLPtask8/pic14.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/15/NLPtask8/pic15.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/15/NLPtask8/pic16.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/15/NLPtask8/pic17.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/15/NLPtask8/pic18.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/15/NLPtask8/pic19.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/15/NLPtask8/pic20.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/15/NLPtask8/pic21.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/15/NLPtask8/pic22.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/15/NLPtask8/pic24.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/15/NLPtask8/pic23.png">
+<meta property="og:updated_time" content="2019-03-17T13:53:05.215Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="循环神经网络">
+<meta name="twitter:description" content="RNN的结构RNN结构DNN以及CNN在对样本提取特征的时候，样本与样本之间是独立的，而有些情况是无法把每个输入的样本都看作是独立的，比如基于时间的序列，因此单纯的DNN和CNN解决这类问题就比较棘手。此时RNN就是一种解决这类问题很好的模型。 一个简单的循环神经网络如图所示，它由输入层、一个隐藏层和一个输出层组成：  循环神经网络的隐藏层的值 $s$ 不仅仅取决于当前这次的输入 $x$，还取决于">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/15/NLPtask8/pic1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Skye'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/15/NLPtask8/"/>
+
+
+
+
+
+  <title>循环神经网络 | Skye的博客小站</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Skye的博客小站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/15/NLPtask8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Skye Lan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Skye的博客小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">循环神经网络</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-15T22:28:08+08:00">
+                2019-03-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/15/NLPtask8/" class="leancloud_visitors" data-flag-title="循环神经网络">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+				 <span>℃</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4.5k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  16 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="RNN的结构"><a href="#RNN的结构" class="headerlink" title="RNN的结构"></a>RNN的结构</h2><h3 id="RNN结构"><a href="#RNN结构" class="headerlink" title="RNN结构"></a>RNN结构</h3><p>DNN以及CNN在对样本提取特征的时候，样本与样本之间是独立的，而有些情况是无法把每个输入的样本都看作是独立的，比如基于时间的序列，因此单纯的DNN和CNN解决这类问题就比较棘手。此时RNN就是一种解决这类问题很好的模型。</p>
+<p>一个简单的<strong>循环神经网络</strong>如图所示，它由输入层、一个隐藏层和一个输出层组成：</p>
+<p><img src="/2019/03/15/NLPtask8/pic1.png" alt=""></p>
+<p>循环神经网络的隐藏层的值 $s$ 不仅仅取决于当前这次的输入 $x$，还取决于上一次隐藏层的值 $s$。权重矩阵 $W$ 就是<strong>隐藏层上一次的值作为这一次的输入的权重</strong>。</p>
+<p>抽象图对应的具体图:</p>
+<p><img src="/2019/03/15/NLPtask8/pic2.png" alt=""></p>
+<p>从上图就能够很清楚的看到，上一时刻的隐藏层是如何影响当前时刻的隐藏层的。</p>
+<p>把上面的图展开，<strong>循环神经网络</strong>也可以画成下图：</p>
+<p><img src="/2019/03/15/NLPtask8/pic3.png" alt=""></p>
+<p>由上图可以看出，RNN的结构是一个重复的过程，且权重 W,U,V 是共享的，这也是借鉴了CNN的思想，可以减少参数量，从而减少计算的复杂度。第 t 时刻隐藏层的输出需要 t-1 时刻的隐藏层的输出，RNN以此来实现信息的传递。</p>
+<p>循环神经网络的计算公式：</p>
+<script type="math/tex; mode=display">
+O_t = g(V*S_t+c) \\
+S_t = f(U*X_t+W*S_{t-1}+b)</script><p><strong>$S_t$ 的值不仅取决于 $X_t$，还取决于 $S_{t-1}$</strong></p>
+<h3 id="RNN反向传播算法推导"><a href="#RNN反向传播算法推导" class="headerlink" title="RNN反向传播算法推导"></a>RNN反向传播算法推导</h3><p>RNN反向传播算法的思路和DNN是一样的，即通过梯度下降法一轮轮的迭代，得到合适的RNN模型参数$U,W,V,b,c$。由于我们是基于时间反向传播，所以RNN的反向传播有时也叫做<strong>BPTT(back-propagation through time)</strong>。当然这里的BPTT和DNN也有很大的不同点，即这里所有的$U,W,V,b,c$在序列的各个位置是共享的，反向传播时我们更新的是相同的参数。</p>
+<p>为了找出模型最好的参数 $U，W，V$，就要知道当前参数得到的结果怎么样，因此就要定义损失函数，用交叉熵损失函数：</p>
+<script type="math/tex; mode=display">
+t时刻的损失：E_t(y_t,\hat y_t) = -y_tlog\hat y_t</script><p>其中 $y_t$ 是 $t$ 时刻的标准答案，是一个只有一个是$1$，其他都是$0$的向量；$\hat y_t$是预测的结果，与$y_t$的维度一样，但它是一个概率向量，里面是每个词出现的概率。因为对结果的影响，肯定不止一个时刻，因此需要把所有时刻的造成的损失都加起来：</p>
+<script type="math/tex; mode=display">
+E(y_t,\hat y_t) = \sum_t E_t(y_t,\hat y_t) = -\sum_t y_tlog\hat y_t</script><p><img src="/2019/03/15/NLPtask8/pic4.png" alt=""></p>
+<p>接下来根据损失函数利用SGD来求解最优参数，在CNN中使用反向传播BP算法来求解最优参数，但在RNN就要用到BPTT，它和BP算法的本质区别，也是CNN和RNN的本质区别：<strong>CNN没有记忆功能，它的输出仅依赖与输入</strong>，但<strong>RNN有记忆功能，它的输出不仅依赖与当前输入，还依赖与当前的记忆</strong>。这个记忆是序列到序列的，也就是当前时刻受到上一时刻的影响。</p>
+<p>因此，在对参数求偏导的时候，对当前时刻求偏导，一定会涉及前一时刻。</p>
+<p><img src="/2019/03/15/NLPtask8/pic5.png" alt=""></p>
+<p>假设我们对 $E_3$ 的 $W$ 求偏导：它的损失首先来源于预测的输出$\hat y_3$，预测的输出又是来源于当前时刻的记忆 $s_3$，当前的记忆又是来源于当前的输出和截止到上一时刻的记忆：$s_3=tanh(Ux_3+Ws_2)$</p>
+<p>因此，根据链式法则可以有:</p>
+<script type="math/tex; mode=display">
+\frac{\partial E_3}{\partial W} = \frac{\partial E_3}{\partial \hat y_3}\frac{\partial \hat y_3}{\partial s_3}\frac{\partial s_3}{\partial W}</script><p>但是，你会发现，$s_2=tanh(Ux_2+Ws_1)$，也就是 $s_2$ 里面的函数还包含了$W$，因此，这个链式法则还没到底，就像图上画的那样，所以真正的链式法则是这样的： </p>
+<script type="math/tex; mode=display">
+\frac{\partial E_3}{\partial W} =\sum_{k=0}^3 \frac{\partial E_3}{\partial \hat y_3}\frac{\partial \hat y_3}{\partial s_3}\frac{\partial s_3}{\partial s_k}\frac{\partial s_k}{\partial W}</script><p>要把当前时刻造成的损失，和以往每个时刻造成的损失加起来，因为每一个时刻都用到了权重参数 $W$。和以往的网络不同，一般的网络，比如人工神经网络，参数是不同享的，但在循环神经网络，和CNN一样，设立了<strong>参数共享</strong>机制，来降低模型的计算量。</p>
+<h3 id="RNN出现的问题"><a href="#RNN出现的问题" class="headerlink" title="RNN出现的问题"></a>RNN出现的问题</h3><p>根据上面部分推出的公式：</p>
+<script type="math/tex; mode=display">
+\frac{\partial E_t}{\partial W} =\sum_{k=0}^t \frac{\partial E_t}{\partial \hat y_t}\frac{\partial \hat y_t}{\partial s_t}\frac{\partial s_t}{\partial s_k}\frac{\partial s_k}{\partial W}</script><p>继续往下展开有：</p>
+<script type="math/tex; mode=display">
+\frac{\partial s_t}{\partial s_k} = \prod_{j=k+1}^{t}\frac{\partial s_j}{\partial s_{j-1}}</script><p>注意到：$S_t = f(U<em>X_t+W</em>S_{t-1}+b) $，上式的每个偏导其实是一个Jacobian式。</p>
+<p><img src="/2019/03/15/NLPtask8/pic6.png" alt=""></p>
+<p>考虑Jacobians的范数，令：</p>
+<script type="math/tex; mode=display">
+||\frac{\partial s_j}{\partial s_{j-1}}|| \leq ||W^T|| * ||diag[f'(s_{j-1})]|| \leq \beta w * \beta h</script><p>其中，$\beta w，\beta h$ 表示正则化的上界。</p>
+<p>将上式回代到连乘的式子得：</p>
+<script type="math/tex; mode=display">
+||\frac{\partial s_t}{\partial s_k}|| = ||\prod_{j=k+1}^{t}\frac{\partial s_j}{\partial s_{j-1}}|| \leq (\beta w * \beta h)^{t-k}</script><p>这里得 $t$ 表示 time-step，也就是序列越长 $t$ 会越大，即就变成了<strong>长期依赖的问题</strong>。注意到 $(\beta_w <em>\beta_h)^{t-k}$ 这项其实与矩阵的 $W$ 的初始化有关，假设初始化一些非常小的数，$W$ 的范数也会变得很小，也就是 $\beta_w$ 会变得比较小，那么随着 $t$ 的增长，这一指数项会趋近于 $0$ 而导致<strong>梯度消失</strong>；相反，如果初始化成为大于1的数，则随着t的增长，会导致<em>*梯度爆炸</em></em>。</p>
+<h2 id="双向RNN"><a href="#双向RNN" class="headerlink" title="双向RNN"></a>双向RNN</h2><p>在经典的循环神经网络中，状态的传输是从前往后单向的。然而，在有些问题中，当前时刻的输出不仅和之前的状态有关系，也和之后的状态相关。这时就需要<strong>双向RNN（BiRNN）</strong>来解决这类问题。例如预测一个语句中缺失的单词不仅需要根据前文来判断，也需要根据后面的内容，这时双向RNN就可以发挥它的作用。</p>
+<p>双向RNN是由两个RNN上下叠加在一起组成的。输出由这两个RNN的状态共同决定。</p>
+<p><img src="/2019/03/15/NLPtask8/pic7.png" alt=""></p>
+<p><img src="/2019/03/15/NLPtask8/pic8.png" alt=""></p>
+<p>从上图可以看出，双向RNN的主题结构就是两个单向RNN的结合。在每一个时刻 $t$，输入会同时提供给这两个方向相反的RNN，而输出则是由这两个单向RNN共同决定（可以拼接或者求和等）。</p>
+<h2 id="递归神经网络"><a href="#递归神经网络" class="headerlink" title="递归神经网络"></a>递归神经网络</h2><p>因为神经网络的输入层单元个数是固定的，因此必须用循环或者递归的方式来处理长度可变的输入。<strong>循环神经网络</strong>实现了前者，通过将长度不定的输入分割为等长度的小块，然后再依次的输入到网络中，从而实现了神经网络对变长输入的处理。一个典型的例子是，当我们处理一句话的时候，我们可以把一句话看作是词组成的序列，然后，每次向循环神经网络输入一个词，如此循环直至整句话输入完毕，循环神经网络将产生对应的输出。如此，我们就能处理任意长度的句子了。</p>
+<p><img src="/2019/03/15/NLPtask8/pic9.png" alt=""></p>
+<p>然而，有时候把句子看做是词的序列是不够的，比如下面这句话『两个外语学院的学生』：</p>
+<p><img src="/2019/03/15/NLPtask8/pic10.png" alt=""></p>
+<p>上图显示了这句话的两个不同的语法解析树。可以看出这句话有歧义，不同的语法解析树则对应了不同的意思。为了能够让模型区分出两个不同的意思，我们的模型必须能够按照树结构去处理信息，而不是序列，这就是<strong>递归神经网络</strong>的作用。当面对按照树/图结构处理信息更有效的任务时，<strong>递归神经网络</strong>通常都会获得不错的结果。</p>
+<p>递归神经网络可以把一个树/图结构信息编码为一个向量，也就是把信息映射到一个语义向量空间中。这个语义向量空间满足某类性质，比如语义相似的向量距离更近。也就是说，如果两句话（尽管内容不同）它的意思是相似的，那么把它们分别编码后的两个向量的距离也相近；反之，如果两句话的意思截然不同，那么编码后向量的距离则很远。如下图所示：</p>
+<p><img src="/2019/03/15/NLPtask8/pic11.png" alt=""></p>
+<p>从上图我们可以看到，<strong>递归神经网络</strong>将所有的词、句都映射到一个2维向量空间中。句子『the country of my birth』和句子『the place where I was born』的意思是非常接近的，所以表示它们的两个向量在向量空间中的距离很近。另外两个词『Germany』和『France』因为表示的都是地点，它们的向量与上面两句话的向量的距离，就比另外两个表示时间的词『Monday』和『Tuesday』的向量的距离近得多。这样，通过向量的距离，就得到了一种语义的表示。</p>
+<p>上图还显示了自然语言<strong>可组合</strong>的性质：词可以组成句、句可以组成段落、段落可以组成篇章，而更高层的语义取决于底层的语义以及它们的组合方式。递归神经网络是一种表示学习，它可以将词、句、段、篇按照他们的语义映射到同一个向量空间中，也就是把可组合（树/图结构）的信息表示为一个个有意义的向量。比如上面这个例子，递归神经网络把句子”the country of my birth”表示为二维向量[1,5]。有了这个『编码器』之后，我们就可以以这些有意义的向量为基础去完成更高级的任务（比如情感分析等）。</p>
+<p>如下图所示，递归神经网络在做情感分析时，可以比较好的处理否定句，这是胜过其他一些模型的：</p>
+<p><img src="/2019/03/15/NLPtask8/pic12.png" alt=""></p>
+<p>在上图中，蓝色表示正面评价，红色表示负面评价。每个节点是一个向量，这个向量表达了以它为根的子树的情感评价。比如”intelligent humor”是正面评价，而”care about cleverness wit or any other kind of intelligent humor”是中性评价。可以看到，模型能够正确的处理doesn’t的含义，将正面评价转变为负面评价。</p>
+<p>尽管递归神经网络具有更为强大的表示能力，但是在实际应用中并<strong>不太流行</strong>。其中一个主要原因是，递归神经网络的<strong>输入是树/图结构</strong>，而这种结构需要<strong>花费很多人工去标注</strong>。如果用循环神经网络，可以直接把句子作为输入。然而，如果用递归神经网络处理，必须把每个句子标注为语法解析树的形式，要花费非常大的精力。很多时候，相对于递归神经网络能够带来的性能提升，这个投入是<strong>不太划算</strong>的。</p>
+<h2 id="LSTM"><a href="#LSTM" class="headerlink" title="LSTM"></a>LSTM</h2><p><strong>长短时记忆网络(Long Short Term Memory Network, LSTM)</strong>的思路比较简单。原始RNN的隐藏层只有一个状态，即$h$，它对于短期的输入非常敏感。假如我们再增加一个状态，即$c$，让它来保存长期的状态，那么问题就解决了。如下图所示：</p>
+<p><img src="/2019/03/15/NLPtask8/pic13.png" alt=""></p>
+<p>新增加的状态c，称为<strong>单元状态(cell state)</strong>。我们把上图按照时间维度展开：</p>
+<p><img src="/2019/03/15/NLPtask8/pic14.png" alt=""></p>
+<p>可以看出，在 $t$ 时刻，LSTM的输入有三个：当前时刻网络的输入值 $x_t$、上一时刻LSTM的输出值 $h_{t-1}$、以及上一时刻的单元状态 $c_{t-1}$；LSTM的输出有两个：当前时刻LSTM输出值 $h_t$、和当前时刻的单元状态 $c_t$。注意 $x、h、c$ 都是<strong>向量</strong>。</p>
+<p><strong>LSTM的关键，就是怎样控制长期状态 $c$</strong>。在这里，LSTM的思路是使用三个控制开关。<strong>第一个开关</strong>，负责控制继续保存长期状态 $c$；<strong>第二个开关</strong>，负责控制把即时状态输入到长期状态 $c$；<strong>第三个开关</strong>，负责控制是否把长期状态 $c$ 作为当前的LSTM的输出。</p>
+<p><img src="/2019/03/15/NLPtask8/pic15.png" alt=""></p>
+<h3 id="LSTM的前向计算"><a href="#LSTM的前向计算" class="headerlink" title="LSTM的前向计算"></a>LSTM的前向计算</h3><p>前面描述的开关是怎样在算法中实现的呢？这就用到了<strong>门（gate）</strong>的概念。门实际上就是一层<strong>全连接层</strong>，它的输入是一个向量，输出是一个$0$到$1$之间的实数向量。假设$W$是门的权重向量，$b$是偏置项，那么门可以表示为：</p>
+<script type="math/tex; mode=display">
+g(x) = \sigma (Wx+b)</script><p>门的使用，就是用门的输出向量按元素乘以我们需要控制的那个向量。因为门的输出是$0$到$1$之间的实数向量，那么，当门输出为$0$时，任何向量与之相乘都会得到$0$向量，这就相当于都不能通过；输出为$1$时，任何向量与之相乘都不会有任何改变，这就相当于都可以通过。因为 $\sigma$ （也就是sigmoid函数）的值域是(0,1)，所以门的状态都是半开半闭的。</p>
+<p>LSTM用两个门来控制单元状态c的内容，一个是<strong>遗忘门（forget gate）</strong>，它决定了上一时刻的单元状态 $c_{t-1}$ 有多少保留到当前时刻 $c_t$；另一个是<strong>输入门（input gate）</strong>，它决定了当前时刻网络的输入 $x_t$ 有多少保存到单元状态 $c_t$。LSTM用<strong>输出门（output gate）</strong>来控制单元状态 $c_t$有多少输出到LSTM的当前输出值 $h_t$。</p>
+<p>先来看<strong>遗忘门</strong>：</p>
+<script type="math/tex; mode=display">
+f_t = \sigma (W_f * [h_{t-1},x_t]+b_f)</script><p>上式中，$W_f$ 是遗忘门的权重矩阵，$[h_{t-1},x_t]$ 表示把两个向量连接成一个更长的向量，$b_f$ 是遗忘门的偏置项，$\sigma$ 是sigmoid函数。如果输入的维度是 $d_x$，隐藏层的维度是 $d_h$，单元状态的维度是 $d_c$（通常 $d_c=d_h$），则遗忘门的权重矩阵 $W_f$ 维度是 $d_c \times (d_h+d_x)$。事实上，权重矩阵 $W_f$ 都是两个矩阵拼接而成的：一个是 $W_{fh}$，它对应着输入项 $h_{t-1}$，其维度为 $d_c \times d_h$；一个是 $W_{fx}$，它对应着输入项 $x_t$，其维度为 $d_c \times d_x$。$W_f$ 可以写为：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+[W_f]\begin{bmatrix}h_{t-1} \\ x_t\\ \end{bmatrix} =& \begin{bmatrix}W_{fh} & W_{fx} \\ \end{bmatrix}\begin{bmatrix}h_{t-1} \\ x_t\\ \end{bmatrix} \\
+=& W_{fh}h_{t-1} +W_{fx}x_t
+\end{align}</script><p>下图显示了遗忘门的计算：</p>
+<p><img src="/2019/03/15/NLPtask8/pic16.png" alt=""></p>
+<p>接下来看看<strong>输入门</strong>：</p>
+<script type="math/tex; mode=display">
+i_t = \sigma (W_i*[h_{t-1},x_t]+b_i)</script><p>上式中，$W_i$ 是输入门的权重矩阵，$b_i$ 是输入门的偏置项。下图表示了输入门的计算：</p>
+<p><img src="/2019/03/15/NLPtask8/pic17.png" alt=""></p>
+<p>接下来，计算用于描述当前输入的单元状态 $\tilde c_t$，它是根据上一次的输出和本次输入来计算的：</p>
+<script type="math/tex; mode=display">
+\tilde c_t = tanh(W_c*[h_{t-1},x_t]+b_c)</script><p>下图表示了 $\tilde c_t$ 的计算：</p>
+<p><img src="/2019/03/15/NLPtask8/pic18.png" alt=""></p>
+<p>现在，我们计算当前时刻的单元状态 $c_t$。它是由上一次的单元状态 $c_{t-1}$ 按元素乘以遗忘门 $f_t$，再用当前输入的单元状态 $\tilde c_t$ 按元素乘以输入门 $i_t$，再将两个积加和产生的：</p>
+<script type="math/tex; mode=display">
+c_t = f_t \circ c_{t-1} +i_t \circ \tilde c_t</script><p>符号 $\circ$ 表示按元素乘。下图是 $c_t$ 的计算：</p>
+<p><img src="/2019/03/15/NLPtask8/pic19.png" alt=""></p>
+<p>这样，我们就把LSTM关于当前的记忆 $\tilde c_t$ 和长期的记忆 $c_{t-1}$ 组合在一起，形成了新的单元状态 $c_t$ 。由于<strong>遗忘门</strong>的控制，它可以保存很久很久之前的信息，由于<strong>输入门</strong>的控制，它又可以避免当前无关紧要的内容进入记忆。</p>
+<p>下面，我们要看看输出门，它控制了长期记忆对当前输出的影响：</p>
+<script type="math/tex; mode=display">
+o_t = \sigma (W_o*[h_{t-1},x_t]+b_o)</script><p>下图表示<strong>输出门</strong>的计算：</p>
+<p><img src="/2019/03/15/NLPtask8/pic20.png" alt=""></p>
+<p>LSTM最终的输出，是由输出门和单元状态共同确定的：</p>
+<script type="math/tex; mode=display">
+h_t =o_t \circ tanh(c_t)</script><p>下图表示<strong>LSTM最终输出</strong>的计算：</p>
+<p><img src="/2019/03/15/NLPtask8/pic21.png" alt=""></p>
+<h3 id="GRU"><a href="#GRU" class="headerlink" title="GRU"></a>GRU</h3><p>GRU是LSTM网络的一种效果很好的变体，它较LSTM网络的结构更加简单，而且效果也很好，因此也是当前非常流形的一种网络。GRU既然是LSTM的变体，因此也是可以解决RNN网络中的长依赖问题。</p>
+<p>在LSTM中引入了三个门函数：输入门、遗忘门和输出门来控制输入值、记忆值和输出值。而在GRU模型中只有两个门：分别是更新门和重置门。具体结构如下图所示：</p>
+<p><img src="/2019/03/15/NLPtask8/pic22.png" alt=""></p>
+<p>图中的 $zt$ 和 $rt$ 分别表示更新门和重置门。更新门用于控制前一时刻的状态信息被带入到当前状态中的程度，更新门的值越大说明前一时刻的状态信息带入越多。重置门控制前一状态有多少信息被写入到当前的候选集 $\tilde h_t$ 上，重置门越小，前一状态的信息被写入的越少。</p>
+<h2 id="Text-RNN结构"><a href="#Text-RNN结构" class="headerlink" title="Text-RNN结构"></a>Text-RNN结构</h2><p><img src="/2019/03/15/NLPtask8/pic24.png" alt=""></p>
+<h2 id="利用Text-RNN模型来进行文本分类。"><a href="#利用Text-RNN模型来进行文本分类。" class="headerlink" title="利用Text-RNN模型来进行文本分类。"></a>利用Text-RNN模型来进行文本分类。</h2><p><img src="/2019/03/15/NLPtask8/pic23.png" alt=""></p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://zybuluo.com/hanbingtao/note/581764" target="_blank" rel="noopener">零基础入门深度学习(6) - 长短时记忆网络(LSTM)</a><br><a href="https://blog.csdn.net/u014046022/article/details/83859183" target="_blank" rel="noopener">RNN中梯度消失和爆炸的问题公式推导</a><br><a href="https://blog.csdn.net/qq_39422642/article/details/78676567" target="_blank" rel="noopener">循环神经网络（RNN）原理通俗解释</a><br><a href="https://blog.csdn.net/UFv59to8/article/details/78746553" target="_blank" rel="noopener">【直观理解】一文搞懂RNN（循环神经网络）基础篇</a><br><a href="https://zybuluo.com/hanbingtao/note/626300" target="_blank" rel="noopener">零基础入门深度学习(7) - 递归神经网络</a><br><a href="https://www.jianshu.com/p/b0e158e419bc" target="_blank" rel="noopener">基于tensorflow+RNN的新浪新闻文本分类</a></p>
+
+      
+    </div>
+    
+    
+    
+	
+	<div>
+		
+		<div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+
+</div>
+		
+	</div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您的支持将是我前进的动力！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Skye Lan 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Skye Lan 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/14/NLPtask7/" rel="next" title="卷积神经网络">
+                <i class="fa fa-chevron-left"></i> 卷积神经网络
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Skye Lan</p>
+              <p class="site-description motion-element" itemprop="description">一位乐观Coder的小站</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RNN的结构"><span class="nav-number">1.</span> <span class="nav-text">RNN的结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RNN结构"><span class="nav-number">1.1.</span> <span class="nav-text">RNN结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RNN反向传播算法推导"><span class="nav-number">1.2.</span> <span class="nav-text">RNN反向传播算法推导</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RNN出现的问题"><span class="nav-number">1.3.</span> <span class="nav-text">RNN出现的问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双向RNN"><span class="nav-number">2.</span> <span class="nav-text">双向RNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归神经网络"><span class="nav-number">3.</span> <span class="nav-text">递归神经网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LSTM"><span class="nav-number">4.</span> <span class="nav-text">LSTM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LSTM的前向计算"><span class="nav-number">4.1.</span> <span class="nav-text">LSTM的前向计算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GRU"><span class="nav-number">4.2.</span> <span class="nav-text">GRU</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Text-RNN结构"><span class="nav-number">5.</span> <span class="nav-text">Text-RNN结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用Text-RNN模型来进行文本分类。"><span class="nav-number">6.</span> <span class="nav-text">利用Text-RNN模型来进行文本分类。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文章"><span class="nav-number">7.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Skye Lan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("NY2NqdWXz7RHDaYF2Hx5c8Qr-gzGzoHsz", "dO0yaYq84mJRLVvJj54jcI7a");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
