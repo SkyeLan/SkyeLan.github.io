@@ -79,20 +79,25 @@
 
 
 
-<meta name="description" content="分词的概念分词就是将连续的字序列按照一定的规范重新组合成词序列的过程 目前的分词方法归纳起来有3类: 第一类是基于语法和规则的分词法。在分词的同时进行句法、语义分析, 利用句法信息和语义信息来进行词性标注, 以解决分词歧义现象。现有的语法知识、句法规则十分笼统、复杂, 基于语法和规则的分词法所能达到的精确度远远还不能令人满意。  第二类是机械式分词法（即基于词典）。将文档中的字符串与词典中的词条进">
+<meta name="description" content="基本的Attention原理深度学习里的 Attention model 其实模拟的是人脑的注意力模型。举例来说，当我们观赏一幅画时，虽然我们可以看到整幅画的全貌，但是在我们深入仔细地观察时，其实眼睛聚焦的就只有很小的一块，这个时候人的大脑主要关注在这一小块图案上，也就是说这个时候人脑对整幅图的关注并不是均衡的，是有一定的权重区分的。这就是深度学习里的Attention Model的核心思想。 注">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基本文本处理技能">
-<meta property="og:url" content="http://yoursite.com/2019/03/05/NLPtask2/index.html">
+<meta property="og:title" content="Attention原理">
+<meta property="og:url" content="http://yoursite.com/2019/03/17/NLPtask9/index.html">
 <meta property="og:site_name" content="Skye的博客小站">
-<meta property="og:description" content="分词的概念分词就是将连续的字序列按照一定的规范重新组合成词序列的过程 目前的分词方法归纳起来有3类: 第一类是基于语法和规则的分词法。在分词的同时进行句法、语义分析, 利用句法信息和语义信息来进行词性标注, 以解决分词歧义现象。现有的语法知识、句法规则十分笼统、复杂, 基于语法和规则的分词法所能达到的精确度远远还不能令人满意。  第二类是机械式分词法（即基于词典）。将文档中的字符串与词典中的词条进">
+<meta property="og:description" content="基本的Attention原理深度学习里的 Attention model 其实模拟的是人脑的注意力模型。举例来说，当我们观赏一幅画时，虽然我们可以看到整幅画的全貌，但是在我们深入仔细地观察时，其实眼睛聚焦的就只有很小的一块，这个时候人的大脑主要关注在这一小块图案上，也就是说这个时候人脑对整幅图的关注并不是均衡的，是有一定的权重区分的。这就是深度学习里的Attention Model的核心思想。 注">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/03/05/NLPtask2/pic2.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/05/NLPtask2/pic3.png">
-<meta property="og:updated_time" content="2019-03-05T14:05:48.333Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/NLPtask9/pic1.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/NLPtask9/pic2.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/NLPtask9/pic3.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/NLPtask9/pic4.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/NLPtask9/pic5.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/NLPtask9/pic6.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/NLPtask9/pic7.png">
+<meta property="og:updated_time" content="2019-03-19T09:49:42.190Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="基本文本处理技能">
-<meta name="twitter:description" content="分词的概念分词就是将连续的字序列按照一定的规范重新组合成词序列的过程 目前的分词方法归纳起来有3类: 第一类是基于语法和规则的分词法。在分词的同时进行句法、语义分析, 利用句法信息和语义信息来进行词性标注, 以解决分词歧义现象。现有的语法知识、句法规则十分笼统、复杂, 基于语法和规则的分词法所能达到的精确度远远还不能令人满意。  第二类是机械式分词法（即基于词典）。将文档中的字符串与词典中的词条进">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/05/NLPtask2/pic2.png">
+<meta name="twitter:title" content="Attention原理">
+<meta name="twitter:description" content="基本的Attention原理深度学习里的 Attention model 其实模拟的是人脑的注意力模型。举例来说，当我们观赏一幅画时，虽然我们可以看到整幅画的全貌，但是在我们深入仔细地观察时，其实眼睛聚焦的就只有很小的一块，这个时候人的大脑主要关注在这一小块图案上，也就是说这个时候人脑对整幅图的关注并不是均衡的，是有一定的权重区分的。这就是深度学习里的Attention Model的核心思想。 注">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/17/NLPtask9/pic1.png">
 
 
 
@@ -122,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/05/NLPtask2/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/17/NLPtask9/"/>
 
 
 
 
 
-  <title>基本文本处理技能 | Skye的博客小站</title>
+  <title>Attention原理 | Skye的博客小站</title>
   
 
 
@@ -265,7 +270,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/05/NLPtask2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/17/NLPtask9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Skye Lan">
@@ -282,7 +287,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">基本文本处理技能</h1>
+          <h1 class="post-title" itemprop="name headline">Attention原理</h1>
         
 
         <div class="post-meta">
@@ -294,8 +299,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-05T21:00:04+08:00">
-                2019-03-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-17T22:47:27+08:00">
+                2019-03-17
               </time>
             
 
@@ -334,7 +339,7 @@
 
           
           
-             <span id="/2019/03/05/NLPtask2/" class="leancloud_visitors" data-flag-title="基本文本处理技能">
+             <span id="/2019/03/17/NLPtask9/" class="leancloud_visitors" data-flag-title="Attention原理">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -360,7 +365,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.1k 字
+                  2.4k 字
                 </span>
               
 
@@ -376,7 +381,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3 分钟
+                  9 分钟
                 </span>
               
             </div>
@@ -397,44 +402,58 @@
       
 
       
-        <h3 id="分词的概念"><a href="#分词的概念" class="headerlink" title="分词的概念"></a>分词的概念</h3><p>分词就是将连续的字序列按照一定的规范重新组合成词序列的过程</p>
-<h4 id="目前的分词方法归纳起来有3类"><a href="#目前的分词方法归纳起来有3类" class="headerlink" title="目前的分词方法归纳起来有3类:"></a>目前的分词方法归纳起来有3类:</h4><ul>
-<li><p>第一类是<strong>基于语法和规则的分词法</strong>。<br>在分词的同时进行句法、语义分析, 利用句法信息和语义信息来进行词性标注, 以解决分词歧义现象。现有的语法知识、句法规则十分笼统、复杂, 基于语法和规则的分词法所能达到的精确度远远还不能令人满意。</p>
-</li>
-<li><p>第二类是<strong>机械式分词法（即基于词典）</strong>。<br>将文档中的字符串与词典中的词条进行逐一匹配, 如果词典中找到某个字符串, 则匹配成功, 可以切分, 否则不予切分。<strong>优点</strong>：实现简单, 实用性强； <strong>缺点</strong>：词典的完备性不能得到保证。</p>
-</li>
-<li><p>第三类是<strong>基于统计的方法</strong>。<br>根据字符串在语料库中出现的统计频率来决定其是否构成词。词是字的组合, 相邻的字同时出现的次数越多, 就越有可能构成一个词。</p>
-</li>
-</ul>
-<p>最大匹配是指以词典为依据，取词典中<strong>最长单词</strong>为第一个次取字数量的扫描串，在词典中进行扫描，这是基于词典分词的方法</p>
-<ul>
-<li><p>正向最大匹配法</p>
-<p>从左到右将待分词文本中的几个连续字符与词表匹配，如果匹配上，则切分出一个词。</p>
-<p><strong>注意</strong>：要做到最大匹配，并不是第一次匹配到就可以切分的 。</p>
-<p>最大匹配出的词必须保证下一个扫描不是词表中的词或词的前缀才可以结束。</p>
-</li>
-<li><p>逆向最大匹配法</p>
-<p>逆向即从后往前取词，其他逻辑和正向相同。</p>
-<p>(1) 将文章分成句子(通过标点符号来实现)；<br>(2) 循环的读入每一个句子S，设句子中的字数为n；<br>(3) 设置一个最大词长度，就是我们要截取的词的最大长度max；<br>(4) 从句子中取n-max到n的字符串subword，去字典中查找是否有这个词。如果有就走(5),没有就走(6)；<br>(5) 记住subword，从n-max付值给n，继续执行(4)，直到n=0。<br>(6) 将max-1，再执行(4)。</p>
-</li>
-<li><p>双向最大匹配法：</p>
-<p>正向最大匹配法和逆向最大匹配法，都有其局限性。</p>
-<p>双向最大匹配法，即两种算法都切一遍，然后根据大颗粒度词越多越好，非词典词和单字词越少越好的原则，选取其中一种分词结果输出。</p>
-</li>
-</ul>
-<h3 id="词、字符频率统计"><a href="#词、字符频率统计" class="headerlink" title="词、字符频率统计"></a>词、字符频率统计</h3><p><img src="/2019/03/05/NLPtask2/pic2.png" alt=""></p>
-<h2 id="语言模型"><a href="#语言模型" class="headerlink" title="语言模型"></a>语言模型</h2><p>一个语言模型通常构建为字符串s的概率分布p(s)，这里的p(s)实际上反映的是s作为一个句子出现的概率。这里的概率指的是组成字符串的这个组合，在训练语料中出现的似然，与句子是否合乎语法无关。</p>
-<h3 id="语言模型中unigram、bigram、trigram的概念"><a href="#语言模型中unigram、bigram、trigram的概念" class="headerlink" title="语言模型中unigram、bigram、trigram的概念"></a>语言模型中unigram、bigram、trigram的概念</h3><p>n-gram模型也称为$n-1$阶马尔科夫模型，它有一个有限历史假设：第$N$个词的出现只与前面$N-1$个词相关，而与其它任何词都不相关，整句的概率就是各个词出现概率的乘积。</p>
+        <h2 id="基本的Attention原理"><a href="#基本的Attention原理" class="headerlink" title="基本的Attention原理"></a>基本的Attention原理</h2><p>深度学习里的 <strong>Attention model</strong> 其实模拟的是人脑的注意力模型。举例来说，当我们观赏一幅画时，虽然我们可以看到整幅画的全貌，但是在我们深入仔细地观察时，其实眼睛聚焦的就只有很小的一块，这个时候人的大脑主要关注在这一小块图案上，也就是说这个时候人脑对整幅图的关注并不是均衡的，是有一定的权重区分的。这就是深度学习里的Attention Model的核心思想。</p>
+<p>注意力机制在使用encoder-decoder结构进行神经机器翻译（NMT）的过程中被提出来，并且迅速的被应用到相似的任务上，比如根据图片生成一段描述性语句、梗概一段文字的内容。从一个高的层次看，允许decoder从多个上下文向量（context vector）中选取需要的部分，使得Encoder从只能将上下文信息压缩到固定长度的向量中这个束缚中解放出来，进而可以表示更多的信息。</p>
+<p>目前，注意力机制在深度学习模型中十分常见，而不仅限于encoder-decoder层次结构中。值得一提的是，注意力机制可以仅应用在encoder上，以解决诸如文本分类或者表示学习的任务上。这种注意力机制的应用被称为自聚焦或者内部聚焦机制。</p>
+<p>下面我们从神经机器学习（NMT）使用的encoder-decoder结构开始介绍聚焦机制，之后我们会介绍自聚焦机制。</p>
+<h3 id="Encoder-decoder简介"><a href="#Encoder-decoder简介" class="headerlink" title="Encoder-decoder简介"></a>Encoder-decoder简介</h3><p>从一个抽象的层次上看，encoder将输入压缩成一个高维的上下文向量，而decoder则可以从这个上下文向量中产生输出。</p>
+<p><img src="/2019/03/17/NLPtask9/pic1.png" alt=""></p>
+<p>在神经机器翻译（NMT）中，输入和输出都是单词的序列，分别表示为 $x=(x_1,\dots ,x_{Tx}$ 和 $y=(y_1,\dots ,y_{Ty}$，$x$ 和 $y$ 称为源句（source sentence）和目标句（target sentence）。当输入和输出都是句子序列时，这样的 encoder-decoder 结构也被成为是 seq2seq 模型。由于encoder-decoder结构处处可微的性质，模型中的参数集 $\theta$ 的最优解等效于在整个语料库上计算似然函数的最大值（MLE），这种训练的方式称为端到端（end-to-end）。</p>
 <script type="math/tex; mode=display">
-P(S) =P(W_1,W_2,\dots,W_k)=p(W_1)P(W_2|W_1)\dots P(W_k|W_1,W_2,\dots,W_{k-1})</script><p>当$n$取1、2、3时，n-gram模型分别称为unigram、bigram和trigram语言模型。</p>
+argmax_\theta \{\sum_{(x,y)\in corpus} logP(y|x;\theta)\}</script><p>这里我们想要最大化的函数是预测正确单词的概率的对数。</p>
+<h3 id="Global-attention"><a href="#Global-attention" class="headerlink" title="Global attention"></a>Global attention</h3><p>上下文向量（context vector） $c_t$ 通过计算源句子（source sentence）的所有注释（annotation），也即 encoder 的所有隐藏状态（hidden state）的加权和得到。一共有 $T_x$ 个注释（source sentence的长度），每一个注释都是大小为 encoder 隐藏层单元数的向量，$c_t$ 和所有注释的形状相同。分配向量（alignment vector）$\alpha_t$ 的形状和source sentence的长度 $T_x$ 相同，是一个变量。</p>
+<script type="math/tex; mode=display">
+c_t = \sum_{i=1}^{T_x}\alpha_{t,i}\overline h_i \\
+\alpha_{t,i} = \frac{exp(score(h_t,\overline h_i))}{\sum_{i'}^{T_x}exp(score(h_t,\overline h_{i'}))}</script><p>分配向量的计算过程分为两步，首先分别计算decoder当前step的隐藏状态 $h_t$ 和encoder的所有隐藏状态 $\overline h_i$ 的alignment运算的结果（alignment运算下面会介绍），再应用softmax函数计算 $exp(score(h_t,\overline h_i))$ 在所有 $\sum_{i’}^{T_x}exp(score(h_t,\overline h_{i’}))$ 中的比重。</p>
+<p>换句话说，$c_t$ 可以看作是所有encoder的隐藏状态的分布律（每个状态的概率处于 $[0,1]$ 并且和为 $1$），进而预示source sentence中对预测下一个单词最优帮助的词汇。$score()$ 函数理论上可以是任意的比较函数。Luong在他的论文中使用点积(dot product)($score(h_t,\overline h_i)=h_t ^{\top}\overline h_i$)，一个更加通用的方程是在点积基础上增加一个由全连接神经网络层训练的参数矩阵 $W_\alpha$，方程表示为 $score(h_t,\overline h_i)=h_t^TW_\alpha\overline h_i$，实验发现dot product在global attention中表现更好，而general方程在local attention中表现更好。</p>
+<p><img src="/2019/03/17/NLPtask9/pic2.png" alt=""></p>
+<h3 id="Local-attention"><a href="#Local-attention" class="headerlink" title="Local attention"></a>Local attention</h3><p>每一次生成目标单词（target word）都分析source sentence中所有单词的做法代价太高，也许也是没有必要的。为了缓解这个问题，Luong论文中建议只集中关注一个固定大小 $2D+1$ 窗口中的source sentence 的注释（annotation），即只关注最能帮助预测下一个词汇的source sentence中某个词汇前后step的隐藏状态（hidden state）：</p>
+<script type="math/tex; mode=display">
+c_t = \sum_{i=p_t-D}^{p_t+D}\alpha_{t,i}\overline h_i</script><p>其中，$D$ 由用户自定义，而窗口中心即聚焦的annotation $p_t$ 可以也设为 $t$ 或者基于保存了之前target words $(y_1, …y_{t-1})$ 信息的decoder隐藏状态的 $h_t$ 决定：$p_t = T_x · \sigma(v_p ^{\top} tanh(W_p h_t))$，$T_x$ 表示source sentence 的长度，$\sigma$ 表示sigmoid函数，$v_p​$ 和 $W_p$ 是可训练的参数矩阵。分配矩阵（alignment weights）的计算过程和global attention中的相似，仅仅是增加了一项均值为 $p_t$ ，标准差为 $D/2$ 的标准正太分布乘积项：</p>
+<script type="math/tex; mode=display">
+\alpha_{t,i} = \frac{exp(score(h_t,\overline h_i))}{\sum_{i'}^{T_x}exp(score(h_t,\overline h_{i'}))}exp(\frac{(i-p_t)^2}{2(D/2)^2})</script><p>注意 $p_t \in \mathbb{R} \cap [0, T_x]$ and $i \in \mathbb{R} \cap [p_t-D, p_t+D]$。添加的高斯分布项使得alignment权重随着 $i$ 在窗口中远离中心 $p_t$ 移动逐渐降低，也就是说对于给予靠近 $p_t$ 的annotation更多的影响力。另外和global attention不同的是 $\alpha _t$ 的大小被固定为 $2D-1$，只有处于窗口范围内的annotation才对输出有影响。local attention可以看成是alignment权重与一个截断高斯分布相乘后的global attention（窗口外的annotation取值为 $0$）。local attention的示意图如下所示：</p>
+<p><img src="/2019/03/17/NLPtask9/pic3.png" alt=""></p>
+<h3 id="self-attention"><a href="#self-attention" class="headerlink" title="self-attention"></a>self-attention</h3><p>现在我们将encoder简单设置为单独的RNN处理长度为 $T$ 的句子 $(x_1, x_2, \dots, x_T)$。RNN将输出映射成annotation $(h_1, \dots , h_T)$。正如将attention机制引入到encoder-decoder结构中一样，不同于只关注当前的隐藏状态 $h_t$，将其作为整个句子的综合概括会失去许多信息，self attention不同的机制也能够将所有的annotation纳入学习的范围。</p>
+<p>如下面公式所示，annotation $h_t$ 先被传输到一个全连接层，得到的输出 $u_t$ 被用于和一个可训练的用来表示上下文信息的参数矩阵 $u$（随机初始化）进行比较以得到annotation的分配系数（alignment coefficient），随后用softmax进行归一化。最后得到的聚焦化的向量 $s$ 是所有annotation的加权和。</p>
+<script type="math/tex; mode=display">
+u_t=tanh(Wh_t) \\
+\alpha_{t,i} = \frac{exp(score(h_t,\overline h_i))}{\sum_{i'}^{T_x}exp(score(h_t,\overline h_{i'}))} \\
+s=\sum_{t=1}{T}\alpha_th_t</script><p>score函数理论上可以是任意的比较函数。一个简单的得分函数是 $score(u_t, u) = u_t^ \top u$。</p>
+<p>上面提及的上下文向量（context vector）和seq2seq模型的中context vector毫无联系！在seq2seq模型中，context vector $c_t$ 是encoder所有隐藏状态的加权和 $\sum _{i=1} ^{T_x} \alpha _{t,i} {\overline h}_i$，然后 $c_t$ 和decoder的隐藏状态 $h_t$ 共同用于计算聚焦化的隐藏状态 $\widetilde h = tanh(W_c [c_t;h_t])$。self attention中的上下文向量只是用来代替decoder的隐藏状态用于计算 $score()$，实际上self attention模型中并没有decoder模块。所以，self attention中的分配系数矩阵指示了上下文中各个单词之间的关联，而seq2seq模型中的上下文向量 $\alpha _t$ 代表的是source sentence中各词和即将生成的target词汇之间的关联。</p>
+<p>下面图片展示了一个实际应用self attention的层次模型，其中self attention在两个层次起作用：单词层次和句子层次。这样做的理由有两个：如何自然语言的层次结构，词汇组成语句，语句组成文本；第二，这样使得模型可以学习到句子中需要重点关注的词和文本中需要重点关注的句子。由于各个sentence的attentional coefficient不同，各个句子下的各单词的attentional coefficients可以是不同的，这使得一个句子中某个单词的十分重要，到到了另一个句子中这个单词就变的不那么重要了。</p>
+<p><img src="/2019/03/17/NLPtask9/pic4.png" alt=""></p>
+<h2 id="HAN的原理（Hierarchical-Attention-Networks）"><a href="#HAN的原理（Hierarchical-Attention-Networks）" class="headerlink" title="HAN的原理（Hierarchical Attention Networks）"></a>HAN的原理（Hierarchical Attention Networks）</h2><p>HAN是在“Hierarchical Attention Networks for Document Classiﬁcation”此文中提出。层级“注意力”网络的网络结构如图所示，网络可以被看作为两部分，第一部分为词“注意”部分，另一部分为句“注意”部分。整个网络通过将一个句子分割为几部分，对于每部分，都使用双向RNN结合“注意力”机制将小句子映射为一个向量，然后对于映射得到的一组序列向量，再通过一层双向RNN结合“注意力”机制实现对文本的分类。</p>
+<p><img src="/2019/03/17/NLPtask9/pic5.png" alt=""></p>
+<p>模型主要可以分为四个部分：</p>
 <ul>
-<li>unigrams<br>一元分词，把句子从头到尾分成一个一个的汉字</li>
-<li>bigrams<br>二元分词，把句子从头到尾每两个字组成一个词语</li>
-<li>trigrams<br>三元分词，把句子从头到尾每三个字组成一个词语</li>
+<li>a word sequence encoder,</li>
+<li>a word-level attention layer,    </li>
+<li>a sentence encoder</li>
+<li>a sentence-level attention layer.</li>
 </ul>
-<p>最常用的是bigram，其次是unigram和trigram，$n$取$≥4$的情况较少。</p>
-<h3 id="unigram、bigram频率统计"><a href="#unigram、bigram频率统计" class="headerlink" title="unigram、bigram频率统计"></a>unigram、bigram频率统计</h3><p><img src="/2019/03/05/NLPtask2/pic3.png" alt=""></p>
-<h2 id="文本矩阵化：要求采用词袋模型且是词级别的矩阵化"><a href="#文本矩阵化：要求采用词袋模型且是词级别的矩阵化" class="headerlink" title="文本矩阵化：要求采用词袋模型且是词级别的矩阵化"></a>文本矩阵化：要求采用词袋模型且是词级别的矩阵化</h2><p>步骤有：<br>分词（可采用结巴分词来进行分词操作，其他库也可以）；去停用词；构造词表。<br>每篇文档的向量化。</p>
+<h3 id="Word-Encoder"><a href="#Word-Encoder" class="headerlink" title="Word Encoder"></a>Word Encoder</h3><p><img src="/2019/03/17/NLPtask9/pic6.png" alt=""></p>
+<h3 id="Word-Attention"><a href="#Word-Attention" class="headerlink" title="Word Attention"></a>Word Attention</h3><script type="math/tex; mode=display">
+u_{it} = tanh(W_wh_{it}+b_w) \\
+\alpha_{it} =\frac{exp(u_{it}^\top u_w)}{\sum_t exp(u_{it}^\top u_w)} \\
+s_i = \sum_t\alpha_{it}h_{it}</script><h3 id="Sentence-Encoder"><a href="#Sentence-Encoder" class="headerlink" title="Sentence Encoder"></a>Sentence Encoder</h3><p><img src="/2019/03/17/NLPtask9/pic7.png" alt=""></p>
+<h3 id="Sentence-Attention"><a href="#Sentence-Attention" class="headerlink" title="Sentence Attention"></a>Sentence Attention</h3><script type="math/tex; mode=display">
+u_{i} = tanh(W_sh_i+b_s) \\
+\alpha_i =\frac{exp(u_i^\top u_s)}{\sum_i exp(u_i^\top u_s)} \\
+v = \sum_i\alpha_ih_i</script><p>最后就是使用最常用的softmax分类器对整个文本进行分类</p>
+<script type="math/tex; mode=display">
+p=softmax(W_cv+b_c)</script><p>损失函数为：</p>
+<script type="math/tex; mode=display">
+L=-\sum_d logp_{dj}</script><h2 id="利用Attention模型进行文本分类"><a href="#利用Attention模型进行文本分类" class="headerlink" title="利用Attention模型进行文本分类"></a>利用Attention模型进行文本分类</h2><p><a href="https://github.com/THTBSE/rnn_text_classification" target="_blank" rel="noopener">太难了，请参考大佬的Github</a></p>
 
       
     </div>
@@ -497,8 +516,8 @@ P(S) =P(W_1,W_2,\dots,W_k)=p(W_1)P(W_2|W_1)\dots P(W_k|W_1,W_2,\dots,W_{k-1})</s
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/03/NLPtask1/" rel="next" title="召回率、准确率、ROC曲线、AUC、PR曲线">
-                <i class="fa fa-chevron-left"></i> 召回率、准确率、ROC曲线、AUC、PR曲线
+              <a href="/2019/03/15/NLPtask8/" rel="next" title="循环神经网络">
+                <i class="fa fa-chevron-left"></i> 循环神经网络
               </a>
             
           </div>
@@ -506,10 +525,6 @@ P(S) =P(W_1,W_2,\dots,W_k)=p(W_1)P(W_2|W_1)\dots P(W_k|W_1,W_2,\dots,W_{k-1})</s
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/07/NLPtask3/" rel="prev" title="特征选择">
-                特征选择 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -641,7 +656,7 @@ P(S) =P(W_1,W_2,\dots,W_k)=p(W_1)P(W_2|W_1)\dots P(W_k|W_1,W_2,\dots,W_{k-1})</s
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#分词的概念"><span class="nav-number">1.</span> <span class="nav-text">分词的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#目前的分词方法归纳起来有3类"><span class="nav-number">1.1.</span> <span class="nav-text">目前的分词方法归纳起来有3类:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#词、字符频率统计"><span class="nav-number">2.</span> <span class="nav-text">词、字符频率统计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语言模型"><span class="nav-number"></span> <span class="nav-text">语言模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语言模型中unigram、bigram、trigram的概念"><span class="nav-number">1.</span> <span class="nav-text">语言模型中unigram、bigram、trigram的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unigram、bigram频率统计"><span class="nav-number">2.</span> <span class="nav-text">unigram、bigram频率统计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本矩阵化：要求采用词袋模型且是词级别的矩阵化"><span class="nav-number"></span> <span class="nav-text">文本矩阵化：要求采用词袋模型且是词级别的矩阵化</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本的Attention原理"><span class="nav-number">1.</span> <span class="nav-text">基本的Attention原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Encoder-decoder简介"><span class="nav-number">1.1.</span> <span class="nav-text">Encoder-decoder简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Global-attention"><span class="nav-number">1.2.</span> <span class="nav-text">Global attention</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Local-attention"><span class="nav-number">1.3.</span> <span class="nav-text">Local attention</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#self-attention"><span class="nav-number">1.4.</span> <span class="nav-text">self-attention</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HAN的原理（Hierarchical-Attention-Networks）"><span class="nav-number">2.</span> <span class="nav-text">HAN的原理（Hierarchical Attention Networks）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Word-Encoder"><span class="nav-number">2.1.</span> <span class="nav-text">Word Encoder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Word-Attention"><span class="nav-number">2.2.</span> <span class="nav-text">Word Attention</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sentence-Encoder"><span class="nav-number">2.3.</span> <span class="nav-text">Sentence Encoder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sentence-Attention"><span class="nav-number">2.4.</span> <span class="nav-text">Sentence Attention</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用Attention模型进行文本分类"><span class="nav-number">3.</span> <span class="nav-text">利用Attention模型进行文本分类</span></a></li></ol></div>
             
 
           </div>
