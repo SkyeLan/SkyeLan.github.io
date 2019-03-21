@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Transformer的原理《Attention Is All You Need》 是一篇Google提出的将Attention思想发挥到极致的论文。这篇论文中提出一个全新的模型，叫 Transformer，抛弃了以往深度学习任务里面使用到的 CNN 和 RNN ，目前大热的BERT就是基于Transformer构建的，这个模型广泛应用于NLP领域，例如机器翻译，问答系统，文本摘要和语音识别等等方">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BERT">
+<meta property="og:url" content="http://yoursite.com/2019/03/20/NLPtask10/index.html">
+<meta property="og:site_name" content="Skye的博客小站">
+<meta property="og:description" content="Transformer的原理《Attention Is All You Need》 是一篇Google提出的将Attention思想发挥到极致的论文。这篇论文中提出一个全新的模型，叫 Transformer，抛弃了以往深度学习任务里面使用到的 CNN 和 RNN ，目前大热的BERT就是基于Transformer构建的，这个模型广泛应用于NLP领域，例如机器翻译，问答系统，文本摘要和语音识别等等方">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic1.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic2.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic3.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic4.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic5.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic6.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic7.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic8.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic9.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic10.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic11.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic12.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic13.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic14.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic15.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic16.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic17.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic18.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic19.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic20.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic21.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic22.png">
+<meta property="og:updated_time" content="2019-03-21T11:50:50.511Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BERT">
+<meta name="twitter:description" content="Transformer的原理《Attention Is All You Need》 是一篇Google提出的将Attention思想发挥到极致的论文。这篇论文中提出一个全新的模型，叫 Transformer，抛弃了以往深度学习任务里面使用到的 CNN 和 RNN ，目前大热的BERT就是基于Transformer构建的，这个模型广泛应用于NLP领域，例如机器翻译，问答系统，文本摘要和语音识别等等方">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Skye'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/20/NLPtask10/"/>
+
+
+
+
+
+  <title>BERT | Skye的博客小站</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Skye的博客小站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/20/NLPtask10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Skye Lan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Skye的博客小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">BERT</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-20T22:14:20+08:00">
+                2019-03-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/20/NLPtask10/" class="leancloud_visitors" data-flag-title="BERT">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+				 <span>℃</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.3k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  12 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Transformer的原理"><a href="#Transformer的原理" class="headerlink" title="Transformer的原理"></a>Transformer的原理</h2><p>《Attention Is All You Need》 是一篇Google提出的将Attention思想发挥到极致的论文。这篇论文中提出一个全新的模型，叫 <strong>Transformer</strong>，抛弃了以往深度学习任务里面使用到的 CNN 和 RNN ，目前大热的<strong>BERT</strong>就是基于Transformer构建的，这个模型广泛应用于NLP领域，例如机器翻译，问答系统，文本摘要和语音识别等等方向。</p>
+<h3 id="Transformer总体结构"><a href="#Transformer总体结构" class="headerlink" title="Transformer总体结构"></a>Transformer总体结构</h3><p>和Attention模型一样，Transformer模型中也采用了 encoer-decoder 架构。但其结构相比于Attention更加复杂，论文中encoder层由6个encoder堆叠在一起，decoder层也一样。</p>
+<p><img src="/2019/03/20/NLPtask10/pic1.png" alt=""></p>
+<p>每一个encoder和decoder的内部简版结构如下图。</p>
+<p><img src="/2019/03/20/NLPtask10/pic2.png" alt=""></p>
+<p>对于encoder，包含两层：一个self-attention层和一个前馈神经网络。self-attention能帮助当前节点不仅仅只关注当前的词，从而能获取到上下文的语义。</p>
+<p>decoder也包含encoder提到的两层网络，但是在这两层中间还有一层attention层，帮助当前节点获取到当前需要关注的重点内容。</p>
+<p>现在我们知道了模型的主要组件，接下来我们看下模型的内部细节。首先，模型需要对输入的数据进行一个embedding操作，也可以理解为类似w2c的操作，embedding结束之后，输入到encoder层，self-attention处理完数据后把数据送给前馈神经网络，前馈神经网络的计算可以并行，得到的输出会输入到下一个encoder。</p>
+<p><img src="/2019/03/20/NLPtask10/pic3.png" alt=""></p>
+<h3 id="Self-Attention"><a href="#Self-Attention" class="headerlink" title="Self-Attention"></a>Self-Attention</h3><p>self-attention思想和attention类似，但self-attention是Transformer用来将其他相关单词的“理解”转换成正在处理的单词的一种思路，举个例子：</p>
+<blockquote>
+<p>The animal didn’t cross the street because it was too tired</p>
+</blockquote>
+<p>这里的”it”代表的是”animal”还是”street”，对于机器来说，是很难判断的，self-attention能够让机器把”it”和”animal”联系起来。</p>
+<p><strong>详细的处理过程如下</strong>：</p>
+<h4 id="self-attention计算三个新的向量。"><a href="#self-attention计算三个新的向量。" class="headerlink" title="self-attention计算三个新的向量。"></a>self-attention计算三个新的向量。</h4><p>在论文中，向量的维度是$512$维，把这三个向量分别称为Query、Key、Value，这三个向量是用embedding向量与一个矩阵相乘得到的结果，这个矩阵是随机初始化的，维度为$（64，512）$。第二个维度需要和embedding的维度一样，其值在BP的过程中会一直进行更新，得到的这三个向量的维度是$64$，低于embedding维度。Query、Key、Value这三个向量对于attention来说很重要。</p>
+<p><img src="/2019/03/20/NLPtask10/pic4.png" alt=""></p>
+<h4 id="计算self-attention分数值"><a href="#计算self-attention分数值" class="headerlink" title="计算self-attention分数值"></a>计算self-attention分数值</h4><p>该分数值决定了在某个位置encode一个词时，对输入句子的其他部分的关注程度。这个分数值的计算方法是Query与Key做点乘。以下图为例，首先需要针对Thinking这个词，计算出其他词对于该词的一个分数值，首先是针对于自己本身即$q1·k1$，然后是针对于第二个词即$q1·k2$</p>
+<p><img src="/2019/03/20/NLPtask10/pic5.png" alt=""></p>
+<h4 id="把点乘的结果除以一个常数再做softmax"><a href="#把点乘的结果除以一个常数再做softmax" class="headerlink" title="把点乘的结果除以一个常数再做softmax"></a>把点乘的结果除以一个常数再做softmax</h4><p>这里用结果除以$8$，这个值一般是采用上文提到的矩阵的第一个维度的开方即$64$的开方$8$，当然也可以选择其他的值，然后把得到的结果做一个softmax的计算。得到的结果即是每个词对于当前位置的词的相关性大小。</p>
+<p><img src="/2019/03/20/NLPtask10/pic6.png" alt=""></p>
+<h4 id="把Value和softmax得到的值进行相乘，并相加，得到的结果即是self-attention在当前节点的值。"><a href="#把Value和softmax得到的值进行相乘，并相加，得到的结果即是self-attention在当前节点的值。" class="headerlink" title="把Value和softmax得到的值进行相乘，并相加，得到的结果即是self-attention在当前节点的值。"></a>把Value和softmax得到的值进行相乘，并相加，得到的结果即是self-attention在当前节点的值。</h4><p><img src="/2019/03/20/NLPtask10/pic7.png" alt=""></p>
+<p>在实际的应用场景，为了提高计算速度，此处采用矩阵方式，直接计算出Query, Key, Value的矩阵，然后把embedding的值与三个矩阵直接相乘，把得到的新矩阵Q与K相乘，乘以一个常数，做softmax操作，最后乘上V矩阵</p>
+<p><img src="/2019/03/20/NLPtask10/pic8.png" alt=""></p>
+<p><img src="/2019/03/20/NLPtask10/pic9.png" alt=""></p>
+<p>这种通过 query 和 key 的相似性程度来确定 value 的权重分布的方法被称为scaled dot-product attention。</p>
+<h3 id="Multi-Headed-Attention"><a href="#Multi-Headed-Attention" class="headerlink" title="Multi-Headed Attention"></a>Multi-Headed Attention</h3><p>这篇论文给self-attention加入了另外一个机制，被称为“multi-headed” attention，该机制不仅仅只初始化一组Q、K、V的矩阵，而是初始化多组，transformer是使用了8组，所以最后得到的结果是8个矩阵。</p>
+<p><img src="/2019/03/20/NLPtask10/pic10.png" alt=""></p>
+<p><img src="/2019/03/20/NLPtask10/pic11.png" alt=""></p>
+<p>但前馈神经网络没法输入8个矩阵，所以需要把8个矩阵降为1个。首先，把8个矩阵连在一起得到一个大的矩阵，再随机初始化一个矩阵和这个组合好的矩阵相乘，最后得到一个最终的矩阵。</p>
+<p><img src="/2019/03/20/NLPtask10/pic12.png" alt=""></p>
+<p>这就是multi-headed attention的全部流程了，所有的矩阵总体流程如下。</p>
+<p><img src="/2019/03/20/NLPtask10/pic13.png" alt=""></p>
+<h3 id="Positional-Encoding"><a href="#Positional-Encoding" class="headerlink" title="Positional Encoding"></a>Positional Encoding</h3><p>到目前为止，transformer模型中还缺少一种解释输入序列中单词顺序的方法。为了处理这个问题，transformer给encoder层和decoder层的输入添加了一个额外的向量Positional Encoding，维度和embedding的维度一样，这个向量采用了一种很独特的方法来让模型学习到这个值，这个向量能决定当前词的位置，或者说在一个句子中不同的词之间的距离。这个位置向量的具体计算方法有很多种，论文中的计算方法如下：</p>
+<script type="math/tex; mode=display">
+PE(pos,2i)=sin(pos/10000^{2i}/d_{model}) \\
+PE(pos,2i+1)=cos(pos/10000^{2i}/d_{model})</script><p>其中$pos$是指当前词在句子中的位置，$i$是指向量中每个值的index。可以看出，在偶数位置，使用正弦编码，在奇数位置，使用余弦编码。</p>
+<p>代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">position_encoding = np.array([[pos / np.power(<span class="number">10000</span>, <span class="number">2.0</span> * (j // <span class="number">2</span>) / d_model) <span class="keyword">for</span> j <span class="keyword">in</span> range(d_model)] <span class="keyword">for</span> pos <span class="keyword">in</span> range(max_seq_len)])</span><br><span class="line"></span><br><span class="line">position_encoding[:, <span class="number">0</span>::<span class="number">2</span>] = np.sin(position_encoding[:, <span class="number">0</span>::<span class="number">2</span>])</span><br><span class="line">position_encoding[:, <span class="number">1</span>::<span class="number">2</span>] = np.cos(position_encoding[:, <span class="number">1</span>::<span class="number">2</span>])</span><br></pre></td></tr></table></figure></p>
+<p>最后把这个Positional Encoding与embedding的值相加，作为输入送到下一层。</p>
+<p><img src="/2019/03/20/NLPtask10/pic14.png" alt=""></p>
+<h3 id="Layer-normalization"><a href="#Layer-normalization" class="headerlink" title="Layer normalization"></a>Layer normalization</h3><p>在transformer中，每一个子层（self-attetion，ffnn）之后都会接一个残缺模块，并且有一个Layer normalization</p>
+<p><img src="/2019/03/20/NLPtask10/pic15.png" alt=""></p>
+<p>Normalization把输入转化成均值为0方差为1的数据，在把数据送入激活函数之前进行normalization（归一化），可以使输入数据不落在激活函数的饱和区。</p>
+<p>Batch normalization的主要思想是：在每一层的每一批数据上进行归一化。具体做法就是对每一小批数据，在批这个方向上做归一化。如下图所示：</p>
+<p><img src="/2019/03/20/NLPtask10/pic16.png" alt=""></p>
+<p>右半边求均值是沿着数据 batch_size的方向进行，其计算公式如下：</p>
+<script type="math/tex; mode=display">
+BN(x_i)=\alpha × \frac{x_i-\mu_b}{\sqrt{\sigma^2_B+\epsilon}}+\beta</script><p>Layer normalization 也是归一化数据的一种方式，但 layer normalization 是在每一个样本上计算均值和方差，而不是BN那种在批方向计算均值和方差！</p>
+<p><img src="/2019/03/20/NLPtask10/pic17.png" alt=""></p>
+<p>下面看一下 LN 的公式：</p>
+<script type="math/tex; mode=display">
+LN(x_i)=\alpha × \frac{x_i-\mu_L}{\sqrt{\sigma^2_L+\epsilon}}+\beta</script><p>把两个encoders叠加在一起就是下图这样的结构。</p>
+<p><img src="/2019/03/20/NLPtask10/pic18.png" alt=""></p>
+<h3 id="Decoder层"><a href="#Decoder层" class="headerlink" title="Decoder层"></a>Decoder层</h3><p><img src="/2019/03/20/NLPtask10/pic19.png" alt=""></p>
+<p>上图是transformer的一个详细结构。可以看到decoder部分其实和encoder部分大同小异，但在最下面额外多了一个masked multi-head attention，这里的mask也是transformer一个很关键的技术。</p>
+<h4 id="Mask"><a href="#Mask" class="headerlink" title="Mask"></a>Mask</h4><p>mask 表示掩码，它对某些值进行掩盖，使其在参数更新时不产生效果。Transformer 模型里面涉及两种 mask，分别是 padding mask 和 sequence mask。</p>
+<p>其中，padding mask 在所有的 scaled dot-product attention 里面都需要用到，而 sequence mask 只有在 decoder 的 self-attention 里面用到。</p>
+<h5 id="Padding-Mask"><a href="#Padding-Mask" class="headerlink" title="Padding Mask"></a>Padding Mask</h5><p>因为每个批次输入序列长度是不一样的，所以要对输入序列进行对齐。具体来说，就是给在较短的序列后面填充 0。但是如果输入的序列太长，则是截取左边的内容，把多余的直接舍弃。因为这些填充的位置，其实是没什么意义的，所以attention机制不应该把注意力放在这些位置上，需要进行一些处理。</p>
+<p>具体的做法是，把这些位置的值加上一个非常大的负数(负无穷)，这样经过 softmax，这些位置的概率就会接近0！</p>
+<p>Padding mask 实际上是一个张量，每个值都是一个Boolean，值为 false 的地方就是需要进行处理的地方。</p>
+<h5 id="Sequence-mask"><a href="#Sequence-mask" class="headerlink" title="Sequence mask"></a>Sequence mask</h5><p>文章前面也提到，sequence mask 是为了使得 decoder 不能看见未来的信息。也就是对于一个序列，在 time_step 为 $t$ 的时刻，我们的解码输出应该只能依赖于 $t$ 时刻之前的输出，而不能依赖 $t$ 之后的输出。因此需要把 $t$ 之后的信息给隐藏起来。</p>
+<p>具体操作：产生一个上三角矩阵，上三角的值全为0，把这个矩阵作用在每一个序列上。</p>
+<ul>
+<li>对于 decoder 的 self-attention，里面使用到的 scaled dot-product attention，同时需要padding mask 和 sequence mask 作为 attn_mask，具体实现就是两个mask相加作为attn_mask。</li>
+<li>其他情况，attn_mask 一律等于 padding mask。</li>
+</ul>
+<h3 id="输出层"><a href="#输出层" class="headerlink" title="输出层"></a>输出层</h3><p>当decoder层全部执行完毕后，在结尾再添加一个全连接层和softmax层就可以将得到的向量映射为需要的词。假如我们的词典是$w$个词，那最终softmax会输入$w$个词的概率，概率值最大的对应的词就是我们最终的结果。</p>
+<p><img src="/2019/03/20/NLPtask10/pic20.png" alt=""></p>
+<h2 id="BERT的原理"><a href="#BERT的原理" class="headerlink" title="BERT的原理"></a>BERT的原理</h2><p>之前的文章从attention讲解到了transformer，本文将会针对目前大热的BERT进行讲解，bert的内部结构主要是transformer，如果您对transformer并不了解，请参阅我之前的博文。</p>
+<p>从创新的角度来看，BERT其实并没有过多的结构方面的创新点，其和GPT一样均是采用的transformer的结构，相对于GPT来说，其是双向结构的，而GPT是单向的，如下图所示</p>
+<p><img src="/2019/03/20/NLPtask10/pic21.png" alt=""></p>
+<p>其次BERT在多方面的nlp任务变现来看效果都较好，具备较强的泛化能力，对于特定的任务只需要添加一个输出层来进行fine-tuning即可。</p>
+<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>对于BERT的内部结构，官网提供了两个版本，$L$表示的是transformer的层数，$H$表示输出的维度，$A$表示mutil-head attention的个数</p>
+<script type="math/tex; mode=display">
+BERT_{BASE}:L=12,H=768,A=12,TotalParameters=110M \\ BERT_{LARGE}:L=24,H=1024,A=16,TotalParameters=340M</script><p>从模型的层数来说其实已经很大了，但是由于transformer的residual模块，层数并不会引起梯度消失等问题，但是并不代表层数越多效果越好，有论点认为<strong>低层偏向于语法特征学习，高层偏向于语义特征学习</strong>。</p>
+<h3 id="预训练模型"><a href="#预训练模型" class="headerlink" title="预训练模型"></a>预训练模型</h3><p>首先介绍下预训练模型，举个例子，假设有大量的维基百科数据，那么可以用这部分巨大的数据来训练一个泛化能力很强的模型，当需要在特定场景使用时，例如做文本相似度计算，那么，只需要简单的修改一些输出层，再用自己的数据进行一个增量训练，对权重进行一个轻微的调整。</p>
+<p>预训练的好处在于在特定场景使用时不需要用大量的语料来进行训练，节约时间效率高效，BERT就是这样一个泛化能力较强的预训练模型。</p>
+<h3 id="BERT的预训练过程"><a href="#BERT的预训练过程" class="headerlink" title="BERT的预训练过程"></a>BERT的预训练过程</h3><p>BERT的预训练阶段包括两个任务，一个是Masked Language Model，还有一个是Next Sentence Prediction。</p>
+<h4 id="Masked-Language-Model"><a href="#Masked-Language-Model" class="headerlink" title="Masked Language Model"></a>Masked Language Model</h4><p>mml可以理解为完形填空，作者会随机mask每一个句子中 $15\%$ 的词，用其上下文来做预测，例如：my dog is hairy → my dog is [MASK]</p>
+<p>此处将”hairy”进行了mask处理，然后采用非监督学习的方法预测mask位置的词是什么，但是该方法有一个问题，因为是mask $15\%$ 的词，其数量已经很高了，这样就会导致某些词在fine-tuning阶段从未见过，为了解决这个问题，作者做了如下的处理：</p>
+<ul>
+<li>80%的时间是采用[mask]，my dog is hairy → my dog is [MASK]</li>
+<li>10%的时间是随机取一个词来代替mask的词，my dog is hairy -&gt; my dog is apple</li>
+<li>10%的时间保持不变，my dog is hairy -&gt; my dog is hairy</li>
+</ul>
+<p>那么为什么要以一定的概率使用随机词呢？因为transformer要保持对每个输入token分布式的表征，否则Transformer很可能会记住这个[MASK]就是”hairy”。至于使用随机词带来的负面影响，文章中提到，所有其他的token（即非”hairy”的token）共享 $15\%*10\% = 1.5\%$ 的概率，其影响是可以忽略不计的。</p>
+<h4 id="Next-Sentence-Prediction"><a href="#Next-Sentence-Prediction" class="headerlink" title="Next Sentence Prediction"></a>Next Sentence Prediction</h4><p>选择一些句子对A与B，其中 $50\%$ 的数据B是A的下一条句子，剩余 $50\%$ 的数据B是语料库中随机选择的，学习其中的相关性，添加这样的预训练的目的是目前很多NLP的任务比如QA和NLI都需要理解两个句子之间的关系，从而能让预训练的模型更好的适应这样的任务。</p>
+<h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><p>BERT的输入可以是单一的一个句子或者是句子对，实际的输入值是segment embedding与position embedding相加。</p>
+<p><img src="/2019/03/20/NLPtask10/pic22.png" alt=""></p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://blog.csdn.net/u012526436/article/details/86295971" target="_blank" rel="noopener">Transformer模型详解</a><br><a href="https://terrifyzhao.github.io/2019/02/18/BERT%E5%8E%9F%E7%90%86.html" target="_blank" rel="noopener">NLP-BERT原理</a></p>
+
+      
+    </div>
+    
+    
+    
+	
+	<div>
+		
+		<div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+
+</div>
+		
+	</div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您的支持将是我前进的动力！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Skye Lan 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Skye Lan 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/17/NLPtask9/" rel="next" title="Attention原理">
+                <i class="fa fa-chevron-left"></i> Attention原理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Skye Lan</p>
+              <p class="site-description motion-element" itemprop="description">一位乐观Coder的小站</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Transformer的原理"><span class="nav-number">1.</span> <span class="nav-text">Transformer的原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Transformer总体结构"><span class="nav-number">1.1.</span> <span class="nav-text">Transformer总体结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Self-Attention"><span class="nav-number">1.2.</span> <span class="nav-text">Self-Attention</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#self-attention计算三个新的向量。"><span class="nav-number">1.2.1.</span> <span class="nav-text">self-attention计算三个新的向量。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算self-attention分数值"><span class="nav-number">1.2.2.</span> <span class="nav-text">计算self-attention分数值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#把点乘的结果除以一个常数再做softmax"><span class="nav-number">1.2.3.</span> <span class="nav-text">把点乘的结果除以一个常数再做softmax</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#把Value和softmax得到的值进行相乘，并相加，得到的结果即是self-attention在当前节点的值。"><span class="nav-number">1.2.4.</span> <span class="nav-text">把Value和softmax得到的值进行相乘，并相加，得到的结果即是self-attention在当前节点的值。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multi-Headed-Attention"><span class="nav-number">1.3.</span> <span class="nav-text">Multi-Headed Attention</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Positional-Encoding"><span class="nav-number">1.4.</span> <span class="nav-text">Positional Encoding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Layer-normalization"><span class="nav-number">1.5.</span> <span class="nav-text">Layer normalization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Decoder层"><span class="nav-number">1.6.</span> <span class="nav-text">Decoder层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Mask"><span class="nav-number">1.6.1.</span> <span class="nav-text">Mask</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Padding-Mask"><span class="nav-number">1.6.1.1.</span> <span class="nav-text">Padding Mask</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Sequence-mask"><span class="nav-number">1.6.1.2.</span> <span class="nav-text">Sequence mask</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出层"><span class="nav-number">1.7.</span> <span class="nav-text">输出层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BERT的原理"><span class="nav-number">2.</span> <span class="nav-text">BERT的原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#结构"><span class="nav-number">2.1.</span> <span class="nav-text">结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预训练模型"><span class="nav-number">2.2.</span> <span class="nav-text">预训练模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BERT的预训练过程"><span class="nav-number">2.3.</span> <span class="nav-text">BERT的预训练过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Masked-Language-Model"><span class="nav-number">2.3.1.</span> <span class="nav-text">Masked Language Model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Next-Sentence-Prediction"><span class="nav-number">2.3.2.</span> <span class="nav-text">Next Sentence Prediction</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入"><span class="nav-number">2.4.</span> <span class="nav-text">输入</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文章"><span class="nav-number">3.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Skye Lan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("NY2NqdWXz7RHDaYF2Hx5c8Qr-gzGzoHsz", "dO0yaYq84mJRLVvJj54jcI7a");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
