@@ -79,25 +79,19 @@
 
 
 
-<meta name="description" content="文本表示：从one-hot到word2vec词袋模型：one-hot编码one-hot编码，又称独热编码、一位有效编码。其方法是使用N位状态寄存器来对N个状态进行编码，每个状态都有它独立的寄存器位，并且在任意时候，其中只有一位有效。  考虑一下的三个特征：[“male”, “female”][“from Europe”, “from US”, “from Asia”][“uses Firefox”">
+<meta name="description" content="机器学习的一些概念监督学习、非监督学习、半监督学习的区别监督学习、非监督学习和半监督学习区别就是训练数据是否拥有标签信息 监督学习：给出了数据及数据的标准答案来训练模型。Regression回归问题、classification分类问题都是典型的监督学习 非监督学习：给了一组数据，但没有给出数据的标签信息，需要从数据中去发现数据间隐藏的结构信息。聚类问题是典型的非监督学习 半监督学习：给出了大量没">
 <meta property="og:type" content="article">
-<meta property="og:title" content="简单神经网络">
-<meta property="og:url" content="http://yoursite.com/2019/03/12/NLPtask6/index.html">
+<meta property="og:title" content="线性回归算法梳理">
+<meta property="og:url" content="http://yoursite.com/2019/03/29/PrimaryAlgorithm1/index.html">
 <meta property="og:site_name" content="Skye的博客小站">
-<meta property="og:description" content="文本表示：从one-hot到word2vec词袋模型：one-hot编码one-hot编码，又称独热编码、一位有效编码。其方法是使用N位状态寄存器来对N个状态进行编码，每个状态都有它独立的寄存器位，并且在任意时候，其中只有一位有效。  考虑一下的三个特征：[“male”, “female”][“from Europe”, “from US”, “from Asia”][“uses Firefox”">
+<meta property="og:description" content="机器学习的一些概念监督学习、非监督学习、半监督学习的区别监督学习、非监督学习和半监督学习区别就是训练数据是否拥有标签信息 监督学习：给出了数据及数据的标准答案来训练模型。Regression回归问题、classification分类问题都是典型的监督学习 非监督学习：给了一组数据，但没有给出数据的标签信息，需要从数据中去发现数据间隐藏的结构信息。聚类问题是典型的非监督学习 半监督学习：给出了大量没">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/03/12/NLPtask6/pic1.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/12/NLPtask6/pic2.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/12/NLPtask6/pic3.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/12/NLPtask6/pic4.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/12/NLPtask6/pic5.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/12/NLPtask6/pic6.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/12/NLPtask6/pic7.png">
-<meta property="og:updated_time" content="2019-03-13T13:52:24.099Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/29/PrimaryAlgorithm1/pic1.jpg">
+<meta property="og:updated_time" content="2019-03-28T17:22:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="简单神经网络">
-<meta name="twitter:description" content="文本表示：从one-hot到word2vec词袋模型：one-hot编码one-hot编码，又称独热编码、一位有效编码。其方法是使用N位状态寄存器来对N个状态进行编码，每个状态都有它独立的寄存器位，并且在任意时候，其中只有一位有效。  考虑一下的三个特征：[“male”, “female”][“from Europe”, “from US”, “from Asia”][“uses Firefox”">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/12/NLPtask6/pic1.png">
+<meta name="twitter:title" content="线性回归算法梳理">
+<meta name="twitter:description" content="机器学习的一些概念监督学习、非监督学习、半监督学习的区别监督学习、非监督学习和半监督学习区别就是训练数据是否拥有标签信息 监督学习：给出了数据及数据的标准答案来训练模型。Regression回归问题、classification分类问题都是典型的监督学习 非监督学习：给了一组数据，但没有给出数据的标签信息，需要从数据中去发现数据间隐藏的结构信息。聚类问题是典型的非监督学习 半监督学习：给出了大量没">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/29/PrimaryAlgorithm1/pic1.jpg">
 
 
 
@@ -127,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/12/NLPtask6/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/29/PrimaryAlgorithm1/"/>
 
 
 
 
 
-  <title>简单神经网络 | Skye的博客小站</title>
+  <title>线性回归算法梳理 | Skye的博客小站</title>
   
 
 
@@ -270,7 +264,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/12/NLPtask6/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/29/PrimaryAlgorithm1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Skye Lan">
@@ -287,7 +281,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">简单神经网络</h1>
+          <h1 class="post-title" itemprop="name headline">线性回归算法梳理</h1>
         
 
         <div class="post-meta">
@@ -299,8 +293,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-12T19:13:54+08:00">
-                2019-03-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-29T00:48:39+08:00">
+                2019-03-29
               </time>
             
 
@@ -339,7 +333,7 @@
 
           
           
-             <span id="/2019/03/12/NLPtask6/" class="leancloud_visitors" data-flag-title="简单神经网络">
+             <span id="/2019/03/29/PrimaryAlgorithm1/" class="leancloud_visitors" data-flag-title="线性回归算法梳理">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -365,7 +359,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.5k 字
+                  1.3k 字
                 </span>
               
 
@@ -381,7 +375,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  9 分钟
+                  4 分钟
                 </span>
               
             </div>
@@ -402,86 +396,48 @@
       
 
       
-        <h2 id="文本表示：从one-hot到word2vec"><a href="#文本表示：从one-hot到word2vec" class="headerlink" title="文本表示：从one-hot到word2vec"></a>文本表示：从one-hot到word2vec</h2><h3 id="词袋模型：one-hot编码"><a href="#词袋模型：one-hot编码" class="headerlink" title="词袋模型：one-hot编码"></a>词袋模型：one-hot编码</h3><p>one-hot编码，又称独热编码、一位有效编码。其方法是使用N位状态寄存器来对N个状态进行编码，每个状态都有它独立的寄存器位，并且在任意时候，其中只有一位有效。</p>
-<blockquote>
-<p>考虑一下的三个特征：<br>[“male”, “female”]<br>[“from Europe”, “from US”, “from Asia”]<br>[“uses Firefox”, “uses Chrome”, “uses Safari”, “uses Internet Explorer”]</p>
-<p>将它换成独热编码后，应该是：<br>feature1=[01,10]<br>feature2=[001,010,100]<br>feature3=[0001,0010,0100,1000]</p>
-</blockquote>
-<p><strong>优点</strong>：</p>
-<ul>
-<li>解决了分类器不好处理离散数据的问题</li>
-<li>在一定程度上也起到了扩充特征的作用</li>
-</ul>
-<p><strong>缺点</strong>：</p>
-<ul>
-<li>属于词袋模型，不考虑词与词之间的顺序</li>
-<li>假设词与词相互独立</li>
-<li>得到的特征是离散稀疏的</li>
-</ul>
-<blockquote>
-<p>比如如果将世界所有城市名称作为语料库的话，那这个向量会过于稀疏，并且会造成维度灾难。<br>杭州 [0,0,0,0,0,0,0,1,0,……，0,0,0,0,0,0,0]<br>上海 [0,0,0,0,1,0,0,0,0,……，0,0,0,0,0,0,0]<br>宁波 [0,0,0,1,0,0,0,0,0,……，0,0,0,0,0,0,0]<br>北京 [0,0,0,0,0,0,0,0,0,……，1,0,0,0,0,0,0]</p>
-</blockquote>
-<h3 id="分布式表示"><a href="#分布式表示" class="headerlink" title="分布式表示"></a>分布式表示</h3><p>Dristributed representation可以解决One hot representation的问题，它的思路是通过训练，将每个词都映射到一个较短的词向量上来。所有的这些词向量就构成了向量空间，进而可以用普通的统计学的方法来研究词与词之间的关系。</p>
-<p>将词从一个可能非常稀疏的向量坐在的空间，映射到低维向量所在的空间，必须满足以下性质：</p>
+        <h2 id="机器学习的一些概念"><a href="#机器学习的一些概念" class="headerlink" title="机器学习的一些概念"></a>机器学习的一些概念</h2><h3 id="监督学习、非监督学习、半监督学习的区别"><a href="#监督学习、非监督学习、半监督学习的区别" class="headerlink" title="监督学习、非监督学习、半监督学习的区别"></a>监督学习、非监督学习、半监督学习的区别</h3><p><strong>监督学习、非监督学习和半监督学习区别就是训练数据是否拥有标签信息</strong></p>
+<p><strong>监督学习</strong>：给出了数据及数据的标准答案来训练模型。Regression回归问题、classification分类问题都是典型的监督学习</p>
+<p><strong>非监督学习</strong>：给了一组数据，但没有给出数据的标签信息，需要从数据中去发现数据间隐藏的结构信息。聚类问题是典型的非监督学习</p>
+<p><strong>半监督学习</strong>：给出了大量没有标签的数据和少量拥有标签的数据训练模型</p>
+<h3 id="过拟合、欠拟合、泛化能力"><a href="#过拟合、欠拟合、泛化能力" class="headerlink" title="过拟合、欠拟合、泛化能力"></a>过拟合、欠拟合、泛化能力</h3><p><strong>欠拟合</strong>：模型没有很好的捕捉到数据特征，不能够很好的拟合数据</p>
+<p><strong>过拟合</strong>：模型把训练数据学的“太好了”，导致把数据中的潜在的噪声数据也学到了，测试时不能很好的识别数据，模型的泛化能力下降。</p>
+<p><img src="/2019/03/29/PrimaryAlgorithm1/pic1.jpg" alt=""></p>
+<p>泛化能力**：训练的模型适用于新样本的能力，称为“泛化”能力，具有强范化能力的模型能很好的适用于整个样本空间</p>
+<h2 id="线性回归的原理"><a href="#线性回归的原理" class="headerlink" title="线性回归的原理"></a>线性回归的原理</h2><p>线性回归遇到的问题一般是这样的。我们有 $m$ 个样本，每个样本对应于 $n$ 维特征和一个结果输出，如下：</p>
+<script type="math/tex; mode=display">
+(x^{(0)}_1,x^{(0)}_2,\dots x^{(0)}_n,y^{(0)}),\dots (x^{(m)}_1,x^{(m)}_2,\dots x^{(m)}_n,y^{(m)})</script><p>我们的问题是，对于一个新的 $(x^{(x)}_1,x^{(x)}_2,\dots x^{(x)}_n)$ , 他所对应的 $y^{(x)}$是多少呢？ 如果这个问题里面的 $y$ 是连续的，则是一个回归问题，否则是一个分类问题。</p>
+<p>对于 $n$ 维特征的样本数据，如果我们决定使用线性回归，那么对应的模型是这样的：</p>
+<script type="math/tex; mode=display">
+h_θ(x_1,x_2,...x_n)=\theta_0+\theta_1x_1+\dots +\theta_nx_n</script><p>其中 $\theta_i(i = 0,1,2\dots n)$ 为模型参数，$x_i (i = 0,1,2\dots n)$ 为每个样本的 $n$ 个特征值。这个表示可以简化，增加一个特征 $x_0=1$ ，这样 $h_θ(x_1,x_2,…x_n)=\sum_{i=0}^n\theta_ix_i$。</p>
+<p>进一步用矩阵形式表达更加简洁如下：</p>
+<script type="math/tex; mode=display">
+h_\theta(X)=X\theta</script><p>其中， 假设函数 $h_\theta(X)$ 为 $m<em>1$ 的向量,$θ$ 为 $n</em>1$ 的向量，里面有 $n$ 个代数法的模型参数。$X$ 为 $m*n$ 维的矩阵。$m$ 代表样本的个数，$n$ 代表样本的特征数。</p>
+<p>得到了模型，我们需要求出需要的损失函数，一般线性回归我们用均方误差作为损失函数。损失函数的代数法表示如下：</p>
+<script type="math/tex; mode=display">
+J(\theta_0,\theta_1,\dots ,\theta_n)=\sum_{i=0}^m(h_θ(x_0,x_1,\dots,x_n)−y_i)^2</script><p>进一步用矩阵形式表达损失函数：</p>
+<script type="math/tex; mode=display">
+J(\theta)=\frac{1}{2}(X\theta−Y)^T(X\theta−Y)</script><h2 id="线性回归损失函数、代价函数、目标函数"><a href="#线性回归损失函数、代价函数、目标函数" class="headerlink" title="线性回归损失函数、代价函数、目标函数"></a>线性回归损失函数、代价函数、目标函数</h2><p>损失函数：$\left| y_i-f(x_i) \right|$ ，一般是针对单个样本 i</p>
+<p>代价函数：$1/N.\sum_{i=1}^{N}{\left| y_i-f(x_i) \right|}$ , 一般是针对总体</p>
+<p>目标函数：带有正则项的代价函数</p>
+<h2 id="优化方法"><a href="#优化方法" class="headerlink" title="优化方法"></a>优化方法</h2><h3 id="梯度下降法"><a href="#梯度下降法" class="headerlink" title="梯度下降法"></a>梯度下降法</h3><p>沿着梯度下降的方向来求出损失函数的极小值。梯度下降不一定能够找到全局的最优解，有可能是一个局部最优解。当然，如果损失函数是凸函数，梯度下降法得到的解就一定是全局最优解。</p>
+<h3 id="牛顿法"><a href="#牛顿法" class="headerlink" title="牛顿法"></a>牛顿法</h3><p>牛顿法是一种在实数域和复数域上近似求解方程的方法。方法使用函数f (x)的泰勒级数的前面几项来寻找方程f (x)求导 = 0的根。牛顿法最大的特点就在于它的收敛速度很快。</p>
+<h3 id="拟牛顿法"><a href="#拟牛顿法" class="headerlink" title="拟牛顿法"></a>拟牛顿法</h3><p>拟牛顿法的本质思想是改善牛顿法每次需要求解复杂的Hessian矩阵的逆矩阵的缺陷，它使用正定矩阵来近似Hessian矩阵的逆，从而简化了运算的复杂度。</p>
+<h2 id="线性回归的评估指标"><a href="#线性回归的评估指标" class="headerlink" title="线性回归的评估指标"></a>线性回归的评估指标</h2><h3 id="平均绝对误差（MAE）"><a href="#平均绝对误差（MAE）" class="headerlink" title="平均绝对误差（MAE）"></a>平均绝对误差（MAE）</h3><script type="math/tex; mode=display">
+MAE=\frac{1}{n}\sum_{i=1}^n|y_i-f_i|</script><h3 id="均方误差（MSE）"><a href="#均方误差（MSE）" class="headerlink" title="均方误差（MSE）"></a>均方误差（MSE）</h3><script type="math/tex; mode=display">
+MSE=\frac{1}{n}\sum_{i=1}^n(y_i-f_i)^2</script><h3 id="方均根差（RMSE）"><a href="#方均根差（RMSE）" class="headerlink" title="方均根差（RMSE）"></a>方均根差（RMSE）</h3><script type="math/tex; mode=display">
+RMSE = \sqrt{MSE}</script><h3 id="平均绝对百分比误差（MAPE）"><a href="#平均绝对百分比误差（MAPE）" class="headerlink" title="平均绝对百分比误差（MAPE）"></a>平均绝对百分比误差（MAPE）</h3><script type="math/tex; mode=display">
+MAPE=\frac{100}{n}\sum_{T=1}^n|\frac{y_i-f_i}{y_i}|</script><h3 id="R平方"><a href="#R平方" class="headerlink" title="　R平方"></a>　R平方</h3><script type="math/tex; mode=display">
+r^2 = 1-\frac{SS_{res}}{SS_{tot}} = 1-\frac{\sum(y_i-f_i)^2}{\sum(y_i-\overline{y})^2}</script><h2 id="sklearn参数详解"><a href="#sklearn参数详解" class="headerlink" title="sklearn参数详解"></a>sklearn参数详解</h2><p>函数：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.linear_model.LinearRegression(fit_intercept=<span class="keyword">True</span>, normalize=<span class="keyword">False</span>, copy_X=<span class="keyword">True</span>, n_jobs=<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure></p>
 <ol>
-<li>这个映射是单设（不懂的概念自行搜索）</li>
-<li>映射之后的向量不会丢失之前的那种向量所含的信息</li>
+<li><strong>fit_intercept</strong>：布尔值。指定是否需要计算线性回归中的截距，即b值。如果为False,那么不计算b值。</li>
+<li><strong>normalize</strong>：布尔值。如果为False，那么训练样本会进行归一化处理；当为True的时候，则回归量X将在回归之前通过减去平均值并除以I2范数来归一</li>
+<li><strong>copy_X</strong>：布尔值。如果为True，会复制一份训练数据。</li>
+<li><strong>n_jobs</strong>：一个整数。任务并行时指定的CPU数量，如果取值为-1则使用所有可用的CPU。</li>
+<li><strong>coef_</strong>：权重向量</li>
+<li><strong>intercept_</strong>：截距b值</li>
 </ol>
-<p>这个过程称为<strong>word embedding（词嵌入）</strong>，即将高维词向量嵌入到一个低维空间。</p>
-<p><img src="/2019/03/12/NLPtask6/pic1.png" alt=""></p>
-<h4 id="word2vec"><a href="#word2vec" class="headerlink" title="word2vec"></a>word2vec</h4><p>word2vec模型其实就是简单化的神经网络。</p>
-<p>输入是One-Hot Vector，Hidden Layer没有激活函数，也就是线性的单元。Output Layer维度跟Input Layer的维度一样，用的是Softmax回归。当这个模型训练好以后，我们并不会用这个训练好的模型处理新的任务，我们真正需要的是这个模型通过训练数据所学得的参数，例如隐层的权重矩阵。</p>
-<p>模型定义数据的输入和输出一般分为CBOW（Continuous Bag-of-Words） 与Skip-Gram两种模型。</p>
-<ul>
-<li><p>CBOW模型的训练输入是某一个特征词的上下文相关的词对应的词向量，而输出就是这特定的一个词的词向量。</p>
-</li>
-<li><p>Skip-Gram模型和CBOW的思路是反着来的，即输入是特定的一个词的词向量，而输出是特定词对应的上下文词向量。</p>
-</li>
-</ul>
-<p>CBOW对小型数据库比较合适，而Skip-Gram在大型语料中表现更好。</p>
-<p><img src="/2019/03/12/NLPtask6/pic2.png" alt=""></p>
-<h5 id="CBOW-Continuous-Bag-of-Words"><a href="#CBOW-Continuous-Bag-of-Words" class="headerlink" title="CBOW(Continuous Bag-of-Words)"></a>CBOW(Continuous Bag-of-Words)</h5><p>CBOW的训练模型如图所示：</p>
-<p><img src="/2019/03/12/NLPtask6/pic3.png" alt=""></p>
-<ol>
-<li>输入层：上下文单词的one-hot。（假设单词向量空间$dim$为$V$，上下文单词个数为$C$）</li>
-<li>所有one-hot分别乘以共享的输入权重矩阵$W$。 ($V*N$矩阵，$N$为自己设定的数，初始化权重矩阵$W$）</li>
-<li>所得的向量 （因为是one-hot所以为向量）相加求平均作为隐层向量，size为$1*N$。</li>
-<li>乘以输出权重矩阵$W’$（$N*V$）</li>
-<li>得到向量 （$1*V$） 激活函数处理得到$V-dim$概率分布（PS: 因为是one-hot嘛，其中的每一维都代表着一个单词）</li>
-<li>概率最大的index所指示的单词为预测出的中间词（target word）与true label的one-hot做比较，误差越小越好（根据误差更新权重矩阵）</li>
-</ol>
-<p>需要定义loss function（一般为交叉熵代价函数），采用梯度下降算法更新$W$和$W’$。训练完毕后，输入层的每个单词与矩阵$W$相乘得到的向量的就是我们想要的<strong>词向量（word embedding）</strong>，这个矩阵（所有单词的word embedding）也叫做look up table（这个look up table就是矩阵$W$自身）。任何一个单词的one-hot乘以这个矩阵都将得到自己的词向量。有了look up table就可以免去训练过程直接查表得到单词的词向量了。</p>
-<h5 id="Skip-Gram"><a href="#Skip-Gram" class="headerlink" title="Skip-Gram"></a>Skip-Gram</h5><p>直观上理解，Skip-Gram是给定input word来预测上下文。</p>
-<p>假如我们有一个句子，首先选择句子中间的一个词作为输入词 input word；有了input word以后，再定义一个叫做 skip_window 的参数，代表从当前 input word 的一侧（左边或右边）选取词的数量。另一个参数叫 num_skips，代表从整个窗口<strong>（包括input word在内）</strong>中选取多少个不同的词作为 output word，当skip_window=2，num_skips=2时，我们将会得到两组 (input word, output word) 形式的训练数据，即 (‘dog’, ‘barked’)，(‘dog’, ‘the’)。</p>
-<p>神经网络基于这些训练数据将会输出一个概率分布，这个概率代表词典中的每个词是 output word 的可能性。模型的输出概率代表词典中每个词有多大可能性跟 input word 同时出现。通过给神经网络输入文本中成对的单词来训练它完成概率计算。</p>
-<p>下面的图中给出了一些我们的训练样本的例子。选定句子“The quick brown fox jumps over lazy dog”，设定窗口大小为2（window_size=2），即仅选输入词前后各两个词和输入词进行组合。下图中，蓝色代表input word，方框内代表位于窗口内的单词。</p>
-<p><img src="/2019/03/12/NLPtask6/pic4.png" alt=""></p>
-<p>模型将会从每对单词出现的次数中习得统计结果。<strong>最终我们需要的是训练出来的权重矩阵</strong>。</p>
-<p><img src="/2019/03/12/NLPtask6/pic5.png" alt=""></p>
-<h2 id="走进FastText"><a href="#走进FastText" class="headerlink" title="走进FastText"></a>走进FastText</h2><p>Fasttext是facebook开源的一个词向量与文本分类工具，在2016年开源，典型应用场景是“带监督的文本分类问题”。提供简单而高效的文本分类和表征学习的方法，性能比肩深度学习而且速度更快。fastText的代码整体结构如下图所示。</p>
-<p><img src="/2019/03/12/NLPtask6/pic6.png" alt=""></p>
-<h3 id="FastText的原理"><a href="#FastText的原理" class="headerlink" title="FastText的原理"></a>FastText的原理</h3><p>fastText方法包含三部分，模型架构、层次SoftMax 和 N-gram子词特征。</p>
-<p>fastText在输入时，将单词的字符级别的n-gram向量作为额外的特征；在输出时，fastText采用了分层Softmax，大大降低了模型训练时间。</p>
-<p>fastText的核心思想就是：<strong>将整篇文档的词及n-gram向量叠加平均得到文档向量，然后使用文档向量做softmax多分类</strong>。</p>
-<h4 id="模型架构"><a href="#模型架构" class="headerlink" title="模型架构"></a>模型架构</h4><p>fastText的架构和word2vec中的CBOW的架构类似，因为它们的作者都是Facebook的科学家Tomas Mikolov，而且确实fastText也算是word2vec所衍生出来的。fastText模型架构如图，其中$x_1,x_2,\dots ,x_{N−1},x_N$表示一个文本中的n-gram向量，每个特征是词向量的平均值。这和前文中提到的CBOW相似，CBOW用上下文去预测中心词，而此处<strong>用全部的n-gram去预测指定类别</strong>。</p>
-<p><img src="/2019/03/12/NLPtask6/pic7.png" alt=""></p>
-<h4 id="层次SoftMax"><a href="#层次SoftMax" class="headerlink" title="层次SoftMax"></a>层次SoftMax</h4><p>对于有大量类别的数据集，fastText使用了一个分层分类器（而非扁平式架构）。不同的类别被整合进树形结构中（想象下二叉树而非 list）。在某些文本分类任务中类别很多，计算线性分类器的复杂度高。为了改善运行时间，fastText 模型使用了层次Softmax 技巧。层次Softmax 技巧建立在哈弗曼编码的基础上，对标签进行编码，能够极大地缩小模型预测目标的数量。</p>
-<p>fastText 也利用了类别不均衡这个事实（一些类别出现次数比其他的更多），通过使用 Huffman算法建立用于表征类别的树形结构。因此，频繁出现类别的树形结构的深度要比不频繁出现类别的树形结构的深度要小，这也使得进一步的计算效率更高。</p>
-<h4 id="N-gram子词特征"><a href="#N-gram子词特征" class="headerlink" title="N-gram子词特征"></a>N-gram子词特征</h4><p>fastText 可以用于文本分类和句子分类。不管是文本分类还是句子分类，常用的特征是词袋模型。但词袋模型不能考虑词之间的顺序，因此 fastText 还加入了 N-gram 特征。在 fasttext 中，每个词被看做是 n-gram字母串包。为了区分前后缀情况，”&lt;”， “&gt;”符号被加到了词的前后端。除了词的子串外，词本身也被包含进了 n-gram字母串包。以 where 为例，n=3的情况下，其子串分别为</p>
-<p><wh, whe,="" her,="" ere,="" re="">，以及其本身 。</wh,></p>
-<h3 id="fastText-和-word2vec-的区别"><a href="#fastText-和-word2vec-的区别" class="headerlink" title="fastText 和 word2vec 的区别"></a>fastText 和 word2vec 的区别</h3><p><strong>相似处</strong>：</p>
-<ul>
-<li>图模型结构很像，都是采用 embedding 向量的形式，得到 word 的隐向量表达。</li>
-<li>都采用很多相似的优化方法，比如使用 Hierarchical softmax 优化训练和预测中的打分速度。</li>
-</ul>
-<p><strong>不同处</strong>：</p>
-<ul>
-<li>模型的输出层： word2vec 的输出层，对应的是每一个term，计算某term的概率最大；而fasttext的输出层对应的是分类的label。不过不管输出层对应的是什么内容，起对应的vector都不会被保留和使用。</li>
-<li>模型的输入层： word2vec 的输出层，是 context window 内的term；而fasttext 对应的整个sentence的内容，包括term，也包括 n-gram的内容。</li>
-</ul>
-<p><strong>两者本质的不同，体现在 h-softmax的使用</strong>：</p>
-<p>Word2vec的目的是得到词向量，该词向量最终是在输入层得到，输出层对应的 h-softmax 也会生成一系列的向量，但最终都被抛弃，不会使用。fastText则充分利用了 h-softmax 的分类功能，遍历分类树的所有叶节点，找到概率最大的label（一个或者N个）。<strong>fastText适合类别特别多的分类问题，如果类别比较少，容易过拟合</strong>。</p>
-<h3 id="利用FastText模型进行文本分类"><a href="#利用FastText模型进行文本分类" class="headerlink" title="利用FastText模型进行文本分类"></a>利用FastText模型进行文本分类</h3>
+
       
     </div>
     
@@ -543,8 +499,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/12/NLPtask5/" rel="next" title="神经网络基础">
-                <i class="fa fa-chevron-left"></i> 神经网络基础
+              <a href="/2019/03/27/01package/" rel="next" title="背包问题">
+                <i class="fa fa-chevron-left"></i> 背包问题
               </a>
             
           </div>
@@ -552,10 +508,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/14/NLPtask7/" rel="prev" title="卷积神经网络">
-                卷积神经网络 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -687,7 +639,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文本表示：从one-hot到word2vec"><span class="nav-number">1.</span> <span class="nav-text">文本表示：从one-hot到word2vec</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#词袋模型：one-hot编码"><span class="nav-number">1.1.</span> <span class="nav-text">词袋模型：one-hot编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式表示"><span class="nav-number">1.2.</span> <span class="nav-text">分布式表示</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#word2vec"><span class="nav-number">1.2.1.</span> <span class="nav-text">word2vec</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#CBOW-Continuous-Bag-of-Words"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">CBOW(Continuous Bag-of-Words)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Skip-Gram"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">Skip-Gram</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#走进FastText"><span class="nav-number">2.</span> <span class="nav-text">走进FastText</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#FastText的原理"><span class="nav-number">2.1.</span> <span class="nav-text">FastText的原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#模型架构"><span class="nav-number">2.1.1.</span> <span class="nav-text">模型架构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#层次SoftMax"><span class="nav-number">2.1.2.</span> <span class="nav-text">层次SoftMax</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#N-gram子词特征"><span class="nav-number">2.1.3.</span> <span class="nav-text">N-gram子词特征</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fastText-和-word2vec-的区别"><span class="nav-number">2.2.</span> <span class="nav-text">fastText 和 word2vec 的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用FastText模型进行文本分类"><span class="nav-number">2.3.</span> <span class="nav-text">利用FastText模型进行文本分类</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#机器学习的一些概念"><span class="nav-number">1.</span> <span class="nav-text">机器学习的一些概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#监督学习、非监督学习、半监督学习的区别"><span class="nav-number">1.1.</span> <span class="nav-text">监督学习、非监督学习、半监督学习的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过拟合、欠拟合、泛化能力"><span class="nav-number">1.2.</span> <span class="nav-text">过拟合、欠拟合、泛化能力</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性回归的原理"><span class="nav-number">2.</span> <span class="nav-text">线性回归的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性回归损失函数、代价函数、目标函数"><span class="nav-number">3.</span> <span class="nav-text">线性回归损失函数、代价函数、目标函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化方法"><span class="nav-number">4.</span> <span class="nav-text">优化方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#梯度下降法"><span class="nav-number">4.1.</span> <span class="nav-text">梯度下降法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#牛顿法"><span class="nav-number">4.2.</span> <span class="nav-text">牛顿法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拟牛顿法"><span class="nav-number">4.3.</span> <span class="nav-text">拟牛顿法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性回归的评估指标"><span class="nav-number">5.</span> <span class="nav-text">线性回归的评估指标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#平均绝对误差（MAE）"><span class="nav-number">5.1.</span> <span class="nav-text">平均绝对误差（MAE）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#均方误差（MSE）"><span class="nav-number">5.2.</span> <span class="nav-text">均方误差（MSE）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方均根差（RMSE）"><span class="nav-number">5.3.</span> <span class="nav-text">方均根差（RMSE）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#平均绝对百分比误差（MAPE）"><span class="nav-number">5.4.</span> <span class="nav-text">平均绝对百分比误差（MAPE）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#R平方"><span class="nav-number">5.5.</span> <span class="nav-text">　R平方</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sklearn参数详解"><span class="nav-number">6.</span> <span class="nav-text">sklearn参数详解</span></a></li></ol></div>
             
 
           </div>
