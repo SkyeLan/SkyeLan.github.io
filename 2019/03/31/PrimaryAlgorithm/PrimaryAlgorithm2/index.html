@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Skye的博客小站">
 <meta property="og:description" content="逻辑回归与线性回归的联系与区别联系逻辑回归与线性回归都属于广义线性回归模型 区别线性回归主要用来解决连续值预测的问题，逻辑回归用来解决分类的问题，输出的属于某个类别的概率。线性回归中使用的是最小化平方误差损失函数，对偏离真实值越远的数据惩罚越严重。逻辑回归使用对数似然函数进行参数估计，使用交叉熵作为损失函数，对预测错误的惩罚是随着输出的增大，逐渐逼近一个常数。线性回归的输出是连续实数，逻辑回归的输">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-31T12:52:54.206Z">
+<meta property="og:updated_time" content="2019-03-31T13:08:48.596Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="逻辑回归算法梳理">
 <meta name="twitter:description" content="逻辑回归与线性回归的联系与区别联系逻辑回归与线性回归都属于广义线性回归模型 区别线性回归主要用来解决连续值预测的问题，逻辑回归用来解决分类的问题，输出的属于某个类别的概率。线性回归中使用的是最小化平方误差损失函数，对偏离真实值越远的数据惩罚越严重。逻辑回归使用对数似然函数进行参数估计，使用交叉熵作为损失函数，对预测错误的惩罚是随着输出的增大，逐渐逼近一个常数。线性回归的输出是连续实数，逻辑回归的输">
@@ -438,13 +438,13 @@ L(\theta)=&\prod_{i=1}^{m}P(y^{(i)}|x^{(i)};\theta)\\
 \begin{align}
 l(\theta)=&logL(\theta)\\
 =&\sum_{i=1}^{m}(y^{(i)}log(h_\theta(x^{(i)})+(1-y^{(i)})log(1-h_\theta(x^{(i)})))
-\end{align}</script><p>最大似然估计就是求使 $l(\theta)$ 取最大值时的 θ ，其实这里可以使用梯度上升法求解，求得的 θ 就是要求的最佳参数。但是，在Andrew Ng的课程中将 $J(\theta)$ 取为下式，即：</p>
+\end{align}</script><p>最大似然估计就是求使 $l(\theta)$ 取最大值时的 $\theta$ ，其实这里可以使用梯度上升法求解，求得的 $\theta$ 就是要求的最佳参数。但是，在Andrew Ng的课程中将 $J(\theta)$ 取为下式，即：</p>
 <script type="math/tex; mode=display">
 J(\theta)=-\frac{1}{m}l(\theta)</script><p>因为乘了一个负的系数 $-\frac{1}{m}$ ，所以取 $J(\theta)$ 最小值时的θ为要求的最佳参数。  </p>
 <p><strong>梯度下降法求的最小值</strong></p>
 <p>开始之前插一句，sigmoid函数有个很重要的特性：</p>
 <script type="math/tex; mode=display">
-g(z)'=g(z)(1-g(z))</script><p>θ更新过程：</p>
+g(z)'=g(z)(1-g(z))</script><p>$\theta$ 更新过程：</p>
 <script type="math/tex; mode=display">
 \theta_j：=\theta_j-\alpha\frac{\delta}{\delta_{\theta_j}}J(\theta)</script><p>其中：</p>
 <script type="math/tex; mode=display">
@@ -456,14 +456,14 @@ g(z)'=g(z)(1-g(z))</script><p>θ更新过程：</p>
 =&-\frac{1}{m}\sum_{i=1}^{m}(y^{(i)}(1-g(\theta^Tx^{(i)}))-(1-y^{(i)})g(\theta^Tx^{(i)}))x_j^{(i)}\\
 =&-\frac{1}{m}\sum_{i=1}^{m}(y^{(i)}-g(\theta^Tx^{(i)}))x_j^{(i)}\\
 =&\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}
-\end{align}</script><p>所以 θ 更新过程可以写为：</p>
+\end{align}</script><p>所以 $\theta$ 更新过程可以写为：</p>
 <script type="math/tex; mode=display">
 \theta_j：=\theta_j-\alpha\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}</script><h3 id="向量化"><a href="#向量化" class="headerlink" title="向量化"></a>向量化</h3><p>在使用向量化之后公式 $J(\theta)=-\frac{1}{m}\sum_{i=1}^{m}(y^{(i)}log(h_\theta(x^{(i)}))+(1-y^{(i)})log(1-h_\theta(x^{(i)})))$ 可以写为：</p>
 <script type="math/tex; mode=display">
 J(\theta)=-\frac{1}{m}(y^Tlog(h)+(1-y^T)log(1-h))</script><p>公式 $\frac{\delta}{\delta_{\theta_j}}J(\theta)=\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}$ 可以写为：</p>
 <script type="math/tex; mode=display">
 \frac{\delta}{\delta_\theta}J(\theta)=\frac{1}{m}X^T(h-y)</script><p>其中 $h=g(\theta^Tx)$ ，由于 $(h-y)$ 维度是 $m\times1$ ， $X$ 也是 $m\times1$ ，所以需对 $X$ 转置</p>
-<p>所以θ的更新过程可写为：</p>
+<p>所以 $\theta$ 的更新过程可写为：</p>
 <script type="math/tex; mode=display">
 \theta_j：=\theta_j-\alpha\frac{1}{m}X^T(h-y)</script><h2 id="正则化与模型评估指标"><a href="#正则化与模型评估指标" class="headerlink" title="正则化与模型评估指标"></a>正则化与模型评估指标</h2><h3 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h3><p>正则化是选择模型的一种方法。正则化的作用是选择经验风险与模型复杂度同时较小的模型来<strong>避免过拟合</strong>。</p>
 <h3 id="常见的正则化策略"><a href="#常见的正则化策略" class="headerlink" title="常见的正则化策略"></a>常见的正则化策略</h3><h4 id="L1正则化"><a href="#L1正则化" class="headerlink" title="L1正则化"></a>L1正则化</h4><p>L1正则也被称为Lasso回归。就是在原始的代价函数后面加上一个L1正则化项，即所有权重$w$的绝对值的和，乘以$\frac{\lambda}{n}$。</p>
