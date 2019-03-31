@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="01背包问题有 $N$ 件物品和一个容量为 $C$ 的背包。第 $i$ 件物品的大小是 $w[i]$，价值是 $v[i]$。求解将哪些物品装入背包可使价值总和最大。 $f[i][j]$ 表示前 $i$ 件物品恰放入一个容量为 $j$ 的背包可以获得的最大价值 状态转移方程：  f[i][j]=max\{f[i-1][j],f[i-1][j-w[i]]+v[i]\}详细解释：“将前 $i$ 件物品放">
+<meta name="description" content="环境搭建anaconda环境配置解释器python初体验print and inputpython基础讲解python变量特性+命名规则注释方法python中“：”作用学会使用dir( )及和help( )import使用pep8介绍python数值基本知识python中数值类型，int，float，bool，e记法等算数运算符逻辑运算成员运算符身份运算符运算符优先级">
 <meta property="og:type" content="article">
-<meta property="og:title" content="背包问题">
-<meta property="og:url" content="http://yoursite.com/2019/03/27/01package/index.html">
+<meta property="og:title" content="python基础任务1">
+<meta property="og:url" content="http://yoursite.com/2019/03/31/Python_Base/PythonBase1/index.html">
 <meta property="og:site_name" content="Skye的博客小站">
-<meta property="og:description" content="01背包问题有 $N$ 件物品和一个容量为 $C$ 的背包。第 $i$ 件物品的大小是 $w[i]$，价值是 $v[i]$。求解将哪些物品装入背包可使价值总和最大。 $f[i][j]$ 表示前 $i$ 件物品恰放入一个容量为 $j$ 的背包可以获得的最大价值 状态转移方程：  f[i][j]=max\{f[i-1][j],f[i-1][j-w[i]]+v[i]\}详细解释：“将前 $i$ 件物品放">
+<meta property="og:description" content="环境搭建anaconda环境配置解释器python初体验print and inputpython基础讲解python变量特性+命名规则注释方法python中“：”作用学会使用dir( )及和help( )import使用pep8介绍python数值基本知识python中数值类型，int，float，bool，e记法等算数运算符逻辑运算成员运算符身份运算符运算符优先级">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-28T16:49:41.136Z">
+<meta property="og:updated_time" content="2019-03-31T09:56:53.258Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="背包问题">
-<meta name="twitter:description" content="01背包问题有 $N$ 件物品和一个容量为 $C$ 的背包。第 $i$ 件物品的大小是 $w[i]$，价值是 $v[i]$。求解将哪些物品装入背包可使价值总和最大。 $f[i][j]$ 表示前 $i$ 件物品恰放入一个容量为 $j$ 的背包可以获得的最大价值 状态转移方程：  f[i][j]=max\{f[i-1][j],f[i-1][j-w[i]]+v[i]\}详细解释：“将前 $i$ 件物品放">
+<meta name="twitter:title" content="python基础任务1">
+<meta name="twitter:description" content="环境搭建anaconda环境配置解释器python初体验print and inputpython基础讲解python变量特性+命名规则注释方法python中“：”作用学会使用dir( )及和help( )import使用pep8介绍python数值基本知识python中数值类型，int，float，bool，e记法等算数运算符逻辑运算成员运算符身份运算符运算符优先级">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/27/01package/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/31/Python_Base/PythonBase1/"/>
 
 
 
 
 
-  <title>背包问题 | Skye的博客小站</title>
+  <title>python基础任务1 | Skye的博客小站</title>
   
 
 
@@ -262,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/27/01package/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/31/Python_Base/PythonBase1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Skye Lan">
@@ -279,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">背包问题</h1>
+          <h1 class="post-title" itemprop="name headline">python基础任务1</h1>
         
 
         <div class="post-meta">
@@ -291,8 +291,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-27T10:50:30+08:00">
-                2019-03-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-31T17:54:15+08:00">
+                2019-03-31
               </time>
             
 
@@ -314,8 +314,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/基础算法/" itemprop="url" rel="index">
-                    <span itemprop="name">基础算法</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -331,7 +331,7 @@
 
           
           
-             <span id="/2019/03/27/01package/" class="leancloud_visitors" data-flag-title="背包问题">
+             <span id="/2019/03/31/Python_Base/PythonBase1/" class="leancloud_visitors" data-flag-title="python基础任务1">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -357,7 +357,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  508 字
+                  93 字
                 </span>
               
 
@@ -373,7 +373,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2 分钟
+                  1 分钟
                 </span>
               
             </div>
@@ -394,33 +394,7 @@
       
 
       
-        <h2 id="01背包问题"><a href="#01背包问题" class="headerlink" title="01背包问题"></a>01背包问题</h2><p>有 $N$ 件物品和一个容量为 $C$ 的背包。第 $i$ 件物品的大小是 $w[i]$，价值是 $v[i]$。求解将哪些物品装入背包可使价值总和最大。</p>
-<p>$f[i][j]$ 表示前 $i$ 件物品恰放入一个容量为 $j$ 的背包可以获得的最大价值</p>
-<p>状态转移方程：</p>
-<script type="math/tex; mode=display">
-f[i][j]=max\{f[i-1][j],f[i-1][j-w[i]]+v[i]\}</script><p>详细解释：“将前 $i$ 件物品放入容量为 $j$ 的背包中”这个子问题，若只考虑第 $i$ 件物品的策略（放或不放），那么就可以转化为一个只牵扯前 $i-1$ 件物品的问题。如果不放第 $i$ 件物品，那么问题就转化为“前 $i-1$ 件物品放入容量为 $j$ 的背包中”，价值为 $f[i-1][j]$；如果放第 $i$ 件物品，那么问题就转化为“前 $i-1$ 件物品放入剩下的容量为 $j-w[i]$ 的背包中”，此时能获得的最大价值就是 $f[i-1][j-w[i]]$ 再加上通过放入第 $i$ 件物品获得的价值 $v[i]$。</p>
-<p>优化后伪代码：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i = <span class="number">1</span> to N</span><br><span class="line">    <span class="keyword">for</span> j = C to w[i]</span><br><span class="line">        f[j] = max&#123;f[j], f[j - w[i]] + v[i]&#125;;</span><br></pre></td></tr></table></figure>
-<p><strong>注意：</strong></p>
-<p>如果<strong>要求恰好装满背包</strong>，那么在初始化时除了 $f[0]$ 为 $0$ 其它 $f[1\dots C]$ 均设为 $-\infty$，这样就可以保证最终得到的 $f[N]$ 是一种恰好装满背包的最优解。</p>
-<p>如果<strong>只希望价格尽量大</strong>，初始化时应该将 $f[0\dots C]$ 全部设为 $0$。</p>
-<h2 id="完全背包问题"><a href="#完全背包问题" class="headerlink" title="完全背包问题"></a>完全背包问题</h2><p>有 $N$ 种物品和一个容量为 $C$ 的背包，每种物品都有<strong>无限件可用</strong>。第 $i$ 种物品的大小是 $w[i]$，价值是 $v[i]$。求解将哪些物品装入背包可使这些物品的费用总和不超过背包容量，且价值总和最大。</p>
-<p>状态转移方程：</p>
-<script type="math/tex; mode=display">
-f[i][j]=max\{f[i-1][j-k*w[i]]+k*v[i]|0<=k*w[i]<=v\}</script><p><strong>转化为01背包问题求解</strong></p>
-<p>状态转移方程可以等价地变形成这种形式：</p>
-<script type="math/tex; mode=display">
-f[i][j]=max\{f[i-1][j],f[i][j-w[i]]+v[i]\}</script><p>伪代码：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i = <span class="number">1</span> to N</span><br><span class="line">    <span class="keyword">for</span> j = w[i] to C</span><br><span class="line">        f[j] = max&#123;f[j], f[j - w[i]] + v[i]&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="多重背包问题"><a href="#多重背包问题" class="headerlink" title="多重背包问题"></a>多重背包问题</h2><p>有 $N$ 种物品和一个容量为 $C$ 的背包。第 $i$ 种物品最多有 $n[i]$ 件可用，每件大小是 $w[i]$，价值是 $v[i]$。求解将哪些物品装入背包可使这些物品的费用总和不超过背包容量，且价值总和最大。</p>
-<p>对于第 $i$ 种物品有 $n[i]+1$ 种策略：取 $0$ 件，取 $1$ 件$\dots$取 $n[i]$ 件。令 $f[i][j]$ 表示前 $i$ 种物品恰放入一个容量为 $j$ 的背包的最大权值，则有状态转移方程：</p>
-<script type="math/tex; mode=display">
-f[i][j]=max\{f[i-1][j-k*w[i]]+k*v[i] | 0<=k<=n[i]\}</script><p><strong>转化为01背包问题求解</strong></p>
-<h2 id="整合"><a href="#整合" class="headerlink" title="整合"></a>整合</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">procedure <span class="title">ZeroOnePack</span><span class="params">(weight,value)</span></span></span><br><span class="line"><span class="function">    <span class="keyword">for</span> j </span>= C..cost</span><br><span class="line">        f[j] = max&#123;f[j],f[j-weight]+value&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">procedure <span class="title">CompletePack</span><span class="params">(weight,value)</span></span></span><br><span class="line"><span class="function">    <span class="keyword">for</span> j </span>= weight..C</span><br><span class="line">        f[j] = max&#123;f[j],f[j-weight]+value&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">procedure <span class="title">MultiplePack</span><span class="params">(weight,value,amount)</span></span></span><br><span class="line">    if weight*amount &gt;= C</span><br><span class="line">        CompletePack(weight,value)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    integer k=<span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> k&lt;num</span><br><span class="line">        ZeroOnePack(k*weight,k*value)</span><br><span class="line">        amount=amount-k</span><br><span class="line">        k=k*<span class="number">2</span></span><br><span class="line">    ZeroOnePack(amount*weight,amount*value)</span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i= <span class="number">1.</span>.N</span><br><span class="line">    <span class="keyword">if</span> 第i件物品是<span class="number">01</span>背包</span><br><span class="line">        ZeroOnePack(w[i],v[i])</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> 第i件物品是完全背包</span><br><span class="line">        CompletePack(w[i],v[i])</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> 第i件物品是多重背包</span><br><span class="line">        MultiplePack(w[i],v[i],n[i])</span><br></pre></td></tr></table></figure>
-
+        <h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><h3 id="anaconda环境配置"><a href="#anaconda环境配置" class="headerlink" title="anaconda环境配置"></a>anaconda环境配置</h3><h3 id="解释器"><a href="#解释器" class="headerlink" title="解释器"></a>解释器</h3><h2 id="python初体验"><a href="#python初体验" class="headerlink" title="python初体验"></a>python初体验</h2><h3 id="print-and-input"><a href="#print-and-input" class="headerlink" title="print and input"></a>print and input</h3><h2 id="python基础讲解"><a href="#python基础讲解" class="headerlink" title="python基础讲解"></a>python基础讲解</h2><h3 id="python变量特性-命名规则"><a href="#python变量特性-命名规则" class="headerlink" title="python变量特性+命名规则"></a>python变量特性+命名规则</h3><h3 id="注释方法"><a href="#注释方法" class="headerlink" title="注释方法"></a>注释方法</h3><h3 id="python中“：”作用"><a href="#python中“：”作用" class="headerlink" title="python中“：”作用"></a>python中“：”作用</h3><h3 id="学会使用dir-及和help"><a href="#学会使用dir-及和help" class="headerlink" title="学会使用dir( )及和help( )"></a>学会使用dir( )及和help( )</h3><h3 id="import使用"><a href="#import使用" class="headerlink" title="import使用"></a>import使用</h3><h3 id="pep8介绍"><a href="#pep8介绍" class="headerlink" title="pep8介绍"></a>pep8介绍</h3><h2 id="python数值基本知识"><a href="#python数值基本知识" class="headerlink" title="python数值基本知识"></a>python数值基本知识</h2><h3 id="python中数值类型，int，float，bool，e记法等"><a href="#python中数值类型，int，float，bool，e记法等" class="headerlink" title="python中数值类型，int，float，bool，e记法等"></a>python中数值类型，int，float，bool，e记法等</h3><h3 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h3><h3 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h3><h3 id="成员运算符"><a href="#成员运算符" class="headerlink" title="成员运算符"></a>成员运算符</h3><h3 id="身份运算符"><a href="#身份运算符" class="headerlink" title="身份运算符"></a>身份运算符</h3><h3 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h3>
       
     </div>
     
@@ -482,8 +456,8 @@ f[i][j]=max\{f[i-1][j-k*w[i]]+k*v[i] | 0<=k<=n[i]\}</script><p><strong>转化为
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/20/NLPtask/NLPtask10/" rel="next" title="BERT">
-                <i class="fa fa-chevron-left"></i> BERT
+              <a href="/2019/03/31/PrimaryAlgorithm/PrimaryAlgorithm2/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -491,10 +465,6 @@ f[i][j]=max\{f[i-1][j-k*w[i]]+k*v[i] | 0<=k<=n[i]\}</script><p><strong>转化为
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/29/PrimaryAlgorithm/PrimaryAlgorithm1/" rel="prev" title="线性回归算法梳理">
-                线性回归算法梳理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -626,7 +596,7 @@ f[i][j]=max\{f[i-1][j-k*w[i]]+k*v[i] | 0<=k<=n[i]\}</script><p><strong>转化为
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#01背包问题"><span class="nav-number">1.</span> <span class="nav-text">01背包问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#完全背包问题"><span class="nav-number">2.</span> <span class="nav-text">完全背包问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多重背包问题"><span class="nav-number">3.</span> <span class="nav-text">多重背包问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#整合"><span class="nav-number">4.</span> <span class="nav-text">整合</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境搭建"><span class="nav-number">1.</span> <span class="nav-text">环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#anaconda环境配置"><span class="nav-number">1.1.</span> <span class="nav-text">anaconda环境配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解释器"><span class="nav-number">1.2.</span> <span class="nav-text">解释器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python初体验"><span class="nav-number">2.</span> <span class="nav-text">python初体验</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#print-and-input"><span class="nav-number">2.1.</span> <span class="nav-text">print and input</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python基础讲解"><span class="nav-number">3.</span> <span class="nav-text">python基础讲解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#python变量特性-命名规则"><span class="nav-number">3.1.</span> <span class="nav-text">python变量特性+命名规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注释方法"><span class="nav-number">3.2.</span> <span class="nav-text">注释方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python中“：”作用"><span class="nav-number">3.3.</span> <span class="nav-text">python中“：”作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学会使用dir-及和help"><span class="nav-number">3.4.</span> <span class="nav-text">学会使用dir( )及和help( )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#import使用"><span class="nav-number">3.5.</span> <span class="nav-text">import使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pep8介绍"><span class="nav-number">3.6.</span> <span class="nav-text">pep8介绍</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python数值基本知识"><span class="nav-number">4.</span> <span class="nav-text">python数值基本知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#python中数值类型，int，float，bool，e记法等"><span class="nav-number">4.1.</span> <span class="nav-text">python中数值类型，int，float，bool，e记法等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算数运算符"><span class="nav-number">4.2.</span> <span class="nav-text">算数运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑运算"><span class="nav-number">4.3.</span> <span class="nav-text">逻辑运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#成员运算符"><span class="nav-number">4.4.</span> <span class="nav-text">成员运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#身份运算符"><span class="nav-number">4.5.</span> <span class="nav-text">身份运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运算符优先级"><span class="nav-number">4.6.</span> <span class="nav-text">运算符优先级</span></a></li></ol></li></ol></div>
             
 
           </div>

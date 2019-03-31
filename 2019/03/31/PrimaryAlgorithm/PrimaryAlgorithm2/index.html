@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="逻辑回归主要思想：根据现有数据对分类边界线建立回归公式 优点：计算代价不高，易于理解和实现 缺点：容易欠拟合，分类精度可能不高 适用数据类型：数值型和标称型数据 Regression问题的常规步骤为：    寻找h函数（即hypothesis）； 构造J函数（损失函数）； 想办法使得J函数最小并求得回归参数（ θ ）  Logistic函数（Sigmoid函数）：   g(z)=\frac{1}{">
+<meta name="description" content="title： 逻辑回归算法梳理categories： 机器学习 mathjax： true逻辑回归与线性回归的联系与区别联系逻辑回归与线性回归都属于广义线性回归模型 区别线性回归主要用来解决连续值预测的问题，逻辑回归用来解决分类的问题，输出的属于某个类别的概率。线性回归中使用的是最小化平方误差损失函数，对偏离真实值越远的数据惩罚越严重。逻辑回归使用对数似然函数进行参数估计，使用交叉熵作为损失函数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="逻辑回归损失函数的推导">
-<meta property="og:url" content="http://yoursite.com/2018/10/16/Logistic_Cost/index.html">
+<meta property="og:title" content="Skye的博客小站">
+<meta property="og:url" content="http://yoursite.com/2019/03/31/PrimaryAlgorithm/PrimaryAlgorithm2/index.html">
 <meta property="og:site_name" content="Skye的博客小站">
-<meta property="og:description" content="逻辑回归主要思想：根据现有数据对分类边界线建立回归公式 优点：计算代价不高，易于理解和实现 缺点：容易欠拟合，分类精度可能不高 适用数据类型：数值型和标称型数据 Regression问题的常规步骤为：    寻找h函数（即hypothesis）； 构造J函数（损失函数）； 想办法使得J函数最小并求得回归参数（ θ ）  Logistic函数（Sigmoid函数）：   g(z)=\frac{1}{">
+<meta property="og:description" content="title： 逻辑回归算法梳理categories： 机器学习 mathjax： true逻辑回归与线性回归的联系与区别联系逻辑回归与线性回归都属于广义线性回归模型 区别线性回归主要用来解决连续值预测的问题，逻辑回归用来解决分类的问题，输出的属于某个类别的概率。线性回归中使用的是最小化平方误差损失函数，对偏离真实值越远的数据惩罚越严重。逻辑回归使用对数似然函数进行参数估计，使用交叉熵作为损失函数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-31T11:54:45.009Z">
+<meta property="og:updated_time" content="2019-03-31T12:44:33.604Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="逻辑回归损失函数的推导">
-<meta name="twitter:description" content="逻辑回归主要思想：根据现有数据对分类边界线建立回归公式 优点：计算代价不高，易于理解和实现 缺点：容易欠拟合，分类精度可能不高 适用数据类型：数值型和标称型数据 Regression问题的常规步骤为：    寻找h函数（即hypothesis）； 构造J函数（损失函数）； 想办法使得J函数最小并求得回归参数（ θ ）  Logistic函数（Sigmoid函数）：   g(z)=\frac{1}{">
+<meta name="twitter:title" content="Skye的博客小站">
+<meta name="twitter:description" content="title： 逻辑回归算法梳理categories： 机器学习 mathjax： true逻辑回归与线性回归的联系与区别联系逻辑回归与线性回归都属于广义线性回归模型 区别线性回归主要用来解决连续值预测的问题，逻辑回归用来解决分类的问题，输出的属于某个类别的概率。线性回归中使用的是最小化平方误差损失函数，对偏离真实值越远的数据惩罚越严重。逻辑回归使用对数似然函数进行参数估计，使用交叉熵作为损失函数">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/16/Logistic_Cost/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/31/PrimaryAlgorithm/PrimaryAlgorithm2/"/>
 
 
 
 
 
-  <title>逻辑回归损失函数的推导 | Skye的博客小站</title>
+  <title> | Skye的博客小站</title>
   
 
 
@@ -262,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/16/Logistic_Cost/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/31/PrimaryAlgorithm/PrimaryAlgorithm2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Skye Lan">
@@ -279,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">逻辑回归损失函数的推导</h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -291,8 +291,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-16T19:44:24+08:00">
-                2018-10-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-31T17:47:33+08:00">
+                2019-03-31
               </time>
             
 
@@ -302,28 +302,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -331,7 +309,7 @@
 
           
           
-             <span id="/2018/10/16/Logistic_Cost/" class="leancloud_visitors" data-flag-title="逻辑回归损失函数的推导">
+             <span id="/2019/03/31/PrimaryAlgorithm/PrimaryAlgorithm2/" class="leancloud_visitors" data-flag-title="">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -357,7 +335,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  919 字
+                  2.8k 字
                 </span>
               
 
@@ -373,7 +351,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4 分钟
+                  11 分钟
                 </span>
               
             </div>
@@ -394,11 +372,18 @@
       
 
       
-        <h2 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h2><p>主要思想：根据现有数据对分类边界线建立回归公式</p>
-<p>优点：计算代价不高，易于理解和实现</p>
-<p>缺点：容易欠拟合，分类精度可能不高</p>
-<p>适用数据类型：数值型和标称型数据</p>
-<p>Regression问题的常规步骤为：  </p>
+        <hr>
+<p>title： 逻辑回归算法梳理<br>categories： 机器学习</p>
+<h2 id="mathjax：-true"><a href="#mathjax：-true" class="headerlink" title="mathjax： true"></a>mathjax： true</h2><h2 id="逻辑回归与线性回归的联系与区别"><a href="#逻辑回归与线性回归的联系与区别" class="headerlink" title="逻辑回归与线性回归的联系与区别"></a>逻辑回归与线性回归的联系与区别</h2><h3 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h3><p><strong>逻辑回归</strong>与<strong>线性回归</strong>都属于<strong>广义线性回归模型</strong></p>
+<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><p><strong>线性回归</strong>主要用来解决<strong>连续值预测</strong>的问题，<strong>逻辑回归</strong>用来解决<strong>分类</strong>的问题，输出的属于某个类别的概率。<br><strong>线性回归</strong>中使用的是<strong>最小化平方误差损失函数</strong>，对偏离真实值越远的数据惩罚越严重。<br><strong>逻辑回归</strong>使用<strong>对数似然函数</strong>进行参数估计，使用<strong>交叉熵</strong>作为<strong>损失函数</strong>，对预测错误的惩罚是随着输出的增大，逐渐逼近一个常数。<br><strong>线性回归</strong>的输出是连续实数，<strong>逻辑回归</strong>的输出是 $(0，1)$ 间的连续值。 </p>
+<h2 id="逻辑回归的原理"><a href="#逻辑回归的原理" class="headerlink" title="逻辑回归的原理"></a>逻辑回归的原理</h2><ol>
+<li><strong>逻辑回归</strong>假设数据服从伯努利分布。伯努利分布有一个简单的例子是抛硬币，抛中为正面的概率是 $p$，抛中为负面的概率是 $1−p$。在逻辑回归这个模型里面是假设 $h_\theta(x)$ 为样本为正的概率，$1−h_\theta(x)$ 为样本为负的概率。那么整个模型可以描述为<script type="math/tex; mode=display">
+h_\theta(x;\theta)=p</script></li>
+<li><strong>逻辑回归</strong>假设是假设样本为正的概率是 <script type="math/tex; mode=display">
+p=\frac{1}{1+e^{-\theta^Tx}}</script>所以逻辑回归的最终形式为<script type="math/tex; mode=display">
+h_\theta(x;\theta)=\frac{1}{1+e^{-\theta^Tx}}</script></li>
+</ol>
+<h2 id="逻辑回归损失函数推导及优化"><a href="#逻辑回归损失函数推导及优化" class="headerlink" title="逻辑回归损失函数推导及优化"></a>逻辑回归损失函数推导及优化</h2><p>Regression问题的常规步骤为：  </p>
 <ol>
 <li>寻找h函数（即hypothesis）；</li>
 <li>构造J函数（损失函数）；</li>
@@ -417,9 +402,9 @@ P(y=1|x;\theta)&=h_\theta(x)\\
 P(y=0|x;\theta)&=1-h_\theta(x)
 \end{align}</script><p><strong>cost函数和J函数</strong>如下，基于最大似然估计推得：</p>
 <script type="math/tex; mode=display">
-Cost(h_\theta(x),y)=\begin{cases}-log(h_\theta(x))&if\; y=1  \\-log(1-h_\theta(x))&if\; y=0\end{cases}</script><script type="math/tex; mode=display">
+Cost(h_\theta(x)，y)=\begin{cases}-log(h_\theta(x))&if\; y=1  \\-log(1-h_\theta(x))&if\; y=0\end{cases}</script><script type="math/tex; mode=display">
 \begin{align}
-J(\theta)=&\frac{1}{m}\sum_{i=1}^{m}Cost(h_\theta(x^{(i)}),y^{(i)})\\
+J(\theta)=&\frac{1}{m}\sum_{i=1}^{m}Cost(h_\theta(x^{(i)})，y^{(i)})\\
 =&-\frac{1}{m}\sum_{i=1}^{m}(y^{(i)}log(h_\theta(x^{(i)}))+(1-y^{(i)})log(1-h_\theta(x^{(i)})))
 \end{align}</script><p>推导过程如下：<br>将概率公式合起来写：</p>
 <script type="math/tex; mode=display">
@@ -441,7 +426,7 @@ J(\theta)=-\frac{1}{m}l(\theta)</script><p>因为乘了一个负的系数 $-\fra
 <script type="math/tex; mode=display">
 g(z)'=g(z)(1-g(z))</script><p>θ更新过程：</p>
 <script type="math/tex; mode=display">
-\theta_j:=\theta_j-\alpha\frac{\delta}{\delta_{\theta_j}}J(\theta)</script><p>其中：</p>
+\theta_j：=\theta_j-\alpha\frac{\delta}{\delta_{\theta_j}}J(\theta)</script><p>其中：</p>
 <script type="math/tex; mode=display">
 \begin{align}
 \frac{\delta}{\delta_{\theta_j}}J(\theta)
@@ -453,14 +438,62 @@ g(z)'=g(z)(1-g(z))</script><p>θ更新过程：</p>
 =&\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}
 \end{align}</script><p>所以 θ 更新过程可以写为：</p>
 <script type="math/tex; mode=display">
-\theta_j:=\theta_j-\alpha\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}</script><h3 id="向量化"><a href="#向量化" class="headerlink" title="向量化"></a>向量化</h3><p>在使用向量化之后公式 $J(\theta)=-\frac{1}{m}\sum_{i=1}^{m}(y^{(i)}log(h_\theta(x^{(i)}))+(1-y^{(i)})log(1-h_\theta(x^{(i)})))$ 可以写为：</p>
+\theta_j：=\theta_j-\alpha\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}</script><h3 id="向量化"><a href="#向量化" class="headerlink" title="向量化"></a>向量化</h3><p>在使用向量化之后公式 $J(\theta)=-\frac{1}{m}\sum_{i=1}^{m}(y^{(i)}log(h_\theta(x^{(i)}))+(1-y^{(i)})log(1-h_\theta(x^{(i)})))$ 可以写为：</p>
 <script type="math/tex; mode=display">
 J(\theta)=-\frac{1}{m}(y^Tlog(h)+(1-y^T)log(1-h))</script><p>公式 $\frac{\delta}{\delta_{\theta_j}}J(\theta)=\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}$ 可以写为：</p>
 <script type="math/tex; mode=display">
 \frac{\delta}{\delta_\theta}J(\theta)=\frac{1}{m}X^T(h-y)</script><p>其中 $h=g(\theta^Tx)$ ，由于 $(h-y)$ 维度是 $m\times1$ ， $X$ 也是 $m\times1$ ，所以需对 $X$ 转置</p>
 <p>所以θ的更新过程可写为：</p>
 <script type="math/tex; mode=display">
-\theta_j:=\theta_j-\alpha\frac{1}{m}X^T(h-y)</script>
+\theta_j：=\theta_j-\alpha\frac{1}{m}X^T(h-y)</script><h2 id="正则化与模型评估指标"><a href="#正则化与模型评估指标" class="headerlink" title="正则化与模型评估指标"></a>正则化与模型评估指标</h2><h3 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h3><p>正则化是选择模型的一种方法。正则化的作用是选择经验风险与模型复杂度同时较小的模型来<strong>避免过拟合</strong>。</p>
+<h3 id="常见的正则化策略"><a href="#常见的正则化策略" class="headerlink" title="常见的正则化策略"></a>常见的正则化策略</h3><h4 id="L1正则化"><a href="#L1正则化" class="headerlink" title="L1正则化"></a>L1正则化</h4><p>L1正则也被称为Lasso回归。就是在原始的代价函数后面加上一个L1正则化项，即所有权重$w$的绝对值的和，乘以$\frac{\lambda}{n}$。</p>
+<script type="math/tex; mode=display">
+C = C_0+\frac{\lambda}{n}\sum_w{|w|}</script><p>求导：</p>
+<script type="math/tex; mode=display">
+\frac{\partial C}{\partial w} = \frac{\partial C_0}{\partial w} +\frac{\lambda}{n}sgn(w)</script><p>$sgn(w)$表示$w$的符号，$w$的更新规则为:</p>
+<script type="math/tex; mode=display">
+w -> \ w^\prime = w-\eta \frac{\partial C_0}{\partial w} - \frac{\eta \lambda}{n}sgn(w) \\</script><p>当$w$为正时，更新后的$w$变小。当$w$为负时，更新后的$w$变大。因此，它的效果就是让$w$往0靠，使网络中的权重尽可能为0，也就相当于减小了网络复杂度，防止过拟合。</p>
+<p>当w等于0时，$|w|$是不可导的，所以我们只能按照原始的未经正则化的方法去更新$w$，这就相当于去掉$\frac{\eta \lambda}{n}sgn(w)$这一项，可以规定$sgn(0)=0$，这样就把$w=0$的情况也统一进来了。</p>
+<h4 id="L2正则化"><a href="#L2正则化" class="headerlink" title="L2正则化"></a>L2正则化</h4><p>L2正则化也被称为权重衰减或岭回归。就是在代价函数后面再加上一个正则化项。</p>
+<script type="math/tex; mode=display">
+C = C_0 +\frac{\lambda}{2n}\sum_w{w^2}</script><p>$C_0$代表原始的代价函数，后面那一项就是L2正则化项，是所有参数$w$的平方的和，除以训练集的样本大小$n$。$\lambda$就是正则项系数，权衡正则项与$C_0$项的比重。</p>
+<p>求导：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\frac{\partial C}{\partial w} =& \frac{\partial C_0}{\partial w} +\frac{\lambda}{n}w \\
+\frac{\partial C}{\partial b} =& \frac{\partial C_0}{\partial b}
+\end{align}</script><p>可以发现L2正则化项对$b$的更新没有影响，但是对于$w$的更新有影响:</p>
+<script type="math/tex; mode=display">
+\begin{align}
+w -> \ w^\prime =& w-\eta \frac{\partial C_0}{\partial w} - \frac{\eta \lambda}{n}w \\
+=& (1- \frac{\eta \lambda}{n}) w -\eta \frac{\partial C_0}{\partial w}
+\end{align}</script><p>在不使用L2正则化时，求导结果中$w$前系数为1，现在$w$前面系数为 $1- \frac{\eta \lambda}{n}$ ，因为$\eta$、$\lambda$、$n$都是正的，所以 <strong>$1- \frac{\eta \lambda}{n}$ 小于1，它的效果是减小$w$，这也就是权重衰减（weight decay）的由来</strong>。当然考虑到后面的导数项，$w$最终的值可能增大也可能减小。</p>
+<p>一个所谓“显而易见”的解释就是：更小的权值$w$，从某种意义上说，表示网络的复杂度更低，对数据的拟合刚刚好（这个法则也叫做奥卡姆剃刀）。在实际应用中，L2正则化的效果往往好于未经正则化的效果。</p>
+<p>过拟合的时候，拟合函数的系数往往非常大，需要顾忌每一个点，最终形成的拟合函数波动很大。在某些很小的区间里，函数值的变化很剧烈。这就意味着函数在某些小区间里的导数值（绝对值）非常大，由于自变量值可大可小，所以只有系数足够大，才能保证导数值很大。而正则化是通过约束参数的范数使其不要太大，所以可以在一定程度上减少过拟合情况。</p>
+<h3 id="评价指标"><a href="#评价指标" class="headerlink" title="评价指标"></a>评价指标</h3><p>评价指标查看之前的另一篇博客：<a href="https://skyelan.github.io/2019/03/03/NLPtask/NLPtask1/" target="_blank" rel="noopener">召回率、准确率、ROC曲线、AUC、PR曲线</a></p>
+<h2 id="逻辑回归的优缺点"><a href="#逻辑回归的优缺点" class="headerlink" title="逻辑回归的优缺点"></a>逻辑回归的优缺点</h2><p><strong>优点</strong>：</p>
+<ul>
+<li>形式简单，模型的可解释性非常好；</li>
+<li>模型效果不错；</li>
+<li>训练速度较快；</li>
+<li>资源占用小；</li>
+<li>方便输出结果调整。</li>
+</ul>
+<p><strong>缺点</strong>：</p>
+<ul>
+<li>准确率并不是很高；</li>
+<li>很难处理数据不平衡的问题；</li>
+<li>处理非线性数据较麻烦；</li>
+<li>逻辑回归本身无法筛选特征。</li>
+</ul>
+<h2 id="样本不均衡问题解决办法"><a href="#样本不均衡问题解决办法" class="headerlink" title="样本不均衡问题解决办法"></a>样本不均衡问题解决办法</h2><h3 id="产生新数据型：过采样小样本-SMOTE-，欠采样大样本。"><a href="#产生新数据型：过采样小样本-SMOTE-，欠采样大样本。" class="headerlink" title="产生新数据型：过采样小样本(SMOTE)，欠采样大样本。"></a>产生新数据型：过采样小样本(SMOTE)，欠采样大样本。</h3><p><strong>过采样</strong>是通过<strong>增加样本中小类样本的数据量</strong>来实现样本均衡。<br>一种方法是直接复制小类样本，形成数量上的均衡。这种方法实现简单，但会由于数据较为单一而容易造成过拟合。也可通过经过改进的抽样方法，在少数类中加入随机噪声等生成数据。</p>
+<p><strong>欠采样</strong>是通过<strong>减少多数类样本的样本数量</strong>来实现样本均衡。一种方法是随机去掉一些数据减少多数类样本的规模，但可能会丢失一些重要的信息。另一种方法是，假设少数类样本数量为N，那就将多数类样本分为N个簇，取每个簇的中心点作为多数类的新样本，加上少数类的所有样本进行训练。这样保证了多数类样本在特征空间的分布特性。</p>
+<h3 id="对原数据的权值进行改变"><a href="#对原数据的权值进行改变" class="headerlink" title="对原数据的权值进行改变"></a>对原数据的权值进行改变</h3><p>在训练分类器时，为<strong>少数类样本</strong>赋予<strong>更大的权值</strong>，为<strong>多数类样本</strong>赋予<strong>较小的权值</strong>。</p>
+<h3 id="通过组合集成方法解决"><a href="#通过组合集成方法解决" class="headerlink" title="通过组合集成方法解决"></a>通过组合集成方法解决</h3><p>通过<strong>训练多个模型</strong>的方式解决数据不均衡的问题，是指将多数类数据随机分成少数类数据的量N份，每一份与全部的少数类数据一起训练成为一个分类器，这样反复训练会生成很多的分类器。最后再用组合的方式(bagging或者boosting)对分类器进行组合，得到更好的预测效果。</p>
+<h3 id="通过特征选择"><a href="#通过特征选择" class="headerlink" title="通过特征选择"></a>通过特征选择</h3><p>在样本数据较为不均衡，某一类别数据较少的情况下，通常会出现特征分布很不均衡的情况。可以<strong>选择具有显著区分能力的特征</strong>进行训练，也能在一定程度上提高模型的泛化效果。</p>
+<h2 id="sklearn参数"><a href="#sklearn参数" class="headerlink" title="sklearn参数"></a>sklearn参数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.linear_model.LogisticRegression(penalty=’l2’, dual=<span class="keyword">False</span>, tol=<span class="number">0.0001</span>, C=<span class="number">1.0</span>, fit_intercept=<span class="keyword">True</span>, intercept_scaling=<span class="number">1</span>, class_weight=<span class="keyword">None</span>, random_state=<span class="keyword">None</span>, solver=’warn’, max_iter=<span class="number">100</span>, multi_class=’warn’, verbose=<span class="number">0</span>, warm_start=<span class="keyword">False</span>, n_jobs=<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure>
+<p>具体参数查看<a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression" target="_blank" rel="noopener">逻辑回归函数API</a></p>
+
       
     </div>
     
@@ -522,8 +555,8 @@ J(\theta)=-\frac{1}{m}(y^Tlog(h)+(1-y^T)log(1-h))</script><p>公式 $\frac{\delt
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/27/PandasDemo/" rel="next" title="Pandas学习笔记（未完成~~~）">
-                <i class="fa fa-chevron-left"></i> Pandas学习笔记（未完成~~~）
+              <a href="/2019/03/29/PrimaryAlgorithm/PrimaryAlgorithm1/" rel="next" title="线性回归算法梳理">
+                <i class="fa fa-chevron-left"></i> 线性回归算法梳理
               </a>
             
           </div>
@@ -532,8 +565,8 @@ J(\theta)=-\frac{1}{m}(y^Tlog(h)+(1-y^T)log(1-h))</script><p>公式 $\frac{\delt
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/03/NLPtask/NLPtask1/" rel="prev" title="召回率、准确率、ROC曲线、AUC、PR曲线">
-                召回率、准确率、ROC曲线、AUC、PR曲线 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/31/Python_Base/PythonBase1/" rel="prev" title="python基础任务1">
+                python基础任务1 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -666,7 +699,7 @@ J(\theta)=-\frac{1}{m}(y^Tlog(h)+(1-y^T)log(1-h))</script><p>公式 $\frac{\delt
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑回归"><span class="nav-number">1.</span> <span class="nav-text">逻辑回归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#向量化"><span class="nav-number">1.1.</span> <span class="nav-text">向量化</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mathjax：-true"><span class="nav-number">1.</span> <span class="nav-text">mathjax： true</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑回归与线性回归的联系与区别"><span class="nav-number">2.</span> <span class="nav-text">逻辑回归与线性回归的联系与区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#联系"><span class="nav-number">2.1.</span> <span class="nav-text">联系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#区别"><span class="nav-number">2.2.</span> <span class="nav-text">区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑回归的原理"><span class="nav-number">3.</span> <span class="nav-text">逻辑回归的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑回归损失函数推导及优化"><span class="nav-number">4.</span> <span class="nav-text">逻辑回归损失函数推导及优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#向量化"><span class="nav-number">4.1.</span> <span class="nav-text">向量化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则化与模型评估指标"><span class="nav-number">5.</span> <span class="nav-text">正则化与模型评估指标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#正则化"><span class="nav-number">5.1.</span> <span class="nav-text">正则化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的正则化策略"><span class="nav-number">5.2.</span> <span class="nav-text">常见的正则化策略</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#L1正则化"><span class="nav-number">5.2.1.</span> <span class="nav-text">L1正则化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#L2正则化"><span class="nav-number">5.2.2.</span> <span class="nav-text">L2正则化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评价指标"><span class="nav-number">5.3.</span> <span class="nav-text">评价指标</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑回归的优缺点"><span class="nav-number">6.</span> <span class="nav-text">逻辑回归的优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样本不均衡问题解决办法"><span class="nav-number">7.</span> <span class="nav-text">样本不均衡问题解决办法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#产生新数据型：过采样小样本-SMOTE-，欠采样大样本。"><span class="nav-number">7.1.</span> <span class="nav-text">产生新数据型：过采样小样本(SMOTE)，欠采样大样本。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对原数据的权值进行改变"><span class="nav-number">7.2.</span> <span class="nav-text">对原数据的权值进行改变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过组合集成方法解决"><span class="nav-number">7.3.</span> <span class="nav-text">通过组合集成方法解决</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过特征选择"><span class="nav-number">7.4.</span> <span class="nav-text">通过特征选择</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sklearn参数"><span class="nav-number">8.</span> <span class="nav-text">sklearn参数</span></a></li></ol></div>
             
 
           </div>
@@ -993,26 +1026,6 @@ J(\theta)=-\frac{1}{m}(y^Tlog(h)+(1-y^T)log(1-h))</script><p>公式 $\frac{\delt
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
