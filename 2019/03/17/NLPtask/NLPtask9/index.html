@@ -79,21 +79,25 @@
 
 
 
-<meta name="description" content="召回率、准确率在二分类问题中，常用的分类器性能评价指标是精确率和召回率 如图所示：  绿色的半圆就是TP(True Positives)  红色的半圆就是FP(False Positives)  左边的灰色长方形（不包括绿色半圆），就是FN（False Negatives）  右边的 浅灰色长方形（不包括红色半圆），就是TN(True Negatives)   这个绿色和红色组成的圆内代表我们分类">
+<meta name="description" content="基本的Attention原理深度学习里的 Attention model 其实模拟的是人脑的注意力模型。举例来说，当我们观赏一幅画时，虽然我们可以看到整幅画的全貌，但是在我们深入仔细地观察时，其实眼睛聚焦的就只有很小的一块，这个时候人的大脑主要关注在这一小块图案上，也就是说这个时候人脑对整幅图的关注并不是均衡的，是有一定的权重区分的。这就是深度学习里的Attention Model的核心思想。 注">
 <meta property="og:type" content="article">
-<meta property="og:title" content="召回率、准确率、ROC曲线、AUC、PR曲线">
-<meta property="og:url" content="http://yoursite.com/2019/03/03/NLPtask1/index.html">
+<meta property="og:title" content="Attention原理">
+<meta property="og:url" content="http://yoursite.com/2019/03/17/NLPtask/NLPtask9/index.html">
 <meta property="og:site_name" content="Skye的博客小站">
-<meta property="og:description" content="召回率、准确率在二分类问题中，常用的分类器性能评价指标是精确率和召回率 如图所示：  绿色的半圆就是TP(True Positives)  红色的半圆就是FP(False Positives)  左边的灰色长方形（不包括绿色半圆），就是FN（False Negatives）  右边的 浅灰色长方形（不包括红色半圆），就是TN(True Negatives)   这个绿色和红色组成的圆内代表我们分类">
+<meta property="og:description" content="基本的Attention原理深度学习里的 Attention model 其实模拟的是人脑的注意力模型。举例来说，当我们观赏一幅画时，虽然我们可以看到整幅画的全貌，但是在我们深入仔细地观察时，其实眼睛聚焦的就只有很小的一块，这个时候人的大脑主要关注在这一小块图案上，也就是说这个时候人脑对整幅图的关注并不是均衡的，是有一定的权重区分的。这就是深度学习里的Attention Model的核心思想。 注">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/03/03/NLPtask1/pic1.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/03/03/NLPtask1/pic2.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/03/03/NLPtask1/pic3.jpg">
-<meta property="og:updated_time" content="2019-03-03T07:03:06.480Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/NLPtask/NLPtask9/pic1.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/NLPtask/NLPtask9/pic2.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/NLPtask/NLPtask9/pic3.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/NLPtask/NLPtask9/pic4.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/NLPtask/NLPtask9/pic5.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/NLPtask/NLPtask9/pic6.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/NLPtask/NLPtask9/pic7.png">
+<meta property="og:updated_time" content="2019-03-19T09:49:42.190Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="召回率、准确率、ROC曲线、AUC、PR曲线">
-<meta name="twitter:description" content="召回率、准确率在二分类问题中，常用的分类器性能评价指标是精确率和召回率 如图所示：  绿色的半圆就是TP(True Positives)  红色的半圆就是FP(False Positives)  左边的灰色长方形（不包括绿色半圆），就是FN（False Negatives）  右边的 浅灰色长方形（不包括红色半圆），就是TN(True Negatives)   这个绿色和红色组成的圆内代表我们分类">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/03/NLPtask1/pic1.jpg">
+<meta name="twitter:title" content="Attention原理">
+<meta name="twitter:description" content="基本的Attention原理深度学习里的 Attention model 其实模拟的是人脑的注意力模型。举例来说，当我们观赏一幅画时，虽然我们可以看到整幅画的全貌，但是在我们深入仔细地观察时，其实眼睛聚焦的就只有很小的一块，这个时候人的大脑主要关注在这一小块图案上，也就是说这个时候人脑对整幅图的关注并不是均衡的，是有一定的权重区分的。这就是深度学习里的Attention Model的核心思想。 注">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/17/NLPtask/NLPtask9/pic1.png">
 
 
 
@@ -123,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/03/NLPtask1/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/17/NLPtask/NLPtask9/"/>
 
 
 
 
 
-  <title>召回率、准确率、ROC曲线、AUC、PR曲线 | Skye的博客小站</title>
+  <title>Attention原理 | Skye的博客小站</title>
   
 
 
@@ -266,7 +270,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/03/NLPtask1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/17/NLPtask/NLPtask9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Skye Lan">
@@ -283,7 +287,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">召回率、准确率、ROC曲线、AUC、PR曲线</h1>
+          <h1 class="post-title" itemprop="name headline">Attention原理</h1>
         
 
         <div class="post-meta">
@@ -295,8 +299,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-03T12:31:34+08:00">
-                2019-03-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-17T22:47:27+08:00">
+                2019-03-17
               </time>
             
 
@@ -335,7 +339,7 @@
 
           
           
-             <span id="/2019/03/03/NLPtask1/" class="leancloud_visitors" data-flag-title="召回率、准确率、ROC曲线、AUC、PR曲线">
+             <span id="/2019/03/17/NLPtask/NLPtask9/" class="leancloud_visitors" data-flag-title="Attention原理">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -361,7 +365,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  607 字
+                  2.4k 字
                 </span>
               
 
@@ -377,7 +381,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2 分钟
+                  9 分钟
                 </span>
               
             </div>
@@ -398,78 +402,58 @@
       
 
       
-        <h3 id="召回率、准确率"><a href="#召回率、准确率" class="headerlink" title="召回率、准确率"></a>召回率、准确率</h3><p>在二分类问题中，常用的分类器性能评价指标是<strong>精确率</strong>和<strong>召回率</strong></p>
-<p>如图所示：</p>
+        <h2 id="基本的Attention原理"><a href="#基本的Attention原理" class="headerlink" title="基本的Attention原理"></a>基本的Attention原理</h2><p>深度学习里的 <strong>Attention model</strong> 其实模拟的是人脑的注意力模型。举例来说，当我们观赏一幅画时，虽然我们可以看到整幅画的全貌，但是在我们深入仔细地观察时，其实眼睛聚焦的就只有很小的一块，这个时候人的大脑主要关注在这一小块图案上，也就是说这个时候人脑对整幅图的关注并不是均衡的，是有一定的权重区分的。这就是深度学习里的Attention Model的核心思想。</p>
+<p>注意力机制在使用encoder-decoder结构进行神经机器翻译（NMT）的过程中被提出来，并且迅速的被应用到相似的任务上，比如根据图片生成一段描述性语句、梗概一段文字的内容。从一个高的层次看，允许decoder从多个上下文向量（context vector）中选取需要的部分，使得Encoder从只能将上下文信息压缩到固定长度的向量中这个束缚中解放出来，进而可以表示更多的信息。</p>
+<p>目前，注意力机制在深度学习模型中十分常见，而不仅限于encoder-decoder层次结构中。值得一提的是，注意力机制可以仅应用在encoder上，以解决诸如文本分类或者表示学习的任务上。这种注意力机制的应用被称为自聚焦或者内部聚焦机制。</p>
+<p>下面我们从神经机器学习（NMT）使用的encoder-decoder结构开始介绍聚焦机制，之后我们会介绍自聚焦机制。</p>
+<h3 id="Encoder-decoder简介"><a href="#Encoder-decoder简介" class="headerlink" title="Encoder-decoder简介"></a>Encoder-decoder简介</h3><p>从一个抽象的层次上看，encoder将输入压缩成一个高维的上下文向量，而decoder则可以从这个上下文向量中产生输出。</p>
+<p><img src="/2019/03/17/NLPtask/NLPtask9/pic1.png" alt=""></p>
+<p>在神经机器翻译（NMT）中，输入和输出都是单词的序列，分别表示为 $x=(x_1,\dots ,x_{Tx}$ 和 $y=(y_1,\dots ,y_{Ty}$，$x$ 和 $y$ 称为源句（source sentence）和目标句（target sentence）。当输入和输出都是句子序列时，这样的 encoder-decoder 结构也被成为是 seq2seq 模型。由于encoder-decoder结构处处可微的性质，模型中的参数集 $\theta$ 的最优解等效于在整个语料库上计算似然函数的最大值（MLE），这种训练的方式称为端到端（end-to-end）。</p>
+<script type="math/tex; mode=display">
+argmax_\theta \{\sum_{(x,y)\in corpus} logP(y|x;\theta)\}</script><p>这里我们想要最大化的函数是预测正确单词的概率的对数。</p>
+<h3 id="Global-attention"><a href="#Global-attention" class="headerlink" title="Global attention"></a>Global attention</h3><p>上下文向量（context vector） $c_t$ 通过计算源句子（source sentence）的所有注释（annotation），也即 encoder 的所有隐藏状态（hidden state）的加权和得到。一共有 $T_x$ 个注释（source sentence的长度），每一个注释都是大小为 encoder 隐藏层单元数的向量，$c_t$ 和所有注释的形状相同。分配向量（alignment vector）$\alpha_t$ 的形状和source sentence的长度 $T_x$ 相同，是一个变量。</p>
+<script type="math/tex; mode=display">
+c_t = \sum_{i=1}^{T_x}\alpha_{t,i}\overline h_i \\
+\alpha_{t,i} = \frac{exp(score(h_t,\overline h_i))}{\sum_{i'}^{T_x}exp(score(h_t,\overline h_{i'}))}</script><p>分配向量的计算过程分为两步，首先分别计算decoder当前step的隐藏状态 $h_t$ 和encoder的所有隐藏状态 $\overline h_i$ 的alignment运算的结果（alignment运算下面会介绍），再应用softmax函数计算 $exp(score(h_t,\overline h_i))$ 在所有 $\sum_{i’}^{T_x}exp(score(h_t,\overline h_{i’}))$ 中的比重。</p>
+<p>换句话说，$c_t$ 可以看作是所有encoder的隐藏状态的分布律（每个状态的概率处于 $[0,1]$ 并且和为 $1$），进而预示source sentence中对预测下一个单词最优帮助的词汇。$score()$ 函数理论上可以是任意的比较函数。Luong在他的论文中使用点积(dot product)($score(h_t,\overline h_i)=h_t ^{\top}\overline h_i$)，一个更加通用的方程是在点积基础上增加一个由全连接神经网络层训练的参数矩阵 $W_\alpha$，方程表示为 $score(h_t,\overline h_i)=h_t^TW_\alpha\overline h_i$，实验发现dot product在global attention中表现更好，而general方程在local attention中表现更好。</p>
+<p><img src="/2019/03/17/NLPtask/NLPtask9/pic2.png" alt=""></p>
+<h3 id="Local-attention"><a href="#Local-attention" class="headerlink" title="Local attention"></a>Local attention</h3><p>每一次生成目标单词（target word）都分析source sentence中所有单词的做法代价太高，也许也是没有必要的。为了缓解这个问题，Luong论文中建议只集中关注一个固定大小 $2D+1$ 窗口中的source sentence 的注释（annotation），即只关注最能帮助预测下一个词汇的source sentence中某个词汇前后step的隐藏状态（hidden state）：</p>
+<script type="math/tex; mode=display">
+c_t = \sum_{i=p_t-D}^{p_t+D}\alpha_{t,i}\overline h_i</script><p>其中，$D$ 由用户自定义，而窗口中心即聚焦的annotation $p_t$ 可以也设为 $t$ 或者基于保存了之前target words $(y_1, …y_{t-1})$ 信息的decoder隐藏状态的 $h_t$ 决定：$p_t = T_x · \sigma(v_p ^{\top} tanh(W_p h_t))$，$T_x$ 表示source sentence 的长度，$\sigma$ 表示sigmoid函数，$v_p​$ 和 $W_p$ 是可训练的参数矩阵。分配矩阵（alignment weights）的计算过程和global attention中的相似，仅仅是增加了一项均值为 $p_t$ ，标准差为 $D/2$ 的标准正太分布乘积项：</p>
+<script type="math/tex; mode=display">
+\alpha_{t,i} = \frac{exp(score(h_t,\overline h_i))}{\sum_{i'}^{T_x}exp(score(h_t,\overline h_{i'}))}exp(\frac{(i-p_t)^2}{2(D/2)^2})</script><p>注意 $p_t \in \mathbb{R} \cap [0, T_x]$ and $i \in \mathbb{R} \cap [p_t-D, p_t+D]$。添加的高斯分布项使得alignment权重随着 $i$ 在窗口中远离中心 $p_t$ 移动逐渐降低，也就是说对于给予靠近 $p_t$ 的annotation更多的影响力。另外和global attention不同的是 $\alpha _t$ 的大小被固定为 $2D-1$，只有处于窗口范围内的annotation才对输出有影响。local attention可以看成是alignment权重与一个截断高斯分布相乘后的global attention（窗口外的annotation取值为 $0$）。local attention的示意图如下所示：</p>
+<p><img src="/2019/03/17/NLPtask/NLPtask9/pic3.png" alt=""></p>
+<h3 id="self-attention"><a href="#self-attention" class="headerlink" title="self-attention"></a>self-attention</h3><p>现在我们将encoder简单设置为单独的RNN处理长度为 $T$ 的句子 $(x_1, x_2, \dots, x_T)$。RNN将输出映射成annotation $(h_1, \dots , h_T)$。正如将attention机制引入到encoder-decoder结构中一样，不同于只关注当前的隐藏状态 $h_t$，将其作为整个句子的综合概括会失去许多信息，self attention不同的机制也能够将所有的annotation纳入学习的范围。</p>
+<p>如下面公式所示，annotation $h_t$ 先被传输到一个全连接层，得到的输出 $u_t$ 被用于和一个可训练的用来表示上下文信息的参数矩阵 $u$（随机初始化）进行比较以得到annotation的分配系数（alignment coefficient），随后用softmax进行归一化。最后得到的聚焦化的向量 $s$ 是所有annotation的加权和。</p>
+<script type="math/tex; mode=display">
+u_t=tanh(Wh_t) \\
+\alpha_{t,i} = \frac{exp(score(h_t,\overline h_i))}{\sum_{i'}^{T_x}exp(score(h_t,\overline h_{i'}))} \\
+s=\sum_{t=1}{T}\alpha_th_t</script><p>score函数理论上可以是任意的比较函数。一个简单的得分函数是 $score(u_t, u) = u_t^ \top u$。</p>
+<p>上面提及的上下文向量（context vector）和seq2seq模型的中context vector毫无联系！在seq2seq模型中，context vector $c_t$ 是encoder所有隐藏状态的加权和 $\sum _{i=1} ^{T_x} \alpha _{t,i} {\overline h}_i$，然后 $c_t$ 和decoder的隐藏状态 $h_t$ 共同用于计算聚焦化的隐藏状态 $\widetilde h = tanh(W_c [c_t;h_t])$。self attention中的上下文向量只是用来代替decoder的隐藏状态用于计算 $score()$，实际上self attention模型中并没有decoder模块。所以，self attention中的分配系数矩阵指示了上下文中各个单词之间的关联，而seq2seq模型中的上下文向量 $\alpha _t$ 代表的是source sentence中各词和即将生成的target词汇之间的关联。</p>
+<p>下面图片展示了一个实际应用self attention的层次模型，其中self attention在两个层次起作用：单词层次和句子层次。这样做的理由有两个：如何自然语言的层次结构，词汇组成语句，语句组成文本；第二，这样使得模型可以学习到句子中需要重点关注的词和文本中需要重点关注的句子。由于各个sentence的attentional coefficient不同，各个句子下的各单词的attentional coefficients可以是不同的，这使得一个句子中某个单词的十分重要，到到了另一个句子中这个单词就变的不那么重要了。</p>
+<p><img src="/2019/03/17/NLPtask/NLPtask9/pic4.png" alt=""></p>
+<h2 id="HAN的原理（Hierarchical-Attention-Networks）"><a href="#HAN的原理（Hierarchical-Attention-Networks）" class="headerlink" title="HAN的原理（Hierarchical Attention Networks）"></a>HAN的原理（Hierarchical Attention Networks）</h2><p>HAN是在“Hierarchical Attention Networks for Document Classiﬁcation”此文中提出。层级“注意力”网络的网络结构如图所示，网络可以被看作为两部分，第一部分为词“注意”部分，另一部分为句“注意”部分。整个网络通过将一个句子分割为几部分，对于每部分，都使用双向RNN结合“注意力”机制将小句子映射为一个向量，然后对于映射得到的一组序列向量，再通过一层双向RNN结合“注意力”机制实现对文本的分类。</p>
+<p><img src="/2019/03/17/NLPtask/NLPtask9/pic5.png" alt=""></p>
+<p>模型主要可以分为四个部分：</p>
 <ul>
-<li><p>绿色的半圆就是TP(True Positives)</p>
-</li>
-<li><p>红色的半圆就是FP(False Positives)</p>
-</li>
-<li><p>左边的灰色长方形（不包括绿色半圆），就是FN（False Negatives）</p>
-</li>
-<li><p>右边的 浅灰色长方形（不包括红色半圆），就是TN(True Negatives)</p>
-</li>
+<li>a word sequence encoder,</li>
+<li>a word-level attention layer,    </li>
+<li>a sentence encoder</li>
+<li>a sentence-level attention layer.</li>
 </ul>
-<p>这个绿色和红色组成的圆内代表我们分类得到模型结果认为是正值的样本。 </p>
-<p><img src="/2019/03/03/NLPtask1/pic1.jpg" alt=""></p>
-<p>混淆矩阵：</p>
-<table border="0" cellpadding="0" cellspacing="0" width="782" style="border-collapse:
- collapse;table-layout:fixed;width:587pt">
- <col width="39" style="mso-width-source:userset;mso-width-alt:1248;width:29pt">
- <col width="53" style="mso-width-source:userset;mso-width-alt:1696;width:40pt">
- <col width="345" span="2" style="mso-width-source:userset;mso-width-alt:11040;
- width:259pt">
- <tr height="31" style="height:23.25pt">
-  <td colspan="2" rowspan="2" height="68" class="xl6328097" width="92" style="height:
-  51.0pt;width:69pt"></td>
-  <td colspan="2" class="xl6328097" width="690" style="width:518pt">预测</td>
- </tr>
- <tr height="37" style="mso-height-source:userset;height:27.75pt">
-  <td height="37" class="xl6328097" style="height:27.75pt">正</td>
-  <td class="xl6328097">负</td>
- </tr>
- <tr height="68" style="mso-height-source:userset;height:51.0pt">
-  <td rowspan="2" height="136" class="xl6428097" width="39" style="height:102.0pt;
-  width:29pt">实<br>
-    际</td>
-  <td class="xl6328097">正</td>
-  <td class="xl6328097">TP，真正类(True Postive)</td>
-  <td class="xl6328097">FN，假负类(False Negative)</td>
- </tr>
- <tr height="68" style="mso-height-source:userset;height:51.0pt">
-  <td height="68" class="xl6328097" style="height:51.0pt">负</td>
-  <td class="xl6328097">FP，假正类(False Postive)</td>
-  <td class="xl6328097">TN，真负类(True Negative)</td>
- </tr>
- <![if supportMisalignedColumns]>
- <tr height="0" style="display:none">
-  <td width="39" style="width:29pt"></td>
-  <td width="53" style="width:40pt"></td>
-  <td width="345" style="width:259pt"></td>
-  <td width="345" style="width:259pt"></td>
- </tr>
- <![endif]>
-</table>
-
-
-<p>精确率： $P = \frac{TP}{TP + FP}$</p>
-<p>召回率： $R = \frac{TP}{TP + FN}$</p>
-<p>精确率和召回率的调和均值： $\frac{2}{F_1}=\frac{1}{P}+\frac{1}{R}$ ，即  $F_1 = \frac{2TP}{2TP+FP+FN}$ 。</p>
-<h3 id="RoC曲线、AUC值"><a href="#RoC曲线、AUC值" class="headerlink" title="RoC曲线、AUC值"></a>RoC曲线、AUC值</h3><p><strong>纵坐标</strong>—&gt;灵敏度(true positive rate )：$TPR=\frac{TP}{TP+FN}​$，预测的<strong>正类</strong>中实际<strong>正</strong>实例占所有<strong>正</strong>实例的比例</p>
-<p><strong>横坐标</strong>—&gt;特异度(false positive rate)：$FPR=\frac{FP}{FP+TN}$，预测的<strong>正类</strong>中实际<strong>负</strong>实例占所有<strong>负</strong>实例的比例</p>
-<p>曲线下方的面积，就是模型准确率的度量。</p>
-<p><img src="/2019/03/03/NLPtask1/pic2.jpg" alt=""></p>
-<p>TPR越大，预测正类中实际正类越多；FPR越大，预测正类中实际负类越多。</p>
-<p>TPR越高，FPR越小，我们的模型和算法就越高效。也就是画出来的RoC曲线越靠近左上越好。</p>
-<p><strong>AUC（Area Under Curve）值</strong>：Roc曲线下的面积，介于0.1和1之间。</p>
-<p>AUC作为数值可以直观的评价分类器的好坏，值越大越好。</p>
-<p>AUC值是一个概率值，当随机挑选一个正样本以及负样本，当前的分类算法根据计算得到的Score值将这个正样本排在负样本前面的概率就是AUC值，AUC值越大，当前分类算法越有可能将正样本排在负样本前面，从而能够更好地分类。</p>
-<p><strong>ROC曲线有个很好的特性：当测试集中的正负样本的分布变换的时候，ROC曲线能够保持不变。</strong></p>
-<h3 id="P-R曲线"><a href="#P-R曲线" class="headerlink" title="P-R曲线"></a>P-R曲线</h3><p>即 “精确率precision“ vs “召回率recall 曲线”</p>
-<p><strong>纵坐标</strong>—&gt;精确率$P​$</p>
-<p><strong>横坐标</strong>—&gt;召回率$R$</p>
-<p>精确率越高，召回率越高，我们的模型和算法就越高效。也就是画出来的PR曲线越靠近右上越好。</p>
-<p><img src="/2019/03/03/NLPtask1/pic3.jpg" alt=""></p>
+<h3 id="Word-Encoder"><a href="#Word-Encoder" class="headerlink" title="Word Encoder"></a>Word Encoder</h3><p><img src="/2019/03/17/NLPtask/NLPtask9/pic6.png" alt=""></p>
+<h3 id="Word-Attention"><a href="#Word-Attention" class="headerlink" title="Word Attention"></a>Word Attention</h3><script type="math/tex; mode=display">
+u_{it} = tanh(W_wh_{it}+b_w) \\
+\alpha_{it} =\frac{exp(u_{it}^\top u_w)}{\sum_t exp(u_{it}^\top u_w)} \\
+s_i = \sum_t\alpha_{it}h_{it}</script><h3 id="Sentence-Encoder"><a href="#Sentence-Encoder" class="headerlink" title="Sentence Encoder"></a>Sentence Encoder</h3><p><img src="/2019/03/17/NLPtask/NLPtask9/pic7.png" alt=""></p>
+<h3 id="Sentence-Attention"><a href="#Sentence-Attention" class="headerlink" title="Sentence Attention"></a>Sentence Attention</h3><script type="math/tex; mode=display">
+u_{i} = tanh(W_sh_i+b_s) \\
+\alpha_i =\frac{exp(u_i^\top u_s)}{\sum_i exp(u_i^\top u_s)} \\
+v = \sum_i\alpha_ih_i</script><p>最后就是使用最常用的softmax分类器对整个文本进行分类</p>
+<script type="math/tex; mode=display">
+p=softmax(W_cv+b_c)</script><p>损失函数为：</p>
+<script type="math/tex; mode=display">
+L=-\sum_d logp_{dj}</script><h2 id="利用Attention模型进行文本分类"><a href="#利用Attention模型进行文本分类" class="headerlink" title="利用Attention模型进行文本分类"></a>利用Attention模型进行文本分类</h2><p><a href="https://github.com/THTBSE/rnn_text_classification" target="_blank" rel="noopener">太难了，请参考大佬的Github</a></p>
 
       
     </div>
@@ -532,8 +516,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/16/Logistic_Cost/" rel="next" title="逻辑回归损失函数的推导">
-                <i class="fa fa-chevron-left"></i> 逻辑回归损失函数的推导
+              <a href="/2019/03/15/NLPtask/NLPtask8/" rel="next" title="循环神经网络">
+                <i class="fa fa-chevron-left"></i> 循环神经网络
               </a>
             
           </div>
@@ -542,8 +526,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/05/NLPtask2/" rel="prev" title="基本文本处理技能">
-                基本文本处理技能 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/20/NLPtask/NLPtask10/" rel="prev" title="BERT">
+                BERT <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -676,7 +660,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#召回率、准确率"><span class="nav-number">1.</span> <span class="nav-text">召回率、准确率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RoC曲线、AUC值"><span class="nav-number">2.</span> <span class="nav-text">RoC曲线、AUC值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#P-R曲线"><span class="nav-number">3.</span> <span class="nav-text">P-R曲线</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本的Attention原理"><span class="nav-number">1.</span> <span class="nav-text">基本的Attention原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Encoder-decoder简介"><span class="nav-number">1.1.</span> <span class="nav-text">Encoder-decoder简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Global-attention"><span class="nav-number">1.2.</span> <span class="nav-text">Global attention</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Local-attention"><span class="nav-number">1.3.</span> <span class="nav-text">Local attention</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#self-attention"><span class="nav-number">1.4.</span> <span class="nav-text">self-attention</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HAN的原理（Hierarchical-Attention-Networks）"><span class="nav-number">2.</span> <span class="nav-text">HAN的原理（Hierarchical Attention Networks）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Word-Encoder"><span class="nav-number">2.1.</span> <span class="nav-text">Word Encoder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Word-Attention"><span class="nav-number">2.2.</span> <span class="nav-text">Word Attention</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sentence-Encoder"><span class="nav-number">2.3.</span> <span class="nav-text">Sentence Encoder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sentence-Attention"><span class="nav-number">2.4.</span> <span class="nav-text">Sentence Attention</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用Attention模型进行文本分类"><span class="nav-number">3.</span> <span class="nav-text">利用Attention模型进行文本分类</span></a></li></ol></div>
             
 
           </div>

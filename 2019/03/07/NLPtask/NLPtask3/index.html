@@ -82,16 +82,16 @@
 <meta name="description" content="TF-IDF原理Term Frequency-Inverse Document Frequency, 词频-逆文件频率 TF-IDF是一种用于资讯检索与文本挖掘的常用加权技术，一种统计方法，用以评估一字词对于一个文件集或一个语料库中的其中一份文件的重要程度。字词的重要性随着它在文件中出现的次数成正比增加，但同时会随着它在语料库中出现的频率成反比下降。 TF-IDF加权的各种形式常被搜索引擎应用，作">
 <meta property="og:type" content="article">
 <meta property="og:title" content="特征选择">
-<meta property="og:url" content="http://yoursite.com/2019/03/07/NLPtask3/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/03/07/NLPtask/NLPtask3/index.html">
 <meta property="og:site_name" content="Skye的博客小站">
 <meta property="og:description" content="TF-IDF原理Term Frequency-Inverse Document Frequency, 词频-逆文件频率 TF-IDF是一种用于资讯检索与文本挖掘的常用加权技术，一种统计方法，用以评估一字词对于一个文件集或一个语料库中的其中一份文件的重要程度。字词的重要性随着它在文件中出现的次数成正比增加，但同时会随着它在语料库中出现的频率成反比下降。 TF-IDF加权的各种形式常被搜索引擎应用，作">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/03/07/NLPtask3/pic1.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/07/NLPtask/NLPtask3/pic1.png">
 <meta property="og:updated_time" content="2019-03-07T15:14:02.100Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="特征选择">
 <meta name="twitter:description" content="TF-IDF原理Term Frequency-Inverse Document Frequency, 词频-逆文件频率 TF-IDF是一种用于资讯检索与文本挖掘的常用加权技术，一种统计方法，用以评估一字词对于一个文件集或一个语料库中的其中一份文件的重要程度。字词的重要性随着它在文件中出现的次数成正比增加，但同时会随着它在语料库中出现的频率成反比下降。 TF-IDF加权的各种形式常被搜索引擎应用，作">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/07/NLPtask3/pic1.png">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/07/NLPtask/NLPtask3/pic1.png">
 
 
 
@@ -121,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/07/NLPtask3/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/07/NLPtask/NLPtask3/"/>
 
 
 
@@ -264,7 +264,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/07/NLPtask3/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/07/NLPtask/NLPtask3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Skye Lan">
@@ -333,7 +333,7 @@
 
           
           
-             <span id="/2019/03/07/NLPtask3/" class="leancloud_visitors" data-flag-title="特征选择">
+             <span id="/2019/03/07/NLPtask/NLPtask3/" class="leancloud_visitors" data-flag-title="特征选择">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -416,7 +416,7 @@
   TF-IDF = 词频(TF) * 逆文档频率(IDF)</script>  TF-IDF与一个词在文档中的出现次数成正比，与该词在整个语言中的出现次数成反比</li>
 </ul>
 <p><strong>优点</strong>：简单快速，结果比较符合实际情况。<br><strong>缺点</strong>：单纯以”词频”衡量一个词的重要性，不够全面，有时重要的词可能出现次数并不多。<br>        无法体现词的位置信息，出现位置靠前的词与出现位置靠后的词，都被视为重要性相同。</p>
-<h3 id="文本矩阵化，使用词袋模型，以TF-IDF特征值为权重"><a href="#文本矩阵化，使用词袋模型，以TF-IDF特征值为权重" class="headerlink" title="文本矩阵化，使用词袋模型，以TF-IDF特征值为权重"></a>文本矩阵化，使用词袋模型，以TF-IDF特征值为权重</h3><p><img src="/2019/03/07/NLPtask3/pic1.png" alt=""></p>
+<h3 id="文本矩阵化，使用词袋模型，以TF-IDF特征值为权重"><a href="#文本矩阵化，使用词袋模型，以TF-IDF特征值为权重" class="headerlink" title="文本矩阵化，使用词袋模型，以TF-IDF特征值为权重"></a>文本矩阵化，使用词袋模型，以TF-IDF特征值为权重</h3><p><img src="/2019/03/07/NLPtask/NLPtask3/pic1.png" alt=""></p>
 <h3 id="互信息的原理"><a href="#互信息的原理" class="headerlink" title="互信息的原理"></a>互信息的原理</h3><p>机器学习相关文献里面，经常会用到点互信息PMI(Pointwise Mutual Information)这个指标来衡量两个事物之间的相关性（比如两个词）。</p>
 <script type="math/tex; mode=display">
 PMI(x;y) = log\dfrac{p(x,y)}{p(x)p(y)} = log\dfrac{p(x|y)}{p(x)} = log\dfrac{p(y|x)}{p(y)}</script><ul>
@@ -501,7 +501,7 @@ I(X;Y)=\sum_x\sum_yp(x,y)log\dfrac{p(x,y)}{p(x)p(y)}</script><p><strong>互信�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/05/NLPtask2/" rel="next" title="基本文本处理技能">
+              <a href="/2019/03/05/NLPtask/NLPtask2/" rel="next" title="基本文本处理技能">
                 <i class="fa fa-chevron-left"></i> 基本文本处理技能
               </a>
             
@@ -511,7 +511,7 @@ I(X;Y)=\sum_x\sum_yp(x,y)log\dfrac{p(x,y)}{p(x)p(y)}</script><p><strong>互信�
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/09/NLPtask4/" rel="prev" title="传统机器学习">
+              <a href="/2019/03/09/NLPtask/NLPtask4/" rel="prev" title="传统机器学习">
                 传统机器学习 <i class="fa fa-chevron-right"></i>
               </a>
             

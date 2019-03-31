@@ -82,37 +82,37 @@
 <meta name="description" content="Transformer的原理《Attention Is All You Need》 是一篇Google提出的将Attention思想发挥到极致的论文。这篇论文中提出一个全新的模型，叫 Transformer，抛弃了以往深度学习任务里面使用到的 CNN 和 RNN ，目前大热的BERT就是基于Transformer构建的，这个模型广泛应用于NLP领域，例如机器翻译，问答系统，文本摘要和语音识别等等方">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BERT">
-<meta property="og:url" content="http://yoursite.com/2019/03/20/NLPtask10/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/03/20/NLPtask/NLPtask10/index.html">
 <meta property="og:site_name" content="Skye的博客小站">
 <meta property="og:description" content="Transformer的原理《Attention Is All You Need》 是一篇Google提出的将Attention思想发挥到极致的论文。这篇论文中提出一个全新的模型，叫 Transformer，抛弃了以往深度学习任务里面使用到的 CNN 和 RNN ，目前大热的BERT就是基于Transformer构建的，这个模型广泛应用于NLP领域，例如机器翻译，问答系统，文本摘要和语音识别等等方">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic1.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic2.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic3.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic4.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic5.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic6.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic7.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic8.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic9.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic10.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic11.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic12.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic13.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic14.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic15.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic16.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic17.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic18.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic19.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic20.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic21.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic22.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask/NLPtask10/pic1.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask/NLPtask10/pic2.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask/NLPtask10/pic3.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask/NLPtask10/pic4.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask/NLPtask10/pic5.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask/NLPtask10/pic6.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask/NLPtask10/pic7.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask/NLPtask10/pic8.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask/NLPtask10/pic9.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask/NLPtask10/pic10.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask/NLPtask10/pic11.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask/NLPtask10/pic12.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask/NLPtask10/pic13.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask/NLPtask10/pic14.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask/NLPtask10/pic15.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask/NLPtask10/pic16.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask/NLPtask10/pic17.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask/NLPtask10/pic18.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask/NLPtask10/pic19.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask/NLPtask10/pic20.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask/NLPtask10/pic21.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/20/NLPtask/NLPtask10/pic22.png">
 <meta property="og:updated_time" content="2019-03-21T11:50:50.511Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BERT">
 <meta name="twitter:description" content="Transformer的原理《Attention Is All You Need》 是一篇Google提出的将Attention思想发挥到极致的论文。这篇论文中提出一个全新的模型，叫 Transformer，抛弃了以往深度学习任务里面使用到的 CNN 和 RNN ，目前大热的BERT就是基于Transformer构建的，这个模型广泛应用于NLP领域，例如机器翻译，问答系统，文本摘要和语音识别等等方">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/20/NLPtask10/pic1.png">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/20/NLPtask/NLPtask10/pic1.png">
 
 
 
@@ -142,7 +142,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/20/NLPtask10/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/20/NLPtask/NLPtask10/"/>
 
 
 
@@ -285,7 +285,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/20/NLPtask10/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/20/NLPtask/NLPtask10/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Skye Lan">
@@ -354,7 +354,7 @@
 
           
           
-             <span id="/2019/03/20/NLPtask10/" class="leancloud_visitors" data-flag-title="BERT">
+             <span id="/2019/03/20/NLPtask/NLPtask10/" class="leancloud_visitors" data-flag-title="BERT">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -419,13 +419,13 @@
       
         <h2 id="Transformer的原理"><a href="#Transformer的原理" class="headerlink" title="Transformer的原理"></a>Transformer的原理</h2><p>《Attention Is All You Need》 是一篇Google提出的将Attention思想发挥到极致的论文。这篇论文中提出一个全新的模型，叫 <strong>Transformer</strong>，抛弃了以往深度学习任务里面使用到的 CNN 和 RNN ，目前大热的<strong>BERT</strong>就是基于Transformer构建的，这个模型广泛应用于NLP领域，例如机器翻译，问答系统，文本摘要和语音识别等等方向。</p>
 <h3 id="Transformer总体结构"><a href="#Transformer总体结构" class="headerlink" title="Transformer总体结构"></a>Transformer总体结构</h3><p>和Attention模型一样，Transformer模型中也采用了 encoer-decoder 架构。但其结构相比于Attention更加复杂，论文中encoder层由6个encoder堆叠在一起，decoder层也一样。</p>
-<p><img src="/2019/03/20/NLPtask10/pic1.png" alt=""></p>
+<p><img src="/2019/03/20/NLPtask/NLPtask10/pic1.png" alt=""></p>
 <p>每一个encoder和decoder的内部简版结构如下图。</p>
-<p><img src="/2019/03/20/NLPtask10/pic2.png" alt=""></p>
+<p><img src="/2019/03/20/NLPtask/NLPtask10/pic2.png" alt=""></p>
 <p>对于encoder，包含两层：一个self-attention层和一个前馈神经网络。self-attention能帮助当前节点不仅仅只关注当前的词，从而能获取到上下文的语义。</p>
 <p>decoder也包含encoder提到的两层网络，但是在这两层中间还有一层attention层，帮助当前节点获取到当前需要关注的重点内容。</p>
 <p>现在我们知道了模型的主要组件，接下来我们看下模型的内部细节。首先，模型需要对输入的数据进行一个embedding操作，也可以理解为类似w2c的操作，embedding结束之后，输入到encoder层，self-attention处理完数据后把数据送给前馈神经网络，前馈神经网络的计算可以并行，得到的输出会输入到下一个encoder。</p>
-<p><img src="/2019/03/20/NLPtask10/pic3.png" alt=""></p>
+<p><img src="/2019/03/20/NLPtask/NLPtask10/pic3.png" alt=""></p>
 <h3 id="Self-Attention"><a href="#Self-Attention" class="headerlink" title="Self-Attention"></a>Self-Attention</h3><p>self-attention思想和attention类似，但self-attention是Transformer用来将其他相关单词的“理解”转换成正在处理的单词的一种思路，举个例子：</p>
 <blockquote>
 <p>The animal didn’t cross the street because it was too tired</p>
@@ -433,44 +433,44 @@
 <p>这里的”it”代表的是”animal”还是”street”，对于机器来说，是很难判断的，self-attention能够让机器把”it”和”animal”联系起来。</p>
 <p><strong>详细的处理过程如下</strong>：</p>
 <h4 id="self-attention计算三个新的向量。"><a href="#self-attention计算三个新的向量。" class="headerlink" title="self-attention计算三个新的向量。"></a>self-attention计算三个新的向量。</h4><p>在论文中，向量的维度是$512$维，把这三个向量分别称为Query、Key、Value，这三个向量是用embedding向量与一个矩阵相乘得到的结果，这个矩阵是随机初始化的，维度为$（64，512）$。第二个维度需要和embedding的维度一样，其值在BP的过程中会一直进行更新，得到的这三个向量的维度是$64$，低于embedding维度。Query、Key、Value这三个向量对于attention来说很重要。</p>
-<p><img src="/2019/03/20/NLPtask10/pic4.png" alt=""></p>
+<p><img src="/2019/03/20/NLPtask/NLPtask10/pic4.png" alt=""></p>
 <h4 id="计算self-attention分数值"><a href="#计算self-attention分数值" class="headerlink" title="计算self-attention分数值"></a>计算self-attention分数值</h4><p>该分数值决定了在某个位置encode一个词时，对输入句子的其他部分的关注程度。这个分数值的计算方法是Query与Key做点乘。以下图为例，首先需要针对Thinking这个词，计算出其他词对于该词的一个分数值，首先是针对于自己本身即$q1·k1$，然后是针对于第二个词即$q1·k2$</p>
-<p><img src="/2019/03/20/NLPtask10/pic5.png" alt=""></p>
+<p><img src="/2019/03/20/NLPtask/NLPtask10/pic5.png" alt=""></p>
 <h4 id="把点乘的结果除以一个常数再做softmax"><a href="#把点乘的结果除以一个常数再做softmax" class="headerlink" title="把点乘的结果除以一个常数再做softmax"></a>把点乘的结果除以一个常数再做softmax</h4><p>这里用结果除以$8$，这个值一般是采用上文提到的矩阵的第一个维度的开方即$64$的开方$8$，当然也可以选择其他的值，然后把得到的结果做一个softmax的计算。得到的结果即是每个词对于当前位置的词的相关性大小。</p>
-<p><img src="/2019/03/20/NLPtask10/pic6.png" alt=""></p>
-<h4 id="把Value和softmax得到的值进行相乘，并相加，得到的结果即是self-attention在当前节点的值。"><a href="#把Value和softmax得到的值进行相乘，并相加，得到的结果即是self-attention在当前节点的值。" class="headerlink" title="把Value和softmax得到的值进行相乘，并相加，得到的结果即是self-attention在当前节点的值。"></a>把Value和softmax得到的值进行相乘，并相加，得到的结果即是self-attention在当前节点的值。</h4><p><img src="/2019/03/20/NLPtask10/pic7.png" alt=""></p>
+<p><img src="/2019/03/20/NLPtask/NLPtask10/pic6.png" alt=""></p>
+<h4 id="把Value和softmax得到的值进行相乘，并相加，得到的结果即是self-attention在当前节点的值。"><a href="#把Value和softmax得到的值进行相乘，并相加，得到的结果即是self-attention在当前节点的值。" class="headerlink" title="把Value和softmax得到的值进行相乘，并相加，得到的结果即是self-attention在当前节点的值。"></a>把Value和softmax得到的值进行相乘，并相加，得到的结果即是self-attention在当前节点的值。</h4><p><img src="/2019/03/20/NLPtask/NLPtask10/pic7.png" alt=""></p>
 <p>在实际的应用场景，为了提高计算速度，此处采用矩阵方式，直接计算出Query, Key, Value的矩阵，然后把embedding的值与三个矩阵直接相乘，把得到的新矩阵Q与K相乘，乘以一个常数，做softmax操作，最后乘上V矩阵</p>
-<p><img src="/2019/03/20/NLPtask10/pic8.png" alt=""></p>
-<p><img src="/2019/03/20/NLPtask10/pic9.png" alt=""></p>
+<p><img src="/2019/03/20/NLPtask/NLPtask10/pic8.png" alt=""></p>
+<p><img src="/2019/03/20/NLPtask/NLPtask10/pic9.png" alt=""></p>
 <p>这种通过 query 和 key 的相似性程度来确定 value 的权重分布的方法被称为scaled dot-product attention。</p>
 <h3 id="Multi-Headed-Attention"><a href="#Multi-Headed-Attention" class="headerlink" title="Multi-Headed Attention"></a>Multi-Headed Attention</h3><p>这篇论文给self-attention加入了另外一个机制，被称为“multi-headed” attention，该机制不仅仅只初始化一组Q、K、V的矩阵，而是初始化多组，transformer是使用了8组，所以最后得到的结果是8个矩阵。</p>
-<p><img src="/2019/03/20/NLPtask10/pic10.png" alt=""></p>
-<p><img src="/2019/03/20/NLPtask10/pic11.png" alt=""></p>
+<p><img src="/2019/03/20/NLPtask/NLPtask10/pic10.png" alt=""></p>
+<p><img src="/2019/03/20/NLPtask/NLPtask10/pic11.png" alt=""></p>
 <p>但前馈神经网络没法输入8个矩阵，所以需要把8个矩阵降为1个。首先，把8个矩阵连在一起得到一个大的矩阵，再随机初始化一个矩阵和这个组合好的矩阵相乘，最后得到一个最终的矩阵。</p>
-<p><img src="/2019/03/20/NLPtask10/pic12.png" alt=""></p>
+<p><img src="/2019/03/20/NLPtask/NLPtask10/pic12.png" alt=""></p>
 <p>这就是multi-headed attention的全部流程了，所有的矩阵总体流程如下。</p>
-<p><img src="/2019/03/20/NLPtask10/pic13.png" alt=""></p>
+<p><img src="/2019/03/20/NLPtask/NLPtask10/pic13.png" alt=""></p>
 <h3 id="Positional-Encoding"><a href="#Positional-Encoding" class="headerlink" title="Positional Encoding"></a>Positional Encoding</h3><p>到目前为止，transformer模型中还缺少一种解释输入序列中单词顺序的方法。为了处理这个问题，transformer给encoder层和decoder层的输入添加了一个额外的向量Positional Encoding，维度和embedding的维度一样，这个向量采用了一种很独特的方法来让模型学习到这个值，这个向量能决定当前词的位置，或者说在一个句子中不同的词之间的距离。这个位置向量的具体计算方法有很多种，论文中的计算方法如下：</p>
 <script type="math/tex; mode=display">
 PE(pos,2i)=sin(pos/10000^{2i}/d_{model}) \\
 PE(pos,2i+1)=cos(pos/10000^{2i}/d_{model})</script><p>其中$pos$是指当前词在句子中的位置，$i$是指向量中每个值的index。可以看出，在偶数位置，使用正弦编码，在奇数位置，使用余弦编码。</p>
 <p>代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">position_encoding = np.array([[pos / np.power(<span class="number">10000</span>, <span class="number">2.0</span> * (j // <span class="number">2</span>) / d_model) <span class="keyword">for</span> j <span class="keyword">in</span> range(d_model)] <span class="keyword">for</span> pos <span class="keyword">in</span> range(max_seq_len)])</span><br><span class="line"></span><br><span class="line">position_encoding[:, <span class="number">0</span>::<span class="number">2</span>] = np.sin(position_encoding[:, <span class="number">0</span>::<span class="number">2</span>])</span><br><span class="line">position_encoding[:, <span class="number">1</span>::<span class="number">2</span>] = np.cos(position_encoding[:, <span class="number">1</span>::<span class="number">2</span>])</span><br></pre></td></tr></table></figure></p>
 <p>最后把这个Positional Encoding与embedding的值相加，作为输入送到下一层。</p>
-<p><img src="/2019/03/20/NLPtask10/pic14.png" alt=""></p>
+<p><img src="/2019/03/20/NLPtask/NLPtask10/pic14.png" alt=""></p>
 <h3 id="Layer-normalization"><a href="#Layer-normalization" class="headerlink" title="Layer normalization"></a>Layer normalization</h3><p>在transformer中，每一个子层（self-attetion，ffnn）之后都会接一个残缺模块，并且有一个Layer normalization</p>
-<p><img src="/2019/03/20/NLPtask10/pic15.png" alt=""></p>
+<p><img src="/2019/03/20/NLPtask/NLPtask10/pic15.png" alt=""></p>
 <p>Normalization把输入转化成均值为0方差为1的数据，在把数据送入激活函数之前进行normalization（归一化），可以使输入数据不落在激活函数的饱和区。</p>
 <p>Batch normalization的主要思想是：在每一层的每一批数据上进行归一化。具体做法就是对每一小批数据，在批这个方向上做归一化。如下图所示：</p>
-<p><img src="/2019/03/20/NLPtask10/pic16.png" alt=""></p>
+<p><img src="/2019/03/20/NLPtask/NLPtask10/pic16.png" alt=""></p>
 <p>右半边求均值是沿着数据 batch_size的方向进行，其计算公式如下：</p>
 <script type="math/tex; mode=display">
 BN(x_i)=\alpha × \frac{x_i-\mu_b}{\sqrt{\sigma^2_B+\epsilon}}+\beta</script><p>Layer normalization 也是归一化数据的一种方式，但 layer normalization 是在每一个样本上计算均值和方差，而不是BN那种在批方向计算均值和方差！</p>
-<p><img src="/2019/03/20/NLPtask10/pic17.png" alt=""></p>
+<p><img src="/2019/03/20/NLPtask/NLPtask10/pic17.png" alt=""></p>
 <p>下面看一下 LN 的公式：</p>
 <script type="math/tex; mode=display">
 LN(x_i)=\alpha × \frac{x_i-\mu_L}{\sqrt{\sigma^2_L+\epsilon}}+\beta</script><p>把两个encoders叠加在一起就是下图这样的结构。</p>
-<p><img src="/2019/03/20/NLPtask10/pic18.png" alt=""></p>
-<h3 id="Decoder层"><a href="#Decoder层" class="headerlink" title="Decoder层"></a>Decoder层</h3><p><img src="/2019/03/20/NLPtask10/pic19.png" alt=""></p>
+<p><img src="/2019/03/20/NLPtask/NLPtask10/pic18.png" alt=""></p>
+<h3 id="Decoder层"><a href="#Decoder层" class="headerlink" title="Decoder层"></a>Decoder层</h3><p><img src="/2019/03/20/NLPtask/NLPtask10/pic19.png" alt=""></p>
 <p>上图是transformer的一个详细结构。可以看到decoder部分其实和encoder部分大同小异，但在最下面额外多了一个masked multi-head attention，这里的mask也是transformer一个很关键的技术。</p>
 <h4 id="Mask"><a href="#Mask" class="headerlink" title="Mask"></a>Mask</h4><p>mask 表示掩码，它对某些值进行掩盖，使其在参数更新时不产生效果。Transformer 模型里面涉及两种 mask，分别是 padding mask 和 sequence mask。</p>
 <p>其中，padding mask 在所有的 scaled dot-product attention 里面都需要用到，而 sequence mask 只有在 decoder 的 self-attention 里面用到。</p>
@@ -484,10 +484,10 @@ LN(x_i)=\alpha × \frac{x_i-\mu_L}{\sqrt{\sigma^2_L+\epsilon}}+\beta</script><p>
 <li>其他情况，attn_mask 一律等于 padding mask。</li>
 </ul>
 <h3 id="输出层"><a href="#输出层" class="headerlink" title="输出层"></a>输出层</h3><p>当decoder层全部执行完毕后，在结尾再添加一个全连接层和softmax层就可以将得到的向量映射为需要的词。假如我们的词典是$w$个词，那最终softmax会输入$w$个词的概率，概率值最大的对应的词就是我们最终的结果。</p>
-<p><img src="/2019/03/20/NLPtask10/pic20.png" alt=""></p>
+<p><img src="/2019/03/20/NLPtask/NLPtask10/pic20.png" alt=""></p>
 <h2 id="BERT的原理"><a href="#BERT的原理" class="headerlink" title="BERT的原理"></a>BERT的原理</h2><p>之前的文章从attention讲解到了transformer，本文将会针对目前大热的BERT进行讲解，bert的内部结构主要是transformer，如果您对transformer并不了解，请参阅我之前的博文。</p>
 <p>从创新的角度来看，BERT其实并没有过多的结构方面的创新点，其和GPT一样均是采用的transformer的结构，相对于GPT来说，其是双向结构的，而GPT是单向的，如下图所示</p>
-<p><img src="/2019/03/20/NLPtask10/pic21.png" alt=""></p>
+<p><img src="/2019/03/20/NLPtask/NLPtask10/pic21.png" alt=""></p>
 <p>其次BERT在多方面的nlp任务变现来看效果都较好，具备较强的泛化能力，对于特定的任务只需要添加一个输出层来进行fine-tuning即可。</p>
 <h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>对于BERT的内部结构，官网提供了两个版本，$L$表示的是transformer的层数，$H$表示输出的维度，$A$表示mutil-head attention的个数</p>
 <script type="math/tex; mode=display">
@@ -505,7 +505,7 @@ BERT_{BASE}:L=12,H=768,A=12,TotalParameters=110M \\ BERT_{LARGE}:L=24,H=1024,A=1
 <p>那么为什么要以一定的概率使用随机词呢？因为transformer要保持对每个输入token分布式的表征，否则Transformer很可能会记住这个[MASK]就是”hairy”。至于使用随机词带来的负面影响，文章中提到，所有其他的token（即非”hairy”的token）共享 $15\%*10\% = 1.5\%$ 的概率，其影响是可以忽略不计的。</p>
 <h4 id="Next-Sentence-Prediction"><a href="#Next-Sentence-Prediction" class="headerlink" title="Next Sentence Prediction"></a>Next Sentence Prediction</h4><p>选择一些句子对A与B，其中 $50\%$ 的数据B是A的下一条句子，剩余 $50\%$ 的数据B是语料库中随机选择的，学习其中的相关性，添加这样的预训练的目的是目前很多NLP的任务比如QA和NLI都需要理解两个句子之间的关系，从而能让预训练的模型更好的适应这样的任务。</p>
 <h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><p>BERT的输入可以是单一的一个句子或者是句子对，实际的输入值是segment embedding与position embedding相加。</p>
-<p><img src="/2019/03/20/NLPtask10/pic22.png" alt=""></p>
+<p><img src="/2019/03/20/NLPtask/NLPtask10/pic22.png" alt=""></p>
 <h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://blog.csdn.net/u012526436/article/details/86295971" target="_blank" rel="noopener">Transformer模型详解</a><br><a href="https://terrifyzhao.github.io/2019/02/18/BERT%E5%8E%9F%E7%90%86.html" target="_blank" rel="noopener">NLP-BERT原理</a></p>
 
       
@@ -569,7 +569,7 @@ BERT_{BASE}:L=12,H=768,A=12,TotalParameters=110M \\ BERT_{LARGE}:L=24,H=1024,A=1
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/17/NLPtask9/" rel="next" title="Attention原理">
+              <a href="/2019/03/17/NLPtask/NLPtask9/" rel="next" title="Attention原理">
                 <i class="fa fa-chevron-left"></i> Attention原理
               </a>
             

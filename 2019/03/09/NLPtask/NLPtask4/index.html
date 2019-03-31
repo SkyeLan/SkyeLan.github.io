@@ -82,17 +82,17 @@
 <meta name="description" content="朴素贝叶斯的原理贝叶斯分类是一类分类算法的总称，这类算法均已贝叶斯定理为基础，故统称为贝叶斯分类。公式如下：  P(B|A)=\frac{P(A|B)P(B)}{P(A)}该公式最大的优点就是可以忽略AB的联合概率直接求其条件概率分布。因为整个形式化过程只做最原始、最简单的建设：各特征属性是条件独立的：  P(x|y_i)P(y_i) = P(a_1|y_i)P(a_2|y_i).......P(">
 <meta property="og:type" content="article">
 <meta property="og:title" content="传统机器学习">
-<meta property="og:url" content="http://yoursite.com/2019/03/09/NLPtask4/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/03/09/NLPtask/NLPtask4/index.html">
 <meta property="og:site_name" content="Skye的博客小站">
 <meta property="og:description" content="朴素贝叶斯的原理贝叶斯分类是一类分类算法的总称，这类算法均已贝叶斯定理为基础，故统称为贝叶斯分类。公式如下：  P(B|A)=\frac{P(A|B)P(B)}{P(A)}该公式最大的优点就是可以忽略AB的联合概率直接求其条件概率分布。因为整个形式化过程只做最原始、最简单的建设：各特征属性是条件独立的：  P(x|y_i)P(y_i) = P(a_1|y_i)P(a_2|y_i).......P(">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/03/09/NLPtask4/pic1.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/09/NLPtask4/pic2.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/09/NLPtask/NLPtask4/pic1.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/09/NLPtask/NLPtask4/pic2.png">
 <meta property="og:updated_time" content="2019-03-10T09:32:09.780Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="传统机器学习">
 <meta name="twitter:description" content="朴素贝叶斯的原理贝叶斯分类是一类分类算法的总称，这类算法均已贝叶斯定理为基础，故统称为贝叶斯分类。公式如下：  P(B|A)=\frac{P(A|B)P(B)}{P(A)}该公式最大的优点就是可以忽略AB的联合概率直接求其条件概率分布。因为整个形式化过程只做最原始、最简单的建设：各特征属性是条件独立的：  P(x|y_i)P(y_i) = P(a_1|y_i)P(a_2|y_i).......P(">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/09/NLPtask4/pic1.png">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/09/NLPtask/NLPtask4/pic1.png">
 
 
 
@@ -122,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/09/NLPtask4/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/09/NLPtask/NLPtask4/"/>
 
 
 
@@ -265,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/09/NLPtask4/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/09/NLPtask/NLPtask4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Skye Lan">
@@ -334,7 +334,7 @@
 
           
           
-             <span id="/2019/03/09/NLPtask4/" class="leancloud_visitors" data-flag-title="传统机器学习">
+             <span id="/2019/03/09/NLPtask/NLPtask4/" class="leancloud_visitors" data-flag-title="传统机器学习">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -509,13 +509,13 @@ SVM模型得分: 0.800
 <li>以概率 $P(w_n|z_k)​$ 生成一个词 $w_n​$</li>
 </ol>
 <p>概率图模型如下所示:</p>
-<p><img src="/2019/03/09/NLPtask4/pic1.png" alt=""></p>
+<p><img src="/2019/03/09/NLPtask/NLPtask4/pic1.png" alt=""></p>
 <p>图里面的浅色节点代表不可观测的隐变量，方框是指变量重复，内部方框表示的是文档 $d_m$ 的长度是 $N$，外部方框表示的是文档集共 $M$ 篇文档。pLSA 模型的参数 $\theta$ 显而易见就是：$K×M$ 个 $P(z_k|d_m)$ 、$V×K$ 个 $P(w_n|z_k)$ 。$P(z_k|d_m)$ 表征的是给定文档在各个主题下的分布情况，文档在全部主题上服从多项式分布（共 M 个）；$P(w_n|z_k)$ 则表征给定主题的词语分布情况，主题在全部词语上服从多项式分布（共 $K$ 个）。</p>
 <h3 id="共轭先验分布"><a href="#共轭先验分布" class="headerlink" title="共轭先验分布"></a>共轭先验分布</h3><p>用于计算后验概率的式子：</p>
 <script type="math/tex; mode=display">
 \pi(\theta|x)=\frac{h(x,\theta)}{m(x)}=\frac{p(x|\theta)\pi(\theta)}{\int_\theta p(x|\theta)\pi(\theta)d\theta}</script><p>有时我们将 $p(x|\theta)$ 称为似然函数，先验概率 $pi(\theta)$ 和似然函数的乘积，然后归一化得到后验概率 $p(\theta|x)$。共轭先验的定义为：如果后验概率分布和先验概率分布有相同的形式(如同为指数族分布)，则后验概率分布和先验概率分布统称共轭分布。那么先验概率 $\pi(\theta)$ 称为似然函数的共轭先验。</p>
 <h2 id="LDA主题模型原理"><a href="#LDA主题模型原理" class="headerlink" title="LDA主题模型原理"></a>LDA主题模型原理</h2><h3 id="LDA（Latent-Dirichlet-allocation，隐狄利克雷分配）"><a href="#LDA（Latent-Dirichlet-allocation，隐狄利克雷分配）" class="headerlink" title="LDA（Latent Dirichlet allocation，隐狄利克雷分配）"></a>LDA（Latent Dirichlet allocation，隐狄利克雷分配）</h3><p>LDA 将模型参数视作随机变量，将多项式分布的共轭先验（也就是 Dirichlet分布）作为参数的先验分布，并使用Gibbs sampling方法对主题进行采样。</p>
-<p><img src="/2019/03/09/NLPtask4/pic2.png" alt=""></p>
+<p><img src="/2019/03/09/NLPtask/NLPtask4/pic2.png" alt=""></p>
 <h2 id="使用LDA生成主题特征，在之前特征的基础上加入主题特征进行文本分类"><a href="#使用LDA生成主题特征，在之前特征的基础上加入主题特征进行文本分类" class="headerlink" title="使用LDA生成主题特征，在之前特征的基础上加入主题特征进行文本分类"></a>使用LDA生成主题特征，在之前特征的基础上加入主题特征进行文本分类</h2><p>参考资料<br><a href="https://www.cnblogs.com/Determined22/p/7237111.html" target="_blank" rel="noopener">NLP —— 图模型（三）pLSA（Probabilistic latent semantic analysis，概率隐性语义分析）模型</a><br><a href="https://blog.csdn.net/Love_wanling/article/details/72872180" target="_blank" rel="noopener">深入浅出讲解LDA主题模型</a></p>
 
       
@@ -579,7 +579,7 @@ SVM模型得分: 0.800
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/07/NLPtask3/" rel="next" title="特征选择">
+              <a href="/2019/03/07/NLPtask/NLPtask3/" rel="next" title="特征选择">
                 <i class="fa fa-chevron-left"></i> 特征选择
               </a>
             

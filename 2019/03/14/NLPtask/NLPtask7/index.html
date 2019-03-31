@@ -82,38 +82,38 @@
 <meta name="description" content="卷积运算卷积运算的定义我们称 $(f*g)(n)$ 为 $f,g$ 的卷积。 其连续定义为：  (f*g)(n) = \int_{-\infty}^\infty f(\tau)g(n-\tau)d\tau其离散定义为：  (f*g)(n) =\sum_{\tau =-\infty}^\infty f(\tau)g(n-\tau)这两个式子有一个共同的特征：  令 $x=\tau ,y=n-\tau">
 <meta property="og:type" content="article">
 <meta property="og:title" content="卷积神经网络">
-<meta property="og:url" content="http://yoursite.com/2019/03/14/NLPtask7/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/03/14/NLPtask/NLPtask7/index.html">
 <meta property="og:site_name" content="Skye的博客小站">
 <meta property="og:description" content="卷积运算卷积运算的定义我们称 $(f*g)(n)$ 为 $f,g$ 的卷积。 其连续定义为：  (f*g)(n) = \int_{-\infty}^\infty f(\tau)g(n-\tau)d\tau其离散定义为：  (f*g)(n) =\sum_{\tau =-\infty}^\infty f(\tau)g(n-\tau)这两个式子有一个共同的特征：  令 $x=\tau ,y=n-\tau">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic1.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic2.gif">
-<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic3.gif">
-<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic2.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic3.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic4.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic5.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic6.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic7.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic8.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic9.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic10.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic11.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic12.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic13.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic14.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic16.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic17.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic15.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic18.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic19.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic20.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic21.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask/NLPtask7/pic1.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask/NLPtask7/pic2.gif">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask/NLPtask7/pic3.gif">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask/NLPtask7/pic2.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask/NLPtask7/pic3.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask/NLPtask7/pic4.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask/NLPtask7/pic5.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask/NLPtask7/pic6.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask/NLPtask7/pic7.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask/NLPtask7/pic8.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask/NLPtask7/pic9.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask/NLPtask7/pic10.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask/NLPtask7/pic11.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask/NLPtask7/pic12.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask/NLPtask7/pic13.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask/NLPtask7/pic14.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask/NLPtask7/pic16.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask/NLPtask7/pic17.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask/NLPtask7/pic15.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask/NLPtask7/pic18.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask/NLPtask7/pic19.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask/NLPtask7/pic20.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/NLPtask/NLPtask7/pic21.png">
 <meta property="og:updated_time" content="2019-03-15T11:04:00.553Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="卷积神经网络">
 <meta name="twitter:description" content="卷积运算卷积运算的定义我们称 $(f*g)(n)$ 为 $f,g$ 的卷积。 其连续定义为：  (f*g)(n) = \int_{-\infty}^\infty f(\tau)g(n-\tau)d\tau其离散定义为：  (f*g)(n) =\sum_{\tau =-\infty}^\infty f(\tau)g(n-\tau)这两个式子有一个共同的特征：  令 $x=\tau ,y=n-\tau">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/14/NLPtask7/pic1.png">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/14/NLPtask/NLPtask7/pic1.png">
 
 
 
@@ -143,7 +143,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/14/NLPtask7/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/14/NLPtask/NLPtask7/"/>
 
 
 
@@ -286,7 +286,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/14/NLPtask7/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/14/NLPtask/NLPtask7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Skye Lan">
@@ -355,7 +355,7 @@
 
           
           
-             <span id="/2019/03/14/NLPtask7/" class="leancloud_visitors" data-flag-title="卷积神经网络">
+             <span id="/2019/03/14/NLPtask/NLPtask7/" class="leancloud_visitors" data-flag-title="卷积神经网络">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -424,13 +424,13 @@
 (f*g)(n) = \int_{-\infty}^\infty f(\tau)g(n-\tau)d\tau</script><p>其离散定义为：</p>
 <script type="math/tex; mode=display">
 (f*g)(n) =\sum_{\tau =-\infty}^\infty f(\tau)g(n-\tau)</script><p>这两个式子有一个共同的特征：</p>
-<p><img src="/2019/03/14/NLPtask7/pic1.png" alt=""></p>
+<p><img src="/2019/03/14/NLPtask/NLPtask7/pic1.png" alt=""></p>
 <p>令 $x=\tau ,y=n-\tau$  ，那么 $x+y=n$ 就是下面这些直线：</p>
-<p><img src="/2019/03/14/NLPtask7/pic2.gif" alt=""></p>
+<p><img src="/2019/03/14/NLPtask/NLPtask7/pic2.gif" alt=""></p>
 <p>如果遍历这些直线，就好比，把毛巾沿着角卷起来：</p>
-<p><img src="/2019/03/14/NLPtask7/pic3.gif" alt=""></p>
+<p><img src="/2019/03/14/NLPtask/NLPtask7/pic3.gif" alt=""></p>
 <h4 id="离散卷积的例子：丢骰子"><a href="#离散卷积的例子：丢骰子" class="headerlink" title="离散卷积的例子：丢骰子"></a>离散卷积的例子：丢骰子</h4><p>假设有两个骰子，点数加起来等于4的概率是多少？</p>
-<p><img src="/2019/03/14/NLPtask7/pic2.png" alt=""></p>
+<p><img src="/2019/03/14/NLPtask/NLPtask7/pic2.png" alt=""></p>
 <p>两枚骰子点数加起来为4的概率为：$f(1)g(3)+f(2)g(2)+f(3)g(1)$</p>
 <p>符合卷积的定义，把它写成标准的形式就是：$\displaystyle (f*g)(4)=\sum _{m=1}^{3}f(4-m)g(m)$</p>
 <h4 id="连续卷积的例子：做馒头"><a href="#连续卷积的例子：做馒头" class="headerlink" title="连续卷积的例子：做馒头"></a>连续卷积的例子：做馒头</h4><p>假设馒头的生产速度是 $f(t)$ ，那么一天后生产出来的馒头总量为：$\int _{0}^{24}f(t)dt$</p>
@@ -442,27 +442,27 @@
 <h4 id="稀疏交互"><a href="#稀疏交互" class="headerlink" title="稀疏交互"></a>稀疏交互</h4><p>卷积网络具有<strong>稀疏交互</strong>（也叫<strong>稀疏连接</strong>或者<strong>稀疏权重</strong>）的特征。</p>
 <p>假设一个神经网络中有$m$个输入、$n$个输出。那么对于全连接的矩阵相乘则需要$m<em>n$个参数。如果输出的连接数被设定为$j$个，那么采用稀疏连接则只需要$j</em>n$个参数。在许多情景中，在连接数被设定为$j$，且$j$比$m$要小得多的情况下，机器学习应用的速度获得大幅度的提升，并且仍然能保持较好的效果。 </p>
 <p>稀疏的图形化解释如图9.2和图9.3所示。在深度卷积网络中，处在网络深层的单元可能与绝大部分输入是间接交互的，如图9.4所示。这允许网络可以通过只描述稀疏交互的基石来高效地描述多个变量的复杂交互。</p>
-<p><img src="/2019/03/14/NLPtask7/pic3.png" alt=""></p>
-<p><img src="/2019/03/14/NLPtask7/pic4.png" alt=""></p>
-<p><img src="/2019/03/14/NLPtask7/pic5.png" alt=""></p>
+<p><img src="/2019/03/14/NLPtask/NLPtask7/pic3.png" alt=""></p>
+<p><img src="/2019/03/14/NLPtask/NLPtask7/pic4.png" alt=""></p>
+<p><img src="/2019/03/14/NLPtask/NLPtask7/pic5.png" alt=""></p>
 <p>卷积网络通过采用稀疏连接的方法减少了需要存储的参数（权重）的数量，减少了机器学习模型所需要的存储空间，从而提升了模型的统计效率。从计算方面来看，较少的参数数量意味着计算输出时需要更少的参数，从而计算效率也得到大幅提升。</p>
 <h4 id="参数共享"><a href="#参数共享" class="headerlink" title="参数共享"></a>参数共享</h4><p>参数共享是紧接着稀疏连接而来的，<strong>参数共享</strong>是指在一个模型的多个函数中使用相同的参数。这个共享的参数通常是权重，即共享权重（Shared Weight）。在传统的神经网络中，每个权重被使用一次。而使用共享权重，一个输入位置的参数值也会被应用在其他的输入位置。在卷积网络中，通过参数共享，一个卷积核内的参数会被应用在输入的所有位置。 </p>
 <p>下图演示了参数共享时如何实现的。</p>
-<p><img src="/2019/03/14/NLPtask7/pic6.png" alt=""></p>
+<p><img src="/2019/03/14/NLPtask/NLPtask7/pic6.png" alt=""></p>
 <h4 id="等变表示"><a href="#等变表示" class="headerlink" title="等变表示"></a>等变表示</h4><p>对于卷积来说，参数共享的特殊形式使得神经网络层具有了对平移等变（Equivariance）的性质。一个函数满足输入改变，那么输出也以同样的方式改变这一个性质，那么这个函数就是等变的。即<strong>输入发生变化输出也相应发生同样的变化</strong>。 </p>
 <p>如果$f(g(x))=g(f(x))$，那么函数$f(x)$对于变换$g$具有等变性。在卷积网络中，令$g$是输入的任意平移函数，那么卷积函数对于$g$具有等变性。</p>
 <p>举例，令$I$表示图像在整数坐标上的亮度函数，$g$表示图像函数的变换函数，即把一个图像映射到另一个图像函数的函数。令$I’=g(I)$，图像函数$I’$满足$I’(x,y)=I(x-1,y)$。上述函数所做的变换就是将$I$中的每一个像素均向右移动一个单位。如果先对图像$I$施加变换，再进行卷积操作$f$，结果等同于对图像$I$的卷积施加变换。也就是说，如果图像中的目标发生了一定的位移之后，卷积输出的表达也会产生相同的位移。这个特征对于作用在一个相对小区域的算子十分有用。</p>
-<h3 id="卷积运算的计算"><a href="#卷积运算的计算" class="headerlink" title="卷积运算的计算"></a>卷积运算的计算</h3><h4 id="二维卷积"><a href="#二维卷积" class="headerlink" title="二维卷积"></a>二维卷积</h4><p><img src="/2019/03/14/NLPtask7/pic7.png" alt=""></p>
+<h3 id="卷积运算的计算"><a href="#卷积运算的计算" class="headerlink" title="卷积运算的计算"></a>卷积运算的计算</h3><h4 id="二维卷积"><a href="#二维卷积" class="headerlink" title="二维卷积"></a>二维卷积</h4><p><img src="/2019/03/14/NLPtask/NLPtask7/pic7.png" alt=""></p>
 <p>图中的输入的数据维度为$14×14$，过滤器大小为$5×5$，二者做卷积，输出的数据维度为$10×10（14−5+1=10）$。</p>
 <p>上述内容没有引入$channel$的概念，也可以说$channel$的数量为$1$。如果将二维卷积中输入的$channel$的数量变为$3$，即输入的数据维度变为$（14×14×3）$。由于卷积操作中过滤器的$channel$数量必须与输入数据的$channel$数量相同，过滤器大小也变为$5×5×3$。在卷积的过程中，过滤器与数据在$channel$方向分别卷积，之后将卷积后的数值相加，即执行$10×10$次$3$个数值相加的操作，最终输出的数据维度为$10×10$。</p>
 <p>以上都是在过滤器数量为$1$的情况下所进行的讨论。如果将过滤器的数量增加至$16$，即$16$个大小为$10×10×3$的过滤器，最终输出的数据维度就变为$10×10×16$。可以理解为分别执行每个过滤器的卷积操作，最后将每个卷积的输出在第三个维度（$channel$ 维度）上进行拼接。</p>
 <p><strong>二维卷积常用于计算机视觉、图像处理领域</strong>。</p>
-<h4 id="一维卷积"><a href="#一维卷积" class="headerlink" title="一维卷积"></a>一维卷积</h4><p><img src="/2019/03/14/NLPtask7/pic8.png" alt=""></p>
+<h4 id="一维卷积"><a href="#一维卷积" class="headerlink" title="一维卷积"></a>一维卷积</h4><p><img src="/2019/03/14/NLPtask/NLPtask7/pic8.png" alt=""></p>
 <p>图中的输入的数据维度为$8$，过滤器的维度为$5$。与二维卷积类似，卷积后输出的数据维度为$8−5+1=4$。</p>
 <p>如果过滤器数量仍为$1$，输入数据的$channel$数量变为$16$，即输入数据维度为$8×16$。这里$channel$的概念相当于自然语言处理中的embedding，而该输入数据代表$8$个单词，其中每个单词的词向量维度大小为$16$。在这种情况下，过滤器的维度由$5$变为$5×16$，最终输出的数据维度仍为$4$。</p>
 <p>如果过滤器数量为$n$，那么输出的数据维度就变为$4×n​$。</p>
 <p><strong>一维卷积常用于序列模型，自然语言处理领域</strong>。</p>
-<h4 id="三维卷积"><a href="#三维卷积" class="headerlink" title="三维卷积"></a>三维卷积</h4><p><img src="/2019/03/14/NLPtask7/pic9.png" alt=""></p>
+<h4 id="三维卷积"><a href="#三维卷积" class="headerlink" title="三维卷积"></a>三维卷积</h4><p><img src="/2019/03/14/NLPtask/NLPtask7/pic9.png" alt=""></p>
 <p>这里采用代数的方式对三维卷积进行介绍，具体思想与一维卷积、二维卷积相同。</p>
 <p>假设输入数据的大小为$a_1×a_2×a_3$，$channel$数为$c$，过滤器大小为$f$，即过滤器维度为$f×f×f×c$（一般不写$channel$的维度），过滤器数量为$n$。</p>
 <p>基于上述情况，三维卷积最终的输出为$(a_1−f+1)×(a_2−f+1)×(a_3−f+1)×n$。该公式对于一维卷积、二维卷积仍然有效，只有去掉不相干的输入数据维度就行。</p>
@@ -475,18 +475,18 @@
 <h4 id="mean-pooling"><a href="#mean-pooling" class="headerlink" title="mean-pooling"></a>mean-pooling</h4><p>mean-pooling，即对邻域内特征点只求平均，对背景保留更好。</p>
 <h4 id="max-pooling"><a href="#max-pooling" class="headerlink" title="max-pooling"></a>max-pooling</h4><p>max-pooling，即对邻域内特征点取最大，对纹理提取更好。</p>
 <h4 id="Stochastic-pooling"><a href="#Stochastic-pooling" class="headerlink" title="Stochastic-pooling"></a>Stochastic-pooling</h4><p>Stochastic-pooling，介于两者之间，通过对像素点按照数值大小赋予概率，再按照概率进行亚采样。</p>
-<p><img src="/2019/03/14/NLPtask7/pic10.png" alt=""></p>
+<p><img src="/2019/03/14/NLPtask/NLPtask7/pic10.png" alt=""></p>
 <h3 id="池化的作用"><a href="#池化的作用" class="headerlink" title="池化的作用"></a>池化的作用</h3><ol>
 <li><strong>保留主要特征</strong>的同时<strong>减少参数（降低纬度，类似PCA）和计算量</strong>，<strong>防止过拟合</strong></li>
 <li><strong>invariance(不变性)</strong>，这种不变性包括translation（平移），rotation（旋转），scale（尺度）<h4 id="translation-invariance-（平移）："><a href="#translation-invariance-（平移）：" class="headerlink" title="translation invariance （平移）："></a>translation invariance （平移）：</h4>这里举一个直观的例子(数字识别)，假设有一个16x16的图片，里面有个数字1，我们需要识别出来，这个数字1可能写的偏左一点(图1)，这个数字1可能偏右一点(图2)，图1到图2相当于向右平移了一个单位，但是图1和图2经过max pooling之后它们都变成了相同的$8x8$特征矩阵，主要的特征我们捕获到了，同时又将问题的规模从$16x16$降到了$8x8$，而且具有平移不变性的特点。图中的a（或b）表示，在原始图片中的这些a（或b）位置，最终都会映射到相同的位置。</li>
 </ol>
-<p><img src="/2019/03/14/NLPtask7/pic11.png" alt=""></p>
+<p><img src="/2019/03/14/NLPtask/NLPtask7/pic11.png" alt=""></p>
 <h4 id="rotation-invariance-（旋转）："><a href="#rotation-invariance-（旋转）：" class="headerlink" title="rotation invariance （旋转）："></a>rotation invariance （旋转）：</h4><p>下图表示汉字“一”的识别，第一张相对于x轴有倾斜角，第二张是平行于x轴，两张图片相当于做了旋转，经过多次max pooling后具有相同的特征。</p>
-<p><img src="/2019/03/14/NLPtask7/pic12.png" alt=""></p>
+<p><img src="/2019/03/14/NLPtask/NLPtask7/pic12.png" alt=""></p>
 <h4 id="scale-invariance-（尺度）："><a href="#scale-invariance-（尺度）：" class="headerlink" title="scale invariance （尺度）："></a>scale invariance （尺度）：</h4><p>下图表示数字“0”的识别，第一张的“0”比较大，第二张的“0”进行了较小，相当于作了缩放，同样地，经过多次max pooling后具有相同的特征。</p>
-<p><img src="/2019/03/14/NLPtask7/pic13.png" alt=""></p>
+<p><img src="/2019/03/14/NLPtask/NLPtask7/pic13.png" alt=""></p>
 <h2 id="Text-CNN的原理"><a href="#Text-CNN的原理" class="headerlink" title="Text-CNN的原理"></a>Text-CNN的原理</h2><h3 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h3><p>整个模型由四部分构成：输入层、卷积层、池化层、全连接层。</p>
-<p><img src="/2019/03/14/NLPtask7/pic14.png" alt=""></p>
+<p><img src="/2019/03/14/NLPtask/NLPtask7/pic14.png" alt=""></p>
 <h4 id="输入层-嵌入层-embedding-layer"><a href="#输入层-嵌入层-embedding-layer" class="headerlink" title="输入层/嵌入层(embedding layer)"></a>输入层/嵌入层(embedding layer)</h4><p>Text-CNN模型的输入层需要输入一个定长的文本序列，需要通过分析语料集样本的长度指定一个输入序列的长度$L$，比$L$短的样本序列需要填充(自己定义填充符)，比$L$长的序列需要截取。最终输入层输入的是文本序列中各个词汇对应的分布式表示，即词向量。</p>
 <p>几个变种的词向量的表达方式：</p>
 <ol>
@@ -497,16 +497,16 @@
 </ol>
 <h4 id="卷积-convolution"><a href="#卷积-convolution" class="headerlink" title="卷积(convolution)"></a>卷积(convolution)</h4><p>在NLP领域一般卷积核只进行一维的滑动，即卷积核的宽度与词向量的维度等宽，卷积核只进行<strong>一维</strong>的滑动。</p>
 <p>在Text-CNN模型中一般<strong>使用多个不同尺寸的卷积核</strong>。卷积核的高度，即窗口值，可以理解为N-gram模型中的N，即利用的局部词序的长度，窗口值也是一个超参数，需要在任务中尝试，一般选取2-8之间的值。</p>
-<p><img src="/2019/03/14/NLPtask7/pic16.png" alt=""></p>
+<p><img src="/2019/03/14/NLPtask/NLPtask7/pic16.png" alt=""></p>
 <h4 id="池化-pooling"><a href="#池化-pooling" class="headerlink" title="池化(pooling)"></a>池化(pooling)</h4><p>在Text-CNN模型的池化层中使用了Max-pool（最大值池化），即<strong>减少模型的参数</strong>，又保证了在不定长的卷基层的输出上获得一个<strong>定长的全连接层的输入</strong>。</p>
-<p><img src="/2019/03/14/NLPtask7/pic17.png" alt=""></p>
+<p><img src="/2019/03/14/NLPtask/NLPtask7/pic17.png" alt=""></p>
 <blockquote>
 <p>池化层除了最大值池化之外，也有论文讨论过 Top K最大值池化，即选取每一个卷积层输出的Top k个最大值作为池化层的输出。</p>
 </blockquote>
 <p>卷积层与池化层在分类模型的核心作用就是提取特征，从输入的定长文本序列中，利用局部词序信息，提取初级的特征，并组合初级的特征为高级特征，通过卷积与池化操作，省去了传统机器学习中的特征工程的步骤。</p>
 <p>但TextCNN的一个明显<strong>缺点</strong>就是，卷积、池化操作<strong>丢失</strong>了文本序列中的词汇的<strong>顺序、位置信息</strong>，比较难以捕获文本序列中的<strong>否定、反义等语义信息</strong>。</p>
 <h4 id="全连接层"><a href="#全连接层" class="headerlink" title="全连接层"></a>全连接层</h4><p>全连接层的作用就是<strong>分类器</strong>，原始的Text-CNN模型使用了只有一层隐藏层的全连接网络，相当于把卷积与池化层提取的特征输入到一个<strong>LR分类器</strong>中进行分类。</p>
-<h3 id="TextCNN的详细过程原理图如下："><a href="#TextCNN的详细过程原理图如下：" class="headerlink" title="TextCNN的详细过程原理图如下："></a>TextCNN的详细过程原理图如下：</h3><p><img src="/2019/03/14/NLPtask7/pic15.png" alt=""></p>
+<h3 id="TextCNN的详细过程原理图如下："><a href="#TextCNN的详细过程原理图如下：" class="headerlink" title="TextCNN的详细过程原理图如下："></a>TextCNN的详细过程原理图如下：</h3><p><img src="/2019/03/14/NLPtask/NLPtask7/pic15.png" alt=""></p>
 <p>TextCNN详细过程：</p>
 <ul>
 <li><strong>Embedding</strong>：第一层是图中最左边的 $7 \times 5$ 的句子矩阵，每行是词向量，维度为$5$，这个可以类比为图像中的原始像素点。</li>
@@ -514,10 +514,10 @@
 <li><strong>MaxPolling</strong>：第三层是一个$1-max pooling$ 层，这样不同长度句子经过 $pooling$ 层之后都能变成定长的表示。</li>
 <li><strong>Full-Connection and Softmax</strong>：最后接一层全连接的 $softmax$ 层，输出每个类别的概率。</li>
 </ul>
-<h2 id="利用Text-CNN模型来进行文本分类"><a href="#利用Text-CNN模型来进行文本分类" class="headerlink" title="利用Text-CNN模型来进行文本分类"></a>利用Text-CNN模型来进行文本分类</h2><h3 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h3><p><img src="/2019/03/14/NLPtask7/pic18.png" alt=""></p>
-<h3 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h3><p><img src="/2019/03/14/NLPtask7/pic19.png" alt=""></p>
-<h3 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h3><p><img src="/2019/03/14/NLPtask7/pic20.png" alt=""></p>
-<h3 id="评估"><a href="#评估" class="headerlink" title="评估"></a>评估</h3><p><img src="/2019/03/14/NLPtask7/pic21.png" alt=""></p>
+<h2 id="利用Text-CNN模型来进行文本分类"><a href="#利用Text-CNN模型来进行文本分类" class="headerlink" title="利用Text-CNN模型来进行文本分类"></a>利用Text-CNN模型来进行文本分类</h2><h3 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h3><p><img src="/2019/03/14/NLPtask/NLPtask7/pic18.png" alt=""></p>
+<h3 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h3><p><img src="/2019/03/14/NLPtask/NLPtask7/pic19.png" alt=""></p>
+<h3 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h3><p><img src="/2019/03/14/NLPtask/NLPtask7/pic20.png" alt=""></p>
+<h3 id="评估"><a href="#评估" class="headerlink" title="评估"></a>评估</h3><p><img src="/2019/03/14/NLPtask/NLPtask7/pic21.png" alt=""></p>
 
       
     </div>
@@ -580,7 +580,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/12/NLPtask6/" rel="next" title="简单神经网络">
+              <a href="/2019/03/12/NLPtask/NLPtask6/" rel="next" title="简单神经网络">
                 <i class="fa fa-chevron-left"></i> 简单神经网络
               </a>
             
@@ -590,7 +590,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/15/NLPtask8/" rel="prev" title="循环神经网络">
+              <a href="/2019/03/15/NLPtask/NLPtask8/" rel="prev" title="循环神经网络">
                 循环神经网络 <i class="fa fa-chevron-right"></i>
               </a>
             
