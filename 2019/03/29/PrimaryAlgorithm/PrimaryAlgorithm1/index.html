@@ -82,16 +82,16 @@
 <meta name="description" content="机器学习的一些概念监督学习、非监督学习、半监督学习的区别监督学习、非监督学习和半监督学习区别就是训练数据是否拥有标签信息 监督学习：给出了数据及数据的标准答案来训练模型。Regression回归问题、classification分类问题都是典型的监督学习 非监督学习：给了一组数据，但没有给出数据的标签信息，需要从数据中去发现数据间隐藏的结构信息。聚类问题是典型的非监督学习 半监督学习：给出了大量没">
 <meta property="og:type" content="article">
 <meta property="og:title" content="线性回归算法梳理">
-<meta property="og:url" content="http://yoursite.com/2019/03/29/PrimaryAlgorithm1/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/03/29/PrimaryAlgorithm/PrimaryAlgorithm1/index.html">
 <meta property="og:site_name" content="Skye的博客小站">
 <meta property="og:description" content="机器学习的一些概念监督学习、非监督学习、半监督学习的区别监督学习、非监督学习和半监督学习区别就是训练数据是否拥有标签信息 监督学习：给出了数据及数据的标准答案来训练模型。Regression回归问题、classification分类问题都是典型的监督学习 非监督学习：给了一组数据，但没有给出数据的标签信息，需要从数据中去发现数据间隐藏的结构信息。聚类问题是典型的非监督学习 半监督学习：给出了大量没">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/03/29/PrimaryAlgorithm1/pic1.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/29/PrimaryAlgorithm/PrimaryAlgorithm1/pic1.jpg">
 <meta property="og:updated_time" content="2019-03-28T17:22:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线性回归算法梳理">
 <meta name="twitter:description" content="机器学习的一些概念监督学习、非监督学习、半监督学习的区别监督学习、非监督学习和半监督学习区别就是训练数据是否拥有标签信息 监督学习：给出了数据及数据的标准答案来训练模型。Regression回归问题、classification分类问题都是典型的监督学习 非监督学习：给了一组数据，但没有给出数据的标签信息，需要从数据中去发现数据间隐藏的结构信息。聚类问题是典型的非监督学习 半监督学习：给出了大量没">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/29/PrimaryAlgorithm1/pic1.jpg">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/29/PrimaryAlgorithm/PrimaryAlgorithm1/pic1.jpg">
 
 
 
@@ -121,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/29/PrimaryAlgorithm1/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/29/PrimaryAlgorithm/PrimaryAlgorithm1/"/>
 
 
 
@@ -264,7 +264,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/29/PrimaryAlgorithm1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/29/PrimaryAlgorithm/PrimaryAlgorithm1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Skye Lan">
@@ -333,7 +333,7 @@
 
           
           
-             <span id="/2019/03/29/PrimaryAlgorithm1/" class="leancloud_visitors" data-flag-title="线性回归算法梳理">
+             <span id="/2019/03/29/PrimaryAlgorithm/PrimaryAlgorithm1/" class="leancloud_visitors" data-flag-title="线性回归算法梳理">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -402,7 +402,7 @@
 <p><strong>半监督学习</strong>：给出了大量没有标签的数据和少量拥有标签的数据训练模型</p>
 <h3 id="过拟合、欠拟合、泛化能力"><a href="#过拟合、欠拟合、泛化能力" class="headerlink" title="过拟合、欠拟合、泛化能力"></a>过拟合、欠拟合、泛化能力</h3><p><strong>欠拟合</strong>：模型没有很好的捕捉到数据特征，不能够很好的拟合数据</p>
 <p><strong>过拟合</strong>：模型把训练数据学的“太好了”，导致把数据中的潜在的噪声数据也学到了，测试时不能很好的识别数据，模型的泛化能力下降。</p>
-<p><img src="/2019/03/29/PrimaryAlgorithm1/pic1.jpg" alt=""></p>
+<p><img src="/2019/03/29/PrimaryAlgorithm/PrimaryAlgorithm1/pic1.jpg" alt=""></p>
 <p>泛化能力**：训练的模型适用于新样本的能力，称为“泛化”能力，具有强范化能力的模型能很好的适用于整个样本空间</p>
 <h2 id="线性回归的原理"><a href="#线性回归的原理" class="headerlink" title="线性回归的原理"></a>线性回归的原理</h2><p>线性回归遇到的问题一般是这样的。我们有 $m$ 个样本，每个样本对应于 $n$ 维特征和一个结果输出，如下：</p>
 <script type="math/tex; mode=display">
