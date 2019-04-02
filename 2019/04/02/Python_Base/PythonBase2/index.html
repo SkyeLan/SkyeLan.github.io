@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="列表标志基本操作(创建，append( )，pop( ) ,del( ), 拷贝）列表相关方法元组标志基本操作（创建及不可变性）string字符串定义及基本操作（+，*，读取方式）字符串相关方法字符串格式化问题">
+<meta name="description" content="列表Python内置的一种数据类型是列表：list 标志使用[] 基本操作(创建，append( )，pop( ) ,del( ), 拷贝）创建list是一种有序的集合，可以随时添加和删除其中的元素。  123&amp;gt;&amp;gt;&amp;gt; classmates = [&apos;Michael&apos;, &apos;Bob&apos;, &apos;Tracy&apos;]&amp;gt;&amp;gt;&amp;gt; classmates[&apos;Michael&apos;, &apos;Bob&apos;,">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python基础任务2">
 <meta property="og:url" content="http://yoursite.com/2019/04/02/Python_Base/PythonBase2/index.html">
 <meta property="og:site_name" content="Skye的博客小站">
-<meta property="og:description" content="列表标志基本操作(创建，append( )，pop( ) ,del( ), 拷贝）列表相关方法元组标志基本操作（创建及不可变性）string字符串定义及基本操作（+，*，读取方式）字符串相关方法字符串格式化问题">
+<meta property="og:description" content="列表Python内置的一种数据类型是列表：list 标志使用[] 基本操作(创建，append( )，pop( ) ,del( ), 拷贝）创建list是一种有序的集合，可以随时添加和删除其中的元素。  123&amp;gt;&amp;gt;&amp;gt; classmates = [&apos;Michael&apos;, &apos;Bob&apos;, &apos;Tracy&apos;]&amp;gt;&amp;gt;&amp;gt; classmates[&apos;Michael&apos;, &apos;Bob&apos;,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-02T06:53:32.968Z">
+<meta property="og:updated_time" content="2019-04-02T08:52:20.895Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python基础任务2">
-<meta name="twitter:description" content="列表标志基本操作(创建，append( )，pop( ) ,del( ), 拷贝）列表相关方法元组标志基本操作（创建及不可变性）string字符串定义及基本操作（+，*，读取方式）字符串相关方法字符串格式化问题">
+<meta name="twitter:description" content="列表Python内置的一种数据类型是列表：list 标志使用[] 基本操作(创建，append( )，pop( ) ,del( ), 拷贝）创建list是一种有序的集合，可以随时添加和删除其中的元素。  123&amp;gt;&amp;gt;&amp;gt; classmates = [&apos;Michael&apos;, &apos;Bob&apos;, &apos;Tracy&apos;]&amp;gt;&amp;gt;&amp;gt; classmates[&apos;Michael&apos;, &apos;Bob&apos;,">
 
 
 
@@ -358,7 +358,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  66 字
+                  3.7k 字
                 </span>
               
 
@@ -374,7 +374,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1 分钟
+                  15 分钟
                 </span>
               
             </div>
@@ -395,7 +395,539 @@
       
 
       
-        <h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h3 id="标志"><a href="#标志" class="headerlink" title="标志"></a>标志</h3><h3 id="基本操作-创建，append-，pop-del-拷贝）"><a href="#基本操作-创建，append-，pop-del-拷贝）" class="headerlink" title="基本操作(创建，append( )，pop( ) ,del( ), 拷贝）"></a>基本操作(创建，append( )，pop( ) ,del( ), 拷贝）</h3><h3 id="列表相关方法"><a href="#列表相关方法" class="headerlink" title="列表相关方法"></a>列表相关方法</h3><h2 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h2><h3 id="标志-1"><a href="#标志-1" class="headerlink" title="标志"></a>标志</h3><h3 id="基本操作（创建及不可变性）"><a href="#基本操作（创建及不可变性）" class="headerlink" title="基本操作（创建及不可变性）"></a>基本操作（创建及不可变性）</h3><h2 id="string字符串"><a href="#string字符串" class="headerlink" title="string字符串"></a>string字符串</h2><h3 id="定义及基本操作（-，-，读取方式）"><a href="#定义及基本操作（-，-，读取方式）" class="headerlink" title="定义及基本操作（+，*，读取方式）"></a>定义及基本操作（+，*，读取方式）</h3><h3 id="字符串相关方法"><a href="#字符串相关方法" class="headerlink" title="字符串相关方法"></a>字符串相关方法</h3><h3 id="字符串格式化问题"><a href="#字符串格式化问题" class="headerlink" title="字符串格式化问题"></a>字符串格式化问题</h3>
+        <h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>Python内置的一种数据类型是<strong>列表</strong>：<strong>list</strong></p>
+<h3 id="标志"><a href="#标志" class="headerlink" title="标志"></a>标志</h3><p>使用<code>[]</code></p>
+<h3 id="基本操作-创建，append-，pop-del-拷贝）"><a href="#基本操作-创建，append-，pop-del-拷贝）" class="headerlink" title="基本操作(创建，append( )，pop( ) ,del( ), 拷贝）"></a>基本操作(创建，append( )，pop( ) ,del( ), 拷贝）</h3><h4 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h4><p>list是一种<strong>有序</strong>的集合，可以随时添加和删除其中的元素。 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>classmates = [<span class="string">'Michael'</span>, <span class="string">'Bob'</span>, <span class="string">'Tracy'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>classmates</span><br><span class="line">[<span class="string">'Michael'</span>, <span class="string">'Bob'</span>, <span class="string">'Tracy'</span>]</span><br></pre></td></tr></table></figure>
+<p>变量<code>classmates</code>就是一个list。</p>
+<p>可以用索引来访问list中每一个位置的元素，索引是从<code>0</code>开始的。</p>
+<p>要取最后一个元素，除了计算索引位置外，还可以用<code>-1</code>做索引，直接获取最后一个元素 。</p>
+<h4 id="增"><a href="#增" class="headerlink" title="增"></a>增</h4><p>list是一个可变的有序表，所以，可以使用<strong>append()方法</strong>往list中追加元素到末尾：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>classmates.append(<span class="string">'Adam'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>classmates</span><br><span class="line">[<span class="string">'Michael'</span>, <span class="string">'Bob'</span>, <span class="string">'Tracy'</span>, <span class="string">'Adam'</span>]</span><br></pre></td></tr></table></figure>
+<p>也可以使用<strong>insert()方法</strong>把元素插入到指定的位置，比如索引号为<code>1</code>的位置：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>classmates.insert(<span class="number">1</span>, <span class="string">'Jack'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>classmates</span><br><span class="line">[<span class="string">'Michael'</span>, <span class="string">'Jack'</span>, <span class="string">'Bob'</span>, <span class="string">'Tracy'</span>, <span class="string">'Adam'</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="删"><a href="#删" class="headerlink" title="删"></a>删</h4><p>要删除list末尾的元素，用<strong><code>pop()</code></strong>方法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>classmates.pop()</span><br><span class="line"><span class="string">'Adam'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>classmates</span><br><span class="line">[<span class="string">'Michael'</span>, <span class="string">'Jack'</span>, <span class="string">'Bob'</span>, <span class="string">'Tracy'</span>]</span><br></pre></td></tr></table></figure>
+<p>要删除指定位置的元素，用<code>pop(i)</code>方法，其中<code>i</code>是索引位置：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>classmates.pop(<span class="number">1</span>)</span><br><span class="line"><span class="string">'Jack'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>classmates</span><br><span class="line">[<span class="string">'Michael'</span>, <span class="string">'Bob'</span>, <span class="string">'Tracy'</span>]</span><br></pre></td></tr></table></figure>
+<p>还可以用<code>remove(&#39;name&#39;)</code>方法删除指定元素:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>classmates.remove(<span class="string">'Bob'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>classmates</span><br><span class="line">[<span class="string">'Michael'</span>, <span class="string">'Tracy'</span>]</span><br></pre></td></tr></table></figure></p>
+<h4 id="改"><a href="#改" class="headerlink" title="改"></a>改</h4><p>要把某个元素替换成别的元素，可以<strong>直接赋值</strong>给对应的索引位置：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>classmates[<span class="number">1</span>] = <span class="string">'Sarah'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>classmates</span><br><span class="line">[<span class="string">'Michael'</span>, <span class="string">'Sarah'</span>, <span class="string">'Tracy'</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="拷贝"><a href="#拷贝" class="headerlink" title="拷贝"></a>拷贝</h4><p><strong><code>copy()</code> 函数</strong>用于复制列表，类似于 classmates[:]</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 往列表中设置不同类型的值，观察两种拷贝方法的差异。</span></span><br><span class="line">a = [<span class="number">2333</span>, <span class="string">'a'</span>, [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>], &#123;<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>&#125;, &#123;<span class="string">'name'</span>: <span class="string">'python'</span>, <span class="string">'age'</span>: <span class="number">3</span>&#125;]</span><br><span class="line">b = a</span><br><span class="line">c = a.copy()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数值</span></span><br><span class="line"><span class="keyword">del</span> a[<span class="number">0</span>]  </span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">	各变量值为：</span></span><br><span class="line"><span class="string">	a = ['a', [0, 1, 2], &#123;'c', 'b', 'a'&#125;, &#123;'name': 'python', 'age': 3&#125;]</span></span><br><span class="line"><span class="string">	b = ['a', [0, 1, 2], &#123;'c', 'b', 'a'&#125;, &#123;'name': 'python', 'age': 3&#125;]	</span></span><br><span class="line"><span class="string">	c = [2333, 'a', [0, 1, 2], &#123;'c', 'b', 'a'&#125;, &#123;'name': 'python', 'age': 3&#125;]</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 字符串</span></span><br><span class="line"><span class="keyword">del</span> a[<span class="number">0</span>]</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">	各变量值为：</span></span><br><span class="line"><span class="string">	a =  [[0, 1, 2], &#123;'b', 'a', 'c'&#125;, &#123;'name': 'python', 'age': 3&#125;]</span></span><br><span class="line"><span class="string">	b =  [[0, 1, 2], &#123;'b', 'a', 'c'&#125;, &#123;'name': 'python', 'age': 3&#125;]</span></span><br><span class="line"><span class="string">	c =  [2333, 'a', [0, 1, 2], &#123;'b', 'a', 'c'&#125;, &#123;'name': 'python', 'age': 3&#125;]</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 列表</span></span><br><span class="line"><span class="keyword">del</span> a[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">	各变量值为：</span></span><br><span class="line"><span class="string">	a = [[1, 2], &#123;'c', 'a', 'b'&#125;, &#123;'name': 'python', 'age': 3&#125;]</span></span><br><span class="line"><span class="string">	b = [[1, 2], &#123;'c', 'a', 'b'&#125;, &#123;'name': 'python', 'age': 3&#125;]</span></span><br><span class="line"><span class="string">	c = [2333, 'a', [1, 2], &#123;'c', 'a', 'b'&#125;, &#123;'name': 'python', 'age': 3&#125;]</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 集合</span></span><br><span class="line">a[<span class="number">1</span>].remove(<span class="string">'a'</span>)</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">	各变量值为：</span></span><br><span class="line"><span class="string">	a = [[1, 2], &#123;'c', 'b'&#125;, &#123;'name': 'python', 'age': 3&#125;]</span></span><br><span class="line"><span class="string">	b = [[1, 2], &#123;'c', 'b'&#125;, &#123;'name': 'python', 'age': 3&#125;]</span></span><br><span class="line"><span class="string">	c = [2333, 'a', [1, 2], &#123;'c', 'b'&#125;, &#123;'name': 'python', 'age': 3&#125;]</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 字典</span></span><br><span class="line">a[<span class="number">2</span>][<span class="string">'age'</span>] = <span class="number">4</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">	各变量值为：</span></span><br><span class="line"><span class="string">	a = [[1, 2], &#123;'c', 'b'&#125;, &#123;'name': 'python', 'age': 4&#125;]</span></span><br><span class="line"><span class="string">	b = [[1, 2], &#123;'c', 'b'&#125;, &#123;'name': 'python', 'age': 4&#125;]</span></span><br><span class="line"><span class="string">	c = [2333, 'a', [1, 2], &#123;'c', 'b'&#125;, &#123;'name': 'python', 'age': 4&#125;]</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+<p>以上可以看出，使用 <code>=</code> 直接赋值，是引用赋值，a影响了b（可以试试改变b，观察a的变化）。<br>然而<strong><code>copy()</code> 只是是浅拷贝</strong>，修改列表中的<strong>数值、字符串**</strong>不会互相影响<strong>，但是修改列表里面的</strong>集合、字典、列表<strong>，则会受到a的</strong>影响**。</p>
+<h4 id="排序和反转"><a href="#排序和反转" class="headerlink" title="排序和反转:"></a>排序和反转:</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">classmates.sort()　　　　　　　<span class="comment">#正向排序</span></span><br><span class="line">classmates.sort(reverse = <span class="keyword">True</span>)　　<span class="comment">#反向排序</span></span><br><span class="line">classmates.reverse()　　<span class="comment">#反转</span></span><br></pre></td></tr></table></figure>
+<h3 id="列表相关方法"><a href="#列表相关方法" class="headerlink" title="列表相关方法"></a>列表相关方法</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">函数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>cmp(list1, list2)</code></td>
+<td>比较两个列表的元素</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>len(list)</code></td>
+<td>列表元素个数</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>max(list)</code></td>
+<td>返回列表元素最大值</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>min(list)</code></td>
+<td>返回列表元素最小值</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>list(seq)</code></td>
+<td>将元组转换为列表</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h2><p>另一种<strong>有序</strong>列表叫元组：tuple。</p>
+<p>tuple和list非常类似，但是tuple<strong>一旦初始化就不能修改</strong></p>
+<h3 id="标志-1"><a href="#标志-1" class="headerlink" title="标志"></a>标志</h3><p>使用<code>()</code></p>
+<h3 id="基本操作（创建及不可变性）"><a href="#基本操作（创建及不可变性）" class="headerlink" title="基本操作（创建及不可变性）"></a>基本操作（创建及不可变性）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>classmates = (<span class="string">'Michael'</span>, <span class="string">'Bob'</span>, <span class="string">'Tracy'</span>)</span><br></pre></td></tr></table></figure>
+<p>它没有append()，insert()这样的方法，其他获取元素的方法和list是一样的，可以正常地使用<code>classmates[0]</code>，<code>classmates[-1]</code>，但不能赋值成另外的元素 。</p>
+<p>定义一个tuple时，在定义的时候，tuple的元素就必须被确定下来 。</p>
+<p>如果要定义一个空的tuple，可以写成<code>()</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>t = ()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t</span><br><span class="line">()</span><br></pre></td></tr></table></figure>
+<p>但是，要定义一个只有1个元素的tuple，如果这么定义：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>t = (<span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>定义的不是tuple，是<code>1</code>这个数！这是因为括号<code>()</code>既可以表示tuple，又可以表示数学公式中的小括号，这就产生了歧义，因此，Python规定，这种情况下，按小括号进行计算，计算结果自然是<code>1</code>。</p>
+<p>所以，<strong>只有1个元素的tuple定义时必须加一个逗号<code>,</code></strong>，来消除歧义：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>t = (<span class="number">1</span>,)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t</span><br><span class="line">(<span class="number">1</span>,)</span><br></pre></td></tr></table></figure>
+<p>Python在显示只有1个元素的tuple时，也会加一个逗号<code>,</code>，以免误解成数学计算意义上的括号。</p>
+<p>tuple的每个元素，指向永远不变。即指向<code>&#39;a&#39;</code>，就不能改成指向<code>&#39;b&#39;</code>，指向一个list，就不能改成指向其他对象，但<strong>指向的这个list本身是可变的</strong>！ </p>
+<h3 id="元组相关方法"><a href="#元组相关方法" class="headerlink" title="元组相关方法"></a>元组相关方法</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">函数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>cmp(tuple1, tuple2)</code></td>
+<td>比较两个元组的元素</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>len(tuple)</code></td>
+<td>列表元组元素个数</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>max(tuple)</code></td>
+<td>返回元组元素最大值</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>min(tuple)</code></td>
+<td>返回元组元素最小值</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>tuple(seq)</code></td>
+<td>将列表转换为元组</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="string字符串"><a href="#string字符串" class="headerlink" title="string字符串"></a>string字符串</h2><h3 id="定义及基本操作（-，-，读取方式）"><a href="#定义及基本操作（-，-，读取方式）" class="headerlink" title="定义及基本操作（+，*，读取方式）"></a>定义及基本操作（+，*，读取方式）</h3><h4 id="创建-1"><a href="#创建-1" class="headerlink" title="创建"></a>创建</h4><p>字符串是 Python 中最常用的数据类型。可以使用引号(‘或”)来创建字符串。<br>创建字符串只要为变量分配一个值即可。例如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>s = <span class="string">'Hello World!'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s</span><br><span class="line"><span class="string">'Hello World!'</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="访问字符串中的值"><a href="#访问字符串中的值" class="headerlink" title="访问字符串中的值"></a>访问字符串中的值</h4><p>Python<strong>不支持单字符</strong>类型，单字符在 Python 中也是作为一个字符串使用。</p>
+<p>Python访问子字符串，可以使用方括号来截取字符串，如下实例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>var = <span class="string">'Hello World!'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(<span class="string">"var[0]: "</span>, var[<span class="number">0</span>])</span><br><span class="line">var[<span class="number">0</span>]:  H</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(<span class="string">"var[1:5]: "</span>, var[<span class="number">1</span>:<span class="number">5</span>])</span><br><span class="line">var[<span class="number">1</span>:<span class="number">5</span>]:  ello</span><br></pre></td></tr></table></figure></p>
+<h4 id="字符串更新"><a href="#字符串更新" class="headerlink" title="字符串更新"></a>字符串更新</h4><p>对已存在的字符串进行修改，并赋值给另一个变量，如下实例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>var = <span class="string">'Hello World!'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(<span class="string">"更新字符串 :- "</span>, var[:<span class="number">6</span>] + <span class="string">'Skye!'</span>)</span><br><span class="line">更新字符串 :-  Hello Skye!</span><br></pre></td></tr></table></figure></p>
+<h4 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h4><p>在需要在字符中使用<strong>特殊字符</strong>时，python用<strong>反斜杠()转义</strong>字符。如下表：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>转义字符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(在行尾时)</td>
+<td>续行符</td>
+</tr>
+<tr>
+<td>\\</td>
+<td>反斜杠符号</td>
+</tr>
+<tr>
+<td>\’</td>
+<td>单引号</td>
+</tr>
+<tr>
+<td>\”</td>
+<td>双引号</td>
+</tr>
+<tr>
+<td>\a</td>
+<td>响铃</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>退格(Backspace)</td>
+</tr>
+<tr>
+<td>\e</td>
+<td>转义</td>
+</tr>
+<tr>
+<td>\000</td>
+<td>空</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>纵向制表符</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>横向制表符</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>回车</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>换页</td>
+</tr>
+<tr>
+<td>\oyy</td>
+<td>八进制数，<code>yy</code>代表的字符，例如：<code>\o12</code>代表换行</td>
+</tr>
+<tr>
+<td>\xyy</td>
+<td>十六进制数，<code>yy</code>代表的字符，例如：<code>\x0a</code>代表换行</td>
+</tr>
+<tr>
+<td>\other</td>
+<td>其它的字符以普通格式输出</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="字符串运算符"><a href="#字符串运算符" class="headerlink" title="字符串运算符"></a>字符串运算符</h4><p>下表实例变量 a 值为字符串 “Hello”，b 变量值为 “Python”：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>操作符</strong></th>
+<th><strong>描述 </strong></th>
+<th><strong>实例</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">+</td>
+<td>字符串连接</td>
+<td>&gt;&gt;&gt;a + b<br>‘HelloPython’</td>
+</tr>
+<tr>
+<td style="text-align:center">*</td>
+<td>重复输出字符串</td>
+<td>&gt;&gt;&gt;a * 2<br>‘HelloHello’</td>
+</tr>
+<tr>
+<td style="text-align:center">[]</td>
+<td>通过索引获取字符串中字符</td>
+<td>&gt;&gt;&gt;a[1]<br>‘e’</td>
+</tr>
+<tr>
+<td style="text-align:center">[ : ]</td>
+<td>截取字符串中的一部分</td>
+<td>&gt;&gt;&gt;a[1:4]<br>‘ell’</td>
+</tr>
+<tr>
+<td style="text-align:center">in</td>
+<td>成员运算符 - 如果字符串中包含给定的字符返回 True</td>
+<td>&gt;&gt;&gt;”H” in a<br>True</td>
+</tr>
+<tr>
+<td style="text-align:center">not in</td>
+<td>成员运算符 - 如果字符串中不包含给定的字符返回 True</td>
+<td>&gt;&gt;&gt;”M” not in a<br>True</td>
+</tr>
+<tr>
+<td style="text-align:center">r/R</td>
+<td>原始字符串 - 原始字符串：所有的字符串都是直接按照字面的意思来使用，没有转义特殊或不能打印的字符。 原始字符串除在字符串的第一个引号前加上字母”r”（可以大小写）以外，与普通字符串有着几乎完全相同的语法。</td>
+<td>&gt;&gt;&gt;print(r’\n’)<br>\n<br> &gt;&gt;&gt; print (R’\n’)<br>\n</td>
+</tr>
+<tr>
+<td style="text-align:center">%</td>
+<td>格式字符串</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="字符串相关方法"><a href="#字符串相关方法" class="headerlink" title="字符串相关方法"></a>字符串相关方法</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong>方法</strong></th>
+<th style="text-align:left"><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">string.capitalize()</td>
+<td style="text-align:left">把字符串的<strong>第一个字符大写</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">string.count(str, beg=0, end=len(string))</td>
+<td style="text-align:left">返回 <strong>str</strong> 在 string 里面<strong>出现的次数</strong>，如果 beg 或者 end 指定则返回指定范围内 str 出现的次数</td>
+</tr>
+<tr>
+<td style="text-align:left">string.find(str, beg=0, end=len(string))</td>
+<td style="text-align:left">检测 <strong>str</strong> 是否<strong>包含在 string 中</strong>，如果 beg 和 end 指定范围，则检查是否包含在指定范围内，如果是返回开始的索引值，否则返回-1</td>
+</tr>
+<tr>
+<td style="text-align:left">string.index(str, beg=0, end=len(string))</td>
+<td style="text-align:left">跟find()方法一样，只不过如果str不在 string中会报一个异常.</td>
+</tr>
+<tr>
+<td style="text-align:left">string.decode(encoding=’UTF-8’, errors=’strict’)</td>
+<td style="text-align:left">以 encoding 指定的编码格式<strong>解码</strong> string，如果出错默认报一个 ValueError 的 异 常 ， 除非 errors 指 定 的 是 ‘ignore’ 或 者’replace’</td>
+</tr>
+<tr>
+<td style="text-align:left">string.encode(encoding=’UTF-8’, errors=’strict’)</td>
+<td style="text-align:left">以 encoding 指定的编码格式<strong>编码</strong> string，如果出错默认报一个ValueError 的异常，除非 errors 指定的是’ignore’或者’replace’</td>
+</tr>
+<tr>
+<td style="text-align:left">string.startswith(obj, beg=0,end=len(string))</td>
+<td style="text-align:left">检查字符串是否<strong>以 obj 开头</strong>，是则返回 True，否则返回 False。如果beg 和 end 指定值，则在指定范围内检查.</td>
+</tr>
+<tr>
+<td style="text-align:left">string.endswith(obj, beg=0, end=len(string))</td>
+<td style="text-align:left">检查字符串是否<strong>以 obj 结束</strong>，如果beg 或者 end 指定则检查指定的范围内是否以 obj 结束，如果是，返回 True,否则返回 False.</td>
+</tr>
+<tr>
+<td style="text-align:left">string.expandtabs(tabsize=8)</td>
+<td style="text-align:left">把字符串 string 中的<strong>tab </strong>符号转为<strong>空格</strong>，tab 符号默认的空格数是 8。</td>
+</tr>
+<tr>
+<td style="text-align:left">string.format()</td>
+<td style="text-align:left">格式化字符串</td>
+</tr>
+<tr>
+<td style="text-align:left">string.isalnum()</td>
+<td style="text-align:left">如果 string 至少有一个字符并且所有字符<strong>都是字母或数字</strong>则返回 True,否则返回 False</td>
+</tr>
+<tr>
+<td style="text-align:left">string.isalpha()</td>
+<td style="text-align:left">如果 string 至少有一个字符并且所有字符<strong>都是字母</strong>则返回 True,否则返回 False</td>
+</tr>
+<tr>
+<td style="text-align:left">string.isdecimal()</td>
+<td style="text-align:left">如果 string <strong>只包含十进制数字</strong>则返回 True 否则返回 False.</td>
+</tr>
+<tr>
+<td style="text-align:left">string.isdigit()</td>
+<td style="text-align:left">如果 string <strong>只包含数字</strong>则返回 True 否则返回 False.</td>
+</tr>
+<tr>
+<td style="text-align:left">string.isnumeric()</td>
+<td style="text-align:left">如果 string 中<strong>只包含数字字符</strong>，则返回 True，否则返回 False</td>
+</tr>
+<tr>
+<td style="text-align:left">string.isspace()</td>
+<td style="text-align:left">如果 string 中<strong>只包含空格</strong>，则返回 True，否则返回 False.</td>
+</tr>
+<tr>
+<td style="text-align:left">string.isupper()</td>
+<td style="text-align:left">如果 string 中包含至少一个区分大小写的字符，并且所有这些(区分大小写的)字符<strong>都是大写</strong>，则返回 True，否则返回 False</td>
+</tr>
+<tr>
+<td style="text-align:left">string.islower()</td>
+<td style="text-align:left">如果 string 中包含至少一个区分大小写的字符，并且所有这些(区分大小写的)字符<strong>都是小写</strong>，则返回 True，否则返回 False</td>
+</tr>
+<tr>
+<td style="text-align:left">string.lower()</td>
+<td style="text-align:left"><strong>转换</strong> string 中所有<strong>大写</strong>字符为<strong>小写</strong>.</td>
+</tr>
+<tr>
+<td style="text-align:left">string.upper()</td>
+<td style="text-align:left"><strong>转换</strong> string 中所有<strong>小写</strong>字母为<strong>大写</strong>.</td>
+</tr>
+<tr>
+<td style="text-align:left">string.swapcase()</td>
+<td style="text-align:left"><strong>翻转</strong> string 中的<strong>大小写</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">max(str)</td>
+<td style="text-align:left">返回字符串 <em>str</em> 中<strong>最大的字母</strong>。</td>
+</tr>
+<tr>
+<td style="text-align:left">min(str)</td>
+<td style="text-align:left">返回字符串 <em>str</em> 中<strong>最小的字母</strong>。</td>
+</tr>
+<tr>
+<td style="text-align:left">string.replace(str1, str2,  num=string.count(str1))</td>
+<td style="text-align:left">把 string 中的 <strong>str1 替换成 str2</strong>,如果 num 指定，则替换不超过 num 次.</td>
+</tr>
+<tr>
+<td style="text-align:left">string.lstrip()</td>
+<td style="text-align:left"><strong>删除</strong> string 字符串<strong>左边的空格</strong>.</td>
+</tr>
+<tr>
+<td style="text-align:left">string.rstrip()</td>
+<td style="text-align:left"><strong>删除</strong> string 字符串<strong>末尾的空格</strong>.</td>
+</tr>
+<tr>
+<td style="text-align:left">string.strip([obj])</td>
+<td style="text-align:left">在 string 上<strong>执行 lstrip()和 rstrip()</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">string.split(str=””, num=string.count(str))</td>
+<td style="text-align:left">以 <strong>str 为分隔符切片</strong> string，如果 num 有指定值，则仅分隔 num+ 个子字符串</td>
+</tr>
+<tr>
+<td style="text-align:left">string.splitlines([keepends])</td>
+<td style="text-align:left">按照<strong>行(‘\r’, ‘\r\n’, \n’)分隔</strong>，返回一个包含各行作为元素的列表，如果参数 keepends 为 False，不包含换行符，如果为 True，则保留换行符。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="字符串格式化问题"><a href="#字符串格式化问题" class="headerlink" title="字符串格式化问题"></a>字符串格式化问题</h3><p>Python 支持格式化字符串的输出 。尽管这样可能会用到非常复杂的表达式，但最基本的用法是将一个值插入到一个有字符串格式符 %s 的字符串中。</p>
+<p>在 Python 中，字符串格式化使用与 C 中 sprintf 函数一样的语法。</p>
+<p>如下实例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> <span class="string">"My name is %s and age is %d!"</span> % (<span class="string">'Skye'</span>, <span class="number">25</span>) </span><br><span class="line">My name <span class="keyword">is</span> Skye <span class="keyword">and</span> age <span class="keyword">is</span> <span class="number">25</span>!</span><br></pre></td></tr></table></figure>
+<p>python字符串<strong>格式化符号</strong>:</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">符   号</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">%s</td>
+<td>格式化字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">%d</td>
+<td>格式化整数</td>
+</tr>
+<tr>
+<td style="text-align:center">%u</td>
+<td>格式化无符号整型</td>
+</tr>
+<tr>
+<td style="text-align:center">%o</td>
+<td>格式化无符号八进制数</td>
+</tr>
+<tr>
+<td style="text-align:center">%x</td>
+<td>格式化无符号十六进制数</td>
+</tr>
+<tr>
+<td style="text-align:center">%X</td>
+<td>格式化无符号十六进制数（大写）</td>
+</tr>
+<tr>
+<td style="text-align:center">%f</td>
+<td>格式化浮点数字，可指定小数点后的精度</td>
+</tr>
+<tr>
+<td style="text-align:center">%e</td>
+<td>用科学计数法格式化浮点数</td>
+</tr>
+<tr>
+<td style="text-align:center">%E</td>
+<td>作用同%e，用科学计数法格式化浮点数</td>
+</tr>
+<tr>
+<td style="text-align:center">%g</td>
+<td>%f和%e的简写</td>
+</tr>
+<tr>
+<td style="text-align:center">%G</td>
+<td>%f 和 %E 的简写</td>
+</tr>
+<tr>
+<td style="text-align:center">%p</td>
+<td>用十六进制数格式化变量的地址</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Python2.6 开始，新增了一种格式化字符串的函数 str.format()，它增强了字符串格式化的功能。<br>基本语法是通过<code>{}</code> 和 <code>:</code>来代替以前的<code>%</code> 。</p>
+<p>format 函数可以接受<strong>不限个参数</strong>，位置可以<strong>不按顺序</strong>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="string">"&#123;&#125; &#123;&#125;"</span>.format(<span class="string">"hello"</span>, <span class="string">"world"</span>)    <span class="comment"># 不设置指定位置，按默认顺序</span></span><br><span class="line"><span class="string">'hello world'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"&#123;0&#125; &#123;1&#125;"</span>.format(<span class="string">"hello"</span>, <span class="string">"world"</span>)  <span class="comment"># 设置指定位置</span></span><br><span class="line"><span class="string">'hello world'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"&#123;1&#125; &#123;0&#125; &#123;1&#125;"</span>.format(<span class="string">"hello"</span>, <span class="string">"world"</span>)  <span class="comment"># 设置指定位置</span></span><br><span class="line"><span class="string">'world hello world'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(<span class="string">"网站名：&#123;name&#125;, 地址 &#123;url&#125;"</span>.format(name=<span class="string">"菜鸟教程"</span>, url=<span class="string">"www.runoob.com"</span>))</span><br><span class="line">网站名：菜鸟教程, 地址 www.runoob.com</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># 通过字典设置参数</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>site = &#123;<span class="string">"name"</span>: <span class="string">"菜鸟教程"</span>, <span class="string">"url"</span>: <span class="string">"www.runoob.com"</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(<span class="string">"网站名：&#123;name&#125;, 地址 &#123;url&#125;"</span>.format(**site))</span><br><span class="line">网站名：菜鸟教程, 地址 www.runoob.com</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># 通过列表索引设置参数</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>my_list = [<span class="string">'菜鸟教程'</span>, <span class="string">'www.runoob.com'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(<span class="string">"网站名：&#123;0[0]&#125;, 地址 &#123;0[1]&#125;"</span>.format(my_list))  <span class="comment"># "0" 是必须的</span></span><br><span class="line">网站名：菜鸟教程, 地址 www.runoob.com</span><br></pre></td></tr></table></figure>
+<p><strong>数字格式化</strong><br>下表展示了 str.format() 格式化数字的多种方法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(<span class="string">"&#123;:.2f&#125;"</span>.format(<span class="number">3.1415926</span>));</span><br><span class="line"><span class="number">3.14</span></span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>数字</th>
+<th>格式</th>
+<th>输出</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3.1415926</td>
+<td>{:.2f}</td>
+<td>3.14</td>
+<td>保留小数点后两位</td>
+</tr>
+<tr>
+<td>3.1415926</td>
+<td>{:+.2f}</td>
+<td>+3.14</td>
+<td>带符号保留小数点后两位</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>{:+.2f}</td>
+<td>-1.00</td>
+<td>带符号保留小数点后两位</td>
+</tr>
+<tr>
+<td>2.71828</td>
+<td>{:.0f}</td>
+<td>3</td>
+<td>不带小数</td>
+</tr>
+<tr>
+<td>5</td>
+<td>{:0&gt;2d}</td>
+<td>05</td>
+<td>数字补零 (填充左边, 宽度为2)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>{:x&lt;4d}</td>
+<td>5xxx</td>
+<td>数字补x (填充右边, 宽度为4)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>{:x&lt;4d}</td>
+<td>10xx</td>
+<td>数字补x (填充右边, 宽度为4)</td>
+</tr>
+<tr>
+<td>1000000</td>
+<td>{:,}</td>
+<td>1,000,000</td>
+<td>以逗号分隔的数字格式</td>
+</tr>
+<tr>
+<td>0.25</td>
+<td>{:.2%}</td>
+<td>25.00%</td>
+<td>百分比格式</td>
+</tr>
+<tr>
+<td>1000000000</td>
+<td>{:.2e}</td>
+<td>1.00e+09</td>
+<td>指数记法</td>
+</tr>
+<tr>
+<td>13</td>
+<td>{:10d}</td>
+<td>13</td>
+<td>右对齐 (默认, 宽度为10)</td>
+</tr>
+<tr>
+<td>13</td>
+<td>{:&lt;10d}</td>
+<td>13</td>
+<td>左对齐 (宽度为10)</td>
+</tr>
+<tr>
+<td>13</td>
+<td>{:^10d}</td>
+<td>13</td>
+<td>中间对齐 (宽度为10)</td>
+</tr>
+<tr>
+<td>11</td>
+<td><code>&#39;{:b}&#39;.format(11)&#39;{:d}&#39;.format(11) &#39;{:o}&#39;.format(11) &#39;{:x}&#39;.format(11) &#39;{:#x}&#39;.format(11) &#39;{:#X}&#39;.format(11)</code></td>
+<td><code>1011 11 13 b 0xb 0XB</code></td>
+<td>进制</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>^</strong>, <strong>&lt;</strong>, <strong>&gt;</strong> 分别是居中、左对齐、右对齐，后面带宽度， <strong>:</strong> 号后面带填充的字符，只能是一个字符，不指定则默认是用空格填充。<strong>+</strong> 表示在正数前显示 <strong>+</strong>，负数前显示 <strong>-</strong>；  （空格）表示在正数前加空格。b、d、o、x 分别是二进制、十进制、八进制、十六进制。</p>
+
       
     </div>
     
@@ -603,7 +1135,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-number">1.</span> <span class="nav-text">列表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标志"><span class="nav-number">1.1.</span> <span class="nav-text">标志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本操作-创建，append-，pop-del-拷贝）"><span class="nav-number">1.2.</span> <span class="nav-text">基本操作(创建，append( )，pop( ) ,del( ), 拷贝）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表相关方法"><span class="nav-number">1.3.</span> <span class="nav-text">列表相关方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元组"><span class="nav-number">2.</span> <span class="nav-text">元组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标志-1"><span class="nav-number">2.1.</span> <span class="nav-text">标志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本操作（创建及不可变性）"><span class="nav-number">2.2.</span> <span class="nav-text">基本操作（创建及不可变性）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#string字符串"><span class="nav-number">3.</span> <span class="nav-text">string字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义及基本操作（-，-，读取方式）"><span class="nav-number">3.1.</span> <span class="nav-text">定义及基本操作（+，*，读取方式）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串相关方法"><span class="nav-number">3.2.</span> <span class="nav-text">字符串相关方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串格式化问题"><span class="nav-number">3.3.</span> <span class="nav-text">字符串格式化问题</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-number">1.</span> <span class="nav-text">列表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标志"><span class="nav-number">1.1.</span> <span class="nav-text">标志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本操作-创建，append-，pop-del-拷贝）"><span class="nav-number">1.2.</span> <span class="nav-text">基本操作(创建，append( )，pop( ) ,del( ), 拷贝）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建"><span class="nav-number">1.2.1.</span> <span class="nav-text">创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#增"><span class="nav-number">1.2.2.</span> <span class="nav-text">增</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删"><span class="nav-number">1.2.3.</span> <span class="nav-text">删</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#改"><span class="nav-number">1.2.4.</span> <span class="nav-text">改</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拷贝"><span class="nav-number">1.2.5.</span> <span class="nav-text">拷贝</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#排序和反转"><span class="nav-number">1.2.6.</span> <span class="nav-text">排序和反转:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表相关方法"><span class="nav-number">1.3.</span> <span class="nav-text">列表相关方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元组"><span class="nav-number">2.</span> <span class="nav-text">元组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标志-1"><span class="nav-number">2.1.</span> <span class="nav-text">标志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本操作（创建及不可变性）"><span class="nav-number">2.2.</span> <span class="nav-text">基本操作（创建及不可变性）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元组相关方法"><span class="nav-number">2.3.</span> <span class="nav-text">元组相关方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#string字符串"><span class="nav-number">3.</span> <span class="nav-text">string字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义及基本操作（-，-，读取方式）"><span class="nav-number">3.1.</span> <span class="nav-text">定义及基本操作（+，*，读取方式）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建-1"><span class="nav-number">3.1.1.</span> <span class="nav-text">创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#访问字符串中的值"><span class="nav-number">3.1.2.</span> <span class="nav-text">访问字符串中的值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串更新"><span class="nav-number">3.1.3.</span> <span class="nav-text">字符串更新</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转义字符"><span class="nav-number">3.1.4.</span> <span class="nav-text">转义字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串运算符"><span class="nav-number">3.1.5.</span> <span class="nav-text">字符串运算符</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串相关方法"><span class="nav-number">3.2.</span> <span class="nav-text">字符串相关方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串格式化问题"><span class="nav-number">3.3.</span> <span class="nav-text">字符串格式化问题</span></a></li></ol></li></ol></div>
             
 
           </div>
