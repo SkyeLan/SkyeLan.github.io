@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Skye的博客小站">
 <meta property="og:description" content="dict字典Python内置了字典：dict的支持，dict全称dictionary，在其他语言中也称为map，使用键-值（key-value）存储，具有极快的查找速度。 定义字典的每个键值 key=&amp;gt;value 对用冒号 : 分割，每个键值对之间用逗号 , 分割，整个字典包括在花括号 {} 中  用Python写一个dict如下： 123&amp;gt;&amp;gt;&amp;gt; d = &amp;#123;&apos;Mi">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-03T16:38:10.629Z">
+<meta property="og:updated_time" content="2019-04-03T16:42:30.098Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python基础任务3">
 <meta name="twitter:description" content="dict字典Python内置了字典：dict的支持，dict全称dictionary，在其他语言中也称为map，使用键-值（key-value）存储，具有极快的查找速度。 定义字典的每个键值 key=&amp;gt;value 对用冒号 : 分割，每个键值对之间用逗号 , 分割，整个字典包括在花括号 {} 中  用Python写一个dict如下： 123&amp;gt;&amp;gt;&amp;gt; d = &amp;#123;&apos;Mi">
@@ -519,7 +519,32 @@
 </tbody>
 </table>
 </div>
-<h3 id="循环控制语句"><a href="#循环控制语句" class="headerlink" title="循环控制语句"></a>循环控制语句</h3><p>循环控制语句可以更改语句执行的顺序。Python支持以下循环控制语句：<br>| 控制语句                        | 描述                |<br>| ——————————— | —————————————- |<br>| break 语句| 在语句块执行过程中终止循环，并且跳出整个循环 |<br>| continue 语句 | 在语句块执行过程中终止当前循环，跳出该次循环，执行下一次循环  |<br>|   pass 语句         |    pass是空语句，是为了保持程序结构的完整性    |</p>
+<h3 id="循环控制语句"><a href="#循环控制语句" class="headerlink" title="循环控制语句"></a>循环控制语句</h3><p>循环控制语句可以更改语句执行的顺序。</p>
+<p>Python支持以下循环控制语句：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>控制语句</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>break 语句</td>
+<td>在语句块执行过程中终止循环，并且跳出整个循环</td>
+</tr>
+<tr>
+<td>continue 语句</td>
+<td>在语句块执行过程中终止当前循环，跳出该次循环，执行下一次循环</td>
+</tr>
+<tr>
+<td>pass 语句</td>
+<td>pass是空语句，是为了保持程序结构的完整性</td>
+</tr>
+</tbody>
+</table>
+</div>
 <h3 id="While-循环语句"><a href="#While-循环语句" class="headerlink" title="While 循环语句"></a>While 循环语句</h3><p>基本形式为：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">while</span> 判断条件：</span><br><span class="line">	    执行语句</span><br></pre></td></tr></table></figure></p>
 <p>执行语句可以是单个语句或语句块。判断条件可以是任何表达式，任何非零、或非空（null）的值均为true。当判断条件假false时，循环结束。</p>
 <h4 id="循环使用-else-语句"><a href="#循环使用-else-语句" class="headerlink" title="循环使用 else 语句"></a>循环使用 else 语句</h4><p>在 python 中，<code>while … else</code> 在循环条件为 <code>false</code> 时执行 <code>else</code> 语句块：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>count = <span class="number">0</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">while</span>(count) &lt; <span class="number">5</span>:</span><br><span class="line">		print(count, <span class="string">" is  less than 5"</span>)</span><br><span class="line">    	count = count + <span class="number">1</span></span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">    	print(count, <span class="string">" is not less than 5"</span>)</span><br><span class="line">    	</span><br><span class="line"><span class="number">0</span> <span class="keyword">is</span> less than <span class="number">5</span></span><br><span class="line"><span class="number">1</span> <span class="keyword">is</span> less than <span class="number">5</span></span><br><span class="line"><span class="number">2</span> <span class="keyword">is</span> less than <span class="number">5</span></span><br><span class="line"><span class="number">3</span> <span class="keyword">is</span> less than <span class="number">5</span></span><br><span class="line"><span class="number">4</span> <span class="keyword">is</span> less than <span class="number">5</span></span><br><span class="line"><span class="number">5</span> <span class="keyword">is</span> <span class="keyword">not</span> less than <span class="number">5</span></span><br></pre></td></tr></table></figure></p>
