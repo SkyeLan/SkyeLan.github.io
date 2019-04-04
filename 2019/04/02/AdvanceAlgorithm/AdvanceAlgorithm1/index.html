@@ -79,17 +79,19 @@
 
 
 
-<meta name="description" content="集成学习概念个体学习器概念boosting  bagging结合策略(平均法，投票法，学习法)随机森林思想随机森林的推广优缺点sklearn参数应用场景">
+<meta name="description" content="集成学习概念集成学习通过构建并结合多个学习器（分类器）来完成分类任务。集成学习的一般结构：先产生一组“个体学习器”（individual learner)，再用某种策略将它们结合起来。集成学习有两个关键的东西，第一，就是一组个体学习器；第二，结合策略。 个体学习器概念集成学习通过对多个学习器进行组合，通常可获得比单一学习器更优的泛化性能。这对“弱学习器”（weak learner）尤为明显，因此集">
 <meta property="og:type" content="article">
 <meta property="og:title" content="随机森林算法梳理">
 <meta property="og:url" content="http://yoursite.com/2019/04/02/AdvanceAlgorithm/AdvanceAlgorithm1/index.html">
 <meta property="og:site_name" content="Skye的博客小站">
-<meta property="og:description" content="集成学习概念个体学习器概念boosting  bagging结合策略(平均法，投票法，学习法)随机森林思想随机森林的推广优缺点sklearn参数应用场景">
+<meta property="og:description" content="集成学习概念集成学习通过构建并结合多个学习器（分类器）来完成分类任务。集成学习的一般结构：先产生一组“个体学习器”（individual learner)，再用某种策略将它们结合起来。集成学习有两个关键的东西，第一，就是一组个体学习器；第二，结合策略。 个体学习器概念集成学习通过对多个学习器进行组合，通常可获得比单一学习器更优的泛化性能。这对“弱学习器”（weak learner）尤为明显，因此集">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-02T14:02:20.214Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/02/AdvanceAlgorithm/AdvanceAlgorithm1/pic/pic1.png">
+<meta property="og:updated_time" content="2019-04-04T04:27:48.557Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="随机森林算法梳理">
-<meta name="twitter:description" content="集成学习概念个体学习器概念boosting  bagging结合策略(平均法，投票法，学习法)随机森林思想随机森林的推广优缺点sklearn参数应用场景">
+<meta name="twitter:description" content="集成学习概念集成学习通过构建并结合多个学习器（分类器）来完成分类任务。集成学习的一般结构：先产生一组“个体学习器”（individual learner)，再用某种策略将它们结合起来。集成学习有两个关键的东西，第一，就是一组个体学习器；第二，结合策略。 个体学习器概念集成学习通过对多个学习器进行组合，通常可获得比单一学习器更优的泛化性能。这对“弱学习器”（weak learner）尤为明显，因此集">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/02/AdvanceAlgorithm/AdvanceAlgorithm1/pic/pic1.png">
 
 
 
@@ -357,7 +359,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  51 字
+                  2.4k 字
                 </span>
               
 
@@ -373,7 +375,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1 分钟
+                  8 分钟
                 </span>
               
             </div>
@@ -394,7 +396,90 @@
       
 
       
-        <h2 id="集成学习概念"><a href="#集成学习概念" class="headerlink" title="集成学习概念"></a>集成学习概念</h2><h2 id="个体学习器概念"><a href="#个体学习器概念" class="headerlink" title="个体学习器概念"></a>个体学习器概念</h2><h2 id="boosting-bagging"><a href="#boosting-bagging" class="headerlink" title="boosting  bagging"></a>boosting  bagging</h2><h2 id="结合策略-平均法，投票法，学习法"><a href="#结合策略-平均法，投票法，学习法" class="headerlink" title="结合策略(平均法，投票法，学习法)"></a>结合策略(平均法，投票法，学习法)</h2><h2 id="随机森林思想"><a href="#随机森林思想" class="headerlink" title="随机森林思想"></a>随机森林思想</h2><h2 id="随机森林的推广"><a href="#随机森林的推广" class="headerlink" title="随机森林的推广"></a>随机森林的推广</h2><h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><h2 id="sklearn参数"><a href="#sklearn参数" class="headerlink" title="sklearn参数"></a>sklearn参数</h2><h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2>
+        <h2 id="集成学习概念"><a href="#集成学习概念" class="headerlink" title="集成学习概念"></a>集成学习概念</h2><p>集成学习通过<strong>构建并结合多个学习器（分类器）</strong>来完成分类任务。集成学习的一般结构：先产生一组“个体学习器”（individual learner)，再用某种策略将它们结合起来。集成学习有两个关键的东西，第一，就是一组<strong>个体学习器</strong>；第二，<strong>结合策略</strong>。</p>
+<h2 id="个体学习器概念"><a href="#个体学习器概念" class="headerlink" title="个体学习器概念"></a>个体学习器概念</h2><p>集成学习通过对多个学习器进行组合，通常可获得比单一学习器更优的泛化性能。这对“弱学习器”（weak learner）尤为明显，因此集成学习很多研究是针对弱学习器，而基学习器有时也被直接称为弱学习器。在不正式的说法下，<strong>基学习器、弱学习器、弱分类器、个体学习器</strong>说的都是一个东西。</p>
+<p>个体学习器通常由一个现有的学习算法从训练数据产生，是为了集成学习而产生的个体，通常有以下几种：</p>
+<ul>
+<li>只包含<strong>同种类型</strong>的个体学习器，这样的集成是<strong>“同质”</strong>的（homogeneous）。同质集成中的个体学习器亦称为”基学习器“（base learning）。</li>
+<li>集成也可包含<strong>不同类型</strong>的个体学习器，这样集成是<strong>”异质“</strong>的（heterogeneous）。相应的个体学习器，常称为”组件学习器“（component learning）或直接称为个体学习器。</li>
+</ul>
+<p>集成学习把多个学习器集合起来，获得比最好的单一学习器获得更好的性能，就要<strong>让个体学习器尽量的有差异</strong>。</p>
+<p>根据个体学习器的生成方式，集成学习可分成两大类： </p>
+<ol>
+<li>个体学习器之间<strong>存在强依赖关系</strong>、<strong>必须串行</strong>生成，例如：Boosting </li>
+<li>个体学习器之间<strong>不存在强依赖关系</strong>，<strong>可同时生成</strong>的，例如：Bagging和随机森林（Random Forest）</li>
+</ol>
+<h2 id="Boosting-Bagging"><a href="#Boosting-Bagging" class="headerlink" title="Boosting Bagging"></a>Boosting Bagging</h2><p>Boosting 和 Bagging 都是将弱分类器组装成强分类器的算法。</p>
+<h3 id="Boosting"><a href="#Boosting" class="headerlink" title="Boosting"></a>Boosting</h3><p>Boosting算法的工作机制：</p>
+<p>先从初始训练集训练出一个基学习器，在根据基学习器的表现对样本分布权重进行调整，使得先前基学习器做错的训练样本在后续收到更多的关注，然后基于调整后的样本分布来训练下一个基学习器，如此重复进行，直至基学习器数目达到事先指定的值T，最终将这T个基学习器进行加权结合。</p>
+<p>Boosting系列算法里最著名算法主要有<strong>AdaBoost算法</strong>和<strong>提升树(boosting tree)系列算法</strong>。提升树系列算法里面应用最广泛的是梯度提升树(Gradient Boosting Tree)。</p>
+<p>Boosting 主要关注<strong>降低偏差</strong>。</p>
+<h3 id="Bagging"><a href="#Bagging" class="headerlink" title="Bagging"></a>Bagging</h3><p>Bagging 的个体弱学习器的训练集是通过随机采样得到的。通过T次的随机采样，我们就可以得到T个采样集，对于这T个采样集，我们可以分别独立的训练出T个弱学习器，再对这T个弱学习器通过集合策略来得到最终的强学习器。</p>
+<p>Bagging 使用装袋采样来获取数据子集训练基础学习器。通常分类任务使用投票的方式集成，而回归任务通过平均的方式集成。</p>
+<p>其算法过程如下：</p>
+<ol>
+<li>从原始样本集中抽取训练集。每轮从原始样本集中使用 Bootstraping 的方法抽取 $n$ 个训练样本（在训练集中，有些样本可能被多次抽取到，而有些样本可能一次都没有被抽中）。共进行 $k$ 轮抽取，得到 $k$ 个训练集。（$k$ 个训练集相互独立）</li>
+<li>每次使用一个训练集得到一个模型，$k$ 个训练集共得到 $k$ 个模型.</li>
+<li>对分类问题：将上步得到的 $k$ 个模型采用投票的方式得到分类结果；<br> 对回归问题：计算上述模型的均值作为最后的结果。</li>
+</ol>
+<p>常用的集成算法模型是<strong>随机森林</strong>和<strong>随机树</strong>。</p>
+<p>Bagging 主要关注<strong>降低方差</strong>。</p>
+<h3 id="两者的区别"><a href="#两者的区别" class="headerlink" title="两者的区别"></a>两者的区别</h3><h4 id="样本选择上："><a href="#样本选择上：" class="headerlink" title="样本选择上："></a>样本选择上：</h4><ul>
+<li>Boosting：每一轮的训练集不变，只是训练集中每个样例在分类器中的<strong>权重</strong>发生变化。而权值是根据上一轮的分类结果进行调整。</li>
+<li>Bagging：训练集是在原始集中<strong>有放回选取</strong>的，从原始集中选出的各轮训练集之间是独立的。<h4 id="样例权重："><a href="#样例权重：" class="headerlink" title="样例权重："></a>样例权重：</h4></li>
+<li>Boosting：根据错误率不断调整样例的权值，<strong>错误率越大则权重越大</strong>。</li>
+<li>Bagging：使用均匀取样，每个样例的<strong>权重相等</strong><h4 id="预测函数："><a href="#预测函数：" class="headerlink" title="预测函数："></a>预测函数：</h4></li>
+<li>Boosting：每个弱分类器都有相应的权重，对于<strong>分类误差小的分类器</strong>会有<strong>更大的权重</strong>。</li>
+<li>Bagging：所有预测函数的<strong>权重相等</strong>。<h4 id="并行计算："><a href="#并行计算：" class="headerlink" title="并行计算："></a>并行计算：</h4></li>
+<li>Boosting：各个预测函数只能<strong>顺序生成</strong>，因为后一个模型参数需要前一轮模型的结果。</li>
+<li>Bagging：各个预测函数可以<strong>并行生成</strong>。</li>
+</ul>
+<h2 id="结合策略-平均法，投票法，学习法"><a href="#结合策略-平均法，投票法，学习法" class="headerlink" title="结合策略(平均法，投票法，学习法)"></a>结合策略(平均法，投票法，学习法)</h2><h3 id="平均法"><a href="#平均法" class="headerlink" title="平均法"></a>平均法</h3><ul>
+<li><p>简单平均法（simple average）</p>
+<script type="math/tex; mode=display">
+H(x) = \frac{1}{T}\sum_{i=1}{T}h_i(x)</script></li>
+<li><p>加权平均法（weighted average）</p>
+<script type="math/tex; mode=display">
+H(x) = \sum_{i=1}{T}w_ih_i(x)</script></li>
+</ul>
+<h3 id="投票法"><a href="#投票法" class="headerlink" title="投票法"></a>投票法</h3><ul>
+<li><strong>绝对多数投票法</strong>：某标记超过半数；</li>
+<li><strong>相对多数投票法</strong>：预测为得票最多的标记，若同时有多个标记的票最高，则从中随机选取一个。</li>
+<li><strong>加权投票法</strong>：提供了预测结果，与加权平均法类似。</li>
+</ul>
+<h3 id="学习法"><a href="#学习法" class="headerlink" title="学习法"></a>学习法</h3><p>当训练数据很多时，一种更为强大的结合策略是使用“学习法”，即通过另一个学习器来进行结合。Stacking是学习法的典型代表。我们把个体学习器称为初级学习器，用于结合的学习器称为次级学习器或元学习器。Stacking算法本身是一种著名的集成学习方法，且有不少集成学习算法可视为其变体或特例，它也可以看做是一种结合策略。</p>
+<p>Stacking描述：先从初始数据集中训练出初级学习器，然后“生成”一个新数据集用于训练次级学习器。在新数据集中，初级学习器的输出被当做样例输入特征，初始样本的标记仍被当做样例标记。</p>
+<p><img src="/2019/04/02/AdvanceAlgorithm/AdvanceAlgorithm1/pic/pic1.png" alt=""></p>
+<h2 id="随机森林思想"><a href="#随机森林思想" class="headerlink" title="随机森林思想"></a>随机森林思想</h2><p>在以决策树为基学习器构建Bagging集成的基础上，进一步在决策树的训练过程中引入了随机属性选择。</p>
+<ul>
+<li>传统决策树在选择划分属性时是在当前节点的属性集合（假设有 $d$ 个属性）中选择一个最优属性</li>
+<li>在RF中，从该点属性集合中随机选择一个包含 $k$ 个属性的子集（若 $k=d$，则基决策树的构建与传统决策树相同）——推荐$k=logd$ </li>
+</ul>
+<h3 id="随机选择样本"><a href="#随机选择样本" class="headerlink" title="随机选择样本"></a>随机选择样本</h3><p>给定一个训练样本集，数量为N，我们使用<strong>有放回采样</strong>到N个样本，构成一个新的训练集。然后把这个样本集作为训练集，进入下面的一步。</p>
+<h3 id="随机选择特征"><a href="#随机选择特征" class="headerlink" title="随机选择特征"></a>随机选择特征</h3><p>在随机森林中，不计算所有特征的增益，而是从总量为M的特征向量中，<strong>随机选择m个特征</strong>，然后计算m个特征的增益，<strong>选择最优特征（属性）</strong>。</p>
+<h3 id="随机森林投票分类"><a href="#随机森林投票分类" class="headerlink" title="随机森林投票分类"></a>随机森林投票分类</h3><p>通过上面的三步走，我们可以得到一棵决策树，我们可以重复这样的过程H次，就得到了H棵决策树。然后来了一个测试样本，我们就可以用每一棵决策树都对它分类一遍，得到了H个分类结果。这时，我们可以使用简单的投票机制，或者该测试样本的最终分类结果。</p>
+<h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><p><strong>优点</strong>：</p>
+<ol>
+<li>在当前的很多数据集上，相对其他算法有着很大的优势，表现良好</li>
+<li>它能够处理很高维度（feature很多）的数据，并且不用做特征选择</li>
+<li>在训练完后，它能够给出哪些feature比较重要</li>
+<li>在创建随机森林的时候，对generlization error使用的是无偏估计，模型泛化能力强</li>
+<li>训练时树与树之间是相互独立的，训练速度快，容易做成并行化方法</li>
+<li>在训练过程中，能够检测到feature间的互相影响</li>
+<li>实现比较简单</li>
+<li>对于不平衡的数据集来说，它可以平衡误差。</li>
+<li>对缺失值不敏感，如果有很大一部分的特征遗失，仍可以维持准确度。</li>
+</ol>
+<p><strong>缺点</strong>：</p>
+<ol>
+<li>随机森林已经被证明<strong>在噪声较大的分类或回归问题上会过拟</strong></li>
+<li>对于有不同取值的属性的数据，取值划分较多的属性会对随机森林产生更大的影响，所以随机森林在这种数据上产出的属性权值是不可信的。</li>
+</ol>
+<h2 id="sklearn参数"><a href="#sklearn参数" class="headerlink" title="sklearn参数"></a>sklearn参数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.ensemble.RandomForestClassifier(n_estimators=’warn’, criterion=’gini’, max_depth=<span class="keyword">None</span>, min_samples_split=<span class="number">2</span>, min_samples_leaf=<span class="number">1</span>, min_weight_fraction_leaf=<span class="number">0.0</span>, max_features=’auto’, max_leaf_nodes=<span class="keyword">None</span>, min_impurity_decrease=<span class="number">0.0</span>, min_impurity_split=<span class="keyword">None</span>, bootstrap=<span class="keyword">True</span>, oob_score=<span class="keyword">False</span>, n_jobs=<span class="keyword">None</span>, random_state=<span class="keyword">None</span>, verbose=<span class="number">0</span>, warm_start=<span class="keyword">False</span>, class_weight=<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure>
+<p>具体参数查看：<br><a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier" target="_blank" rel="noopener">3.2.4.3.1. sklearn.ensemble.RandomForestClassifier</a><br><a href="https://blog.csdn.net/w952470866/article/details/78987265" target="_blank" rel="noopener">sklearn随机森林分类类RandomForestClassifier</a></p>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><p>数据维度相对低（几十维），同时对准确性有较高要求时。</p>
+<p>因为不需要很多参数调整就可以达到不错的效果，基本上不知道用什么方法的时候都可以先试一下随机森林。</p>
+
       
     </div>
     
@@ -600,7 +685,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#集成学习概念"><span class="nav-number">1.</span> <span class="nav-text">集成学习概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个体学习器概念"><span class="nav-number">2.</span> <span class="nav-text">个体学习器概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#boosting-bagging"><span class="nav-number">3.</span> <span class="nav-text">boosting  bagging</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结合策略-平均法，投票法，学习法"><span class="nav-number">4.</span> <span class="nav-text">结合策略(平均法，投票法，学习法)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#随机森林思想"><span class="nav-number">5.</span> <span class="nav-text">随机森林思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#随机森林的推广"><span class="nav-number">6.</span> <span class="nav-text">随机森林的推广</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优缺点"><span class="nav-number">7.</span> <span class="nav-text">优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sklearn参数"><span class="nav-number">8.</span> <span class="nav-text">sklearn参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用场景"><span class="nav-number">9.</span> <span class="nav-text">应用场景</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#集成学习概念"><span class="nav-number">1.</span> <span class="nav-text">集成学习概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个体学习器概念"><span class="nav-number">2.</span> <span class="nav-text">个体学习器概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Boosting-Bagging"><span class="nav-number">3.</span> <span class="nav-text">Boosting Bagging</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Boosting"><span class="nav-number">3.1.</span> <span class="nav-text">Boosting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bagging"><span class="nav-number">3.2.</span> <span class="nav-text">Bagging</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两者的区别"><span class="nav-number">3.3.</span> <span class="nav-text">两者的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#样本选择上："><span class="nav-number">3.3.1.</span> <span class="nav-text">样本选择上：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样例权重："><span class="nav-number">3.3.2.</span> <span class="nav-text">样例权重：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#预测函数："><span class="nav-number">3.3.3.</span> <span class="nav-text">预测函数：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#并行计算："><span class="nav-number">3.3.4.</span> <span class="nav-text">并行计算：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结合策略-平均法，投票法，学习法"><span class="nav-number">4.</span> <span class="nav-text">结合策略(平均法，投票法，学习法)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#平均法"><span class="nav-number">4.1.</span> <span class="nav-text">平均法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#投票法"><span class="nav-number">4.2.</span> <span class="nav-text">投票法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学习法"><span class="nav-number">4.3.</span> <span class="nav-text">学习法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#随机森林思想"><span class="nav-number">5.</span> <span class="nav-text">随机森林思想</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#随机选择样本"><span class="nav-number">5.1.</span> <span class="nav-text">随机选择样本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机选择特征"><span class="nav-number">5.2.</span> <span class="nav-text">随机选择特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机森林投票分类"><span class="nav-number">5.3.</span> <span class="nav-text">随机森林投票分类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优缺点"><span class="nav-number">6.</span> <span class="nav-text">优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sklearn参数"><span class="nav-number">7.</span> <span class="nav-text">sklearn参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用场景"><span class="nav-number">8.</span> <span class="nav-text">应用场景</span></a></li></ol></div>
             
 
           </div>
