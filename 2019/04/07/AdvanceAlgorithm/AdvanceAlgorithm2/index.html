@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="前向分步算法加法模型 f(x) = \sum_{m=-1}^M\beta_mb(x;\gamma_m)上述公式其实就是基函数的一种线性组合，其中：  $b(x;\gamma_m)$ 为基函数 $\gamma_m$ 为基函数的参数 $\beta_m$ 为基函数的系数  在给定训练数据以及损失函数 $L(y,f(x))$ 的条件下，上述模型学习问题转化为求损失函数极小值得优化问题：  min_{\be">
+<meta name="description" content="前向分步算法加法模型 f(x) = \sum_{m=-1}^M\beta_mb(x;\gamma_m)上述公式其实就是基函数的一种线性组合，其中：  $b(x;\gamma_m)$ 为基函数 $\gamma_m$ 为基函数的参数 $\beta_m​$ 为基函数的系数  不同问题的提升树学习算法，其主要区别在于损失函数不同。平方损失函数常用于回归问题，用指数损失函数用于分类问题，以及绝对损失函数用于">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GBDT算法梳理">
 <meta property="og:url" content="http://yoursite.com/2019/04/07/AdvanceAlgorithm/AdvanceAlgorithm2/index.html">
 <meta property="og:site_name" content="Skye的博客小站">
-<meta property="og:description" content="前向分步算法加法模型 f(x) = \sum_{m=-1}^M\beta_mb(x;\gamma_m)上述公式其实就是基函数的一种线性组合，其中：  $b(x;\gamma_m)$ 为基函数 $\gamma_m$ 为基函数的参数 $\beta_m$ 为基函数的系数  在给定训练数据以及损失函数 $L(y,f(x))$ 的条件下，上述模型学习问题转化为求损失函数极小值得优化问题：  min_{\be">
+<meta property="og:description" content="前向分步算法加法模型 f(x) = \sum_{m=-1}^M\beta_mb(x;\gamma_m)上述公式其实就是基函数的一种线性组合，其中：  $b(x;\gamma_m)$ 为基函数 $\gamma_m$ 为基函数的参数 $\beta_m​$ 为基函数的系数  不同问题的提升树学习算法，其主要区别在于损失函数不同。平方损失函数常用于回归问题，用指数损失函数用于分类问题，以及绝对损失函数用于">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-07T14:06:23.813Z">
+<meta property="og:updated_time" content="2019-04-07T15:18:54.856Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GBDT算法梳理">
-<meta name="twitter:description" content="前向分步算法加法模型 f(x) = \sum_{m=-1}^M\beta_mb(x;\gamma_m)上述公式其实就是基函数的一种线性组合，其中：  $b(x;\gamma_m)$ 为基函数 $\gamma_m$ 为基函数的参数 $\beta_m$ 为基函数的系数  在给定训练数据以及损失函数 $L(y,f(x))$ 的条件下，上述模型学习问题转化为求损失函数极小值得优化问题：  min_{\be">
+<meta name="twitter:description" content="前向分步算法加法模型 f(x) = \sum_{m=-1}^M\beta_mb(x;\gamma_m)上述公式其实就是基函数的一种线性组合，其中：  $b(x;\gamma_m)$ 为基函数 $\gamma_m$ 为基函数的参数 $\beta_m​$ 为基函数的系数  不同问题的提升树学习算法，其主要区别在于损失函数不同。平方损失函数常用于回归问题，用指数损失函数用于分类问题，以及绝对损失函数用于">
 
 
 
@@ -357,7 +357,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.9k 字
+                  1.8k 字
                 </span>
               
 
@@ -399,12 +399,13 @@ f(x) = \sum_{m=-1}^M\beta_mb(x;\gamma_m)</script><p>上述公式其实就是基�
 <ul>
 <li>$b(x;\gamma_m)$ 为基函数</li>
 <li>$\gamma_m$ 为基函数的参数</li>
-<li>$\beta_m$ 为基函数的系数</li>
+<li>$\beta_m​$ 为基函数的系数</li>
 </ul>
+<p>不同问题的提升树学习算法，其<strong>主要区别</strong>在于<strong>损失函数不同</strong>。<strong>平方损失函数常用于回归问题，用指数损失函数用于分类问题，以及绝对损失函数用于决策问题。</strong></p>
 <p>在给定训练数据以及损失函数 $L(y,f(x))$ 的条件下，上述模型学习问题转化为求损失函数极小值得优化问题：</p>
 <script type="math/tex; mode=display">
 min_{\beta_m,\gamma_m}\sum_{m=1}^ML(y_i, \sum_{m=1}^M\beta_mb(x_i;y_m))</script><p>若直接求解上述问题是非常困难的，因为需要同时求解 $m=1,\dots,M$ 个参数。</p>
-<p><strong>前向分步算法</strong>的求解思路就是把上述同时求多个参数拆解为每一步只求一个，更具体的是每一步只学习一个基函数及其系数，逐步逼近上述的目标函数，所以，前向分布算法每一步的优化目标为：</p>
+<p><strong>前向分步算法</strong>的求解思路：因为学习的是加法模型，如果能够从前向后，每一步只学习一个基函数及其系数，逐步逼近优化目标函数式，所以，前向分布算法每一步的优化目标为：</p>
 <script type="math/tex; mode=display">
 min_{β,γ}\sum_{i=1}^NL(y_i,\beta b(x;y))</script><p>每次仅仅只学习一个基函数及其系数。</p>
 <h3 id="前向分步算法-1"><a href="#前向分步算法-1" class="headerlink" title="　前向分步算法"></a>　前向分步算法</h3><p>输入：</p>
@@ -454,7 +455,7 @@ f_M(x) = \sum_{m=1}^MT(x;\theta_m)</script><p>其中，</p>
 </ul>
 <p>输出：</p>
 <ul>
-<li>提升树 $f_M(x)$</li>
+<li>提升树 $f_M(x)​$</li>
 </ul>
 <p>具体流程如下：</p>
 <ol>
@@ -502,7 +503,9 @@ f_m(x) = f_{m-1}(x) + \sum_{j=1}^Jc_{mj}I(x\in \mathcal{R}_{mj})</script></li>
 <li>得到回归树<script type="math/tex; mode=display">
 \widetilde{f}(x) = f_M(x)=\sum_{m=1}^M\sum_{j=1}^Jc_{mj}I(x\in \mathcal{R}_{mj})</script></li>
 </ol>
-<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><h3 id="二分类"><a href="#二分类" class="headerlink" title="二分类"></a>二分类</h3><p>对于二分类GBDT，如果用类似逻辑回归的对数似然损失函数，则损失函数为：</p>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>GBDT的分类算法从思想上和GBDT的回归算法没有本质区别，但是由于样本输出不是连续的值，而是离散的类别，导致我们无法直接从输出类别去拟合类别输出的误差。</p>
+<p>为了解决这个问题，主要有两个方法，一个是用<strong>指数损失函数</strong>，此时GBDT退化为AdaBoost算法。另一种方法是用类似于逻辑回归的<strong>对数似然损失函数</strong>的方法。也就是说，我们用的是类别的预测概率值和真实概率值的差来拟合损失。</p>
+<h3 id="二分类"><a href="#二分类" class="headerlink" title="二分类"></a>二分类</h3><p>对于二分类GBDT，如果用类似逻辑回归的对数似然损失函数，则损失函数为：</p>
 <script type="math/tex; mode=display">
 L(y,f(x)) = log(1 + e^{-yf(x)})；y\in \{-1,1\}</script><p>此时的负梯度误差为：</p>
 <script type="math/tex; mode=display">
@@ -512,11 +515,46 @@ L(y,f(x)) = -\sum_{k=1}^Ky_klog(p_k(x))</script><p>若输出类别为 $k$，则 
 <script type="math/tex; mode=display">
 P_k(x) = \frac{e^{f_k(x)}}{\sum_{l=1}^Ke^{f_i(x)}}</script><p>集合上两式，我们可以计算出第t轮的第i个样本对应类别l的负梯度误差为：</p>
 <script type="math/tex; mode=display">
-t_{til} = [\frac{\partial L(y_if(x_i))}{\partial f(x_i)}]_{f_k(x) = f_{l,t-1}(x)} = y_{il} - p_{l,t-1}(x_i)</script><h2 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h2><p>三种方法：</p>
+t_{til} = [\frac{\partial L(y_if(x_i))}{\partial f(x_i)}]_{f_k(x) = f_{l,t-1}(x)} = y_{il} - p_{l,t-1}(x_i)</script><h2 id="常用损失函数"><a href="#常用损失函数" class="headerlink" title="常用损失函数"></a>常用损失函数</h2><h3 id="分类算法"><a href="#分类算法" class="headerlink" title="分类算法"></a>分类算法</h3><p>其损失函数一般有<strong>对数损失函数</strong>和<strong>指数损失函数</strong>两种:</p>
 <ul>
-<li>给没课树输出结果加一个步长 <strong>$\eta$(学习率)</strong></li>
-<li>子采样比例</li>
-<li>正则化剪枝</li>
+<li>如果是指数损失函数，则损失函数表达式为<script type="math/tex; mode=display">
+L(y,f(x))=e^{−yf(x)}</script>其负梯度计算和叶子节点的最佳负梯度拟合和AdaBoost原理相同。</li>
+<li>如果是对数损失函数，分为二元分类和多元分类两种，见上文。</li>
+</ul>
+<h3 id="回归算法"><a href="#回归算法" class="headerlink" title="回归算法"></a>回归算法</h3><p>常用损失函数有如下4种:</p>
+<h4 id="均方差损失函数"><a href="#均方差损失函数" class="headerlink" title="均方差损失函数"></a>均方差损失函数</h4><script type="math/tex; mode=display">
+L(y,f(x)) = (y-f(x))^2</script><h4 id="绝对损失函数"><a href="#绝对损失函数" class="headerlink" title="绝对损失函数"></a>绝对损失函数</h4><script type="math/tex; mode=display">
+L(y,f(x)) = |y-f(x)|</script><p>对应负梯度误差为：</p>
+<script type="math/tex; mode=display">
+sign(y_i−f(x_i))</script><h4 id="Huber损失函数"><a href="#Huber损失函数" class="headerlink" title="Huber损失函数"></a>Huber损失函数</h4><p>均方差和绝对损失的折衷产物，对于远离中心的异常点，采用绝对损失，而中心附近的点采用均方差。这个界限一般用分位数点度量。损失函数如下：</p>
+<script type="math/tex; mode=display">
+L(y,f(x)) =
+\begin{cases}
+\frac{1}{2}(y-f(x))^2, & |y-f(x)|\le \delta \\[5ex]
+\delta(|y-f(x)|-\frac{\delta}{2}), & |y-f(x)|> \delta
+\end{cases}</script><p>对应的负梯度误差为：</p>
+<script type="math/tex; mode=display">
+r(y_i,f(x_i)) =
+\begin{cases}
+y_i - f(x_i), & |y_i-f(x_i)|\le \delta \\[5ex]
+\delta sign(y_i-f(x_i)), & |y_i-f(x_i)| > \delta
+\end{cases}</script><h4 id="分位数损失函数"><a href="#分位数损失函数" class="headerlink" title="分位数损失函数"></a>分位数损失函数</h4><script type="math/tex; mode=display">
+L(y,f(x)) = \sum_{y\ge f(x)}\theta|y-f(x)| + \sum_{y<f(x)}(1-\theta)|y-f(x)|</script><p>其中θ为分位数，需要在回归前指定。对应的负梯度误差为：</p>
+<script type="math/tex; mode=display">
+r(y_i,f(x_i)) =
+\begin{cases}
+\theta, & y_i \ge f(x_i) \\[5ex]
+\theta -1, & y_i<f(x_i)
+\end{cases}</script><p>对于Huber损失和分位数损失，主要用于健壮回归，也就是减少异常点对损失函数的影响。</p>
+<h2 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h2><p>三种方法：</p>
+<ul>
+<li><p>第一种是和AdaBoost类似的正则化项，即<strong>步长(learning rate)</strong>。</p>
+<p>定义为 $\eta$，对于前面的弱学习器的迭代：$f_k(x)=f_{k-1}(x)+h_k(x)$。如果我们加上正则化项，则有 $f_k(x)=f_{k-1}(x)+\eta h_k(x)$，$\eta$ 的取值范围为 $0&lt;\eta\le1$。对于同样的训练集学习效果，较小的 $\eta$ 意味着我们需要更多的弱学习器的迭代次数。通常我们用步长和迭代最大次数一起来决定算法的拟合效果。</p>
+</li>
+<li><p>第二种正则化的方式是通过<strong>子采样比例（subsample）</strong>。取值为 $(0,1]​$。注意这里的子采样和随机森林不一样，随机森林使用的是放回抽样，而这里是<strong>不放回抽样</strong>。如果取值为1，则全部样本都使用，等于没有使用子采样。如果取值小于1，则只有一部分样本会去做GBDT的决策树拟合。选择小于1的比例可以减少方差，即防止过拟合，但是会增加样本拟合的偏差，因此取值不能太低。推荐在 $[0.5, 0.8]​$ 之间。</p>
+</li>
+<li><p>第三种是对于弱学习器即CART回归树进行正则化剪枝。</p>
+</li>
 </ul>
 <h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><p>优点：</p>
 <ul>
@@ -528,7 +566,7 @@ t_{til} = [\frac{\partial L(y_if(x_i))}{\partial f(x_i)}]_{f_k(x) = f_{l,t-1}(x)
 <ul>
 <li>弱学习器之间有较强依耐性，难以并行训练。</li>
 </ul>
-<h2 id="sklearn参数"><a href="#sklearn参数" class="headerlink" title="sklearn参数"></a>sklearn参数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GradientBoostingRegressor(loss=’ls’, learning_rate=<span class="number">0.1</span>, n_estimators=<span class="number">100</span>, subsample=<span class="number">1.0</span>, criterion=’friedman_mse’, min_samples_split=<span class="number">2</span>, min_samples_leaf=<span class="number">1</span>, min_weight_fraction_leaf=<span class="number">0.0</span>, max_depth=<span class="number">3</span>, min_impurity_decrease=<span class="number">0.0</span>, min_impurity_split=<span class="keyword">None</span>, init=<span class="keyword">None</span>, random_state=<span class="keyword">None</span>, max_features=<span class="keyword">None</span>, alpha=<span class="number">0.9</span>, verbose=<span class="number">0</span>, max_leaf_nodes=<span class="keyword">None</span>, warm_start=<span class="keyword">False</span>, presort=’auto’, validation_fraction=<span class="number">0.1</span>, n_iter_no_change=<span class="keyword">None</span>, tol=<span class="number">0.0001</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="sklearn参数"><a href="#sklearn参数" class="headerlink" title="sklearn参数"></a>sklearn参数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.ensemble.GradientBoostingRegressor(loss=’ls’, learning_rate=<span class="number">0.1</span>, n_estimators=<span class="number">100</span>, subsample=<span class="number">1.0</span>, criterion=’friedman_mse’, min_samples_split=<span class="number">2</span>, min_samples_leaf=<span class="number">1</span>, min_weight_fraction_leaf=<span class="number">0.0</span>, max_depth=<span class="number">3</span>, min_impurity_decrease=<span class="number">0.0</span>, min_impurity_split=<span class="keyword">None</span>, init=<span class="keyword">None</span>, random_state=<span class="keyword">None</span>, max_features=<span class="keyword">None</span>, alpha=<span class="number">0.9</span>, verbose=<span class="number">0</span>, max_leaf_nodes=<span class="keyword">None</span>, warm_start=<span class="keyword">False</span>, presort=’auto’, validation_fraction=<span class="number">0.1</span>, n_iter_no_change=<span class="keyword">None</span>, tol=<span class="number">0.0001</span>)[source]</span><br></pre></td></tr></table></figure>
 <p>参数说明：</p>
 <ul>
 <li>n_estimators：弱学习器的最大迭代次数，也就是最大弱学习器的个数。</li>
@@ -751,7 +789,7 @@ t_{til} = [\frac{\partial L(y_if(x_i))}{\partial f(x_i)}]_{f_k(x) = f_{l,t-1}(x)
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前向分步算法"><span class="nav-number">1.</span> <span class="nav-text">前向分步算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#加法模型"><span class="nav-number">1.1.</span> <span class="nav-text">加法模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前向分步算法-1"><span class="nav-number">1.2.</span> <span class="nav-text">　前向分步算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#负梯度拟合"><span class="nav-number">2.</span> <span class="nav-text">负梯度拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#提升树算法"><span class="nav-number">2.1.</span> <span class="nav-text">提升树算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#梯度提升"><span class="nav-number">2.2.</span> <span class="nav-text">梯度提升</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回归"><span class="nav-number">3.</span> <span class="nav-text">回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类"><span class="nav-number">4.</span> <span class="nav-text">分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二分类"><span class="nav-number">4.1.</span> <span class="nav-text">二分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多分类"><span class="nav-number">4.2.</span> <span class="nav-text">多分类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则化"><span class="nav-number">5.</span> <span class="nav-text">正则化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优缺点"><span class="nav-number">6.</span> <span class="nav-text">优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sklearn参数"><span class="nav-number">7.</span> <span class="nav-text">sklearn参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用场景"><span class="nav-number">8.</span> <span class="nav-text">应用场景</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前向分步算法"><span class="nav-number">1.</span> <span class="nav-text">前向分步算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#加法模型"><span class="nav-number">1.1.</span> <span class="nav-text">加法模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前向分步算法-1"><span class="nav-number">1.2.</span> <span class="nav-text">　前向分步算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#负梯度拟合"><span class="nav-number">2.</span> <span class="nav-text">负梯度拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#提升树算法"><span class="nav-number">2.1.</span> <span class="nav-text">提升树算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#梯度提升"><span class="nav-number">2.2.</span> <span class="nav-text">梯度提升</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回归"><span class="nav-number">3.</span> <span class="nav-text">回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类"><span class="nav-number">4.</span> <span class="nav-text">分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二分类"><span class="nav-number">4.1.</span> <span class="nav-text">二分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多分类"><span class="nav-number">4.2.</span> <span class="nav-text">多分类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用损失函数"><span class="nav-number">5.</span> <span class="nav-text">常用损失函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分类算法"><span class="nav-number">5.1.</span> <span class="nav-text">分类算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回归算法"><span class="nav-number">5.2.</span> <span class="nav-text">回归算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#均方差损失函数"><span class="nav-number">5.2.1.</span> <span class="nav-text">均方差损失函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绝对损失函数"><span class="nav-number">5.2.2.</span> <span class="nav-text">绝对损失函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Huber损失函数"><span class="nav-number">5.2.3.</span> <span class="nav-text">Huber损失函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分位数损失函数"><span class="nav-number">5.2.4.</span> <span class="nav-text">分位数损失函数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则化"><span class="nav-number">6.</span> <span class="nav-text">正则化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优缺点"><span class="nav-number">7.</span> <span class="nav-text">优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sklearn参数"><span class="nav-number">8.</span> <span class="nav-text">sklearn参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用场景"><span class="nav-number">9.</span> <span class="nav-text">应用场景</span></a></li></ol></div>
             
 
           </div>
