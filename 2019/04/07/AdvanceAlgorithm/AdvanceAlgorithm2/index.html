@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="逻辑回归主要思想：根据现有数据对分类边界线建立回归公式 优点：计算代价不高，易于理解和实现 缺点：容易欠拟合，分类精度可能不高 适用数据类型：数值型和标称型数据 Regression问题的常规步骤为：    寻找h函数（即hypothesis）； 构造J函数（损失函数）； 想办法使得J函数最小并求得回归参数（ θ ）  Logistic函数（Sigmoid函数）：   g(z)=\frac{1}{">
+<meta name="description" content="前向分步算法加法模型 f(x) = \sum_{m=-1}^M\beta_mb(x;\gamma_m)上述公式其实就是基函数的一种线性组合，其中：  $b(x;\gamma_m)$ 为基函数 $\gamma_m$ 为基函数的参数 $\beta_m$ 为基函数的系数  在给定训练数据以及损失函数 $L(y,f(x))$ 的条件下，上述模型学习问题转化为求损失函数极小值得优化问题：  min_{\be">
 <meta property="og:type" content="article">
-<meta property="og:title" content="逻辑回归损失函数的推导">
-<meta property="og:url" content="http://yoursite.com/2018/10/16/Logistic_Cost/index.html">
+<meta property="og:title" content="GBDT算法梳理">
+<meta property="og:url" content="http://yoursite.com/2019/04/07/AdvanceAlgorithm/AdvanceAlgorithm2/index.html">
 <meta property="og:site_name" content="Skye的博客小站">
-<meta property="og:description" content="逻辑回归主要思想：根据现有数据对分类边界线建立回归公式 优点：计算代价不高，易于理解和实现 缺点：容易欠拟合，分类精度可能不高 适用数据类型：数值型和标称型数据 Regression问题的常规步骤为：    寻找h函数（即hypothesis）； 构造J函数（损失函数）； 想办法使得J函数最小并求得回归参数（ θ ）  Logistic函数（Sigmoid函数）：   g(z)=\frac{1}{">
+<meta property="og:description" content="前向分步算法加法模型 f(x) = \sum_{m=-1}^M\beta_mb(x;\gamma_m)上述公式其实就是基函数的一种线性组合，其中：  $b(x;\gamma_m)$ 为基函数 $\gamma_m$ 为基函数的参数 $\beta_m$ 为基函数的系数  在给定训练数据以及损失函数 $L(y,f(x))$ 的条件下，上述模型学习问题转化为求损失函数极小值得优化问题：  min_{\be">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-31T11:54:45.009Z">
+<meta property="og:updated_time" content="2019-04-07T14:02:51.318Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="逻辑回归损失函数的推导">
-<meta name="twitter:description" content="逻辑回归主要思想：根据现有数据对分类边界线建立回归公式 优点：计算代价不高，易于理解和实现 缺点：容易欠拟合，分类精度可能不高 适用数据类型：数值型和标称型数据 Regression问题的常规步骤为：    寻找h函数（即hypothesis）； 构造J函数（损失函数）； 想办法使得J函数最小并求得回归参数（ θ ）  Logistic函数（Sigmoid函数）：   g(z)=\frac{1}{">
+<meta name="twitter:title" content="GBDT算法梳理">
+<meta name="twitter:description" content="前向分步算法加法模型 f(x) = \sum_{m=-1}^M\beta_mb(x;\gamma_m)上述公式其实就是基函数的一种线性组合，其中：  $b(x;\gamma_m)$ 为基函数 $\gamma_m$ 为基函数的参数 $\beta_m$ 为基函数的系数  在给定训练数据以及损失函数 $L(y,f(x))$ 的条件下，上述模型学习问题转化为求损失函数极小值得优化问题：  min_{\be">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/16/Logistic_Cost/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/04/07/AdvanceAlgorithm/AdvanceAlgorithm2/"/>
 
 
 
 
 
-  <title>逻辑回归损失函数的推导 | Skye的博客小站</title>
+  <title>GBDT算法梳理 | Skye的博客小站</title>
   
 
 
@@ -262,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/16/Logistic_Cost/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/AdvanceAlgorithm/AdvanceAlgorithm2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Skye Lan">
@@ -279,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">逻辑回归损失函数的推导</h1>
+          <h1 class="post-title" itemprop="name headline">GBDT算法梳理</h1>
         
 
         <div class="post-meta">
@@ -291,8 +291,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-16T19:44:24+08:00">
-                2018-10-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-07T18:51:06+08:00">
+                2019-04-07
               </time>
             
 
@@ -314,8 +314,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -331,7 +331,7 @@
 
           
           
-             <span id="/2018/10/16/Logistic_Cost/" class="leancloud_visitors" data-flag-title="逻辑回归损失函数的推导">
+             <span id="/2019/04/07/AdvanceAlgorithm/AdvanceAlgorithm2/" class="leancloud_visitors" data-flag-title="GBDT算法梳理">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -357,7 +357,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  919 字
+                  2k 字
                 </span>
               
 
@@ -373,7 +373,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4 分钟
+                  8 分钟
                 </span>
               
             </div>
@@ -394,73 +394,162 @@
       
 
       
-        <h2 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h2><p>主要思想：根据现有数据对分类边界线建立回归公式</p>
-<p>优点：计算代价不高，易于理解和实现</p>
-<p>缺点：容易欠拟合，分类精度可能不高</p>
-<p>适用数据类型：数值型和标称型数据</p>
-<p>Regression问题的常规步骤为：  </p>
+        <h2 id="前向分步算法"><a href="#前向分步算法" class="headerlink" title="前向分步算法"></a>前向分步算法</h2><h3 id="加法模型"><a href="#加法模型" class="headerlink" title="加法模型"></a>加法模型</h3><script type="math/tex; mode=display">
+f(x) = \sum_{m=-1}^M\beta_mb(x;\gamma_m)</script><p>上述公式其实就是基函数的一种线性组合，其中：</p>
+<ul>
+<li>$b(x;\gamma_m)$ 为基函数</li>
+<li>$\gamma_m$ 为基函数的参数</li>
+<li>$\beta_m$ 为基函数的系数</li>
+</ul>
+<p>在给定训练数据以及损失函数 $L(y,f(x))$ 的条件下，上述模型学习问题转化为求损失函数极小值得优化问题：</p>
+<script type="math/tex; mode=display">
+min_{\beta_m,\gamma_m}\sum_{m=1}^ML(y_i, \sum_{m=1}^M\beta_mb(x_i;y_m))</script><p>若直接求解上述问题是非常困难的，因为需要同时求解 $m=1,\dots,M$ 个参数。</p>
+<p><strong>前向分步算法</strong>的求解思路就是把上述同时求多个参数拆解为每一步只求一个，更具体的是每一步只学习一个基函数及其系数，逐步逼近上述的目标函数，所以，前向分布算法每一步的优化目标为：</p>
+<script type="math/tex; mode=display">
+min_{β,γ}\sum_{i=1}^NL(y_i,\beta b(x;y))</script><p>每次仅仅只学习一个基函数及其系数。</p>
+<h3 id="前向分步算法-1"><a href="#前向分步算法-1" class="headerlink" title="　前向分步算法"></a>　前向分步算法</h3><p>输入：</p>
+<ul>
+<li>训练数据集：$D=((x_1,y_1),(x_2,y_2),\dots,(x_N,y_N))$</li>
+<li>损失函数：$L(y,f(x))$</li>
+<li>基函数集：$b(x;\gamma)$</li>
+</ul>
+<p>输出：</p>
+<ul>
+<li>加法模型：$f(x)$</li>
+</ul>
+<p>具体流程如下：</p>
 <ol>
-<li>寻找h函数（即hypothesis）；</li>
-<li>构造J函数（损失函数）；</li>
-<li>想办法使得J函数最小并求得回归参数（ θ ）</li>
+<li>初始化 $f_o(x) = 0$</li>
+<li>对 $m=1,2,\dots,M$</li>
 </ol>
-<p>Logistic函数（Sigmoid函数）： </p>
+<ul>
+<li><p>极小化损失函数：</p>
 <script type="math/tex; mode=display">
-g(z)=\frac{1}{1+e^{-z}}</script><p>对于线性边界形式：</p>
+(\beta_m,\gamma_m) = argmin_{\beta,\gamma}\sum_{i=1}^NL(y_i,f_{m-1}(x_i) + \beta b(x_i;\gamma))</script><p>​    得到参数 $\beta_m,\gamma_m$。</p>
+</li>
+<li><p>更新：</p>
 <script type="math/tex; mode=display">
-\theta_0+\theta_1x_1+…+\theta_nx_n=\sum_{i=1}^{n}\theta_ix_i=\theta^Tx</script><p><strong>构造预测函数</strong>为：</p>
+f_m(x)=f_{m-1}(x) + \beta_mb(x;\gamma_m)</script></li>
+</ul>
+<ol>
+<li>得到加法模型：<script type="math/tex; mode=display">
+f(x) = f_M(x)=\sum_{m=1}^M \beta_m b(x;\gamma_m)</script></li>
+</ol>
+<p>这样，前向分步算法将同时求解从 $m=1$ 到 $m=M$ 所有参数 $\beta_m,\gamma_m$ 的优化问题简化为逐次求解 $\beta_m,\gamma_m$ 的优化问题。</p>
+<h2 id="负梯度拟合"><a href="#负梯度拟合" class="headerlink" title="负梯度拟合"></a>负梯度拟合</h2><h3 id="提升树算法"><a href="#提升树算法" class="headerlink" title="提升树算法"></a>提升树算法</h3><p>提升方法实际采用加法模型与前向分步算法，以<strong>决策树</strong>作为<strong>基函数</strong>的提升方法称为<strong>提升树</strong>。注意，这里的决策树为CART回归树，不是分类树。当问题是分类问题时，采用的决策树模型为分类回归树。</p>
+<p>提升树模型可表示为：</p>
 <script type="math/tex; mode=display">
-h_\theta(x)=g(\theta^Tx)=\frac{1}{1+e^{-\theta^Tx}}</script><p>函数 $h_\theta(x)$ 的值有特殊意义，它表示取1的概率，因此对于x分类边界为类别1和类别0的概率为：</p>
+f_M(x) = \sum_{m=1}^MT(x;\theta_m)</script><p>其中，</p>
+<ul>
+<li>$T(x,\theta_m)$ 表示决策树</li>
+<li>$\theta_m$ 为决策树参数</li>
+<li>$M$ 为树的个数</li>
+</ul>
+<p>不同的问题下，提升树算法的具体形式也不尽相同，主要区别在于损失函数不同。损失函数决定了决策树要拟合的值。一般情况，对于回归问题的提升树算法来说，损失函数为<strong>平方损失函数</strong>。</p>
+<p>下面以平方损失函数为例，阐述算法流程：</p>
+<p>输入：</p>
+<ul>
+<li>训练数据集 $T=\{ (x_1,y_1),(x_2,y_2),…,(x_N,y_N) \}$</li>
+<li>$x_i\in \chi \subseteq\mathcal{R}^n,y_i\in\gamma\subseteq\mathcal{R}$</li>
+</ul>
+<p>输出：</p>
+<ul>
+<li>提升树 $f_M(x)$</li>
+</ul>
+<p>具体流程如下：</p>
+<ol>
+<li>初始化 $f_o(x) = 0$</li>
+<li>对 $m=1,2,\dots,M$</li>
+</ol>
+<ul>
+<li>计算残差<script type="math/tex; mode=display">
+r_{mi} = y_i - f_{m-1}(x_i), \\
+i = 1,2,...,N</script></li>
+<li>拟合残差 $r_{mi}$，学习一个回归树 $T(x;\theta_m)$</li>
+<li>更新 $ f_m(x) = f_{m-1}(x) + T(x;\theta_m)$</li>
+</ul>
+<ol>
+<li>得到回归问题提升树<script type="math/tex; mode=display">
+f(x) = f_M(x)=\sum_{m=1}^MT(x;\theta_m)</script></li>
+</ol>
+<h3 id="梯度提升"><a href="#梯度提升" class="headerlink" title="梯度提升"></a>梯度提升</h3><p>提升树用加法模型与前向分布算法实现学习的优化过程，当损失函数为平方损失函数和指数损失函数时，优化问题较简单。而对于一般的损失函数并不容易，这时候一般利用梯度下降来进行优化，一般用<strong>负梯度拟合</strong>：</p>
 <script type="math/tex; mode=display">
-\begin{align}
-P(y=1|x;\theta)&=h_\theta(x)\\
-P(y=0|x;\theta)&=1-h_\theta(x)
-\end{align}</script><p><strong>cost函数和J函数</strong>如下，基于最大似然估计推得：</p>
+-[\frac{\partial L(y,f(x_i))}{\partial f(x_i)}]_{f(x)}=f_{m-1}(x)</script><h2 id="回归"><a href="#回归" class="headerlink" title="回归"></a>回归</h2><p>梯度提升算法在回归问题上的流程：</p>
+<p>输入：</p>
+<ul>
+<li>训练数据集：$D=((x_1,y_1),(x_2,y_2),\dots,(x_N,y_N))$</li>
+<li>$x_i\in \chi \subseteq\mathcal{R}^n,y_i\in\gamma\subseteq\mathcal{R}$</li>
+<li>损失函数：$L(y,f(x))$</li>
+</ul>
+<p>输出：</p>
+<ul>
+<li>回归树：$\widetilde{f}(x)$</li>
+</ul>
+<p>具体流程如下：</p>
+<ol>
+<li>初始化 $f_o=argmin_c\sum_{i=1}^NL(y_i,c)$</li>
+</ol>
+<ul>
+<li>对 $i=1,2,\dots,N$ 计算<script type="math/tex; mode=display">
+r_{mi} =-[\frac{\partial L(y,f(x_i))}{\partial f(x_i)}]_{f(x)}=f_{m-1}(x)</script></li>
+<li>对 $r_{mi}$ 拟合一个回归树，得到第m颗树的叶结点区域 $R_{mj},j=1,2,\dots,J$</li>
+<li>对于 $j=1,2,\dots,J$ 计算：<script type="math/tex; mode=display">
+c_{mj}=argmin_c\sum_{x_j\in \mathcal{R}_{mj}}L(y_i, f_{m-1}(x_i)+c)</script></li>
+<li>更新<script type="math/tex; mode=display">
+f_m(x) = f_{m-1}(x) + \sum_{j=1}^Jc_{mj}I(x\in \mathcal{R}_{mj})</script></li>
+</ul>
+<ol>
+<li>得到回归树<script type="math/tex; mode=display">
+\widetilde{f}(x) = f_M(x)=\sum_{m=1}^M\sum_{j=1}^Jc_{mj}I(x\in \mathcal{R}_{mj})</script></li>
+</ol>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><h3 id="二分类"><a href="#二分类" class="headerlink" title="二分类"></a>二分类</h3><p>对于二分类GBDT，如果用类似逻辑回归的对数似然损失函数，则损失函数为：</p>
 <script type="math/tex; mode=display">
-Cost(h_\theta(x),y)=\begin{cases}-log(h_\theta(x))&if\; y=1  \\-log(1-h_\theta(x))&if\; y=0\end{cases}</script><script type="math/tex; mode=display">
-\begin{align}
-J(\theta)=&\frac{1}{m}\sum_{i=1}^{m}Cost(h_\theta(x^{(i)}),y^{(i)})\\
-=&-\frac{1}{m}\sum_{i=1}^{m}(y^{(i)}log(h_\theta(x^{(i)}))+(1-y^{(i)})log(1-h_\theta(x^{(i)})))
-\end{align}</script><p>推导过程如下：<br>将概率公式合起来写：</p>
+L(y,f(x))=log(1+e−yf(x))；y∈{−1,1} L(y,f(x)) = log(1 + e^{-yf(x)})；y\in \{-1,1\}</script><p>此时的负梯度误差为：</p>
 <script type="math/tex; mode=display">
-P(y|x;\theta)=(h_\theta(x))^y(1-h_\theta(x))^{1-y}</script><p>取似然函数为：</p>
+r_{ti} = \frac{y_i}{1 + e^{y_if(x_i)}}</script><h3 id="多分类"><a href="#多分类" class="headerlink" title="多分类"></a>多分类</h3><p>多分类GBDT比二分类GBDT复杂些，对应的是多元逻辑回归和二元逻辑回归的复杂度差别。假设类别数为 $K$，则此时我们的对数似然损失函数为：</p>
 <script type="math/tex; mode=display">
-\begin{align}
-L(\theta)=&\prod_{i=1}^{m}P(y^{(i)}|x^{(i)};\theta)\\
-=&\prod_{i=1}^{m}(h_\theta(x^{(i)}))^{y^{(i)}}(1-h_\theta(x^{(i)}))^{(1-y^{(i)})}
-\end{align}</script><p>对数取似然函数为：</p>
+L(y,f(x)) = -\sum_{k=1}^Ky_klog(p_k(x))</script><p>若输出类别为 $k$，则 $y_k=1，第 $k$ 类的概率 $P_k(x)$ 的表达式为：</p>
 <script type="math/tex; mode=display">
-\begin{align}
-l(\theta)=&logL(\theta)\\
-=&\sum_{i=1}^{m}(y^{(i)}log(h_\theta(x^{(i)})+(1-y^{(i)})log(1-h_\theta(x^{(i)})))
-\end{align}</script><p>最大似然估计就是求使 $l(\theta)$ 取最大值时的 θ ，其实这里可以使用梯度上升法求解，求得的 θ 就是要求的最佳参数。但是，在Andrew Ng的课程中将 $J(\theta)$ 取为下式，即：</p>
+P_k(x) = \frac{e^{f_k(x)}}{\sum_{l=1}^Ke^{f_i(x)}}</script><p>集合上两式，我们可以计算出第t轮的第i个样本对应类别l的负梯度误差为：</p>
 <script type="math/tex; mode=display">
-J(\theta)=-\frac{1}{m}l(\theta)</script><p>因为乘了一个负的系数 $-\frac{1}{m}$ ，所以取 $J(\theta)$ 最小值时的θ为要求的最佳参数。  </p>
-<p><strong>梯度下降法求的最小值</strong></p>
-<p>开始之前插一句，sigmoid函数有个很重要的特性：</p>
-<script type="math/tex; mode=display">
-g(z)'=g(z)(1-g(z))</script><p>θ更新过程：</p>
-<script type="math/tex; mode=display">
-\theta_j:=\theta_j-\alpha\frac{\delta}{\delta_{\theta_j}}J(\theta)</script><p>其中：</p>
-<script type="math/tex; mode=display">
-\begin{align}
-\frac{\delta}{\delta_{\theta_j}}J(\theta)
-=&-\frac{1}{m}\sum_{i=1}^{m}(y^{(i)}\frac{1}{h_\theta(x^{(i)})}\frac{\delta}{\delta_{\theta_j}}h_\theta(x^{(i)})-(1-y^{(i)})\frac{1}{1-h_\theta(x^{(i)})}\frac{\delta}{\delta_{\theta_j}}h_\theta(x^{(i)}))\\
-=&-\frac{1}{m}\sum_{i=1}^{m}(y^{(i)}\frac{1}{g(\theta^Tx^{(i)})}-(1-y^{(i)})\frac{1}{1-g(\theta^Tx^{(i)})})\frac{\delta}{\delta_{\theta_j}}g(\theta^Tx^{(i)})\\
-=&-\frac{1}{m}\sum_{i=1}^{m}(y^{(i)}\frac{1}{g(\theta^Tx^{(i)})}-(1-y^{(i)})\frac{1}{1-g(\theta^Tx^{(i)})})g(\theta^Tx^{(i)})(1-g(\theta^Tx^{(i)}))\frac{\delta}{\delta_{\theta_j}}\theta^Tx^{(i)}\\
-=&-\frac{1}{m}\sum_{i=1}^{m}(y^{(i)}(1-g(\theta^Tx^{(i)}))-(1-y^{(i)})g(\theta^Tx^{(i)}))x_j^{(i)}\\
-=&-\frac{1}{m}\sum_{i=1}^{m}(y^{(i)}-g(\theta^Tx^{(i)}))x_j^{(i)}\\
-=&\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}
-\end{align}</script><p>所以 θ 更新过程可以写为：</p>
-<script type="math/tex; mode=display">
-\theta_j:=\theta_j-\alpha\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}</script><h3 id="向量化"><a href="#向量化" class="headerlink" title="向量化"></a>向量化</h3><p>在使用向量化之后公式 $J(\theta)=-\frac{1}{m}\sum_{i=1}^{m}(y^{(i)}log(h_\theta(x^{(i)}))+(1-y^{(i)})log(1-h_\theta(x^{(i)})))$ 可以写为：</p>
-<script type="math/tex; mode=display">
-J(\theta)=-\frac{1}{m}(y^Tlog(h)+(1-y^T)log(1-h))</script><p>公式 $\frac{\delta}{\delta_{\theta_j}}J(\theta)=\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}$ 可以写为：</p>
-<script type="math/tex; mode=display">
-\frac{\delta}{\delta_\theta}J(\theta)=\frac{1}{m}X^T(h-y)</script><p>其中 $h=g(\theta^Tx)$ ，由于 $(h-y)$ 维度是 $m\times1$ ， $X$ 也是 $m\times1$ ，所以需对 $X$ 转置</p>
-<p>所以θ的更新过程可写为：</p>
-<script type="math/tex; mode=display">
-\theta_j:=\theta_j-\alpha\frac{1}{m}X^T(h-y)</script>
+t_{til} = [\frac{\partial L(y_if(x_i))}{\partial f(x_i)}]_{f_k(x) = f_{l,t-1}(x)} = y_{il} - p_{l,t-1}(x_i)</script><h2 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h2><p>三种方法：</p>
+<ul>
+<li>给没课树输出结果加一个步长 <strong>$\eta$(学习率)</strong></li>
+<li>子采样比例</li>
+<li>正则化剪枝</li>
+</ul>
+<h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><p>优点：</p>
+<ul>
+<li>可以处理连续值和离散值</li>
+<li>较小调参的情况下效果也比较好</li>
+<li>对异常值有较好的鲁棒性</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>弱学习器之间有较强依耐性，难以并行训练。</li>
+</ul>
+<h2 id="sklearn参数"><a href="#sklearn参数" class="headerlink" title="sklearn参数"></a>sklearn参数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GradientBoostingRegressor(loss=’ls’, learning_rate=<span class="number">0.1</span>, n_estimators=<span class="number">100</span>, subsample=<span class="number">1.0</span>, criterion=’friedman_mse’, min_samples_split=<span class="number">2</span>, min_samples_leaf=<span class="number">1</span>, min_weight_fraction_leaf=<span class="number">0.0</span>, max_depth=<span class="number">3</span>, min_impurity_decrease=<span class="number">0.0</span>, min_impurity_split=<span class="keyword">None</span>, init=<span class="keyword">None</span>, random_state=<span class="keyword">None</span>, max_features=<span class="keyword">None</span>, alpha=<span class="number">0.9</span>, verbose=<span class="number">0</span>, max_leaf_nodes=<span class="keyword">None</span>, warm_start=<span class="keyword">False</span>, presort=’auto’, validation_fraction=<span class="number">0.1</span>, n_iter_no_change=<span class="keyword">None</span>, tol=<span class="number">0.0001</span>)</span><br></pre></td></tr></table></figure>
+<p>参数说明：</p>
+<ul>
+<li>n_estimators：弱学习器的最大迭代次数，也就是最大弱学习器的个数。</li>
+<li>learning_rate：步长，即每个学习器的权重缩减系数a，属于GBDT正则化方化手段之一。</li>
+<li>subsample：子采样，取值(0,1]。决定是否对原始数据集进行采样以及采样的比例，也是GBDT正则化手段之一。</li>
+<li>init：我们初始化的时候的弱学习器。若不设置，则使用默认的。</li>
+<li>loss：损失函数，可选{‘ls’-平方损失函数，‘lad’绝对损失函数-,‘huber’-huber损失函数,‘quantile’-分位数损失函数}，默认’ls’。</li>
+<li>alpha：当我们在使用Huber损失”Huber”和分位数损失”quantile”时，需要指定相应的值。默认是0.9，若噪声点比较多，可适当降低这个分位数值。</li>
+<li>criterion：决策树节搜索最优分割点的准则，默认是”friedman_mse”，可选”mse”-均方误差与’mae”-绝对误差。</li>
+<li>max_features：划分时考虑的最大特征数，就是特征抽样的意思，默认考虑全部特征。</li>
+<li>max_depth：树的最大深度。</li>
+<li>min_samples_split：内部节点再划分所需最小样本数。</li>
+<li>min_samples_leaf：叶子节点最少样本数。</li>
+<li>max_leaf_nodes：最大叶子节点数。</li>
+<li>min_impurity_split：节点划分最小不纯度。</li>
+<li>presort：是否预先对数据进行排序以加快最优分割点搜索的速度。默认是预先排序，若是稀疏数据，则不会预先排序，另外，稀疏数据不能设置为True。</li>
+<li>validationfraction：为提前停止而预留的验证数据比例。当n_iter_no_change设置时才能用。</li>
+<li>n_iter_no_change：当验证分数没有提高时，用于决定是否使用早期停止来终止训练。</li>
+</ul>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><p>可用于所有回归问题（线性/非线性），相对LR仅能用于线性回归，GBDT的适用面非常广。亦可用于二分类问题（设定阈值，大于阈值为正例，反之为负例）。</p>
+
       
     </div>
     
@@ -522,8 +611,8 @@ J(\theta)=-\frac{1}{m}(y^Tlog(h)+(1-y^T)log(1-h))</script><p>公式 $\frac{\delt
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/27/PandasDemo/" rel="next" title="Pandas学习笔记（未完成~~~）">
-                <i class="fa fa-chevron-left"></i> Pandas学习笔记（未完成~~~）
+              <a href="/2019/04/05/Python_Base/PythonBase4/" rel="next" title="Python基础任务4">
+                <i class="fa fa-chevron-left"></i> Python基础任务4
               </a>
             
           </div>
@@ -531,10 +620,6 @@ J(\theta)=-\frac{1}{m}(y^Tlog(h)+(1-y^T)log(1-h))</script><p>公式 $\frac{\delt
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/03/NLPtask/NLPtask1/" rel="prev" title="召回率、准确率、ROC曲线、AUC、PR曲线">
-                召回率、准确率、ROC曲线、AUC、PR曲线 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -666,7 +751,7 @@ J(\theta)=-\frac{1}{m}(y^Tlog(h)+(1-y^T)log(1-h))</script><p>公式 $\frac{\delt
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑回归"><span class="nav-number">1.</span> <span class="nav-text">逻辑回归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#向量化"><span class="nav-number">1.1.</span> <span class="nav-text">向量化</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前向分步算法"><span class="nav-number">1.</span> <span class="nav-text">前向分步算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#加法模型"><span class="nav-number">1.1.</span> <span class="nav-text">加法模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前向分步算法-1"><span class="nav-number">1.2.</span> <span class="nav-text">　前向分步算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#负梯度拟合"><span class="nav-number">2.</span> <span class="nav-text">负梯度拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#提升树算法"><span class="nav-number">2.1.</span> <span class="nav-text">提升树算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#梯度提升"><span class="nav-number">2.2.</span> <span class="nav-text">梯度提升</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回归"><span class="nav-number">3.</span> <span class="nav-text">回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类"><span class="nav-number">4.</span> <span class="nav-text">分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二分类"><span class="nav-number">4.1.</span> <span class="nav-text">二分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多分类"><span class="nav-number">4.2.</span> <span class="nav-text">多分类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则化"><span class="nav-number">5.</span> <span class="nav-text">正则化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优缺点"><span class="nav-number">6.</span> <span class="nav-text">优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sklearn参数"><span class="nav-number">7.</span> <span class="nav-text">sklearn参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用场景"><span class="nav-number">8.</span> <span class="nav-text">应用场景</span></a></li></ol></div>
             
 
           </div>
