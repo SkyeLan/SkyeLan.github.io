@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Python," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Fileopen() 方法Python open() 方法用于打开一个文件，并返回文件对象，在对文件进行处理过程都需要使用到这个函数，如果该文件无法被打开，会抛出 OSError。 注意：使用 open() 方法一定要保证关闭文件对象，即调用 close() 方法。 open() 函数常用形式是接收两个参数：文件名(file)和模式(mode)。 1&amp;gt;&amp;gt;&amp;gt; open(file,">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python基础任务5">
+<meta property="og:url" content="http://yoursite.com/2019/04/07/Python_Base/PythonBase5/index.html">
+<meta property="og:site_name" content="Skye的博客小站">
+<meta property="og:description" content="Fileopen() 方法Python open() 方法用于打开一个文件，并返回文件对象，在对文件进行处理过程都需要使用到这个函数，如果该文件无法被打开，会抛出 OSError。 注意：使用 open() 方法一定要保证关闭文件对象，即调用 close() 方法。 open() 函数常用形式是接收两个参数：文件名(file)和模式(mode)。 1&amp;gt;&amp;gt;&amp;gt; open(file,">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-08T14:59:33.869Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python基础任务5">
+<meta name="twitter:description" content="Fileopen() 方法Python open() 方法用于打开一个文件，并返回文件对象，在对文件进行处理过程都需要使用到这个函数，如果该文件无法被打开，会抛出 OSError。 注意：使用 open() 方法一定要保证关闭文件对象，即调用 close() 方法。 open() 函数常用形式是接收两个参数：文件名(file)和模式(mode)。 1&amp;gt;&amp;gt;&amp;gt; open(file,">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Skye'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/07/Python_Base/PythonBase5/"/>
+
+
+
+
+
+  <title>Python基础任务5 | Skye的博客小站</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Skye的博客小站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/Python_Base/PythonBase5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Skye Lan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Skye的博客小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python基础任务5</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-07T23:22:13+08:00">
+                2019-04-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程语言/" itemprop="url" rel="index">
+                    <span itemprop="name">编程语言</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/04/07/Python_Base/PythonBase5/" class="leancloud_visitors" data-flag-title="Python基础任务5">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+				 <span>℃</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4.7k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  18 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="File"><a href="#File" class="headerlink" title="File"></a>File</h2><h3 id="open-方法"><a href="#open-方法" class="headerlink" title="open() 方法"></a>open() 方法</h3><p>Python <code>open()</code> 方法用于打开一个文件，并返回文件对象，在对文件进行处理过程都需要使用到这个函数，如果该文件无法被打开，会抛出 OSError。</p>
+<p><strong>注意：使用 <code>open()</code> 方法一定要保证关闭文件对象，即调用 <code>close()</code> 方法。</strong></p>
+<p><code>open()</code> 函数常用形式是接收两个参数：<strong>文件名(file)</strong>和<strong>模式(mode)</strong>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>open(file, mode=<span class="string">'r'</span>)</span><br></pre></td></tr></table></figure>
+<p>完整的语法格式为：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>open(file, mode=<span class="string">'r'</span>, buffering=<span class="number">-1</span>, encoding=<span class="keyword">None</span>, errors=<span class="keyword">None</span>, newline=<span class="keyword">None</span>, closefd=<span class="keyword">True</span>, opener=<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure></p>
+<p>参数说明：</p>
+<ul>
+<li>file：必需，文件路径（相对或者绝对路径）。</li>
+<li>mode：可选，文件打开模式</li>
+<li>buffering：设置缓冲</li>
+<li>encoding：一般使用utf8</li>
+<li>errors：报错级别</li>
+<li>newline：区分换行符</li>
+<li>closefd：传入的file参数类型</li>
+<li>opener：</li>
+</ul>
+<p>mode 参数有：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">模式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">t</td>
+<td>文本模式 (默认)。<strong>默认为文本模式</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">x</td>
+<td>写模式，新建一个文件，如果该文件已存在则会报错。</td>
+</tr>
+<tr>
+<td style="text-align:center">b</td>
+<td>二进制模式。</td>
+</tr>
+<tr>
+<td style="text-align:center">+</td>
+<td>打开一个文件进行更新(可读可写)。</td>
+</tr>
+<tr>
+<td style="text-align:center">U</td>
+<td>通用换行模式（不推荐）。</td>
+</tr>
+<tr>
+<td style="text-align:center">r</td>
+<td>以<strong>只读</strong>方式打开文件。文件的指针将会放在文件的开头。这是默认模式。</td>
+</tr>
+<tr>
+<td style="text-align:center">rb</td>
+<td>以<strong>二进制</strong>格式打开一个文件用于<strong>只读</strong>。文件指针将会放在文件的开头。这是默认模式。一般用于非文本文件如图片等。</td>
+</tr>
+<tr>
+<td style="text-align:center">r+</td>
+<td>打开一个文件用于<strong>读写</strong>。文件指针将会放在文件的开头。</td>
+</tr>
+<tr>
+<td style="text-align:center">rb+</td>
+<td>以<strong>二进制</strong>格式打开一个文件用于<strong>读写</strong>。文件指针将会放在文件的开头。一般用于非文本文件如图片等。</td>
+</tr>
+<tr>
+<td style="text-align:center">w</td>
+<td>打开一个文件<strong>只用于写入</strong>。如果该文件<strong>已存在</strong>则打开文件，并<strong>从开头开始编辑</strong>，即<strong>原有内容</strong>会被<strong>删除</strong>。如果该文件<strong>不存在</strong>，<strong>创建新文件</strong>。</td>
+</tr>
+<tr>
+<td style="text-align:center">wb</td>
+<td>以<strong>二进制</strong>格式打开一个文件<strong>只用于写入</strong>。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。一般用于非文本文件如图片等。</td>
+</tr>
+<tr>
+<td style="text-align:center">w+</td>
+<td>打开一个文件用于<strong>读写</strong>。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。</td>
+</tr>
+<tr>
+<td style="text-align:center">wb+</td>
+<td>以二进制格式打开一个文件用于读写。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。一般用于非文本文件如图片等。</td>
+</tr>
+<tr>
+<td style="text-align:center">a</td>
+<td>打开一个文件用于<strong>追加</strong>。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。</td>
+</tr>
+<tr>
+<td style="text-align:center">ab</td>
+<td>以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。</td>
+</tr>
+<tr>
+<td style="text-align:center">a+</td>
+<td>打开一个文件用于<strong>读写</strong>。如果该文件<strong>已存在</strong>，文件指针将会放在文件的结尾。文件打开时会是<strong>追加模式</strong>。如果该文件<strong>不存在</strong>，<strong>创建新文件</strong>用于读写。</td>
+</tr>
+<tr>
+<td style="text-align:center">ab+</td>
+<td>以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。如果该文件不存在，创建新文件用于读写。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="文件对象的操作方法"><a href="#文件对象的操作方法" class="headerlink" title="文件对象的操作方法"></a>文件对象的操作方法</h3><p>file 对象使用 <code>open</code> 函数来创建，下表列出了 file 对象常用的函数：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>file.close()</td>
+<td><strong>关闭文件</strong>。关闭后文件不能再进行读写操作。</td>
+</tr>
+<tr>
+<td>file.flush()</td>
+<td>刷新文件内部缓冲，直接把内部缓冲区的数据立刻写入文件, 而不是被动的等待输出缓冲区写入。</td>
+</tr>
+<tr>
+<td>file.next()</td>
+<td>返回文件<strong>下一行</strong>。</td>
+</tr>
+<tr>
+<td>file.read([size])</td>
+<td>从文件读取<strong>指定的字节数</strong>，如果未给定或为负则读取所有。</td>
+</tr>
+<tr>
+<td>file.readline([size])</td>
+<td>读取<strong>整行</strong>，包括 “\n” 字符。</td>
+</tr>
+<tr>
+<td>file.readlines([sizeint])</td>
+<td>读取<strong>所有行</strong>并返回列表，若给定sizeint&gt;0，返回总和大约为sizeint字节的行, 实际读取值可能比 sizeint 较大, 因为需要填充缓冲区。</td>
+</tr>
+<tr>
+<td>file.tell()</td>
+<td>返回文件<strong>当前位置</strong>。</td>
+</tr>
+<tr>
+<td>file.write(str)</td>
+<td>将字符串<strong>写入文件</strong>，<strong>返回的是写入的字符长度</strong>。</td>
+</tr>
+<tr>
+<td>file.writelines(sequence)</td>
+<td>向文件<strong>写入</strong>一个<strong>序列字符串列表</strong>，如果需要换行则要<strong>自己加入</strong>每行的<strong>换行符</strong>。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="OS模块"><a href="#OS模块" class="headerlink" title="OS模块"></a>OS模块</h2><p>os 模块提供了非常丰富的方法用来处理文件和目录。常用的方法如下表所示：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>os.chdir(path)</td>
+<td>改变当前工作目录</td>
+</tr>
+<tr>
+<td>os.getcwd()</td>
+<td>返回当前工作目录</td>
+</tr>
+<tr>
+<td>os.getcwdu()</td>
+<td>返回一个当前工作目录的Unicode对象</td>
+</tr>
+<tr>
+<td>os.listdir(path)</td>
+<td>返回path指定的文件夹包含的文件或文件夹的名字的列表。</td>
+</tr>
+<tr>
+<td>os.makedirs(path[, mode])</td>
+<td>递归文件夹创建函数。像mkdir(), 但创建的所有intermediate-level文件夹需要包含子文件夹。</td>
+</tr>
+<tr>
+<td>os.mkdir(path[, mode])</td>
+<td>以数字mode的mode创建一个名为path的文件夹.默认的 mode 是 0777 (八进制)。</td>
+</tr>
+<tr>
+<td>os.readlink(path)</td>
+<td>返回软链接所指向的文件</td>
+</tr>
+<tr>
+<td>os.remove(path)</td>
+<td>删除路径为path的文件。如果path是一个文件夹，将抛出OSError; 查看下面的rmdir()删除一个 directory。</td>
+</tr>
+<tr>
+<td>os.removedirs(path)</td>
+<td>递归删除目录。</td>
+</tr>
+<tr>
+<td>os.rename(src, dst)</td>
+<td>重命名文件或目录，从 src 到 dst</td>
+</tr>
+<tr>
+<td>os.renames(old, new)</td>
+<td>递归地对目录进行更名，也可以对文件进行更名。</td>
+</tr>
+<tr>
+<td>os.rmdir(path)</td>
+<td>删除path指定的空目录，如果目录非空，则抛出一个OSError异常。</td>
+</tr>
+<tr>
+<td>os.stat(path)</td>
+<td>获取path指定的路径的信息，功能等同于C API中的stat()系统调用。</td>
+</tr>
+<tr>
+<td>os.unlink(path)</td>
+<td>删除文件路径</td>
+</tr>
+<tr>
+<td>os.path 模块</td>
+<td>获取文件的属性信息。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="datetime模块"><a href="#datetime模块" class="headerlink" title="datetime模块"></a>datetime模块</h2><p>datetime是Python处理日期和时间的标准库。</p>
+<h3 id="获取当前日期和时间"><a href="#获取当前日期和时间" class="headerlink" title="获取当前日期和时间"></a>获取当前日期和时间</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(datetime.now())</span><br><span class="line"><span class="number">2019</span><span class="number">-04</span><span class="number">-08</span> <span class="number">20</span>:<span class="number">43</span>:<span class="number">32.124067</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(type(datetime.now()))</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">datetime</span>.<span class="title">datetime</span>'&gt;</span></span><br></pre></td></tr></table></figure>
+<p>注意到<code>datetime</code>是模块，<code>datetime</code>模块还包含一个<code>datetime</code>类，通过<code>from datetime import datetime</code>导入的才是<code>datetime</code>这个类。</p>
+<p>如果仅导入<code>import datetime</code>，则必须引用全名<code>datetime.datetime</code>。</p>
+<p><code>datetime.now()</code>返回当前日期和时间，其类型是<code>datetime</code>。</p>
+<h3 id="获取指定日期和时间"><a href="#获取指定日期和时间" class="headerlink" title="获取指定日期和时间"></a>获取指定日期和时间</h3><p>要指定某个日期和时间，直接用参数构造一个<code>datetime</code>：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(datetime(<span class="number">2018</span>,<span class="number">8</span>,<span class="number">8</span>,<span class="number">8</span>,<span class="number">8</span>))</span><br><span class="line"><span class="number">2018</span><span class="number">-08</span><span class="number">-08</span> <span class="number">08</span>:<span class="number">08</span>:<span class="number">00</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="datetime转换为timestamp"><a href="#datetime转换为timestamp" class="headerlink" title="datetime转换为timestamp"></a>datetime转换为timestamp</h3><p>在计算机中，时间实际上是用数字表示的。我们把1970年1月1日 00:00:00 UTC+00:00时区的时刻称为epoch time，记为0（1970年以前的时间timestamp为负数），当前时间就是相对于epoch time的秒数，称为timestamp。</p>
+<p>把一个<code>datetime</code>类型转换为<code>timestamp</code>只需要简单调用<code>timestamp()</code>方法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dt = datetime(<span class="number">2018</span>,<span class="number">8</span>,<span class="number">8</span>,<span class="number">8</span>,<span class="number">8</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dt.timestamp()</span><br><span class="line"><span class="number">1533686880.0</span></span><br></pre></td></tr></table></figure></p>
+<p>注意Python的timestamp是一个浮点数。如果有小数位，小数位表示毫秒数。</p>
+<h3 id="timestamp转换为datetime"><a href="#timestamp转换为datetime" class="headerlink" title="timestamp转换为datetime"></a>timestamp转换为datetime</h3><p>要把<code>timestamp</code>转换为<code>datetime</code>，使用<code>datetime</code>提供的<code>fromtimestamp()</code>方法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t = <span class="number">1533686880.0</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(datetime.fromtimestamp(t))</span><br><span class="line"><span class="number">2018</span><span class="number">-08</span><span class="number">-08</span> <span class="number">08</span>:<span class="number">08</span>:<span class="number">00</span></span><br></pre></td></tr></table></figure></p>
+<p>注意到timestamp是一个浮点数，它没有时区的概念，而datetime是有时区的。上述转换是在timestamp和本地时间做转换。</p>
+<p>timestamp也可以直接被转换到UTC标准时区的时间：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t = <span class="number">1533686880.0</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(datetime.fromtimestamp(t))  <span class="comment"># 本地时间</span></span><br><span class="line"><span class="number">2018</span><span class="number">-08</span><span class="number">-08</span> <span class="number">08</span>:<span class="number">08</span>:<span class="number">00</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(datetime.utcfromtimestamp(t)) <span class="comment"># UTC时间</span></span><br><span class="line"><span class="number">2018</span><span class="number">-08</span><span class="number">-08</span> <span class="number">00</span>:<span class="number">08</span>:<span class="number">00</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="str转换为datetime"><a href="#str转换为datetime" class="headerlink" title="str转换为datetime"></a>str转换为datetime</h3><p>很多时候，用户输入的日期和时间是字符串，要处理日期和时间，首先必须把str转换为datetime。转换方法是通过datetime.strptime()实现，需要一个日期和时间的格式化字符串：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>day = datetime.strptime(<span class="string">'2018-8-8 08:08:00'</span>,<span class="string">'%Y-%m-%d %H:%M:%S'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(day)</span><br><span class="line"><span class="number">2018</span><span class="number">-08</span><span class="number">-08</span> <span class="number">08</span>:<span class="number">08</span>:<span class="number">00</span></span><br></pre></td></tr></table></figure></p>
+<p>字符串<code>&#39;%Y-%m-%d %H:%M:%S&#39;</code>规定了日期和时间部分的格式。注意转换后的datetime是没有时区信息的。</p>
+<h3 id="datetime转换为str"><a href="#datetime转换为str" class="headerlink" title="datetime转换为str"></a>datetime转换为str</h3><p>如果已经有了datetime对象，要把它格式化为字符串显示给用户，就需要转换为str，转换方法是通过strftime()实现的，同样需要一个日期和时间的格式化字符串：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(datetime.now().strftime(<span class="string">'%a, %b %d %H:%M'</span>))</span><br><span class="line">Mon, Apr <span class="number">08</span> <span class="number">21</span>:<span class="number">23</span></span><br></pre></td></tr></table></figure></p>
+<p><code>datetime</code>表示的时间需要时区信息才能确定一个特定的时间，否则只能视为本地时间。</p>
+<p>如果要存储<code>datetime</code>，最佳方法是将其转换为<code>timestamp</code>再存储，因为<code>timestamp</code>的值与时区完全无关。</p>
+<h2 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h2><h3 id="类定义"><a href="#类定义" class="headerlink" title="类定义"></a>类定义</h3><p>语法格式如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">ClassName</span>:</span></span><br><span class="line">    	&lt;statement<span class="number">-1</span>&gt;</span><br><span class="line">    	.</span><br><span class="line">    	.</span><br><span class="line">    	.</span><br><span class="line">    	&lt;statement-N&gt;</span><br></pre></td></tr></table></figure></p>
+<p>类实例化后，可以使用其属性，实际上，创建一个类之后，可以通过类名访问其属性。</p>
+<h3 id="类对象"><a href="#类对象" class="headerlink" title="类对象"></a>类对象</h3><p>类对象支持两种操作：<strong>属性引用</strong>和<strong>实例化</strong>。</p>
+<p>属性引用使用和 Python 中所有的属性引用一样的标准语法：<code>obj.name</code>。</p>
+<p>类有一个名为 <code>__init__()</code> 的特殊方法（构造方法），该方法在类实例化时会自动调用，像下面这样：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">    	self.data = []</span><br></pre></td></tr></table></figure></p>
+<p>类定义了 <code>__init__()</code> 方法，类的实例化操作会自动调用 <code>__init__()</code> 方法。</p>
+<p><code>__init__()</code> 方法可以有参数，参数通过<code>__init__()</code> 传递到类的实例化操作上。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Complex</span>:</span></span><br><span class="line">    	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, realpart, imagpart)</span>:</span></span><br><span class="line">        	self.r = realpart</span><br><span class="line">        	self.i = imagpart</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = Complex(<span class="number">3.0</span>, <span class="number">-4.5</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(x.r, x.i)   <span class="comment"># 输出结果：3.0 -4.5</span></span><br></pre></td></tr></table></figure>
+<p><strong>self代表类的实例，而非类。</strong></p>
+<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p>模式字符串使用特殊的语法来表示一个正则表达式：</p>
+<p>字母和数字表示他们自身。一个正则表达式模式中的字母和数字匹配同样的字符串。</p>
+<p>多数字母和数字前加一个反斜杠时会拥有不同的含义。</p>
+<p>标点符号只有被转义时才匹配自身，否则它们表示特殊的含义。</p>
+<p>反斜杠本身需要使用反斜杠转义。</p>
+<p>由于正则表达式通常都包含反斜杠，所以你最好使用原始字符串来表示它们。模式元素(如 <code>r&#39;\t&#39;</code>，等价于 <code>\\t</code> )匹配相应的特殊字符。</p>
+<p>下表列出了正则表达式模式语法中的特殊元素。如果你使用模式的同时提供了可选的标志参数，某些模式元素的含义会改变。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>^</td>
+<td>匹配字符串的开头</td>
+</tr>
+<tr>
+<td>$</td>
+<td>匹配字符串的末尾。</td>
+</tr>
+<tr>
+<td>.</td>
+<td>匹配任意字符，除了换行符，当re.DOTALL标记被指定时，则可以匹配包括换行符的任意字符。</td>
+</tr>
+<tr>
+<td>[…]</td>
+<td>用来表示一组字符,单独列出：[amk] 匹配 ‘a’，’m’或’k’</td>
+</tr>
+<tr>
+<td><sup><a href="#fn_..." id="reffn_...">...</a></sup></td>
+<td>不在[]中的字符：<sup><a href="#fn_abc" id="reffn_abc">abc</a></sup> 匹配除了a,b,c之外的字符。</td>
+</tr>
+<tr>
+<td>re*</td>
+<td>匹配0个或多个的表达式。</td>
+</tr>
+<tr>
+<td>re+</td>
+<td>匹配1个或多个的表达式。</td>
+</tr>
+<tr>
+<td>re?</td>
+<td>匹配0个或1个由前面的正则表达式定义的片段，非贪婪方式</td>
+</tr>
+<tr>
+<td>re{ n,}</td>
+<td>精确匹配n个前面表达式。例如，”o{2,}”不能匹配”Bob”中的”o”，但能匹配”foooood”中的所有o。”o{1,}”等价于”o+”。”o{0,}”则等价于”o*”。</td>
+</tr>
+<tr>
+<td>re{ n, m}</td>
+<td>匹配 n 到 m 次由前面的正则表达式定义的片段，贪婪方式</td>
+</tr>
+<tr>
+<td>a  \</td>
+<td>b</td>
+<td>匹配a或b</td>
+</tr>
+<tr>
+<td>(re)</td>
+<td>匹配括号内的表达式，也表示一个组</td>
+</tr>
+<tr>
+<td>(?imx)</td>
+<td>正则表达式包含三种可选标志：i, m, 或 x 。只影响括号中的区域。</td>
+</tr>
+<tr>
+<td>(?-imx)</td>
+<td>正则表达式关闭 i, m, 或 x 可选标志。只影响括号中的区域。</td>
+</tr>
+<tr>
+<td>(?: re)</td>
+<td>类似 (…), 但是不表示一个组</td>
+</tr>
+<tr>
+<td>(?imx: re)</td>
+<td>在括号中使用i, m, 或 x 可选标志</td>
+</tr>
+<tr>
+<td>(?-imx: re)</td>
+<td>在括号中不使用i, m, 或 x 可选标志</td>
+</tr>
+<tr>
+<td>(?#…)</td>
+<td>注释.</td>
+</tr>
+<tr>
+<td>(?= re)</td>
+<td>前向肯定界定符。如果所含正则表达式，以 … 表示，在当前位置成功匹配时成功，否则失败。但一旦所含表达式已经尝试，匹配引擎根本没有提高；模式的剩余部分还要尝试界定符的右边。</td>
+</tr>
+<tr>
+<td>(?! re)</td>
+<td>前向否定界定符。与肯定界定符相反；当所含表达式不能在字符串当前位置匹配时成功。</td>
+</tr>
+<tr>
+<td>(?&gt; re)</td>
+<td>匹配的独立模式，省去回溯。</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>匹配数字字母下划线</td>
+</tr>
+<tr>
+<td>\W</td>
+<td>匹配非数字字母下划线</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>匹配任意空白字符，等价于 [\t\n\r\f]。</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>匹配任意非空字符</td>
+</tr>
+<tr>
+<td>\d</td>
+<td>匹配任意数字，等价于 [0-9]。</td>
+</tr>
+<tr>
+<td>\D</td>
+<td>匹配任意非数字</td>
+</tr>
+<tr>
+<td>\Z</td>
+<td>匹配字符串结束，如果是存在换行，只匹配到换行前的结束字符串。</td>
+</tr>
+<tr>
+<td>\z</td>
+<td>匹配字符串结束</td>
+</tr>
+<tr>
+<td>\G</td>
+<td>匹配最后匹配完成的位置。</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>匹配一个单词边界，也就是指单词和空格间的位置。例如， ‘er\b’ 可以匹配”never” 中的 ‘er’，但不能匹配 “verb” 中的 ‘er’。</td>
+</tr>
+<tr>
+<td>\B</td>
+<td>匹配非单词边界。’er\B’ 能匹配 “verb” 中的 ‘er’，但不能匹配 “never” 中的 ‘er’。</td>
+</tr>
+<tr>
+<td>\n, \t, 等。</td>
+<td>匹配一个换行符。匹配一个制表符, 等</td>
+</tr>
+<tr>
+<td>\1…\9</td>
+<td>匹配第n个分组的内容。</td>
+</tr>
+<tr>
+<td>\10</td>
+<td>匹配第n个分组的内容，如果它经匹配。否则指的是八进制字符码的表达式</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="re模块"><a href="#re模块" class="headerlink" title="re模块"></a>re模块</h2><p>正则表达式是一个特殊的字符序列，它能帮助你方便的检查一个字符串是否与某种模式匹配。</p>
+<p>re 模块使 Python 语言拥有全部的正则表达式功能。</p>
+<h3 id="re-match函数"><a href="#re-match函数" class="headerlink" title="re.match函数"></a>re.match函数</h3><p><code>re.match</code> 尝试<strong>从字符串的起始位置匹配</strong>一个模式，如果不是起始位置匹配成功的话，<code>match()</code>就返回<code>none</code>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.match(pattern, string, flags=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<p>参数说明：</p>
+<ul>
+<li>pattern：匹配的正则表达式</li>
+<li>string：要匹配的字符串。</li>
+<li>flags：标志位，用于控制正则表达式的匹配方式，如：是否区分大小写，多行匹配等等。</li>
+</ul>
+<p>匹配成功<code>re.match</code>方法返回一个匹配的对象，否则返回<code>None</code>。</p>
+<h3 id="re-search方法"><a href="#re-search方法" class="headerlink" title="re.search方法"></a>re.search方法</h3><p><code>re.search</code> 扫描<strong>整个字符串</strong>并返回<strong>第一个成功的匹配</strong>。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.search(pattern, string, flags=<span class="number">0</span>)</span><br></pre></td></tr></table></figure></p>
+<p>参数说明：</p>
+<ul>
+<li>pattern：匹配的正则表达式</li>
+<li>string：要匹配的字符串。</li>
+<li>flags：标志位，用于控制正则表达式的匹配方式，如：是否区分大小写，多行匹配等等。</li>
+</ul>
+<p>匹配成功<code>re.search</code>方法返回一个匹配的对象，否则返回<code>None</code>。</p>
+<h3 id="检索和替换"><a href="#检索和替换" class="headerlink" title="检索和替换"></a>检索和替换</h3><p>Python 的re模块提供了<code>re.sub</code>用于替换字符串中的匹配项。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.sub(pattern, repl, string, count=<span class="number">0</span>)</span><br></pre></td></tr></table></figure></p>
+<p>参数说明：</p>
+<ul>
+<li>pattern：正则中的模式字符串。</li>
+<li>repl：替换的字符串，也可为一个函数。</li>
+<li>string：要被查找替换的原始字符串。</li>
+<li>count：模式匹配后替换的最大次数，默认 0 表示替换所有的匹配。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> re</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>phone = <span class="string">"2004-959-559 # 这是一个电话号码"</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># 删除注释</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>num = re.sub(<span class="string">r'#.*$'</span>, <span class="string">""</span>, phone)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> (<span class="string">"电话号码 : "</span>, num)</span><br><span class="line">电话号码 :  <span class="number">2004</span><span class="number">-959</span><span class="number">-559</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># 移除非数字的内容</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>num = re.sub(<span class="string">r'\D'</span>, <span class="string">""</span>, phone)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> (<span class="string">"电话号码 : "</span>, num)</span><br><span class="line">电话号码 :  <span class="number">2004959559</span></span><br></pre></td></tr></table></figure>
+<p><strong>repl 参数可以是一个函数</strong></p>
+<h4 id="compile-函数"><a href="#compile-函数" class="headerlink" title="compile 函数"></a>compile 函数</h4><p>compile 函数用于编译正则表达式，生成一个正则表达式（ Pattern ）对象，供 match() 和 search() 这两个函数使用。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.compile(pattern[, flags])</span><br></pre></td></tr></table></figure></p>
+<p>参数：</p>
+<ul>
+<li>pattern：一个字符串形式的正则表达式</li>
+<li>flags：可选，表示匹配模式，比如忽略大小写，多行模式等，具体参数为：<ul>
+<li>re.I：忽略大小写</li>
+<li>re.L：表示特殊字符集 \w, \W, \b, \B, \s, \S 依赖于当前环境</li>
+<li>re.M：多行模式</li>
+<li>re.S：即为’ . ‘并且包括换行符在内的任意字符（’ . ‘不包括换行符）</li>
+<li>re.U：表示特殊字符集 \w, \W, \b, \B, \d, \D, \s, \S 依赖于 Unicode 字符属性数据库</li>
+<li>re.X：为了增加可读性，忽略空格和’ # ‘后面的注释</li>
+</ul>
+</li>
+</ul>
+<h4 id="findall"><a href="#findall" class="headerlink" title="findall"></a>findall</h4><p>在字符串中找到正则表达式所匹配的所有子串，并返回一个列表，如果没有找到匹配的，则返回空列表。</p>
+<p><strong>注意： match 和 search 是匹配一次，findall 匹配所有。</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>findall(string[, pos[, endpos]])</span><br></pre></td></tr></table></figure></p>
+<p>参数：</p>
+<ul>
+<li>string：待匹配的字符串。</li>
+<li>pos：可选参数，指定字符串的起始位置，默认为 0。</li>
+<li>endpos：可选参数，指定字符串的结束位置，默认为字符串的长度。</li>
+</ul>
+<h4 id="re-finditer"><a href="#re-finditer" class="headerlink" title="re.finditer"></a>re.finditer</h4><p>和 <code>findall</code> 类似，在字符串中找到正则表达式所匹配的所有子串，并把它们作为一个迭代器返回。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.finditer(pattern, string, flags=<span class="number">0</span>)</span><br></pre></td></tr></table></figure></p>
+<p>参数：</p>
+<ul>
+<li>pattern：匹配的正则表达式</li>
+<li>string：要匹配的字符串。</li>
+<li>flags：标志位，用于控制正则表达式的匹配方式，如：是否区分大小写，多行匹配等等。</li>
+</ul>
+<h4 id="re-split"><a href="#re-split" class="headerlink" title="re.split"></a>re.split</h4><p><code>split</code> 方法按照能够匹配的子串将字符串分割后返回列表，它的使用形式如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.split(pattern, string[, maxsplit=<span class="number">0</span>, flags=<span class="number">0</span>])</span><br></pre></td></tr></table></figure></p>
+<p>参数：</p>
+<ul>
+<li>pattern：匹配的正则表达式</li>
+<li>string：要匹配的字符串。</li>
+<li>maxsplit：分隔次数，maxsplit=1 分隔一次，默认为 0，不限制次数。</li>
+<li>flags：标志位，用于控制正则表达式的匹配方式，如：是否区分大小写，多行匹配等等。</li>
+</ul>
+<h2 id="http请求"><a href="#http请求" class="headerlink" title="http请求"></a>http请求</h2><p><strong>python 3.x 以上版本揽括了 urllib2，把urllib2 和 urllib 整合到一起。</strong><br>Python实现HTTP请求有以下两种方式：</p>
+<h3 id="urllib"><a href="#urllib" class="headerlink" title="urllib"></a>urllib</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> urllib</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>response = urllib.request.urlopen(<span class="string">'https://skyelan.github.io/'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(response.read())</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>req = urllib.request.Request(url=<span class="string">'https://skyelan.github.io/'</span>, data=<span class="string">b'This data is passed to stdin of the CGI'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = urllib.request.urlopen(req)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(f.read().decode(<span class="string">'utf-8'</span>))</span><br></pre></td></tr></table></figure>
+<h3 id="Requests"><a href="#Requests" class="headerlink" title="Requests"></a>Requests</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment">#get请求</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> requests</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>url = <span class="string">'https://skyelan.github.io/'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>requests = requests.get(url)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(requests.content) </span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment">#post请求</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>url = <span class="string">'https://skyelan.github.io/'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>postdata = &#123;<span class="string">'key'</span>: <span class="string">'value'</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>requests = requests.post(url, data=postdata)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(requests.content)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+	
+	<div>
+		
+		<div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+
+</div>
+		
+	</div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您的支持将是我前进的动力！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Skye Lan 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Skye Lan 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/07/AdvanceAlgorithm/AdvanceAlgorithm2/" rel="next" title="GBDT算法梳理">
+                <i class="fa fa-chevron-left"></i> GBDT算法梳理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Skye Lan</p>
+              <p class="site-description motion-element" itemprop="description">一位乐观Coder的小站</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#File"><span class="nav-number">1.</span> <span class="nav-text">File</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#open-方法"><span class="nav-number">1.1.</span> <span class="nav-text">open() 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件对象的操作方法"><span class="nav-number">1.2.</span> <span class="nav-text">文件对象的操作方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OS模块"><span class="nav-number">2.</span> <span class="nav-text">OS模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#datetime模块"><span class="nav-number">3.</span> <span class="nav-text">datetime模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取当前日期和时间"><span class="nav-number">3.1.</span> <span class="nav-text">获取当前日期和时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取指定日期和时间"><span class="nav-number">3.2.</span> <span class="nav-text">获取指定日期和时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#datetime转换为timestamp"><span class="nav-number">3.3.</span> <span class="nav-text">datetime转换为timestamp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#timestamp转换为datetime"><span class="nav-number">3.4.</span> <span class="nav-text">timestamp转换为datetime</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#str转换为datetime"><span class="nav-number">3.5.</span> <span class="nav-text">str转换为datetime</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#datetime转换为str"><span class="nav-number">3.6.</span> <span class="nav-text">datetime转换为str</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类和对象"><span class="nav-number">4.</span> <span class="nav-text">类和对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类定义"><span class="nav-number">4.1.</span> <span class="nav-text">类定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类对象"><span class="nav-number">4.2.</span> <span class="nav-text">类对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式"><span class="nav-number">5.</span> <span class="nav-text">正则表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#re模块"><span class="nav-number">6.</span> <span class="nav-text">re模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#re-match函数"><span class="nav-number">6.1.</span> <span class="nav-text">re.match函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#re-search方法"><span class="nav-number">6.2.</span> <span class="nav-text">re.search方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检索和替换"><span class="nav-number">6.3.</span> <span class="nav-text">检索和替换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#compile-函数"><span class="nav-number">6.3.1.</span> <span class="nav-text">compile 函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#findall"><span class="nav-number">6.3.2.</span> <span class="nav-text">findall</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#re-finditer"><span class="nav-number">6.3.3.</span> <span class="nav-text">re.finditer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#re-split"><span class="nav-number">6.3.4.</span> <span class="nav-text">re.split</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http请求"><span class="nav-number">7.</span> <span class="nav-text">http请求</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#urllib"><span class="nav-number">7.1.</span> <span class="nav-text">urllib</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Requests"><span class="nav-number">7.2.</span> <span class="nav-text">Requests</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Skye Lan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("NY2NqdWXz7RHDaYF2Hx5c8Qr-gzGzoHsz", "dO0yaYq84mJRLVvJj54jcI7a");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
